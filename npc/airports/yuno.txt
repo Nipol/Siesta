@@ -2,26 +2,24 @@
 //= Yuno Airport Staff
 //===== By: ==================================================
 //= L0ne_W0lf, Muad_Dib
+//===== Current Version: =====================================
+//= 1.1
 //===== Description: =========================================
 //= Yuno Airport Staff
 //===== Additional Comments: =================================
 //= Official NPCs.
+//= 1.1 kRO Official Texts. [nyalin]
 //============================================================
 
-y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	4_F_01,{
-	mes "[Airport Staff]";
-	mes "Welcome to Juno Airport where we offer domestic flights to Einbroch, Lighthalzen and Hugel,";
-	mes "and international flights to Izlude and Rachel.";
-	mes "How may I be of service?";
+y_airport,143,43,5	script	공항 직원#y_air1a::y_airport1	4_F_01,{
+	mes "[공항 직원]";
+	mes "안녕하세요. 저희 항공은 항상 고객님의 편안한 여행을 위해 최선을 다하고 있습니다. 무엇을 도와드릴까요?";
 	next;
-	if (select("Board the Airship.:Cancel.") == 1) {
-		mes "[Airport Staff]";
-		mes "The boarding fee for all";
-		mes "flights is 1,200 zeny. If you";
-		mes "use a Free Ticket for Airship,";
-		mes "the boarding fee will be waived.So would you like to depart?";
+	if (select("공항 내부로 들어간다:취소") == 1) {
+		mes "[공항 직원]";
+		mes "비공정의 이용 요금은 1200 z 입니다. 비공정 무료이용권을 갖고 계시면 무료로 들어가실 수 있습니다. 공항 내부로 들어 가시겠습니까?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("예:아니오") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "y_airport",148,51;
@@ -32,126 +30,73 @@ y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	4_F_01,{
 				warp "y_airport",148,51;
 				end;
 			}
-			mes "[Airport Staff]";
-			mes "I'm sorry, but you don't";
-			mes "have 1,200 zeny to pay";
-			mes "for the boarding fee.";
+			mes "[공항 직원]";
+			mes "지불하실 요금이 부족합니다.";
 			close;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Thank you and";
-	mes "have a nice day.";
+	mes "[공항 직원]";
+	mes "다음에 또 이용해주세요. 감사합니다.";
 	close;
 }
 
-y_airport,158,43,5	duplicate(y_airport1)	Airport Staff#y_air1b	4_F_01
-y_airport,126,43,5	duplicate(y_airport1)	Airport Staff#y_air1c	4_F_01
+y_airport,158,43,5	duplicate(y_airport1)	공항 직원#y_air1b	4_F_01
+y_airport,126,43,5	duplicate(y_airport1)	공항 직원#y_air1c	4_F_01
 
-y_airport,143,49,3	script	Arrival Staff#y_air2a::y_airport2	4_F_01,{
-	mes "[Airport Staff]";
-	mes "Welcome to Juno Airport. If you've just arrived from your";
-	mes "flight, let me guide you to the main terminal. Otherwise, please";
-	mes "board the departing Airship to reach your intended destination.";
+y_airport,143,49,3	script	공항 직원#y_air2a::y_airport2	4_F_01,{
+	mes "[공항 직원]";
+	mes "안녕하세요. 저희 항공은 항상 고객님의 편안한 여행을 위해 최선을 다하고 있습니다. 무엇을 도와드릴까요?";
 	next;
-	if (select("Exit to main terminal:Cancel") == 1) {
-		mes "[Airport Staff]";
-		mes "Once you're in the main terminal, you must pay the fee once again";
-		mes "to board a departing Airship. You should only exit if your intended";
-		mes "destination is Juno. Proceed to";
-		mes "exit to the main terminal?";
+	if (select("공항 내부에서 나간다:취소") == 1) {
+		mes "[공항 직원]";
+		mes "내부에서 나갔다가 들어오시려면 요금을 지불하셔야 합니다. 나가시겠습니까?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("예:아니오") == 1) {
 			warp "y_airport",142,40;
 			end;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Alright, thank you";
-	mes "for your patronage";
-	mes "and I hope you have";
-	mes "a pleasant flight~";
+	mes "[공항 직원]";
+	mes "다음에 또 이용해주세요. 감사합니다.";
 	close;
 }
 
-y_airport,126,51,3	duplicate(y_airport2)	Arrival Staff#y_air2b	4_F_01
-y_airport,158,50,3	duplicate(y_airport2)	Arrival Staff#y_air2c	4_F_01
+y_airport,126,51,3	duplicate(y_airport2)	공항 직원#y_air2b	4_F_01
+y_airport,158,50,3	duplicate(y_airport2)	공항 직원#y_air2c	4_F_01
 
-y_airport,145,63,5	script	Domestic Boarding	4_F_02,{
-	mes "[Boarding Staff]";
-	mes "Would you like to board the";
-	mes "Airship that flies to Einbroch,";
-	mes "Lighthalzen and Hugel? If so,";
-	mes "please let me guide you to that";
-	mes "Airship's boarding area.";
+y_airport,145,63,5	script	공항 직원#Domestic	4_F_02,{
+	mes "[공항 직원]";
+	mes "슈발츠발드 내의 지역을 운행하는 비공정을 이용하시겠습니까?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("예:아니오") == 1) {
 		warp "yuno",59,244;
 		end;
 	}
-	mes "[Boarding Staff]";
-	mes "Very well, then.";
-	mes "Thank you for your";
-	mes "patronage, and I hope";
-	mes "you enjoy your travels~";
+	mes "[공항 직원]";
+	mes "오늘도 편안한 여행 되시기 바랍니다.";
 	close;
 }
 
-y_airport,140,63,5	script	International Boarding	4_F_02,{
-	mes "[Boarding Staff]";
-	mes "Would you like to board";
-	mes "the Airship which flies to";
-	mes "Juno, Izlude and Rachel?";
-	mes "If so, let me guide";
-	mes "you to the boarding area.";
+y_airport,140,63,5	script	공항 직원#International	4_F_02,{
+	mes "[공항 직원]";
+	mes "유노 / 이즈루드 / 라헬을 운행하는 비공정을 이용하시겠습니까?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("예:아니오") == 1) {
 		warp "yuno",47,244;
 		end;
 	}
-	mes "[Boarding Staff]";
-	mes "Alright, then.";
-	mes "Thank you for flying";
-	mes "with us, and I hope you";
-	mes "enjoy your travels on our";
-	mes "state of the art Airships.";
+	mes "[공항 직원]";
+	mes "오늘도 편안한 여행 되시기 바랍니다.";
 	close;
 }
 
-yuno,14,262,5	script	Airship Staff#yuno01	4_F_02,{
-	mes "[Airship Staff]";
-	mes "Welcome to Juno Airport.";
-	mes "Please use this door to";
-	mes "board the Airship that will";
-	mes "be flying all the way to Izlude";
-	mes "in the Rune-Midgarts Kingdom,";
-	mes "and to Rachel in the Arunafeltz";
-	mes "Republic.";
-	next;
-	mes "[Airship Staff]";
-	mes "Otherwise, if Juno is";
-	mes "your intended destination,";
-	mes "please head down the stairs";
-	mes "and ask the Arrival Staff to lead";
-	mes "you to the main terminal. Thank";
-	mes "you, and enjoy your travels.";
+yuno,14,262,5	script	공항 직원#yuno01	4_F_02,{
+	mes "[비공정 직원]";
+	mes "안녕하세요. 저희 비공정에선 항상 고객님의 편안한 여행을 위해 최선을 다하고 있습니다. 비공정을 타시려면 이쪽 문을 통해 들어가시고, 공항으로 나가시려면 계단을 통해 내려가시면 됩니다.";
 	close;
 }
 
-yuno,88,263,3	script	Airship Staff#yuno02	4_F_02,{
-	mes "[Airship Staff]";
-	mes "Welcome to Juno Airport.";
-	mes "Please use this door to";
-	mes "board the Airship which stops";
-	mes "over Einbroch, Lighthalzen and";
-	mes "Hugel in the Schwaltzvalt Republic.";
-	next;
-	mes "[Airship Staff]";
-	mes "Otherwise, if Juno is";
-	mes "your intended destination,";
-	mes "please head down the stairs";
-	mes "and ask the Arrival Staff to lead";
-	mes "you to the main terminal. Thank";
-	mes "you, and enjoy your travels.";
-	close;
+yuno,88,263,3	script	공항 직원#yuno02	4_F_02,{
+	mes "[비공정 직원]";
+	mes "안녕하세요. 저희 비공정에선 항상 고객님의 편안한 여행을 위해 최선을 다하고 있습니다. 비공정을 타시려면 이쪽 문을 통해 들어가시고, 공항으로 나가시려면 계단을 통해 내려가시면 됩니다.";
 }
