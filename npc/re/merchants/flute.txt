@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= Masao, Muad_Dib, Ziu
 //===== Current Version: =====================================
-//= 1.2a
+//= 1.3
 //===== Description: =========================================
 //= [Official Conversion]
 //= Sells Falcon Flute and Wolf Flute.
@@ -12,66 +12,66 @@
 //= 1.1 Added Baby Hunter and Baby Ranger check. bugreport:5728 [Masao]
 //= 1.2 Added Wolf Flute trader, optimized. [Euphy]
 //= 1.2a Fixed some conditions. [Euphy]
+//= 1.3 kRO Official Texts. [nyalin]
 //============================================================
 
 -	script	Falcon Flute Trader::fflute	-1,{
-	mes "[Falcon Flute Trader]";
+	mes "[팔콘 피리 상인]";
 	if (BaseJob == Job_Hunter) {
-		mes "Do you need a Falcon?";
-		mes "With a magical Flute, you can call your Falcon from anywhere!";
+		mes "팔콘이 필요해?";
+		mes "이 마법의 피리만 있다면 어디서든 팔콘을 계속 부를 수 있어!";
 		next;
-		mes "[Falcon Flute Trader]";
-		mes "It's marvelous, isn't it? Ha ha ha!";
+		mes "[팔콘 피리 상인]";
+		mes "신기하지? 그렇지? 하하하!";
 		next;
-		mes "[Falcon Flute Trader]";
-		mes "Why I'm selling these Falcon Flutes?";
-		mes "It's because I have no clue how they work.";
-		mes "Ha ha ha!";
+		mes "[팔콘 피리 상인]";
+		mes "바드인 내가 어째서 팔콘을 부르는 피리를 파느냐고?";
+		mes "난 피리를 불 줄 모르거든. 하하하!";
 		next;
-		mes "[Falcon Flute Trader]";
-		mes "Of course, you'll need the Skill ^ff0000Falcon Mastery^000000.";
-		mes "I don't have the Skill, so I don't know how to handle Falcons.";
-		mes "As it's for now, I may never have a Falcon.";
+		mes "[팔콘 피리 상인]";
+		mes "물폰 <^ff0000팔콘리 마스터리^000000>스킬도 없어서 팔콘을 다룰 줄도 몰라. 이런 상태에서";
+		mes "팔콘을 불렀다간 내 모자가 남아나지 않을 지도 모르지.";
 		next;
-		mes "[Falcon Flute Trader]";
-		mes "But I can't give you one for free!";
-		mes "I have to make money since i also need to eat!";
+		mes "[팔콘 피리 상인]";
+		mes "하지만 공짜로 줄 순 없어!";
+		mes "나도 먹고 살아야지!";
 		next;
-		mes "[Falcon Flute Trader]";
-		mes "If you need a Falcon Flute I will sell them for 12,500 zeny. Or is that too expensive?";
+		mes "[팔콘 피리 상인]";
+		mes "팔콘 피리가 필요하다면 12,500 z에 팔게. 너무 비싸다고?";
 		next;
 		if (eaclass()&EAJL_THIRD) {
-			mes "[Falcon Flute Trader]";
-			mes "For Rangers, however, I have a special price of 10,000 zeny!";
+			mes "[팔콘 피리 상인]";
+			mes "그래 인심 썼다. 10,000 z에 판다!";
+			mes "더 이상은 안돼!";
 			.@price = 10000;
 			next;
 		} else
 			.@price = 12500;
-		if(select("Don't buy one:Buy a Falcon Flute") == 1) {
-			mes "[Falcon Flute Trader]";
-			mes "That's too bad. If you need one, come back!";
+		if(select("사지 않는다:팔콘 피리를 산다") == 1) {
+			mes "[팔콘 피리 상인]";
+			mes "그거 아쉽군. 필요하면 다시 찾아와!";
 			close;
 		}
 		if (Zeny >= .@price) {
 			if (countitem(12848) >= 1) {
-				mes "[Falcon Flute Trader]";
+				mes "[팔콘 피리 상인]";
 				mes "As I can see you already have a Falcon Flute!";
 				mes "Don't worry, my young friend, once you've purchased the Falcon Flute you won't need to do so again";
 				mes "since the Falcon Flute won't disappear upon usage, isn't that great?";
 				close;
 			}
-			mes "[Falcon Flute Trader]";
-			mes "Here, take this flute.";
-			mes "With it you can whistle for your Falcon from anywhere.";
+			mes "[팔콘 피리 상인]";
+			mes "자, 이 피리를 받아.";
+			mes "그 피리를 불면 언제든 팔콘을 부를 수 있을 거야.";
 		  	Zeny -= .@price;
 			getitem 12848,1; //Falcon_Flute
 			next;
-			mes "[Falcon Flute Trader]";
-			mes "Just a reminder.";
-			mes "You need the Skill ^ff0000Falcon Mastery^000000 in order to use it!";
+			mes "[팔콘 피리 상인]";
+			mes "다시 한번 말하지만";
+			mes "<^ff0000팔콘리 마스터리^000000> 스킬이 없으면 팔콘을 부를 수 없으니 알아둬!";
 			close;
 		}
-		mes "[Falcon Flute Trader]";
+		mes "[팔콘 피리 상인]";
 		mes "I'm sorry but you don't have enough money to buy a Falcon Flute, please come back when you have more money!";
 		close;
 	}
@@ -84,8 +84,8 @@
 	mes "Isn't it a beautiful day today?";
 	close;
 }
-hu_in01,386,306,3	duplicate(fflute)	Falcon Flute Trader#fft	1_M_BARD
-pay_arche,91,134,3	duplicate(fflute)	Falcon Flute Trader#fft2	1_M_BARD
+hu_in01,386,306,3	duplicate(fflute)	팔콘 피리 상인#fft	1_M_BARD
+pay_arche,91,134,3	duplicate(fflute)	팔콘 피리 상인#fft2	1_M_BARD
 
 tur_dun01,89,170,5	script	Expert Flute Crafter	1_M_ORIENT01,{
 	if (Class == Job_Ranger || Class == Job_Ranger_T || Class == Job_Baby_Ranger) {

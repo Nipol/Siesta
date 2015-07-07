@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= kobra_k88, mod by Lupus
 //===== Current Version: =====================================
-//= 2.2
+//= 2.3
 //===== Description: =========================================
 //= Knight and Crusader Peco Peco Breeders, Falcon Breeder scripts
 //===== Additional Comments: =================================
@@ -22,6 +22,7 @@
 //= 2.0 Fixed problems with third classes and new mounts. [Euphy]
 //= 2.1 Moved some renters to a separate renewal file. [Daegaladh]
 //= 2.2 Added warg checks. [Euphy]
+//= 2.3 kRO Official Texts. [nyalin]
 //============================================================
 
 // PecoPeco Breeder (for Knights)-------------------------------------------
@@ -148,17 +149,15 @@ prontera,232,318,3	script	Peco Peco Breeder#cru	8W_SOLDIER,{
 }
 
 // Falcon Master--------------------------------------------------------------
-hu_in01,381,304,5	script	Falcon Breeder#hnt	8W_SOLDIER,{
+hu_in01,381,304,5	script	팔콘 관리자#hnt	8W_SOLDIER,{
 	if(Upper==0) .@price = 2500; //Normal Falcon - default price
 	if(Upper==1) .@price = 2500; //Scarf Falcon
 	if(Upper==2) .@price = 2500; //Baby Falcon
 
-	mes "[Falcon Breeder]";
+	mes "[팔콘 관리자]";
 	if (BaseJob == Job_Hunter) {
 		if (checkoption(Option_Wug) || checkoption(Option_Wugrider)) {
-			mes "Um...";
-			mes "You can't rent a Falcon";
-			mes "until you dismiss your warg first!";
+			mes "이봐, 자넨 이미 다른 동물을 부리고 있잖아. 그 녀석 부터 좀 치우고 오지 그래?";
 			close;
 		}
 		mes "Do you need a Falcon?";
@@ -169,14 +168,14 @@ hu_in01,381,304,5	script	Falcon Breeder#hnt	8W_SOLDIER,{
 		switch(select("Rent Falcon:Cancel")) {
 		case 1:
 			if (checkoption(Option_Wug) || checkoption(Option_Wugrider)) {
-				mes "[Falcon Breeder]";
+				mes "[팔콘 관리자]";
 				mes "Um...";
 				mes "You can't rent a Falcon";
 				mes "until you dismiss your warg first!";
 				close;
 			}
 			if (Zeny < .@price) {
-				mes "[Falcon Breeder]";
+				mes "[팔콘 관리자]";
 				mes "What is this?";
 				mes "You don't have";
 				mes "enough zeny?!";
@@ -186,7 +185,7 @@ hu_in01,381,304,5	script	Falcon Breeder#hnt	8W_SOLDIER,{
 				close;
 			}
 			else if(getskilllv("HT_FALCON") == 0) {
-				mes "[Falcon Breeder]";
+				mes "[팔콘 관리자]";
 				mes "Gosh~";
 				mes "Go learn how to";
 				mes "manage a Falcon";
@@ -196,7 +195,7 @@ hu_in01,381,304,5	script	Falcon Breeder#hnt	8W_SOLDIER,{
 				close;
 			}
 			else if(checkfalcon()) {
-				mes "[Falcon Breeder]";
+				mes "[팔콘 관리자]";
 				mes "Um...";
 				mes "You already have";
 				mes "a Falcon. It's right";
@@ -207,7 +206,7 @@ hu_in01,381,304,5	script	Falcon Breeder#hnt	8W_SOLDIER,{
 			setfalcon;
 			close;
 		case 2:
-			mes "[Falcon Breeder]";
+			mes "[팔콘 관리자]";
 			mes "W-wait, where're";
 			mes "you goin'? These";
 			mes "Falcons are top notch,";
