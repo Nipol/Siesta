@@ -8,6 +8,7 @@
 //= [Official Conversion]
 //= Adds slots to selected weapons and armor.
 //===== Additional Comments: =================================
+//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 0.1a added missing L_No: to 2 funcs [Lupus]
 //= 0.1b Removed duplicates [Toms]
 //= 0.2 Added missing next;'s [Evera]
@@ -28,7 +29,7 @@
 //= 2.0a Added 'disable_items' command. [Euphy]
 //============================================================
 
--	script	Seiyablem#dummy::SocketEnchant	-1,{
+-	script	세야블렘#dummy::SocketEnchant	-1,{
 	if (checkweight(1201,1) == 0)
 	{
 		mes "- Wait a minute !! -";
@@ -38,208 +39,154 @@
 		mes "- after you lose some weight. -";
 		close;
 	}
-	mes "[Seiyablem]";
-	mes "I'm an engineer that specializes in adding Slots to normal Weapons and Armor.";
-	mes "My service fee, the required materials and the chance of success all depend on the specific item I'm working on.";
+	mes "[세야블렘]";
+	mes "나는 일반적인 무기에 소켓을 뚫어주는 기술자야. 뭐 구멍만 뚫으면 되는";
+	mes "간단한 일 아니냐고 말하는 사람도 있긴 하지만 그건 어디까지나 모르는 사람들이 하는 말일 뿐.";
 	next;
-	mes "[Seiyablem]";
-	mes "Adding Slots may seem simple, but it's far more complicated than it looks.";
-	mes "If you're interested in my service, let me know.";
+	mes "[세야블렘]";
+	mes "그 증거로, 나와 동생 말곤 이런 기술을 가진 사람이 없잖아? 아무튼. 소켓을 뚫어줬으면 하는 장비가 있어?";
+	mes "일단 소켓을 뚫을 수 있는 장비인지 알려줄게. 일단 골라봐.";
 	next;
-	switch(select("Add Slot to Weapon:Add Slot to Armor:Slot Attempt Info:Cancel"))
+	switch(select("소켓뚫기 작업:설명을 더 듣는다.:작업방식이 바뀌었네?:관둔다."))
 	{
 		case 1:
-			mes "[Seiyablem]";
-			mes "You want to add a Slot to a weapon?";
-			mes "I categorize weapons by their difficulty in adding a Slot, C Class being easiest and S Class the most difficult.";
-			mes "Which class would you like to try?";
+			mes "[세야블렘]";
+			mes "오케이. 소켓뚫기는 작업의 난이도로 볼때 음... 4가지 정도로 분류돼. C급이 가장 쉬운거고 S급이 가장";
+			mes "어려운 거야. 어떤 장비에 소켓뚫기를 하겠어?";
 			next;
-			switch(select("C Class:B Class:A Class:S Class"))
-			{
-				case 1:
-					mes "[Seiyablem]";
-					mes "C Class, eh?";
-					mes "Now, I can only upgrade certain equipment in that class, so please choose one of the following items, so we can try to add a Slot to it.";
-					next;
-					switch(select("Trident:Rope:Violin"))
-					{
-						case 1: callfunc "Func_Socket",1460,1461,40,66,200,1010,10;
-						case 2: callfunc "Func_Socket",1950,1951,40,66,200,1010,10;
-						case 3: callfunc "Func_Socket",1901,1902,40,66,200,1010,10;
-					}
-				case 2:
-					mes "[Seiyablem]";
-					mes "B Class?";
-					mes "Alright, this is the average equipment category.";
-					mes "Please choose the weapon to which you'd like me to try to add a Slot.";
-					next;
-					switch(select("Chain:Gladius:Gakkung Bow:Pike:Haedonggum:Lute:Wire:Waghnakh:Arbalest Bow"))
-					{
-						case 1: callfunc "Func_Socket",1519,1520,40,61,300,1010,10;
-						case 2: callfunc "Func_Socket",1219,1220,40,61,300, 984, 1,999,5;
-						case 3: callfunc "Func_Socket",1714,1716,40,61,300, 984, 2,999,5;
-						case 4: callfunc "Func_Socket",1407,1408,40,61,200,1010,10;
-						case 5: callfunc "Func_Socket",1123,1128,40,61,300, 984, 2,999,5;
-						case 6: callfunc "Func_Socket",1905,1906,40,61,300,1011,10;
-						case 7: callfunc "Func_Socket",1954,1955,40,61,300,1011,10;
-						case 8: callfunc "Func_Socket",1801,1802,40,61,300,1010,10;
-						case 9: callfunc "Func_Socket",1713,1715,40,61,300, 984, 2,999,5;
-					}
-				case 3:
-					mes "[Seiyablem]";
-					mes "Ooh, A Class.";
-					mes "This is some high risk territory!";
-					mes "Alright, which weapon would you like me to try adding a Slot?";
-					next;
-					switch(select("Hunter Bow:Survivor's Rod(INT):Zweihander:Flamberge:Infiltrator:Ballista:Stunner:Berserk:Claymore"))
-					{
-						case 1: callfunc "Func_Socket",1718,1726,40,61,500,984,2,999,10;
-						case 2: callfunc "Func_Socket",1619,1620,40,61,500,984,5,999,10;
-						case 3: callfunc "Func_Socket",1168,1171,40,61,800,984,5,999,10;
-						case 4: callfunc "Func_Socket",1129,1149,40,61,500,984,2,999,10;
-						case 5: callfunc "Func_Socket",1261,1266,40,61,700,984,5,999,10;
-						case 6: callfunc "Func_Socket",1722,1727,40,61,500,984,5,999,10;
-						case 7: callfunc "Func_Socket",1522,1532,40,61,500,984,2,999,10;
-						case 8: callfunc "Func_Socket",1814,1816,40,61,500,984,5,999,10;
-						case 9: callfunc "Func_Socket",1163,1172,40,61,500,984,2,999,10; // NPC says "5 Oridecon" (Aegis) but takes only 2
-					}
-				case 4:
-					mes "[Seiyablem]";
-					mes "Whoa, whoa, whoa...";
-					mes "S class? Alright...";
-					mes "It'd be a near miracle if I can actually pull this off.";
-					mes "Okay... Which weapon shall we try adding a Slot to?";
-					next;
-					switch(select("Gungnir:Poison Knife:Ice Pick:Sucsamad:Ginnungagap:Cutlas:Crescent Scythe:Survivor's Rod(DEX)"))
-					{
-						case 1: callfunc "Func_Socket", 1413, 1418,40,51,1000,984,5,999,10;
-						case 2: callfunc "Func_Socket", 1239,13016,40,51,1000,984,5,999,10;
-						case 3: callfunc "Func_Socket", 1230,13017,40,51,2000,984,5,999,10;
-						case 4: callfunc "Func_Socket", 1236,13018,40,51,1000,984,5,999,10;
-						case 5: callfunc "Func_Socket",13002,13019,40,51,1000,984,5,999,10;
-						case 6: callfunc "Func_Socket", 1135,13400,40,51,1000,984,5,999,10;
-						case 7: callfunc "Func_Socket", 1466, 1476,40,51,1000,984,5,999,10;
-						case 8: callfunc "Func_Socket", 1617, 1618,40,51,2000,984,5,999,10;
-					}
+
+			//메뉴 생성 착용 장비
+			.@menu$ = "";
+			for(.@i = 1; .@i <= 10; ++.@i) {
+				if(getequipisequiped(.@i)) {
+					.@menu$ += .@menu$ + "" + getequipname(.@i) + "";
+					.@equipped = 1;
+				}
+				.@menu$ += ":";
 			}
-		case 2:
-			mes "[Seiyablem]";
-			mes "Armor, you said?";
-			mes "Sure, no problem.";
-			mes "Armor is divided into 4 different classes, depending on the work difficulty.";
-			mes "C Class is the easiest one, and S Class he hardest one.";
-			mes "Which class would you like to try?";
-			next;
-			switch(select("C Class:B Class:A Class:S Class"))
-			{
-				case 1:
-					mes "[Seiyablem]";
-					mes "C Class Armor, eh?";
-					mes "Sounds reasonable.";
-					mes "Which armor would you like to try adding a Slot?";
-					next;
-					switch(select("Mantle:Coat:Circlet:Biretta"))
-					{
-						case 1: callfunc "Func_Socket",2307,2308,40,66,200,999,3;
-						case 2: callfunc "Func_Socket",2309,2310,40,66,200,999,3;
-						case 3: callfunc "Func_Socket",2232,2233,40,66,200,999,3;
-						case 4: callfunc "Func_Socket",2216,2217,40,66,200,999,3;
-					}
-				case 2:
-					mes "[Seiyablem]";
-					mes "You have chosen average B Class.";
-					mes "So, what kind of armor do you have?";
-					next;
-					switch(select("Mirror Shield:Chain Mail:Saint Robe:Silk Robe:Boots:Shoes:Muffler:Guard:Buckler:Shield:Bongun Hat"))
-					{
-						case 1:  callfunc "Func_Socket",2107,2108,40,61,250,999,5;
-						case 2:  callfunc "Func_Socket",2314,2315,40,61,250,999,5;
-						case 3:  callfunc "Func_Socket",2325,2326,40,61,300,999,5;
-						case 4:  callfunc "Func_Socket",2321,2322,40,61,300,999,5;
-						case 5:  callfunc "Func_Socket",2405,2406,40,61,300,999,5;
-						case 6:  callfunc "Func_Socket",2403,2404,40,61,300,999,5;
-						case 7:  callfunc "Func_Socket",2503,2504,40,61,300,999,5;
-						case 8:  callfunc "Func_Socket",2101,2102,40,61,300,999,5;
-						case 9:  callfunc "Func_Socket",2103,2104,40,61,300,999,5;
-						case 10: callfunc "Func_Socket",2105,2106,40,61,250,999,5;
-						case 11: callfunc "Func_Socket",5046,5168,40,61,250,999,5;
-					}
-				case 3:
-					mes "[Seiyablem]";
-					mes "Ooh, A Class.";
-					mes "This is some high risk territory!";
-					mes "Alright, which armor would you like me to try adding a Slot?";
-					next;
-					switch(select("Gemmed Sallet:Bucket Hat:Memory Book:Tights:Legion Plate Armor:Full Plate:Thief Clothes:Greaves:Coif:Manteau:Helm:Ninja Suit:Orc Helm:Ancient Cape:Monk Hat:Golden Gear:Brooch:Munak Hat"))
-					{
-						case 1:  callfunc "Func_Socket",2230,2231,40,61,400,985,1;
-						case 2:  callfunc "Func_Socket",5114,5120,40,61,400,985,1;
-						case 3:  callfunc "Func_Socket",2109,2121,40,61,400,985,1;
-						case 4:  callfunc "Func_Socket",2330,2331,40,61,400,985,1;
-						case 5:  callfunc "Func_Socket",2341,2342,40,61,400,985,1;
-						case 6:  callfunc "Func_Socket",2316,2317,40,61,400,985,1;
-						case 7:  callfunc "Func_Socket",2335,2336,40,61,400,985,1;
-						case 8:  callfunc "Func_Socket",2411,2412,40,61,400,985,1;
-						case 9:  callfunc "Func_Socket",5092,5093,40,61,400,985,1;
-						case 10: callfunc "Func_Socket",2505,2506,40,61,400,985,1;
-						case 11: callfunc "Func_Socket",2228,2229,40,61,400,985,1;
-						case 12: callfunc "Func_Socket",2337,2359,40,61,400,985,1;
-						case 13: callfunc "Func_Socket",2299,5157,40,61,400,985,1;
-						case 14: callfunc "Func_Socket",2507,2525,40,61,400,985,1;
-						case 15: callfunc "Func_Socket",2251,5158,40,61,400,985,1;
-						case 16: callfunc "Func_Socket",2246,5159,40,61,400,985,1;
-						case 17: callfunc "Func_Socket",2605,2625,40,61,400,985,1;
-						case 18: callfunc "Func_Socket",2264,5167,40,61,300,985,1;
-					}
-				case 4:
-					mes "[Seiyablem]";
-					mes "Um... S Class?";
-					mes "You sure about this?";
-					mes "Alright... Let me know the Armor to which you'd like to add a Slot, and I'll tell what I need to try it.";
-					next;
-					switch(select("Majestic Goat:Spiky Band:Bone Helm:Corsair:Crown:Tiara:Sphinx Hat:Robe of Cast:Earring:Ring:Bow Thimble"))
-					{
-						case 1:  callfunc "Func_Socket",2256,5160,40,51,2000,985,2;
-						case 2:  callfunc "Func_Socket",2258,5161,40,51,2000,985,2;
-						case 3:  callfunc "Func_Socket",5017,5162,40,51,2000,985,2;
-						case 4:  callfunc "Func_Socket",5019,5163,40,51,2000,985,2;
-						case 5:  callfunc "Func_Socket",2235,5165,40,51,2000,985,2;
-						case 6:  callfunc "Func_Socket",2234,5164,40,51,2000,985,2;
-						case 7:  callfunc "Func_Socket",5053,5166,40,51,1000,985,2;
-						case 8:  callfunc "Func_Socket",2343,2360,40,51,1000,985,2;
-						case 9:  callfunc "Func_Socket",2602,2622,40,51,1000,985,2;
-						case 10: callfunc "Func_Socket",2601,2621,40,51,1000,985,2;
-						case 11: callfunc "Func_Socket",2619,2671,40,51,1000,985,2;
-					}
+			if (.@equipped == 0) {
+				mes "[세야블렘]";
+				mes "어떤 장비에 소켓을 뚫어야...";
+				close;
 			}
-		case 3:
-			mes "[Seiyablem]";
-			mes "Well, I haven't really refined the art of Slot Addition.";
-			mes "It's so complicated that I'd be lying if I told you that I knew every factor that affected the process.";
-			mes "Still, I do notice a few trends...";
-			next;
-			mes "[Seiyablem]";
-			mes "In some towns, Slot addition attempts are more successful for equipment with fewer upgrades.";
-			mes "In other towns, the opposite is true.";
-			mes "isn't that really peculiar?";
-			next;
-			mes "[Seiyablem]";
-			mes "Oh, there's also something really important that you should know.";
-			mes "If you ask me to add a Slot to something, make sure that you don't have multiples of it in your inventory.";
-			next;
-			mes "[Seiyablem]";
-			mes "Here's an example: if you have a +7 Manteau and a normal Manteau in your inventory, then I will randomly pick one of them for my Slot Addition attempt.";
-			mes "Just remember to be careful.";
-			next;
-			mes "[Seiyablem]";
-			mes "Again, ^FF0000only carry one of the equipment to which you want me to add a Slot^000000.";
-			mes "All other equipment with the same name should be placed in your Kafra Storage, got it?";
+			.@part = select(.@menu$);
+
+
+			// 소켓작업이 가능한 아이템인지 체크 //방어구
+			if(getequipweaponlv(.@part) == 0 ) {
+				mes "[세야블렘]";
+				mes "난 무기만 취급해. 방어구는 모두 동생에게 넘겼어. 방어구에 소켓뚫는 작업은 내 동생이 더 잘하거든.";
+				close;
+
+			}
+
+			// 소켓작업이 가능한 아이템인지 체크 //무기
+			if(getequipid(.@part) == 1460) callfunc "Func_Socket",1460,1461,40,66,200,1010,10; //Trident
+			if(getequipid(.@part) == 1950) callfunc "Func_Socket",1950,1951,40,66,200,1010,10; //Rope
+			if(getequipid(.@part) == 1901) callfunc "Func_Socket",1901,1902,40,66,200,1010,10; //Violin
+			if(getequipid(.@part) == 1554) callfunc "Func_Socket",1554,1569,40,66,200,1010,10; //Book of Mother Earth
+			if(getequipid(.@part) == 1553) callfunc "Func_Socket",1553,1568,40,66,200,1010,10; //Book of Billows
+			if(getequipid(.@part) == 1556) callfunc "Func_Socket",1556,1571,40,66,200,1010,10; //Book of Gust of Wind
+			if(getequipid(.@part) == 1555) callfunc "Func_Socket",1555,1570,40,66,200,1010,10; //Book of the Blazing Sun
+
+			if(getequipid(.@part) == 1519) callfunc "Func_Socket",1519,1520,40,61,300,1010,10; //Chain
+			if(getequipid(.@part) == 1219) callfunc "Func_Socket",1219,1220,40,61,300, 984, 1,999,5; //Gladius
+			if(getequipid(.@part) == 1714) callfunc "Func_Socket",1714,1716,40,61,300, 984, 2,999,5; //Gakkung Bow
+			if(getequipid(.@part) == 1407) callfunc "Func_Socket",1407,1408,40,61,200,1010,10; //Pike
+			if(getequipid(.@part) == 1123) callfunc "Func_Socket",1123,1128,40,61,300, 984, 2,999,5; //Haedonggum
+			if(getequipid(.@part) == 1905) callfunc "Func_Socket",1905,1906,40,61,300,1011,10; //Lute
+			if(getequipid(.@part) == 1954) callfunc "Func_Socket",1954,1955,40,61,300,1011,10; //Wire
+			if(getequipid(.@part) == 1801) callfunc "Func_Socket",1801,1802,40,61,300,1010,10; //Waghnakh
+			if(getequipid(.@part) == 1713) callfunc "Func_Socket",1713,1715,40,61,300, 984, 2,999,5; //Arbalest Bow
+			if(getequipid(.@part) == 1304) callfunc "Func_Socket",1304,1309,40,66,200,984,1; //Orcish Axe
+			if(getequipid(.@part) == 1113) callfunc "Func_Socket",1113,1114,40,66,200,984,1; //Scimiter
+			if(getequipid(.@part) == 1523) callfunc "Func_Socket",1523,1538,40,61,300,984,1; //Spike
+
+			if(getequipid(.@part) == 1718) callfunc "Func_Socket",1718,1726,40,61,500,984,2,999,10; //Hunter Bow
+			if(getequipid(.@part) == 1168) callfunc "Func_Socket",1168,1171,40,61,800,984,5,999,10; //Zweihander
+			if(getequipid(.@part) == 1129) callfunc "Func_Socket",1129,1149,40,61,500,984,2,999,10; //Flamberge
+			if(getequipid(.@part) == 1261) callfunc "Func_Socket",1261,1266,40,61,700,984,5,999,10; //Infiltrator
+			if(getequipid(.@part) == 1722) callfunc "Func_Socket",1722,1727,40,61,500,984,5,999,10; //Ballista
+			if(getequipid(.@part) == 1522) callfunc "Func_Socket",1522,1532,40,61,500,984,2,999,10; //Stunner
+			if(getequipid(.@part) == 1814) callfunc "Func_Socket",1814,1816,40,61,500,984,5,999,10; //Berserk
+			if(getequipid(.@part) == 1163) callfunc "Func_Socket",1163,1172,40,61,500,984,2,999,10; //Claymore
+			if(getequipid(.@part) == 13001) callfunc "Func_Socket",13001,13030,40,61,500,984,2; //Dragon Killer
+			if(getequipid(.@part) == 1257) callfunc "Func_Socket", 1257, 1276,40,66,500,984,2; //Katar of Quaking
+			if(getequipid(.@part) == 1258) callfunc "Func_Socket", 1258, 1277,40,66,500,984,2; //Katar of Raging Blaze
+			if(getequipid(.@part) == 1256) callfunc "Func_Socket", 1256, 1275,40,66,500,984,2; //Katar of Frozen Icicle
+			if(getequipid(.@part) == 1259) callfunc "Func_Socket", 1259, 1278,40,66,500,984,2; //Katar of Piercing Wind
+			if(getequipid(.@part) == 1524) callfunc "Func_Socket", 1524, 1539,40,61,500,984,2; //Golden Mace
+			if(getequipid(.@part) == 1918) callfunc "Func_Socket", 1918, 1922,40,61,500,984,2; //Oriental Lute
+			if(getequipid(.@part) == 1970) callfunc "Func_Socket", 1970, 1976,40,61,500,984,2; //Queen's Whip
+			if(getequipid(.@part) == 1477) callfunc "Func_Socket", 1477, 1479,40,56,500,984,2; //Spectral Spear
+			if(getequipid(.@part) == 1474) callfunc "Func_Socket", 1474, 1480,40,56,500,984,2; //Gae Bolg
+			if(getequipid(.@part) == 1167) callfunc "Func_Socket", 1167, 1178,40,61,500,984,2; //Schweizersabel
+
+			if(getequipid(.@part) == 1413) callfunc "Func_Socket", 1413, 1418,40,51,1000,984,5,999,10; //Gungnir
+			if(getequipid(.@part) == 1239) callfunc "Func_Socket", 1239,13016,40,51,1000,984,5,999,10; //Poison Knife
+			if(getequipid(.@part) == 1230) callfunc "Func_Socket", 1230,13017,40,51,2000,984,5,999,10; //Ice Pick
+			if(getequipid(.@part) == 1236) callfunc "Func_Socket", 1236,13018,40,51,1000,984,5,999,10; //Sucsamad
+			if(getequipid(.@part) == 13002) callfunc "Func_Socket",13002,13019,40,51,1000,984,5,999,10; //Ginnungagap
+			if(getequipid(.@part) == 1135) callfunc "Func_Socket", 1135,13400,40,51,1000,984,5,999,10; //Cutlas
+			if(getequipid(.@part) == 1466) callfunc "Func_Socket", 1466, 1476,40,51,1000,984,5,999,10; //Crescent Scythe
+			if(getequipid(.@part) == 1468) callfunc "Func_Socket",1468, 1481,40,51,1000,984,5,999,10; //Zephyrus
+			if(getequipid(.@part) == 1225) callfunc "Func_Socket",1225,13032,40,51,1000,984,5,999,10; //Mailbreaker
+			if(getequipid(.@part) == 1166) callfunc "Func_Socket",1166, 1180,40,51,1000,984,5,999,10; //Dragon Slayer
+			if(getequipid(.@part) == 1224) callfunc "Func_Socket",1224,13031,40,51,1000,984,5,999,10; //Swordbreaker
+			if(getequipid(.@part) == 1232) callfunc "Func_Socket",1232,13033,40,51,1000,984,5,999,10; //Assasin Dagger
+			if(getequipid(.@part) == 1528) callfunc "Func_Socket",1528, 1540,40,51,1000,984,5,999,10; //Grand Cross
+			if(getequipid(.@part) == 1169) callfunc "Func_Socket",1169, 1179,40,51,1000,984,5,999,10; //Executioner
+
+			mes "[세야블렘]";
+			mes "미안한데 여기에는 소켓뚫기 작업을 할 수 없어. 내가 대단하긴 하지만, 모든 장비에 소켓뚫기가 가능하진 않다구.";
 			close;
+
+		case 2:
+/*
+			if (strnpcinfo(4) == "payon") .@map$ = ", 페이욘은";
+			else if (strnpcinfo(4) == "lhz_in02") .@map$ = ", 리히타르젠은";
+			else if (strnpcinfo(4) == "prt_in") .@map$ = ", 프론테라는";
+			else if (strnpcinfo(4) == "morocc") .@map$ = ", 모로크는";
+			else .@map$ = "는";
+*/			
+			mes "[세야블렘]";
+			mes "뭘 또 들을려고... 한가지 힌트를 주자면 말이지, 내가 이래봬도 방랑소켓술사다 보니 이곳 저곳을 많이";
+			mes "경험하며 작업을 하는데, 아무래도 이 동네는 제련치가 낮은 장비의 소켓뚫기 성공률이 높아.";
+//			mes "경험하며 작업을 하는데, 아무래도 이 동네, "+.@map$+" 제련치가 낮은 장비의 소켓뚫기 성공률이 높아.";
+			next;
+			mes "[세야블렘]";
+			mes "미묘한 차이지만 저 제련 장비일수록 잘 뚫리는 게 괜히 느껴진단 말이지... 물론 실패하면 장비가 홀라당 날아가긴";
+			mes "하지만...단순히 성공률만 따지고 볼 때 그렇다는 거야.";
+			next;
+			mes "[세야블렘]";
+			mes "제련수치가 높은 장비가 더 작업이 잘돼서 성공률이 높은 동네도 있어. 뭐";
+			mes "그건 거기 이야기니까 넘어가고...";
+			next;
+			mes "[세야블렘]";
+			mes "그리고, 주의해야 할 점이 하나 더 있는데, 음... 예를 들지. +6 더블 허리케인 나이프를 가지고 나에게";
+			mes "소켓을 뚫는다고 의뢰하는 경우, 장비는 어떻게 될 거 같아?";
+			next;
+			mes "[세야블렘]";
+			mes "정답은 소켓뚫기에 성공하던 실패하던 부탁한 장비의 제련수치나 장착된 카드는 모두 사라진다는 소리지.";
+			next;
+			mes "[세야블렘]";
+			mes "더 설명해주지 않아도 되지? 자아, 백문이 불여일견! 일단 한 번 소켓뚫기에 도전해보는 게 어때? 나도 먹고 살아야지.";
+			close;
+
+		case 3:
+			mes "[세야블렘]";
+			mes "응 전부터 손님들이 불만사항으로 요청해오던 것도 있고 해서 작업방식을 조금 변경하게 되었지.";
+			next;
+			mes "[세야블렘]";
+			mes "참 그리고 전에는 방어구에도 작업을 했었는데 이제는 무기만 작업을 하게 되었어.";
+			next;
+			mes "[세야블렘]";
+			mes "내 동생도 소켓뚫기로 영업을 하고 있는 건 알고 있지? 형제끼리 비슷한 장사로 싸우는 것도 좀 그렇고 무기는";
+			mes "모르겠지만 방어구는 동생이 더 잘하는 것 같기도 해서.";
+			next;
+			mes "[세야블렘]";
+			mes "무기는 내가 맡아서 작업하고 방어구는 동생이 맡아서 작업하기로 했어.";
 		case 4:
-			mes "[Seiyablem]";
-			mes "Take it easy, adventurer.";
-			mes "If you ever want to try adding a Slot to some of your equipment, come back and let me know.";
-			mes "Seeya~";
 			close;
 	}
 }
@@ -247,47 +194,39 @@
 function	script	Func_Socket	{
 
 	disable_items;
-	mes "[Seiyablem]";
-	mes "You want to add a Slot to a " + getitemname(getarg(0)) + "?";
-	mes "Alright, please bring me ^FF0000" + getarg(6) + " " + getitemname(getarg(5)) + (getarg(6) > 1 && getarg(5) != 999 ? "s":"") + "^000000, " + (getarg(7,0) != 0 && getarg(8,0) != 0 ? ("^FF0000" + getarg(8,0) + " " + getitemname(getarg(7,0)) + (getarg(8,0) > 1 && getarg(7,0) != 999 ? "s":"") + "^000000 ") : "") + "and my ^FF0000" + (getarg(4) >= 1000 ? (getarg(4)/1000 + ",000") : getarg(4)) + ",000 zeny^000000 service fee.";
-	mes "Ah, and don't forget to bring that " + getitemname(getarg(0)) + "!";
-	next;
-	mes "[Seiyablem]";
-	if (getiteminfo(getarg(0),5)&2) // EQP_HAND_R = 2, it's a weapon
+	mes "[세야블렘]";
+	if(getarg(7,0) != 0 && getarg(8,0) != 0)
 	{
-		mes "I can try to add a slot now if you have the required items and zeny.";
-		mes "However, you should know that there's a chance that I might fail.";
-		mes "Therefore, I need to give you a fair warning...";
-		next;
-		mes "[Seiyablem]";
-		mes "If this attempt to add a Slot to your Weapon fails, then the ^FF0000Weapon^000000, ^FF0000and any Cards compounded to it will be destroyed^000000.";
+		mes "" + getitemname(getarg(0)) + "인가요. 오케이. 그거라면";
+		mes "요금은 ^FF0000" + (getarg(4) >= 1000 ? (getarg(4)/1000 + ",000") : getarg(4)) + ",000 제니^000000 따로 준비해 와야 하는 재료는 ^FF0000" + getitemname(getarg(5)) + (getarg(6) > 1 && getarg(5) != 999 ? "s":"") + " " + getarg(6) + " 개^000000, " + (getarg(7,0) != 0 && getarg(8,0) != 0 ? ("^FF0000" + getitemname(getarg(7,0)) + (getarg(8,0) > 1 && getarg(7,0) != 999 ? "s":"") + " " + getarg(8,0) + "개^000000") : "") + "이야.";
+		mes "물론 " + getitemname(getarg(0)) + " 당연히 가져와야돼요.";
 	}
-	else // armor
+	else
 	{
-		mes "If you have all the required materials, my zeny service fee and the Armor, then we can go ahead with the Slot Addition attempt.";
-		mes "But before that, I must warn you of the risk.";
-		next;
-		mes "[Seiyablem]";
-		mes "If this attempt to add a Slot to your Armor fails, then the ^FF0000Armor^000000, ^FF0000it's upgrades^000000 ^FF0000and any Cards compounded to it will be destroyed^000000.";
+		mes "" + getitemname(getarg(0)) + "인가요. 오케이. 그거라면";
+		mes "요금은 ^FF0000" + (getarg(4) >= 1000 ? (getarg(4)/1000 + ",000") : getarg(4)) + ",000 제니^000000 따로 준비해 와야 하는 재료는 ^FF0000" + getitemname(getarg(5)) + (getarg(6) > 1 && getarg(5) != 999 ? "s":"") + " " + getarg(6) + " 개^000000이야.";
+		mes "물론 " + getitemname(getarg(0)) + " 당연히 가져와야돼요.";
 	}
-	mes "Do you still want to try to add a Slot?";
 	next;
-	switch(select("Attempt Slot Addition:Cancel"))
+	mes "^FF0000주의 - 인벤토리에 있는 " + getitemname(getarg(0)) + "이 사용될수도 있음.^000000";
+	mes "재료랑 요금은 다 챙겨왔어요? 그리고, 실패할 경우 재료.장비는 다 없어져 버리니 그 점은 인지해주세요, 소켓뚫기에 성공해도 제련치나 박아둔 카드는 전부 사라진다는 것도 명심하세요.";
+	next;
+	switch(select("소켓뚫기 작업을 맡긴다.:다음 기회에 도전한다."))
 	{
 		case 1:
 			if ((Zeny >= getarg(4)*1000) && (countitem(getarg(5)) >= getarg(6)) && (countitem(getarg(7,512)) >= getarg(8,0)) && (countitem(getarg(0)) > 0)) // if there's no getarg(7) and getarg(8) provided, check itemcount against 0 (we still need a valid item ID though)
 			{
-				mes "[Seiyablem]";
-				mes "Alright then, let the work begin!";
-				mes "You'd better pray for a successful result.";
+				mes "[세야블렘]";
+				mes "좋아. 이제 시작하지!";
+				mes "넌 성공하기를 기도하는게 좋을거야.";
 				next;
 				.@a = rand(1,100);
 				if ((.@a > getarg(2)) && (.@a < getarg(3)))
 				{
 					specialeffect getarg(3) == 51 ? EF_LORD : EF_SANCTUARY; // only S Class items have Lord of Vermillion effect
-					mes "[Seiyablem]";
-					mes "Great, it seems to be successful.";
-					mes "It looks pretty well done. Congratulations!";
+					mes "[세야블렘]";
+					mes "좋아! 성공이라고!";
+					mes "예쁘게 잘 만들어진거같아. 축하해!";
 					delitem getarg(0),1;
 					delitem getarg(5),getarg(6);
 					if (getarg(7,0) != 0 && getarg(8,0) != 0)
@@ -295,68 +234,59 @@ function	script	Func_Socket	{
 					Zeny -= getarg(4)*1000;
 					getitem getarg(1),1;
 					next;
-					mes "[Seiyablem]";
-					mes "See you again, buddy!";
+					mes "[세야블렘]";
+					mes "다시만나자고, 친구!";
 					close;
 				}
 				else
 				{
 					specialeffect EF_SUI_EXPLOSION;
-					mes "[Seiyablem]";
-					mes "Wah! ...I am so sorry, it failed.";
-					mes "However, I am completely innocent.";
-					mes "This is your luck, and it is destined by god, okay?";
-					mes "Don't be so disappointed, and try next time.";
+					mes "[세야블렘]";
+					mes "헉! 정말 미안해.. 실패해버렸네.";
+					mes "하지만 이건 너의 운이야. 신께서 너에게 정해주신 운명이라고. 알았어?";
+					mes "너무 실망하지마. 다음 기회가 있잖아.";
 					delitem getarg(0),1;
 					delitem getarg(5),getarg(6);
 					if (getarg(7,0) != 0 && getarg(8,0) != 0)
 						delitem getarg(7),getarg(8);
 					Zeny -= getarg(4)*1000;
 					next;
-					mes "[Seiyablem]";
-					mes "I wish you good luck next time!";
+					mes "[세야블렘]";
+					mes "다음번에는 꼭 성공하길 바래!";
 					close;
 				}
 			}
 			else
 			{
-				mes "[Seiyablem]";
-				mes "I'd like to go ahead with this Slot Addition attempt, but you're missing a few things.";
-				mes "You sure that you have the equipment, required materials and the zeny?";
+				mes "[세야블렘]";
+				mes "멍청이! 재료가 부족하잖아! 다시 제대로 가져오지 못해?!";
 				close;
 			}
 		case 2:
-			mes "[Seiyablem]";
-			mes "Need some time to think about it, huh?";
-			mes "Alright, I can understand.";
-			mes "Just remember that life's no fun if you're always playing it safe~";
+			mes "[세야블렘]";
+			mes "그럼 다음 기회에 또.";
 			close;
 	}
 }
 
-payon,140,151,5	duplicate(SocketEnchant)	Seiyablem#pay	4_M_02
-lhz_in02,281,35,5	duplicate(SocketEnchant)	Seiyablem#lhz	4_M_02
-prt_in,33,70,5	duplicate(SocketEnchant)	Seiyablem#prt	4_M_02
-morocc,51,41,4	duplicate(SocketEnchant)	Seiyablem#moc	4_M_02
+payon,140,151,5	duplicate(SocketEnchant)	세야블렘#pay	4_M_02
+lhz_in02,281,35,5	duplicate(SocketEnchant)	세야블렘#lhz	4_M_02
+prt_in,33,70,5	duplicate(SocketEnchant)	세야블렘#prt	4_M_02
+morocc,51,41,4	duplicate(SocketEnchant)	세야블렘#moc	4_M_02
 
--	script	Young Man#dummy::SocketMan	-1,{
-	mes "[Young Man]";
-	mes "I'm considering becoming a Slotting Engineer.";
-	mes "It's a new field where you can add Slots to equipment, and it'd be cool if I can work in such a lucrative career.";
+-	script	동네청년#dummy::SocketMan	-1,{
+	mes "[동네청년]";
+	mes "장비에 소켓을 뚫을 시, 장비 자체의 옵션이 바뀌는 경우도 있으니까 그 점 유의하셔야 할 겁니다.";
 	next;
-	mes "[Young Man]";
-	mes "There's a huge element of luck involved in successfully adding Slots from what I can understand.";
-	mes "You fail sometimes, but if you're super lucky, you can add two Slots.";
-	mes "Crazy. Huh?";
+	mes "[동네청년]";
+	mes "아 그리고..정말 드문 경우지만 장비에 따라 소켓이 한번에 두개가 뚫리는 경우도 있으니까 잘 살펴보세요. 물론 모든 장비가 다 그런건 아닙니다만.";
 	next;
-	mes "[Young Man]";
-	mes "But don't get too excited.";
-	mes "Only certain equipment can handle the addition of two extra Slots.";
-	mes "There's so much more I have to learn before I can even be an apprentice...";
+	mes "[동네청년]";
+	mes "저도 지금부터 공부해서 소켓 뚫는 사람이나 될까봐요.";
 	close;
 }
 
-prt_in,31,57,1	duplicate(SocketMan)	Young Man#prt	4W_M_01
-payon,143,143,7	duplicate(SocketMan)	Young Man#pay	4W_M_01
-morocc,60,42,3	duplicate(SocketMan)	Young Man#moc	4W_M_01
-lhz_in02,269,33,5	duplicate(SocketMan)	Young Man#lhz	4W_M_01
+prt_in,31,57,1	duplicate(SocketMan)	동네청년#prt	4W_M_01
+payon,143,143,7	duplicate(SocketMan)	동네청년#pay	4W_M_01
+morocc,60,42,3	duplicate(SocketMan)	동네청년#moc	4W_M_01
+lhz_in02,269,33,5	duplicate(SocketMan)	동네청년#lhz	4W_M_01
