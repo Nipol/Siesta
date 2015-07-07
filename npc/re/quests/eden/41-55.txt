@@ -7,14 +7,15 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 41 - 55.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //============================================================
 
-moc_para01,40,38,3	script	Mission [41 - 55]	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "You are not an Eden group member. You are not qualified to access the bulletin board.";
+moc_para01,40,38,3	script	의뢰 [41 - 55]	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes "낙원단의 일원이 아닌 사람에게는 열람되지 않는 것 같습니다";
 		close;
 	}
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
@@ -24,7 +25,7 @@ moc_para01,40,38,3	script	Mission [41 - 55]	4_BOARD3,{
 	}
 	if (!questprogress(12088)) {
 		if (BaseLevel < 41 || BaseLevel > 55) {
-			mes "Mission bulletin board for Lv41~55 adventurers.";
+			mes "Lv41~55 까지의 모험가들에게 의뢰를 요청하는 게시판 같습니다";
 			close;
 		}
 		mes "[Mission Board]";

@@ -7,16 +7,16 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 11 - 25.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //============================================================
 
-moc_para01,36,38,3	script	Mission [11 - 25]#Tuto	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "- You need to have an -";
-		mes "- ^4d4dff'Eden Group Mark'^000000 -";
-		mes "- to receive these missions. -";
+moc_para01,36,38,3	script	의뢰 [11 - 25]#Tuto	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes "- 의뢰를 받기 위해서는 -";
+		mes "- ^4d4dff'낙원단의 증표'^000000가 있어야 합니다.-";
 		close;
 	}
 	for(.@i = 11124; .@i<11134; ++.@i)
@@ -24,69 +24,63 @@ moc_para01,36,38,3	script	Mission [11 - 25]#Tuto	4_BOARD3,{
 	for(.@i = 11114; .@i<11123; ++.@i) {
 		.@state = questprogress(.@i,HUNTING);
 		if (.@state == 2) {
-			mes " - You must collect your - ";
-			mes " - reward before starting - ";
-			mes " - a new mission. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
+			mes " - 진행중인 의뢰를 완료해야 - ";
+			mes " - 새로운 의뢰를 받을 수 - ";
+			mes " - 있습니다. - ";
+			mes " - 담당자 : 스피클 - ";
 			close;
 		}
 		else if (.@state) {
-			mes " - You can only request - ";
-			mes " - one mission at a time. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
+			mes " - 진행중인 의뢰를 완료해야 - ";
+			mes " - 새로운 의뢰를 받을 수 - ";
+			mes " - 있습니다. - ";
+			mes " - 담당자 : 스피클 - ";
 			close;
 		}
 	}
 	if (BaseLevel < 11) {
-		mes " - There are no tasks - ";
-		mes " - open for you right now. - ";
+		mes " - 적당한 일거리가 보이지 - ";
+		mes " - 않습니다. - ";
 		close;
 	}
 	if (BaseLevel > 25) {
-		mes " - These missions are too - ";
-		mes " - easy for your caliber - ";
-		mes " - search for a more level - ";
-		mes " - appropriate mission. - ";
+		mes " - 너무 쉬운 일들 뿐입니다. - ";
+		mes " - 다른 일을 찾아보는 것이 - ";
+		mes " - 좋을 것 같습니다. - ";
 		close;
 	}
-	mes " - Mission bulletin board -";
-	mes " - for beginners. -";
-	mes " ";
-	mes " - Manager : Spike -";
+	mes " - 초심자를 위한 간단한 -";
+	mes " - 의뢰 게시판 -";
+	mes " - 담당자 : 스피클 -";
 	next;
-	switch(select("Hornet Hunting:Condor Hunting:Grasshopper's Leg:Worm Tail Hunting:Spore Hunting:Pest Control:Muka Hunting:Familiar Hunting:Collect Feathers:Collect Poison Spores:Cancel")) {
-		case 1: callsub L_Quest,11114,"Hornet Hunting"," - Hunt 10 ^4d4dff'Hornets'^000000 - "," - northwest of Prontera. - ";
-		case 2: callsub L_Quest,11115,"Condor Hunting"," - Hunt 20 ^4d4dff'Condors'^000000 - "," - south of Morroc. - ";
-		case 3: callsub L_Quest,11116,"Grasshopper's Leg"," - Hunt 10 ^4d4dff'Rockers'^000000 - "," - southwest of Prontera and - "," - bring 10 ^4d4dffGrasshopper's Legs^000000. - ";
-		case 4: callsub L_Quest,11117,"Worm Tail Hunting"," - Hunt 20 ^4d4dff'Worm Tails'^000000 - "," - southeast of Payon.- ";
-		case 5: callsub L_Quest,11118,"Spore Hunting"," - Hunt 30 ^4d4dff'Spores'^000000 - "," - around Payon. - ";
-		case 6: callsub L_Quest,11119,"Pest Control"," - Hunt 20 ^4d4dffThief Bug Eggs^000000 - "," - in the Prontera Culvert - "," - and bring 10 ^4d4dffChrysalis^000000. - ";
-		case 7: callsub L_Quest,11120,"Muka Hunting"," - Hunt 20 ^4d4dff'Muka'^000000 - "," - south of Prontera. - ";
-		case 8: callsub L_Quest,11121,"Familiar Hunting"," - Hunt 20 ^4d4dffFamiliar^000000 - "," - in the Culvert Sewers - "," - west of Prontera. - ";
-		case 9: callsub L_Quest,11122,"Collect Feathers"," - Hunt 30 ^4d4dff'Peco Pecos'^000000 - "," - south of Prontera. - ";
-		case 10: callsub L_Quest,11123,"Collect Poison Spores"," - Hunt 30 ^4d4dffPoison Spores^000000 - "," - inside the Geffen Tower and - "," - bring 5 ^4d4dffPoison Spores^000000. - ";
-		case 11: mes " - Stop reading the bulletin board. - "; close;
+	switch(select("호넷 사냥:콘도르 사냥:메뚜기의 뒷다리:웜테일 사냥:스포아 사냥:해충 박멸:무카 사냥:퍼밀리어 사냥:깃털 수집:독버섯 포자 수집:그만 둔다")) {
+		case 1: callsub L_Quest,11114,"호넷 사냥"," - 프론테라 서북쪽 ^4d4dff'호넷'^000000을 - "," - 10마리 잡아오시오. - ";
+		case 2: callsub L_Quest,11115,"콘도르 사냥"," - 모로크 남쪽의 ^4d4dff'콘도르'^000000를 - "," - 20마리 잡아오시오. - ";
+		case 3: callsub L_Quest,11116,"메뚜기의 뒷다리"," - 프론테라 남서쪽의 ^4d4dff'로커'^000000를 - "," - 10마리 잡고 ^4d4dff메뚜기의 뒷다리^000000 - "," - 10개를 가져오시오. - ";
+		case 4: callsub L_Quest,11117,"웜테일 사냥"," - 페이욘 동남쪽의 ^4d4dff'웜테일'^000000을 - "," - 20마리 잡아오시오. - ";
+		case 5: callsub L_Quest,11118,"스포아 사냥"," - 페이욘 동동쪽의 ^4d4dff'스포아'^000000를 - "," - 30마리 잡아오시오. - ";
+		case 6: callsub L_Quest,11119,"해충 박멸"," - 프론테라 서쪽 지하수로의 - "," - ^4d4dff도둑벌레 알^000000을 20개 없애고 - "," - ^4d4dff번데기 껍질^000000 10개를 가져오시오. - ";
+		case 7: callsub L_Quest,11120,"무카 사냥"," - 프론테라 남남쪽의 ^4d4dff'무카'^000000를 - "," - 20마리 잡아오시오. - ";
+		case 8: callsub L_Quest,11121,"퍼밀리어 사냥"," - 프론테라 서쪽 지하수로의 - "," - ^4d4dff퍼밀리어^000000를 20마리 잡아오시오. - ";
+		case 9: callsub L_Quest,11122,"깃털 수집"," - 프론테라 남남쪽의 ^4d4dff'페코페코'^000000를 - "," - 30마리 잡아오시오. - ";
+		case 10: callsub L_Quest,11123,"독버섯 포자 수집"," - 게펜 북동쪽의 ^4d4dff포이즌 스포아^000000를 - "," - 30마리 잡고 ^4d4dff독버섯 포자^000000를 - "," - 5개 모아오시오. - ";
+		case 11: mes " - 게시판 열람을 구만둔다. - "; close;
 	}
 	end;
 L_Quest:
 	if (questprogress(getarg(0),PLAYTIME) == 1) {
-		mes " - Mission ^4d4dff"+getarg(1)+"^000000 - ";
-		mes " - is already finished for today. - ";
-		mes " ";
-		mes " - Manager : Spike - ";
+		mes " - 오늘의 ^4d4dff"+getarg(1)+"^000000 의뢰는 - ";
+		mes " - 종료 되었습니다. - ";
+		mes " - 담당자 : 스피클 - ";
 		close;
 	}
-	mes " - Mission '"+getarg(1)+"' - ";
+	mes " - "+getarg(1)+" 의뢰 - ";
 	for(.@i = 2; .@i<getargcount(); ++.@i)
 		mes getarg(.@i);
-	mes " ";
-	mes " - Manager : Spike - ";
+	mes " - 담당자 : 스피클 - ";
 	next;
-	if(select("I will do this mission.:Look for other missions.") == 2) {
-		mes " - Let's search for -";
-		mes " - other missions. - ";
+	if(select("결정:다른일을 찾아본다.") == 2) {
+		mes " - 다른 일거리를 찾아보자. - ";
 		close;
 	}
 	for(.@i = 2; .@i<getargcount(); ++.@i)
@@ -97,52 +91,52 @@ L_Quest:
 	close;
 }
 
-moc_para01,32,30,6	script	Spike	4_F_CHILD,{
+moc_para01,32,30,6	script	스피클	4_F_CHILD,{
 	for(.@i = 11114; .@i<11124; ++.@i) {
 		.@state = questprogress(.@i,HUNTING);
 		if (.@state == 2) switch(.@i) {
-			case 11114: callsub L_Quest,.@i,"Hornet Hunting",900;
-			case 11115: callsub L_Quest,.@i,"Condor Hunting",1800;
-			case 11116: callsub L_Quest,.@i,"Grasshopper's Leg",1400,940,10;
-			case 11117: callsub L_Quest,.@i,"Worm Tail Hunting",2600;
-			case 11118: callsub L_Quest,.@i,"Spore Hunting",3900;
-			case 11119: callsub L_Quest,.@i,"Extirpate Insects",2900,915,10;
-			case 11120: callsub L_Quest,.@i,"Muka Hunting",3200;
-			case 11121: callsub L_Quest,.@i,"Familiar Hunting",3200;
-			case 11122: callsub L_Quest,.@i,"Collect Feathers",5400;
-			case 11123: callsub L_Quest,.@i,"Collect Poison Spores",6000,7033,5;
+			case 11114: callsub L_Quest,.@i,"호넷 사냥",900;
+			case 11115: callsub L_Quest,.@i,"콘도르 사냥",1800;
+			case 11116: callsub L_Quest,.@i,"메뚜기의 뒷다리",1400,940,10;
+			case 11117: callsub L_Quest,.@i,"웜테일 사냥",2600;
+			case 11118: callsub L_Quest,.@i,"스포아 사냥",3900;
+			case 11119: callsub L_Quest,.@i,"해충 박멸",2900,915,10;
+			case 11120: callsub L_Quest,.@i,"무카 사냥",3200;
+			case 11121: callsub L_Quest,.@i,"퍼밀리어 사냥",3200;
+			case 11122: callsub L_Quest,.@i,"깃털 수집",5400;
+			case 11123: callsub L_Quest,.@i,"독버섯 포자 수집",6000,7033,5;
 		}
 		else if (.@state) {
-			mes "[Spike]";
-			mes "You haven't finished your mission yet.";
-			mes "Keep up the good work. You are almost done.";
+			mes "[스피클]";
+			mes "아직 의뢰 내용을 끝내지 못한 것 같군요.";
+			mes "어려운 일은 아니니 더욱 힘내시길 바래요.";
 			close;
 		}
 	}
-	mes "[Spike]";
-	mes "Are you looking for a job?";
-	mes "We always have lots of work to do.";
+	mes "[스피클]";
+	mes "뭔가 할일을 찾고 있나요?";
+	mes "저희 조합에서는 항상 의뢰가 잔뜩 밀려 있어 고민이랍니다.";
 	next;
-	mes "[Spike]";
-	mes "Why don't you look around and find some interesting tasks?";
+	mes "[스피클]";
+	mes "괜찮다면 이 곳을 둘러보면서 적당한 일을 찾아 보세요.";
 	close;
 L_Quest:
 	if (questprogress(getarg(0),HUNTING) == 2) {
 		if (getarg(3,0))
 			if (countitem(getarg(3)) < getarg(4)) {
-				mes "[Spike]";
+				mes "[스피클]";
 				mes "You don't have enough "+getitemname(getarg(3))+".";
 				mes "You need to bring "+getarg(4)+" "+getitemname(getarg(3))+".";
 				close;
 			}
-		mes "[Spike]";
-		mes "Hmm... let me see~";
-		mes "You have completed the '"+getarg(1)+"' mission.";
+		mes "[스피클]";
+		mes "음... 어디보자~";
+		mes ""+getarg(1)+" 의뢰를 완료 하셨군요.";
 		next;
-		mes "[Spike]";
-		mes "Good work~!!";
-		mes "Our client is so happy with your work. He will appreciate what you have done.";
-		mes "Please help us again. Thanks!";
+		mes "[스피클]";
+		mes "정~~말 수고하셨어요.";
+		mes "누군지는 말씀 드릴 수 없지만 의뢰인분도 상당히 만족스럽다고 하시더군요.";
+		mes "다음에도 잘 부탁 드려요♥";
 		if (getarg(3,0)) delitem getarg(3),getarg(4);
 		erasequest getarg(0);
 		setquest getarg(0)+10;

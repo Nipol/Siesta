@@ -12,218 +12,219 @@
 //= [Official Conversion]
 //= Repeatable quests for players between BaseLevel 121 - 130.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First version.
 //= 1.1 Some CleanUps. [Dastgir]
 //============================================================
 
-moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
-	mes "[Melody-Jack]";
-	if (!countitem(Para_Team_Mark)) {// Para_Team_Mark
+moc_para01,44,81,3	script	멜로디-잭#1	4_M_MELODY,8,8,{
+	mes "[멜로디-잭]";
+	if (!countitem(Para_Team_Mark_)) {// Para_Team_Mark_
 		mes "Who the hell are you? Get out of here!";
 		mes "I'm only talking to base level ^FF0000121-130^000000 adventurers.";
 	}
 	else if (!para_120lv01)
-		mes "What? do not bother me. I am busy now.";
+		mes "뭐야 이건? 귀찮게 굴지 말고 저리가. 지금 정신 없단 말이야";
 	else if (para_120lv01 == 1) {
-		mes "You got a request from that little girl? The small, talktive and half-naked one over there?";
+		mes "너 혹시 저기 저 여자애의 의뢰를 받은 거냐? 조그맣고 말 많고 헐 벗은 저기 저 녀석 있잖아.";
 		next;
-		select("Say yes.", "Avoid answering.");
-		mes "[Melody-Jack]";
-		mes "No. I do not care It will be fine if you stepped into this room not because you are lost. I need anyone except that kind of fool.";
+		select("그렇다고 말한다:대답을 회피한다");
+		mes "[멜로디-잭]";
+		mes "아니. 사실 상관없어. 그냥 길을 잃고 헤매다 이 방에 들어온 것 만 아니면 돼. 그런 바보만 아니라면 누구라도 필요해.";
 		next;
-		mes "[Melody-Jack]";
-		mes "Please listen to me, I will offer you an attractive suggestion.";
+		mes "[멜로디-잭]";
+		mes "내가 기가 막히게 매혹적인 거래를 하나 제안할 테니 들어나 보시지.";
 		next;
-		mes "[Melody-Jack]";
-		mes "I am ^ff0000Melody - Jack!^000000 The best man with best dagger skills.";
+		mes "[멜로디-잭]";
+		mes "이 몸은 ^FF0000멜로디 - 잭^000000이라고 한다! 라임에 춤추는 단검실력이 최고인 남자. 빠밤!!!!";
 		next;
-		mes "Melody-Jack swipes a dagger in your direction.";
+		mes "멜로디-잭은 ^FF0000빠밤^000000하고 입으로 소리 냈다.";
 		next;
-		mes "[Melody-Jack]";
-		mes "I am qualified to take secret missions. And right now you're in luck.";
+		mes "[멜로디-잭]";
+		mes "이래 봬도 실력 하나는 알아주는 비밀임무의 달인인데 이번에 좀 곤란하게 되었어. 이 바닥이 신용을 한번 잃으면 겉잡을 수 없는 곳이라 말이지.";
 		next;
-		mes "[Melody-Jack]";
-		mes "It seems that I have to lose one mission, deal and promise, I can not take it right now.";
+		mes "[멜로디-잭]";
+		mes "이대로라면 임무, 거래, 약속 중 하나를 놓칠 것 같은데 그건 내 자존심이 허락하지 않지!";
 		next;
-		mes "[Melody-Jack]";
-		mes "Take my mission and solve the request of Aigu. I will compensate you.";
+		mes "[멜로디-잭]";
+		mes "아이구의 의뢰를 해결하면서 내가 주는 미션을 수행해. 보상은 정말 넘치도록 줄테니까!";
 		next;
-		mes "[Melody-Jack]";
-		mes "Our deal will be kept as a secret to Aigu. If you do not have 9 lives. Lets start.";
+		mes "[멜로디-잭]";
+		mes "우리의 거래는 아이구에겐 비밀로 하는 게 좋을 거야. 너의 목숨이 여러 개가 아니라면 말이지. 그럼 시작해 볼까?";
 		para_120lv01 = 2;
 	}
 	else if (para_120lv01 > 1) {
 		mes "......";
 		next;
-		if (select( "Show me the requests!", "Make small-talk." ) == 2) {
-			mes "[Melody-Jack]";
-			mes "What? Are you interested in me?";
+		if (select("의뢰!:대화한다") == 2) {
+			mes "[멜로디-잭]";
+			mes "뭐야. 설마 너 나한테 관심 있어?";
 			next;
-			switch( select( "I am interested.", "About requests", "About a deal", "What is a promise?" ) ) {
+			switch(select("관심 있어!:의뢰에 대하여:거래에 관하여:약속이란?")) {
 			case 1:
-				mes "[Melody-Jack]";
-				mes "Well go away. I have no interest in you.";
+				mes "[멜로디-잭]";
+				mes "저리 가. 난 관심 없어.";
 				close;
 			case 2:
-				mes "[Melody-Jack]";
-				mes "I cannot stop it because of my bad credit. It drives me crazy.";
+				mes "[멜로디-잭]";
+				mes "성가신 일을 맡아 버렸어. 계약자 (갑)이 사라지는 바람에 말이야... 신용 때문에 섣불리 때려 칠 수도 없고. 나도 미치겠어.";
 				next;
-				mes "[Melody-Jack]";
-				mes "I am lucky to make a double contract with an adventurer like you. They are not included in our contract.";
+				mes "[멜로디-잭]";
+				mes "그래도 너같은 모험가하고 이중계약을 할 수 있어서 다행이지만. 이런 건 약관에 명시되지 않았었거든.";
 				close;
 			case 3:
-				mes "[Melody-Jack]";
-				mes "To be honest I don't think there is anyone worthy of trust. Trust or promises are both silly.";
+				mes "[멜로디-잭]";
+				mes "솔직히 말하지. 이세상에 믿을 수 있는 건 아무것 도 없어. 믿음이나 약속 같은 건 다 바보 같은 짓이지.";
 				next;
-				mes "[Melody-Jack]";
-				mes "I trust only me and my deal. Trust or promises are empty if they ar broken but if a deal is broken there is compensation or revenge.";
+				mes "[멜로디-잭]";
+				mes "내가 믿을 수 있는 건 나 자신과 내가 한 거래뿐이다. 약속이나 믿음은 깨지면 허망할 뿐이지만 거래가 깨진다면 보상받거나 보복할 수 있으니까.";
 				close;
 			case 4:
-				mes "[Melody-Jack]";
-				mes "Who're all of these kids?";
+				mes "[멜로디-잭]";
+				mes "어린애들이나 하는 거야.";
 				next;
-				mes "[Melody-Jack]";
-				mes "I came out for nothing but I am supposed to fulfill my duty. I don't owe anyone a thing.";
+				mes "[멜로디-잭]";
+				mes "지금은 어쩔 수 없이 나와있지만 그림자 속에서 살아가는 게 내 인생이란 말이야! 약속 같은 건 몰라.";
 				close;
 			}
 		}
-		mes "[Melody-Jack]";
+		mes "[멜로디-잭]";
 		if (BaseLevel < 121)
-			mes "Oh, I made a mistake. You are not the level of adventurer I am looking for. I'm looking for base level 121 to 130 adventurers.";
+			mes "이런... 사람을 잘못 봤나? 지금의 너는 내가 찾는 모험가는 아니야. 그 정도 실력으론 어림없어.";
 		else if (BaseLevel < 131) {
-			mes "I do not like it but a deal is a deal. Please come back after clearing monsters in the places where Aigu asked to search.";
+			mes "썩 내키지는 않지만 거래는 거래니까. 아이구가 탐험해달라는 장소를 중심으로 마물을 퇴치하고 돌아와.";
 			next;
-			switch( select( "Thanatos Tower related ", "Rachel Shrine related ", "Nameless Island related ", "Abyss Lake related " ) ) {
+			switch(select("타나토스타워 관련:라헬 신전 관련:이름없는 섬 관련:어비스 호수 관련")) {
 			case 1:
-				mes "[Melody-Jack]";
-				mes "Thanatos tower is the most annoying place. Do not worry about your compensation. I keep my word.";
+				mes "[멜로디-잭]";
+				mes "타나토스 타워가 가장 귀찮은 곳이야. 대신 그만큼 보상도 있을 테니 걱정은 말라고. 난 약속은 지키는 남자니까.";
 				next;
-				switch( select( "Baroness of Retribution", "Lady Solace", "Mistress of Shelter", "Dame of Sentinel" ) ) {
+				switch(select("신벌의 대행자:위로하는자:안식을주는자:감시하는자")) {
 				case 1:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13120,PLAYTIME) == 1)
-						mes "I think I finished today's performance. I cannot relax what if monsters show up suddenly.";
+						mes "일단 오늘의 할당량은 채운 것 같아. 하지만 원래 몬스터 녀석들은 어디선가 나타나니까 안심할 순 없지.";
 					else if (questprogress(13119,HUNTING) == 1) {
 						cutin "신벌의대행자카드",3;  //retribution_card
-						mes "I do not like that creature not because Aigu doesn't like them... How dare you? Who is punishing whom?";
+						mes "사실 꼭 아이구녀석이 아니더라도 맘에 들지 않는 마물이야. 감히 누가 누구에게 벌을 주겠다는 건지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "These are some of the most dangerous creatures in the world. These creatures deserve no justice.";
+						mes "[멜로디-잭]";
+						mes "세상에서 가장 위험한 녀석들이지. 대의니 신의니 운운하며 자신이 마치 정의인냥 행동하는 것들. 하물며 마물이라면 더 볼 것도 없어.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Of course you can trust me. Because I believe in real deals. Lets sweep the creatures away.";
+						mes "[멜로디-잭]";
+						mes "아 물론 나는 믿어도 돼. 내가 믿는 것은 마음이 아닌 실리에서 나오는 거래이니 말이야. 마물 같은 건 얼른 쓸어버리라고.";
 					}
 					else if (questprogress(13119,HUNTING) == 2) {
-						mes "Did you clear them? So that does not bother that little boy for a day. Good job.";
+						mes "잘 처리했나? 이걸로 하루 정도는 저 꼬맹이 일에 신경 쓰지 않아도 되겠지. 수고했어.";
 						callsub S_Quest,13119,13120,1;
 					}
 					else {
 						cutin "신벌의대행자카드",3;  //retribution_card
-						mes "As you know, Thanatos Tower is where Aigu cares the most. It is the most dangerous place in some ways.";
+						mes "알다시피 타나토스 타워는 아이구가 가장 신경쓰고 있는 곳이야. 어찌보면 가장 위험한 곳이기에 그럴 수도 있지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Please clear monsters to help Aigu. Amateurs will make things messy.";
+						mes "[멜로디-잭]";
+						mes "아이구 녀석이 하는 일에 큰 지장이 없도록 몬스터들을 좀 퇴치해줘. 어설픈 녀석들이 갔다가 사고라도 나면 녀석의 마음만 더 고생할 테니.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "There must be a lot of them. Do not forget to keep this a secret. ";
+						if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "분명 드글드글 할 테니 적당히 해치워. 비밀 지키는 것 잊지 말고.";
 							callsub S_Quest,13120,13119;
 						}
 					}
 					break;
 				case 2:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13122,PLAYTIME) == 1)
-						mes "I think I finished today's performance. I can not relax... What if monsters show up suddenly?";
+						mes "일단 오늘의 할당량은 채운 것 같아. 하지만 원래 몬스터 녀석들은 어디선가 나타나니까 안심할 순 없지.";
 					else if (questprogress(13121,HUNTING) == 1) {
 						cutin "위로하는자",3;  //solace_card
-						mes "The building does not seem to be designed by human beings and a strange melody is always playing there.";
+						mes "인간이 쌓은 것 같지 않은 건축물의 기묘한 분위기 속에서도 어디선가 희미한 선율가 들려오곤 하지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Do not fall into the mood of the melody because that can be your last song you hear.";
+						mes "[멜로디-잭]";
+						mes "하지만 그 감동 너무 빠지진 말아. 그게 너의 마지막 순간이 될 수도 있으니깐 말이지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Remember, there is strange music as sharp as knife to kill people in the world.";
+						mes "[멜로디-잭]";
+						mes "죽음만큼 날카로운 음악도 세상엔 존재한다는 걸 명심해.";
 					}
 					else if (questprogress(13121,HUNTING) == 2) {
-						mes "Have you ever heard the melody they are playing? You will have a chance if that little boy begins to play the performance again.";
+						mes "혹시 그것들이 연주하는 소리를 들었나? 뭐 못들었더라도 서운해할 것 없어. 나중에 저 꼬맹이 녀석이 다시 공연을 하게 된다면 그 보다 멋진 음악은 없을 테니.";
 						callsub S_Quest,13121,13122,1;
 					}
 					else {
 						cutin "위로하는자",3;  //solace_card
-						mes "Beautiful melody. Maybe it sounds beautiful because creatures are playing.";
+						mes "고고하고 아름다운 멜로디. 어쩌면 인간이 아닌 마물이 만들어내는 소리이기에 더 아름다울지도 모르지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "However that is another obstacle. A deal is prior to personal interest anytime. So clear Lady Solace.";
+						mes "[멜로디-잭]";
+						mes "하지만 지금 당장은 이 녀석도 하나의 장애물일 뿐이다. 언제나 거래가 먼저고. 개인의 취향은 나중이니까. ^FF0000위로하는자^000000를 처리해";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "We are just keeping our end of the deal. Clear those creatures now.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "우린 그저 누군가의 거래를 지키고 있을 뿐이야. 쓸어버려. 마물따위.";
 							callsub S_Quest,13122,13121;
 						}
 					}
 					break;
 				case 3:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13124,PLAYTIME) == 1)
-						mes "I think I finished today's performance. I can not relax... What if monsters show up suddenly?";
+						mes "일단 오늘의 할당량은 채운 것 같아. 하지만 원래 몬스터 녀석들은 어디선가 나타나니까 안심할 순 없지.";
 					else if (questprogress(13123,HUNTING) == 1) {
 						cutin "안식을주는자카드",3;  //shelter_card
-						mes "Do you know an angel that turned into a monster? I do not know if it was an angel or not. But its appearance was an angel.";
+						mes "마물이 되어버린 천사를 아시나? 그것이 정말 천사였는지 어떤지는 모르겠지만 적어도 그 모습은 그러하지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Do not panic due to beautiful appearances regardless if it is an angel or a creature. You should do your job.";
+						mes "[멜로디-잭]";
+						mes "뭐 천사든 마물이든 그 아름다운 모습에 당황하지 말고. 넌 너의 일을 하면 되는 거야.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Everything has its time. Maybe you requested this because that time has come.";
+						mes "[멜로디-잭]";
+						mes "모든 것은 때가 있는 법이니까. 어쩌면 지금 네가 이런 의뢰를 하는 것도 다 그럴 때가 되어서 일지도 모르겠군. 흥.";
 					}
 					else if (questprogress(13123,HUNTING) == 2) {
-						mes "Good. Let me know if someone is looking for me. If so, I might need to change the details of the deal.";
+						mes "잘했군. 혹시 누군가 찾게 되면 내게도 좀 알려달라구. 거래를 변경해야 할 테니.";
 						callsub S_Quest,13123,13124,1;
 					}
 					else {
 						cutin "안식을주는자카드",3;  //shelter_card
-						mes "Do you know an angel that turned into a monster? I do not know if it was an angel or not. But its appearance was an angel.";
+						mes "마물이 되어버린 천사를 아시나? 그것은 썩 유쾌하지. 그것이 정말 천사였는지 어떤지는 모르겠지만 적어도 그 모습은 그러하지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "I don't care if it is a real angel or just a creature. Clear Mistress of Shelter.";
+						mes "[멜로디-잭]";
+						mes "뭐 천사든 마물이든 관심없어. 안식을주는자를 처리해줘.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "Dying flowers fall down by rain and wind. That is what you have to do.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "시든 꽃은 비바람에 떨어져야 해. 네가 할일이다. 비바람이 되어 그들에게 안식을 주도록...";
 							emotion e_no1;
 							callsub S_Quest,13124,13123;
 						}
 					}
 					break;
 				case 4:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13126,PLAYTIME) == 1)
-						mes "I finished my performance for today. I can not relax what if monsters show up suddenly.";
+						mes "일단 오늘의 할당량은 채운것 같아. 하지만 원래 몬스터 녀석들은 어디선가 나타나니까 안심할 순 없지.";
 					else if (questprogress(13125,HUNTING) == 1) {
 						cutin "감시하는자카드",3;  //observation_card
-						mes "You may have felt they are watching once you stepped into the upper area of Thanatos Tower.";
+						mes "감이 있다면 타나토스타워 상층부에 들어서는 순간부터 녀석들의 시선이 느껴질 거야.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Dame of Sentinel is not easy to handle so be sure to be ready to fight.";
+						mes "[멜로디-잭]";
+						mes "감시하는자는 만만하게 볼 녀석은 아니니까 준비를 단단히 하고 가는 게 좋을 거야.";
 						next;
-						mes "[Melody-Jack]";
-						mes "It is a fine day to die. It will be you or them so do your best.";
+						mes "[멜로디-잭]";
+						mes "누구든 죽음을 맞이하기 좋은 날이군. 너 아니면 녀석들이 될 테니 열심히 하라고.";
 					}
 					else if (questprogress(13125,HUNTING) == 2) {
-						mes "You look fine. Maybe you are better than I thought? I did not check with my eyes though.";
+						mes "멀쩡하게 돌아온 것 같군. 의외로 실력이 괜찮을지도 모르겠는걸? 뭐 직접 본건 아니지만.";
 						callsub S_Quest,13125,13126,1;
 					}
 					else {
 						cutin "감시하는자카드",3;  //observation_card
-						mes "You will meet them if Aigu requests. The Dame of Sentinels.";
+						mes "아이구가 타나토스 탐험을 의뢰한다면 분명 이 녀석들도 만나게 될 거야. 감시하는자라는 녀석들이지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "I wish they are cleared as well for her to request this adventure easily.";
+						mes "[멜로디-잭]";
+						mes "이 녀석들도 좀 처리했으면 좋겠군. 녀석이 손쉽게 탐험을 의뢰할 수 있도록 말이지.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "A request for a request... Whatever.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "의뢰를 위한 의뢰. 뭐 이런들 어떠하고 저런들 어떠할까. 훗.";
 							callsub S_Quest,13126,13125;
 						}
 					}
@@ -231,23 +232,23 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 				}
 				break;
 			case 2:
-				mes "[Melody-Jack]";
-				mes "Aigu's adventure leads to Rachel Shrine. Okay... It is not strange if ^FF0000that human^000000 Aigu looking for is found anywhere.";
+				mes "[멜로디-잭]";
+				mes "아이구의 탐험은 라헬신전까지도 이어지나 보군. 그래... 아이구가 찾고 있는 ^FF0000그 인간^000000이라면 어디에서 발견되어도 이상하지 않지.";
 				next;
-				switch( select( "Vanberk and Isilla", "Hodremlin", "Agav and Echio" ) ) {
+				switch(select("판베르크와 이실라:호드렘린:아가브와 에키오")) {
 				case 1:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13128,PLAYTIME) == 1)
-						mes "You may take a rest for a day. You cleared enough but fanatic is increased.";
+						mes "어느 정도 처리했으니 하루 정도는 쉴 수 있겠지. 광신도는 계속 늘어나서 안심할 순 없지만.";
 					else if (questprogress(13127,HUNTING) == 1) {
 						cutin "이실라카드",3;  //isilla_card
-						mes "Someone who believes they are right are the most dangerous. This world is full of fools.";
+						mes "자신이 믿는 것이 진리라 믿는 자들. 가장 위험한 것인데. 세상엔 참 멍청이들이 많지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Finally force others to believe what they believe. Lets clear Vanberk and Isilla.";
+						mes "[멜로디-잭]";
+						mes "결국은 그 믿음을 남에게도 강요하겠지... 쯧쯧. 판베르크와 이실라를 처리하자구.";
 						next;
-						mes "[Melody-Jack]";
-						mes "It is not my business. But this time is different. A little boy might be in a danger so lets hurry to clear these monsters.";
+						mes "[멜로디-잭]";
+						mes "뭐 내가 신경쓸건 아니지만. 이번엔 경우가 달라. 꼬맹이 녀석이 좀 위험해질지도 모르니 미리미리 처리하자고.";
 					}
 					else if (questprogress(13127,HUNTING) == 2) {
 						mes "Just a day. Will be fine.";
@@ -255,79 +256,79 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 					}
 					else {
 						cutin "판베르크카드",3;  //vanberk_card
-						mes "Sanctuary in Rachel is prohibited to normal people from entering. You gotta know that.";
+						mes "라헬의 성역이라고 불리우는 일반인의 출입이 금지된 장소가 있어. 아 너도 슬슬 그런 걸 알아야지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "They think they can find a clue there but it is not a safe place. You should clear Vanberk and Isilla in advance.";
+						mes "[멜로디-잭]";
+						mes "그곳에서도 뭔가 단서를 찾을 수 있지 않을까 생각 하는것 같던데... 안전한 장소는 아니어서 말이지. 판베르크와 이실라를 미리 좀 처리해 줘야겠어.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "Clear all as quickly as you can.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "너무 티나지 않도록 가볍게 처리해 주고 오면 좋겠군.";
 							emotion e_flash;
 							callsub S_Quest,13128,13127;
 						}
 					}
 					break;
 				case 2:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13130,PLAYTIME) == 1)
-						mes "Unknown mosters are dangerous so clear them first. I will inform you if something happens.";
+						mes "괴수녀석들. 도무지 정체를 알 수 없지만 위험하니 일단 처리한다. 또 일이 생기면 알려줄테니 들리도록.";
 					else if (questprogress(13129,HUNTING) == 1) {
 						cutin "호드렘린카드",3;  //hodremlin_card
-						mes "Cold teeth might be approaching. Its teeth are faster than your hands.";
+						mes "싸늘한 이빨이 어느새 다가올지도 몰라. 녀석의 이빨은 너의 손보다 빠를지도 모르거든.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Rachel sanctuary will be approaching from everywhere. You should be careful of this one.";
+						mes "[멜로디-잭]";
+						mes "라헬 성역 여기저기서 순식간에 다가올 거야. 이 녀석 만큼은 방심하지 않는게 좋아.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Just think of the job at hand. That will be enough.";
+						mes "[멜로디-잭]";
+						mes "일단 처리하고 생각한다. 그래도 충분해.";
 					}
 					else if (questprogress(13129,HUNTING) == 2) {
-						mes "I am not that worried but are you safe? Not bitten?";
+						mes "이빨에 물리거나 하진 않았나? 딱히 걱정하는 건 아니야.";
 						callsub S_Quest,13129,13130,1;
 					}
 					else {
 						cutin "호드렘린카드",3;  //hodremlin_card
-						mes "Fanatics are a problem. A more serious problem is that they show up suddenly.";
+						mes "광신도들도 문제지만 한가지 문제가 더 있어. 게다가 갑자기 나타나기까지 하지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Get rid of ^FF0000Hodremlin^000000 without any hesitation. Because they are very dangerous.";
+						mes "[멜로디-잭]";
+						mes "^FF0000호드렘린!^000000 이 녀석들은 주저하지 말고 처치해. 굉장히 위험한 녀석들이니까 말이야.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "They need faster hands than a head. I do not worry but you should be careful.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "머리보다 빠른 손이 필요한 녀석들이지. 뭐 나라면 걱정 없겠지만... 넌 좀 긴장해야 할거야.";
 							callsub S_Quest,13130,13129;
 						}
 					}
 					break;
 				case 3:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13132,PLAYTIME) == 1)
-						mes "If you can talk. There are no requests right now. Take a rest for the day.";
+						mes "말이 통하는 상대라면 이런 의뢰 하지도 않겠지. 하루쯤 쉬어도 좋아.";
 					else if (questprogress(13131,HUNTING) == 1) {
 						cutin "에키오카드",3;  //echio_card
-						mes "Full of madness here. I just feel disgusting.";
+						mes "특유의 광기가 넘쳐나는 곳이야. 왜 그런진 모르겠군... 아무튼 기분이 나빠.";
 						next;
-						mes "[Melody-Jack]";
-						mes "It is my feeling but you might like it. I am sure ^FF0000Agav^000000 and ^FF0000Echio^000000 will not like you.";
+						mes "[멜로디-잭]";
+						mes "뭐 이건 내 기분이고. 넌 맘에 들지 모르겠지만 ^FF0000아가브^000000와 ^FF0000에키오^000000는 분명 네가 맘에 들지 않겠지. 크큭.";
 						next;
-						mes "[Melody-Jack]";
-						mes "They will run into you. Do not hesitate and keep focused on the job.";
+						mes "[멜로디-잭]";
+						mes "정신 없이 달려올 테니 사양 말고 처리해 버리라고.";
 					}
 					else if (questprogress(13131,HUNTING) == 2) {
-						mes "Found anyone? I wouldn't worry. A promise ia a promise and a deal is a deal.";
+						mes "혹시라도 찾은 녀석은 없었나? 뭐 걱정하는 건 아니야. 약속은 약속이고 거래는 거래일 뿐이지. 섭섭하지 않을 정도야.";
 						callsub S_Quest,13131,13132,1;
 					}
 					else {
 						cutin "아가브카드",3;  //agav_card
-						mes "It is true that it is getting more dangerous inside of Rachel sanctuary, but Aigu will not care for things we are not sure.";
+						mes "성역 안쪽으로 갈수록 더 위험해지는 것이 사실이야. 하지만 아이구라면 그런 건 신경 쓰지 않겠지. 그 안에 있을지 없을지 모르는 녀석 때문에.";
 						next;
-						mes "[Melody-Jack]";
-						mes "That was not that bad. But someone needs to help? Lets clear ^FF0000Agav^000000 and ^FF0000Echio^000000 inside of Rachel Shrine.";
+						mes "[멜로디-잭]";
+						mes "뭐 그런 성격이 나쁜건 아니지만. 누군가는 힘을 써줘야겠지? 라헬 신전 안쪽 끝까지 들어가서 ^FF0000아가브^000000를 처리 하고 와. 아참 ^FF0000에키오^000000도 있겠군";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "I cannot leave so farewell.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "내가 잠행하면 간단하겠지만 아쉽게도 자리를 비울 수가 없어서 말이지. 다녀와.";
 							callsub S_Quest,13132,13131;
 						}
 					}
@@ -335,93 +336,93 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 				}
 				break;
 			case 3:
-				mes "[Melody-Jack]";
-				mes "Nameless Island is not known to usual adventurers. Aigu is also interested in there.";
+				mes "[멜로디-잭]";
+				mes "일반 모험가라면 존재하는지 조차 모르는 이름없는 섬. 그곳에도 아이구는 눈길을 주고 있어.";
 				next;
-				switch( select( "Ragged Zombie Hunting", "Zombie Slaughter Hunting", "Banshee Hunting" ) ) {
+				switch(select("누더기좀비 처리:좀비슬러터 처리:밴시 처리")) {
 				case 1:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13134,PLAYTIME) == 1)
-						mes "Ragged Zombie is reduced. It is a good time to proceed Aigu's request for a minute.";
+						mes ".........................";
 					else if (questprogress(13133,HUNTING) == 1) {
 						cutin "누더기좀비카드",3;  //ragged_zombie_card
-						mes "It is easy to meet everything on Nameless Island. So boring.";
+						mes "이름없는섬 곳곳에서 녀석들을 어렵지 않게 만날 수 있어. 지겹게...가 더 어울릴까?";
 						next;
-						mes "[Melody-Jack]";
-						mes "Get rid of it and help Aigu and the other adventurers.";
+						mes "[멜로디-잭]";
+						mes "녀석들을 없애 두는 게 아이구나 다른 모험가에게 도움이 되는 건 사실이니까. 기분좋게 일하라고. 비록 냄새는 좀 나겠지만.";
 					}
 					else if (questprogress(13133,HUNTING) == 2) {
-						mes "Did you take a bath? It smells in here. But I am sure that you had a hard time with the smell.";
+						mes ".........................";
 						callsub S_Quest,13133,13134,1;
 					}
 					else {
 						cutin "누더기좀비카드",3;  //ragged_zombie_card
-						mes "The dead come back at night. Comes back sounds strange. Lets cut the crap.";
+						mes "밤이 되면 죽은 자가 살아 돌아오지. 아니 살았다는 말은 좀 우수스운가? 뭐 말장난은 이쯤하고.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Wish to clear ^FF0000Ragged Zombie^000000. It is easy because they show up everywhere.";
+						mes "[멜로디-잭]";
+						mes "^FF0000누더기좀비^000000를 처리해주길 바래. 어렵진 않을 거야. 가는 곳곳마다 이녀석들이 나타날테니 말이야.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "Take a ^FF0000bath^000000 and you won't smell anymore.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "그 썩은내가 진동하지 않도록 돌아오기전엔 ^FF0000꼭^000000 목욕을 해.";
 							callsub S_Quest,13134,13133;
 						}
 					}
 					break;
 				case 2:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13136,PLAYTIME) == 1)
-						mes "I know the request to Nameless Island is not easy but I will be happy if you join again.";
+						mes ".........................";
 					else if (questprogress(13135,HUNTING) == 1) {
 						cutin "좀비슬러터카드",3;  //zombie_slaughter_card
-						mes "It was not easy for me either to step into Nameless Island. I am not that patient.";
+						mes "이름없는섬에 들어가게 되기까지는 나도 솔직히 쉽지 않았지. 내가 그렇게 끈기 있는 편은 아니거든.";
 						next;
-						mes "[Melody-Jack]";
-						mes "But adventurers should challenge once. ^FF0000Zombie Slaughter^000000 is worth clearing.";
+						mes "[멜로디-잭]";
+						mes "하지만 모험가라면 한번쯤 도전해봐야 할 일이지. ^FF0000좀비슬러터^000000도 한번쯤 처리해야 할 마물이고!";
 					}
 					else if (questprogress(13135,HUNTING) == 2) {
-						mes "You are quite good! You cleared them. It will take time to return.";
+						mes ".........................";
 						callsub S_Quest,13135,13136,1;
 					}
 					else {
 						cutin "좀비슬러터카드",3;  //zombie_slaughter_card
-						mes "They are dangerous unlike Ragged Zombie because they swing something sharp.";
+						mes "누더기 좀비와는 또 다르게 위험한 녀석이야. 날카로운 것들을 자꾸만 휘두르곤 하지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Please clear ^FF0000Zombie Slaughter^000000. Be careful to avoid their blades.";
+						mes "[멜로디-잭]";
+						mes "^FF0000좀비슬러터^000000를 보이는 대로 처리해줘. 날카로운 것들은 알아서 잘 피하고!";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "You've got many things to take care of so I will hold my words. Clear them.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "이것 말고도 신경 쓸 건 많을테니 더 여러 말 하진 않을게. 녀석들을 처리해.";
 							callsub S_Quest,13136,13135;
 						}
 					}
 					break;
 				case 3:
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13138,PLAYTIME) == 1)
-						mes "Banshee is cleared. Request is solved anyway but it is not the end. It will be required again sooner or later.";
+						mes ".........................";
 					else if (questprogress(13137,HUNTING) == 1) {
 						cutin "밴시카드",3;  //banshee_card
-						mes "You will see there are unwelcoming things while adventuring sometimes regardless of monsters and companions.";
+						mes "가끔 모험을 하다 보면 상성이 지나치게 안 맞는 녀석들이 있어. 몬스터고 동료고 말이지.";
 						next;
-						mes "[Melody-Jack]";
-						mes "This request is like that for me. I just do not like creatures or the reason of giving this request.";
+						mes "[멜로디-잭]";
+						mes "나에겐 이번 의뢰가 그러하군. 마물도 맘에 안 들고 이런 의뢰를 주고 있는 이유도 참 맘에 안들어.";
 					}
 					else if (questprogress(13137,HUNTING) == 2) {
-						mes "You must be tired. You went to that tough place beyond your capability. Do not be angry. I will reward you for that.";
+						mes ".........................";
 						callsub S_Quest,13137,13138,1;
 					}
 					else {
 						cutin "밴시카드",3;  //banshee_card
-						mes "Please clear ^FF0000Banshee^000000 inside of Nameless Island. Do not say no. You know it is for Aigu as well.";
+						mes "이름없는섬 실내에서 ^FF0000밴시^000000를 처리해줘. 안 된다는 말은 하지 말아. 이게다 아이구를 위한 일이라니까.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Both Banshee and Aigu are annoying. I would not do this request but you will be different. Right?";
+						mes "[멜로디-잭]";
+						mes "개인적으론 무지 귀찮은 녀석이지. 밴시나 아이구나. 나라면 이런 의뢰 하지 않겠지만. 너는 다를 거야. 그렇지?";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "See? Someone needs this request. Clear ^FF0000Banshees^000000 at Nameless Island.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "거봐. 누군가에겐 필요한 의뢰라니깐. ^FF0000밴시^000000 처리를 부탁해";
 							callsub S_Quest,13138,13137;
 						}
 					}
@@ -429,63 +430,63 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 				}
 				break;
 			case 4:
-				mes "[Melody-Jack]";
-				mes "Abyss Lake has requests from a little girl. Very dilligent.";
+				mes "[멜로디-잭]";
+				mes "어비스 호수에도 꼬마 아가씨의 탐험 의뢰가 들어온 모양이군... 부지런도 하시지.";
 				next;
-				if (select( "Ferus and Bewler are cleared.", "Gold and Blue Acidus are cleared." ) == 1) {
-					mes "[Melody-Jack]";
+				if (select("페러스 퇴치:어시더스 퇴치") == 1) {
+					mes "[멜로디-잭]";
 					if (questprogress(13140,PLAYTIME) == 1)
-						mes "Green dragons and Red dragons remind me of watermelons.";
+						mes "녹색 용과 붉은 용. 그 녀석들을 보면 수박 생각이... 응?왜 혼잣말을 듣 고 있는거야?다음 토벌 때까진 아직 시간이 있어.";
 					else if (questprogress(13139,HUNTING) == 1) {
 						cutin "레드페러스카드",3;  //ferus_card
-						mes "Abyss Lake... Do you possibly know how to get in there? You are not an adventurer with that information?";
+						mes "어비스 호수... 혹시 들어가는 방법도 모르나? 그 정도 모험가는 아니겠지?";
 						next;
-						mes "[Melody-Jack]";
-						mes "Just in case I will give you a clue that a key and an entrance are going to be found around there.";
+						mes "[멜로디-잭]";
+						mes "혹시나 해서 힌트를 주자면 열쇠와 입구 모두 그 근처에서 찾을 수 있어.";
 					}
 					else if (questprogress(13139,HUNTING) == 2) {
-						mes "Did you clear all of the dragons? Take a rest for a day.";
+						mes "알록달록한 용 녀석들은 전부 처리했나? 하루 정도는 푹 쉬어도 될 거야.";
 						callsub S_Quest,13139,13140,1;
 					}
 					else {
 						cutin "그린페러스카드",3;  //ferus__card
-						mes "Abyss Lake is full of dragons in and out. Dragons are not that special but there are so many.";
+						mes "어비스 호수라면 안 밖으로 용들이 가득한 곳이지. 용이라고 뭐 그리 대단한 건 아니지만 아무튼 많은 건 사실이야.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Which one is more dangerous between Ferus and Bewler? I do not know. Clear both of them.";
+						mes "[멜로디-잭]";
+						mes "빨간 페러스와 녹색 페러스 중 어느 녀석이 더 위험하려나... 에이 모르겠다. 귀찮으니 둘 다 퇴치하고 와.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "Neither green nor red are disturbing. But regardless, come back after clearing all.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "녹색이든 붉은 색이든 방해되는 건 마찬가지야. 열심히 토벌하고 돌아와.";
 							callsub S_Quest,13140,13139;
 						}
 					}
 				}
 				else {
-					mes "[Melody-Jack]";
+					mes "[멜로디-잭]";
 					if (questprogress(13142,PLAYTIME) == 1)
-						mes "Take a rest. We should go and subdue Acidus dragons again.";
+						mes "수면부족? 쉬고 있도록 해. 조만간 또 어시더스를 토벌하러 가야할테니 말이야."; //커스텀
 					else if (questprogress(13141,HUNTING) == 1) {
 						cutin "블루어시더스카드",3;  //acidus__card
-						mes "Abyss Lake is not close. But it is worth visiting.";
+						mes "어비스 호수가 가까운곳은 아니지. 하지만 다녀오는 보람은 있을 거야.";
 						next;
-						mes "[Melody-Jack]";
-						mes "This is technically a training exercise but just pretend you are helping someone. There will be a reward.";
+						mes "[멜로디-잭]";
+						mes "어차피 수련이고 모험이고 할 거 누군가에게 도움이 되는 일을 한다고 생각해. 보답은 할테니.";
 					}
 					else if (questprogress(13141,HUNTING) == 2) {
-						mes "You are more of a talented adventurer than I thought. If you found a tactic, take care of it next time. This study is up to you.";
+						mes "생각보다 능력 있는 모험가로군? 요령을 알아냈다면 다음 번에도 부탁해. 이 연구는 당신 손에 달려 있어.";
 						callsub S_Quest,13141,13142,1;
 					}
 					else {
 						cutin "골드어시더스",3;  //acidus_card
-						mes "There is a cave where dragons are living inside of Abyss Lake. There are so many but flying things are annoying.";
+						mes "어비스 호수에서 안쪽으로 들어가면 용들이 살고 있는 동굴이 있지. 여러 녀석들이 살지만 역시 날아다니는 것들은 귀찮아.";
 						next;
-						mes "[Melody-Jack]";
-						mes "Subdue them as best as you can. Do not mind their colors because they are all to be cleared.";
+						mes "[멜로디-잭]";
+						mes "적당히 토벌하고 오면 될 것 같아. 색깔 같은 건 너무 신경 쓰지마. 어차피 다 정리해야 하니까 말이야.";
 						next;
-						if (select( "Take the request.", "Stop." ) == 1) {
-							mes "[Melody-Jack]";
-							mes "Subdue the Gold and Blue Acidus monsters at the last level of Abyss Lake.";
+						if (select("의뢰를 수행한다.:그만둔다.") == 1) {
+							mes "[멜로디-잭]";
+							mes "어비스 호수의 동굴 끝까지 들어가서 토벌을 실행하도록.";
 							callsub S_Quest,13142,13141;
 						}
 					}
@@ -497,7 +498,7 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 			end;
 		}
 		else {
-			mes "You finished helping Aigu or did you quit? Anyways I have no more business for you. ";
+			mes "아이구 녀석의 탐험을 도와주는 일은 끝낸 건가? 아니면 관둔 거야? 어쨌든 나도 볼일은 없어지겠군.";
 			next;
 			callsub S_Erasequest,
 				13119,"Baroness of Retribution",
@@ -512,8 +513,8 @@ moc_para01,44,81,3	script	Melody-Jack#1	4_M_MELODY,8,8,{
 				13137,"Banshee",
 				13139,"Ferus ",
 				13141,"Acidus";
-			mes "[Melody-Jack]";
-			mes "I am not sure if you found what you are looking for... I cannot be involved anymore. Thanks.";
+			mes "[멜로디-잭]";
+			mes "꼬맹이 녀석. 아직 원하는 걸 찾았는지는 모르겠지만... 더 이상 내가 관여할 순 없군. 너도 수고했어.";
 		}
 	}
 	close;
@@ -534,11 +535,11 @@ S_Erasequest:
 				erasequest (.@quest_id+1);
 			continue;
 		case 1:
-			mes "[Melody-Jack]";
+			mes "[멜로디-잭]";
 			mes getarg(.@i+1) +" is cleared. No need to have more requests.";
 			break;
 		case 2:
-			mes "[Melody-Jack]";
+			mes "[멜로디-잭]";
 			mes getarg(.@i+1) +" is cleared. A deal is a deal. I need to get paid.";
 			getexp 900000,200000;
 			break;
@@ -550,105 +551,105 @@ S_Erasequest:
 OnTouch:
 	if (para_120lv01 == 1) {
 		emotion e_gasp;
-		mes "[Melody-Jack]";
-		mes "Hey there! ... Wait.?";
+		mes "[멜로디-잭]";
+		mes "거기 잠깐! 거기... 잠깐 나 좀 볼까?";
 		close;
 	}
 	end;
 }
 
-moc_para01,17,77,5	script	Aigu#1	4_F_IU,{
-	mes "[Aigu]";
-	if (!countitem(Para_Team_Mark)) {// Para_Team_Mark
+moc_para01,17,77,5	script	아이구#1	4_F_IU,{
+	mes "[아이구]";
+	if (!countitem(Para_Team_Mark_)) {// Para_Team_Mark_
 		mes "Oh, why aren't you a part of Eden Group?";
 		mes "I'm only talking to base level ^FF0000121-130^000000 adventurers.";
 	}
 	else if (!para_120lv01) {
 		cutin "igu01",2;
-		mes "Hi? A fine day like today. Can I ask for a favor? I heard that adventurers in Eden Group are nice.";
+		mes "안녕? 오늘처럼 좋은 날. 모험가님께 부탁 하나만 해도 될까? 낙원단의 모험가들은 상냥하다고 들었거든.";
 		next;
-		if (select( "I'm not the nice kind.", "Sure, I'll help." ) == 1) {
+		if (select( "샹냥하지 않아!", "도와준다" ) == 1) {
 			cutin "igu05",2;
-			mes "[Aigu]";
-			mes "yek.. I hate.";
+			mes "[아이구]";
+			mes "으앙... 밉다.";
 		}
 		else {
 			cutin "igu03",2;
-			mes "[Aigu]";
-			mes "Really? I will introduce myself! I am the head of the ^ff0000Dandelion band Aigu.^000000";
+			mes "[아이구]";
+			mes "정말이지? 일단 내 소개부터 할게! ^ff0000민들레악단^000000의 단장을 맡고 있는 ^ff0000아이구^000000라고 해!";
 			next;
-			mes "[Aigu]";
-			mes "I just came back from a local performance. There is someone I wanted to meet but is missing now so I came to Eden Group for a request.";
+			mes "[아이구]";
+			mes "오랜 순회공연에서 막 돌아온 참이야. 여기저기 안 가본 곳이 없지 헤헷! 오자마자 보고 싶은 사람이 있었는데 실종이 되었다는 얘기를 듣고 이렇게 낙원단에 부탁하러 왔어.";
 			next;
-			mes "[Aigu]";
-			mes "I just decided to make a request by myself because no one is in charge and everyone is busy. Thanks for the help.";
+			mes "[아이구]";
+			mes "그런데 담당자도 없고 업무도 바쁘다고 하니 마냥 기다릴 수가 없어서 직접 의뢰를 만들기로 했어! 도와줘서 고마워!";
 			para_120lv01 = 1;
 		}
 	}
 	else {
 		cutin "igu01",2;
-		mes "It is nice to come back to Midgard! Very exciting as the first day.";
+		mes "오랫만에 미드가르드에 돌아오니 좋아! 처음처럼 설레이는 그런 날이야!";
 		next;
-		if (select( "What is your request?", "Talk about something else." ) == 2) {
+		if (select("의뢰:대화하기") == 2) {
 			cutin "igu01",2;
-			mes "[Aigu]";
-			mes "Dandelion band travels all around the world and conveys healing music to people";
+			mes "[아이구]";
+			mes "민들레악단은 세계 이곳 저곳을 돌아다니며 사람들에게 치유의 음악을 전해주고 있어.";
 			next;
 			cutin "igu02",2;
-			mes "[Aigu]";
-			mes "Actually our songs have no magic but I am sure it helps people because I am singing.";
+			mes "[아이구]";
+			mes "실제로 우리의 노래가 어떤 마법을 가지고 있는 건 아니지만, 사람들에게 힘이 되는 건 분명해! 내가 부르는 노래니까!";
 		}
 		else if (BaseLevel < 121) {
 			cutin "igu04",2;
-			mes "[Aigu]";
-			mes "I think it is difficult for you to get my request? For now, I think it will make more people lost. How about widening your sight by travelling?";
+			mes "[아이구]";
+			mes "내 부탁을 들어주기엔 아직 힘들 것 같은데? 지금이라면 오히려 미아를 더 만들게 될 거야. 조금 더 시야를 넓혀 보는 게 어때? 여행이라도 하면서 말이야.";
 		}
 		else if (BaseLevel < 131) {
-			mes "[Aigu]";
-			mes "I made a shelter for someone I am looking for and lost adventurers. I want to know which adventurer has been there.";
+			mes "[아이구]";
+			mes "내가 찾는 사람 외에도 많은 모험가들이 길을 잃고 방황할 던전 깊숙이에 작은 쉼터를 만들어 놨어. 그 곳에 다녀간 모험자가 있는지 누구인지 알아봐주면 좋겠어!";
 			next;
-			switch( select( "Thanatos Tower search", "Rachel Sanctuary search", "Nameless Island search", "Abyss Lake search" ) ) {
-				mes "[Aigu]";
+			switch(select("타나토스 타워 탐색:라헬성역 탐색:이름없는섬 탐색:어비스 호수 탐색")) {
+				mes "[아이구]";
 			case 1:
 				if (questprogress(13115,PLAYTIME) == 1)
-					mes "I will ask to search again after for a while because there is hope since a trace of someone was found.";
+					mes "시간이 좀 지난 뒤에 다시 탐색을 부탁할 생각이야. 누군가의 흔적은 있다고 하니 아직 희망이 있어!.";
 				else if (questprogress(13111) == 1) {
 					cutin "igu04",2;
-					mes "You know someone went there but you do not know who that is? Thank you. But let me ask you to search again tomorrow since we do not know who it is.";
+					mes "누군가 다녀간 흔적은 있지만 누구인지는 모르겠단 말이지? 고마워. 하지만 누구인지 밝혀지지 않았으니 내일쯤 다시 탐색을 부탁할게.";
 					callsub S_Quest,13111,13115,1250000,300000;
 				}
 				else if (questprogress(13107) == 1)
-					mes "You may find shelter on top of the tower. Even that shelter only has water and a bonfire.";
+					mes "타워의 상층으로 가다보면 쉼터를 찾을 수 있을거야. 물이랑 모닥불 정도의 간단한 시설이지만.";
 				else {
-					mes "Adventurers are easily lost because of dangerous monsters and the height of thanatos tower. But it isn't impossible for some adventurers so please check for me.";
+					mes "타나토스타워는 그 높이와 위험한 마물들 때문에 많은 모험가들이 길을 잃을 거라고 생각해. 가장 가능성 있는 곳이니 세세하게 탐색을 부탁할게.";
 					next;
-					if (select( "Begin to search.", "Cancel." ) == 1) {
-						mes "[Aigu]";
-						mes "Thanatos tower is north of the Schwartzvalt Republic! It is not far from Juno or Hugel.";
+					if (select("탐색을 시작한다.:그만둔다.") == 1) {
+						mes "[아이구]";
+						mes "타나토스 타워는 슈발츠발드 북쪽에 있어! 유노나 휘겔에서 출발하면 멀지 않을 거야!";
 						callsub S_Quest,13115,13107;// Thanatos Tower Search
 					}
 				}
 				break;
 			case 2:
 				if (questprogress(13116,PLAYTIME) == 1)
-					mes "Searching Rachel was enough. I will ask you again after a while.";
+					mes "라헬의 탐색은 충분한 것 같아. 시간이 조금 지나면 다시 한번 부탁할게!";
 				else if (questprogress(13112) == 1) {
-					mes "How was your trip? No special news. But it is not done yet so I will ask you to search again.";
+					mes "잘 다녀왔어? 특별한 소식은 없는 것 같네. 그렇지만 아직 끝난게 아니니까 시간이 되면 또 탐색을 부탁할게. 고마워!";
 					callsub S_Quest,13112,13116,1000000,300000;
 				}
 				else if (questprogress(13108) == 1)
-					mes "Not able to enter the sanctuary in a usual way. It is not easy but we can find a clue at Rachel.";
+					mes "라헬신전 성역은 일반적인 방법으론 들어갈 수 없어. 쉽진 않겠지만 라헬 마을에서 실마리를 찾을 수 있을 거야.";
 				else {
 					cutin "igu03",2;
-					mes "There is a sanctuary inside of Rachel Shrine. It is possible to get stuck there once you're inside.";
+					mes "라헬 신전 안쪽으로 성역이라 불리는 장소가 있어. 그곳이라면 들어갔다가 나오지 못하고 있을 가능성이 충분히 있어.";
 					next;
-					mes "[Aigu]";
-					mes "Please take a look if there are any traces of lost adventurers at the southeast part of the 2nd floor in the middle zone.";
+					mes "[아이구]";
+					mes "가능하면 2층 중앙구역의 남동쪽까지 들어가서 길 잃은 모험가는 없는지 살펴 봐줘!";
 					next;
-					if (select( "Begin the search.", "Stop." ) == 1) {
+					if (select("탐색을 시작한다:그만둔다") == 1) {
 						cutin "igu05",2;
-						mes "[Aigu]";
-						mes "I wish you safety in your search.";
+						mes "[아이구]";
+						mes "부디 무사했으면 좋겠는데... 앗 부탁해!";
 						callsub S_Quest,13116,13108;// Rachel holy ground Search
 					}
 				}
@@ -662,41 +663,41 @@ moc_para01,17,77,5	script	Aigu#1	4_F_IU,{
 				}
 				else if (questprogress(13109) == 1) {
 					cutin "igu04",2;
-					mes "Maybe... hanging out and drinking with the dead. But please talk with me.";
+					mes "어쩌면... 어쩌면 망자들과 어울려 술이라도 한잔 하고 있을지도 모르겠지만. 그렇다해도 꼭 끌고 나와줘. 부탁할게!";
 				}
 				else {
 					cutin "igu03",2;
-					mes "Yes, Maybe they're not able to come because they've been captured by the dead! Nameless Island will be fine! Please search Nameless Island.";
+					mes "그래! 어쩌면 망자들에게 붙잡혀서 못 오고 있는지도 몰라! 이름없는 섬이라면 그럴지도 몰라! 이름없는섬을 탐색해줘!";
 					next;
-					if (select( "Begin the search.", "Stop." ) == 1) {
+					if (select("탐색을 시작한다:그만둔다") == 1) {
 						cutin "igu01",2;
-						mes "[Aigu]";
-						mes "I wil ask you to search the 1st underground of the monastery on Nameless Island. I cannot make you take that risk unless you volunteer.";
+						mes "[아이구]";
+						mes "이름없는 섬의 수도원 지하 1층까지 탐색을 부탁할게. 그 이상의 위험은 맡길 수 없으니까.";
 						callsub S_Quest,13117,13109;// Unknown island Search
 					}
 				}
 				break;
 			case 4:
 				if (questprogress(13118,PLAYTIME) == 1)
-					mes "I will try to search Abyss Lake again after a while.";
+					mes "시간이 조금 지나면 다시 어비스 호수의 탐색을 시작 할 생각이야!";
 				else if (questprogress(13114) == 1) {
 					cutin "igu05",2;
-					mes "You came back safely but I guess there was no good result for your face. I will search more so do not disappoint! Thank you.";
+					mes "무사히 돌아왔네. 표정을 보아하니 별 성과는 없었구? 탐색은 조금 더 해볼 생각이니 실망하지 말자구. 고마워";
 					callsub S_Quest,13114,13118,900000,200000;
 				}
 				else if (questprogress(13110) == 1) {
 					cutin "igu05",2;
-					mes "Maybe, disappointed and fallen down because a monster was not found on the ground of the lake.";
+					mes "어쩌면 호수 밑바닥까지 가봤는데 생각했던 멋진 괴수를 발견하지 못해서 실망하고는 쓰러져 있을지도 몰라!";
 				}
 				else {
-					mes "I suggest to search Abyss Lake precisely the cave at the middle of the lake.";
+					mes "어비스 호수도 한번 탐색해봐야 할거 같아! 정확히는 호수 안쪽의 동굴이야";
 					next;
-					mes "[Aigu]";
-					mes "Yes! The end of a good adventure needs a dragon! I've heard there is a monster on the ground of a lake.";
+					mes "[아이구]";
+					mes "평소에도 모험의 끝은 역시 용이 나타나야지! 같은 소릴 해댔거든. 호수 밑바닥에 괴수가 살고 있다는 소리도 여러 번 했었고...";
 					next;
-					if (select( "Begin the search.", "Stop." ) == 1) {
-						mes "[Aigu]";
-						mes "Abyss Lake is the fastest way to get to Hugel. Please visit 3rd floor of underground cave.!";
+					if (select("탐색을 시작한다:그만둔다") == 1) {
+						mes "[아이구]";
+						mes "어비스 호수는 휘겔에서 가는 게 가장 빠를 것 같네! 지하동굴 3층까지 다녀와줘!";
 						callsub S_Quest,13118,13110;// Abyss Lake Search
 					}
 				}
@@ -704,8 +705,8 @@ moc_para01,17,77,5	script	Aigu#1	4_F_IU,{
 		}
 		else {
 			cutin "igu04",2;
-			mes "[Aigu]";
-			mes "I can't give you any more search tasks right now! You need harder challenges suitable for your level.";
+			mes "[아이구]";
+			mes "당신에겐 탐색의뢰는 줄 수 없다구! 지금 실력이라면 더 힘든 의뢰를 찾아봐. 나는 또 다른 모험가를 찾아야 겠어.";
 			callsub S_Erasequest,
 				13107,"Thanatos Tower",
 				13108,"Rachel Shrine",
@@ -735,7 +736,7 @@ S_Erasequest:
 	for ( .@i = 0; .@i < .@total; .@i += 2 ) {
 		if (questprogress(getarg(.@i))) {
 			next;
-			mes "[Aigu]";
+			mes "[아이구]";
 			mes "Oh, you've been working on "+ getarg(.@i+1) +" Adventure task. Let me clear your record, so you can work on better tasks.";
 			erasequest getarg(.@i);
 		}
@@ -746,7 +747,7 @@ S_Erasequest2:
 	for ( .@i = 0; .@i < .@total; .@i += 4 ) {
 		if (questprogress(getarg(.@i))) {
 			next;
-			mes "[Aigu]";
+			mes "[아이구]";
 			mes "Oh, you've already finished "+ getarg(.@i+1) +" Adventure. Thank you for helping me out with this task!.";
 			erasequest getarg(.@i);
 			getexp getarg(.@i+2),getarg(.@i+3);
@@ -755,22 +756,22 @@ S_Erasequest2:
 	return;
 }
 
--	script	Trace of an adventurer	-1,{
+-	script	모험가의 흔적	-1,{
 	.@quest = 13106 + atoi(strnpcinfo(2));
 	.@delay = 13110 + atoi(strnpcinfo(2));
 	if (questprogress(.@quest) == 1) {
-		mes "I found traces of someone who was here but I cannot find a clue. Lets go back and report to Aigu.";
+		mes "누군가 머물고 간 흔적은 있지만 누구인지에 대한 단서를 찾을 수 없다. 아이구에게 돌아가 보고하자";
 		erasequest .@quest;
 		setquest .@delay;
 	}
 	else
-		mes "There are traces of someone being here.";
+		mes "누군가가 머물고 간 흔적이 있다.";
 	close;
 }
-thana_step,167,292,5	duplicate(Trace of an adventurer)	Trace of an adventurer#1	4_TRACE
-ra_san05,265,69,5	duplicate(Trace of an adventurer)	Trace of an adventurer#2	4_TRACE
-abbey02,155,290,5	duplicate(Trace of an adventurer)	Trace of an adventurer#3	4_TRACE
-abyss_03,102,140,5	duplicate(Trace of an adventurer)	Trace of an adventurer#4	4_TRACE
+thana_step,167,292,5	duplicate(모험가의 흔적)	모험가의 흔적#1	4_TRACE
+ra_san05,265,69,5	duplicate(모험가의 흔적)	모험가의 흔적#2	4_TRACE
+abbey02,155,290,5	duplicate(모험가의 흔적)	모험가의 흔적#3	4_TRACE
+abyss_03,102,140,5	duplicate(모험가의 흔적)	모험가의 흔적#4	4_TRACE
 
 tha_t06,126,128,3	script	Suspicious Monster#1	4_DEVIRUCHI,{
 	mes "[Disguised Adventurer]";

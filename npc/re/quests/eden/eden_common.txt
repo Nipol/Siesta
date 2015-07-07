@@ -7,6 +7,7 @@
 //===== Description: =========================================
 //= Eden Group Headquarter NPC's.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Removed showevent use, and use of duplicates.
 //=     Commented out warps that should not be active.
@@ -19,7 +20,7 @@
 //= 1.8 Updated to match the latest official script. [Euphy]
 //============================================================
 
-moc_para01,27,35,5	script	Secretary Lime Evenor	4_F_EDEN_OFFICER,{
+moc_para01,27,35,5	script	사무담당 라임 이베노르	4_F_EDEN_OFFICER,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
 		mes "- Wait a minute !! -";
 		mes "- Currently you're carrying -";
@@ -28,226 +29,237 @@ moc_para01,27,35,5	script	Secretary Lime Evenor	4_F_EDEN_OFFICER,{
 		mes "- after you loose some weight. -";
 		close;
 	}
-	mes "[Lime Evenor]";
-	mes "People who follow their dreams and romances listen to me. We are representatives of the paradise called 'The garden of Eden' called the Eden group . There is no place like this anywhere.";
-	mes "Hello. Can I help you?";
+	cutin "LAIME_EVENOR01",2;
+	mes "[라임 이베노르]";
+	mes "꿈과 낭만을 좇는 이들이여 그대들의 낙원은 연인의 품안도 아스가르드의 나팔소리에 의한 것도 아닌 바로 이곳 낙원단과 함께 함에 있습니다.";
+	mes "반갑습니다. 무엇을 도와드릴까요?";
 	next;
 	while (1) {
-		switch (select("What is Eden group?:Join the Eden Group.:Register new mission.:Search for missions.:Cancel.")) {
+		switch (select("낙원단이란:낙원단 등록:의뢰 등록:의뢰 검색:대화 종료")) {
 		case 1:
-			mes "[Lime Evenor]";
-			mes "Eden Group is a group that helps people who are suffering from distresses in Rune-Midgard.";
+			mes "[라임 이베노르]";
+			mes "낙원단에서는 미드가르드 각지의 어려움에 처한 이들의 의뢰를 접수하고 문제를 해결해주는 일을 하고 있습니다.";
 			next;
-			mes "[Lime Evenor]";
-			mes "If people need help, we put up the case on the bulletin board and introduce it to our members who are eager to help those in need.";
+			mes "[라임 이베노르]";
+			mes "의뢰주로부터 연락이 오면 우리는 해당 의뢰 내용을 게시하고 낙원단원들에게 소개를 하죠.";
 			next;
-			mes "[Lime Evenor]";
-			mes "Eden members will review the missions and help those who post them up.";
-			mes "Members do these missions for rewards.";
+			mes "[라임 이베노르]";
+			mes "낙원단원들은 각자 의뢰를 살펴보고 자신에게 맞는 조건의 일을 찾아 해결할 수 있습니다.";
+			mes "물론 의뢰인으로부터 정당한 보수도 받을 수 있지요.";
 			next;
-			mes "[Lime Evenor]";
-			mes "If you are not too familiar with Rune-Midgard, this is a great way to explore the world.";
-			mes "Or, if you are mature enough, you can travel the world and make new friends while doing missions. Your honorable name will be spread out among lands.";
+			mes "[라임 이베노르]";
+			mes "낙원단에서의 의뢰활동을 통해 초급자는 이 낯설고도 넓은 세계에 적응하고 살아가는 방법을 배울 수 있으며, 중급자 이상은 세계를";
+			mes "여행하며 여러 인연을 쌓아갈 수 있습니다. 물론 전문가로서의 명예와 재화도 그에 따라 축적될 것입니다.";
 			next;
 			break;
 		case 2:
-			if (countitem(6219) < 1) {
-				mes "[Lime Evenor]";
-				mes "You can be a Eden's member by simply registering with me.";
-				mes "Would you like to join Eden Group?";
+			if (countitem(22508) < 1) {
+				mes "[라임 이베노르]";
+				mes "간단한 등록절차를 통해 누구나 낙원단의 일원이 될 수 있습니다.";
+				mes "낙원단과 함께 하시겠습니까?";
 				next;
-				switch (select("Yes, I want to join.:No, I don't want to join.")) {
+				switch (select("네:아니오")) {
 				case 1:
-					mes "[Lime Evenor]";
-					mes "Aright. Excellent! Please write down your name here.";
+					mes "[라임 이베노르]";
+					mes "예, 그럼 여기에 이름을 적어주세요.";
 					input .@input$;
 					next;
-					mes "[Lime Evenor]";
-					mes "Are you done?";
-					mes "Let me see.";
+					mes "[라임 이베노르]";
+					mes "다 적으셨나요?";
+					mes "어디보자.";
 					next;
-					mes "[Lime Evenor]";
-					mes "Your name is ^3131FFBo"+.@input$+"Ba^000000...? Is that right?";
-					mes "Huh? Isn't it??";
+					mes "[라임 이베노르]";
+					mes "이름이 ^3131FF보"+.@input$+"바^000000...? 맞습니까?";
+					mes "에? 아니라고요?";
 					next;
 					emotion e_swt;
-					mes "[Lime Evenor]";
-					mes "Hmm, that isn't what you wrote?";
-					mes "Ok, hmm, it seems a bit hard to read.";
+					mes "[라임 이베노르]";
+					mes "하지만 여기 써있는 건 분명...";
+					mes "흐음, 분명 꽤 난해한 글씨긴 합니다만.";
 					next;
-					mes "[Lime Evenor]";
-					mes "Would you please write your name again? Please write it ^3131FFClearly^000000.";
+					mes "[라임 이베노르]";
+					mes "이름을 다시 적어주시겠습니까? 이번엔 ^3131FF또박또박^000000 제대로 부탁드립니다.";
 					input .@input$;
 					next;
-					mes "[Lime Evenor]";
-					mes "Ah~ ha. You are ^3131FF"+strcharinfo(0)+"^000000.";
-					mes "I got it right this time.";
+					mes "[라임 이베노르]";
+					mes "아아, ^3131FF"+strcharinfo(0)+"^000000 였군요.";
+					mes "이번엔 제대로 확인했습니다.";
 					next;
 					emotion e_no1;
-					mes "[Lime Evenor]";
-					mes "We already put your name on the list.";
-					mes "Welcome to Eden's group new member!";
+					mes "[라임 이베노르]";
+					mes "낙원단원 명단에 당신의 이름을 기입했습니다.";
+					mes "낙원단에 오신 것을 환영합니다!";
 					next;
-					mes "[Lime Evenor]";
-					mes "Hopefully you can do great work as an Eden's member.";
-					getitem 6219,1; //Para_Team_Mark
+					mes "[라임 이베노르]";
+					mes "앞으로 낙원단원으로서 여러 의뢰를 수행하며 훌륭한 해결사로서의 선전을 기원합니다.";
+					getitem 22508,1; //Para_Team_Mark_
 					next;
 					break;
 				case 2:
-					mes "[Lime Evenor]";
-					mes "Do you still have questions about Eden Group?";
+					mes "[라임 이베노르]";
+					mes "낙원단에 대해 아직 궁금한 점이라도 남으셨습니까?";
 					next;
 					break;
 				}
 			} else {
-				mes "[Lime Evenor]";
-				mes "You are already a member of Eden Group.";
+				mes "[라임 이베노르]";
+				mes "이미 낙원단에 가입된 상태입니다.";
 				next;
 			}
 			break;
 		case 3:
-			mes "[Lime Evenor]";
-			mes "Do you want to register some missions that you want us to do?";
+			mes "[라임 이베노르]";
+			mes "낙원단에 요청하고자 하는 의뢰가 있으십니까?";
 			next;
-			if(select("Yes, I want to register.:No, I don't.") == 1) {
-				mes "[Lime Evenor]";
-				mes "Alrigh. Please write down your name on it.";
+			if(select("네:아니오") == 1) {
+				mes "[라임 이베노르]";
+				mes "자, 그럼 여기 서류에 이름을 적어주세요.";
 				input .@input$;
 				next;
-				mes "[Lime Evenor]";
-				mes "^3131FF"+strcharinfo(0)+"^000000.. Is that your name?";
-				mes "Hmm, your handwriting is not clear. I can't read. it";
+				mes "[라임 이베노르]";
+				mes "^3131FF"+strcharinfo(0)+"^000000.. 이 이름이 맞습니까?";
+				mes "흠. 글씨를 잘 못쓰시는군요.";
+				mes "알아보기가...";
 				next;
-				mes "[Lime Evenor]";
-				mes "^3131FF"+strcharinfo(0)+"^000000, tell me what you want to register. for";
-				mes "Which map should we go to?";
+				mes "[라임 이베노르]";
+				mes "^3131FF"+strcharinfo(0)+"^000000님, 의뢰하고자 하는 내용을 알려주세요.";
+				mes "어느 지역에서 수행하게 되는 의뢰입니까?";
 				input .@input$;
 				next;
-				mes "[Lime Evenor]";
-				mes "^3131FFMission Map: "+.@inputstr$+"^000000";
-				mes "hum, I will note that.";
+				mes "[라임 이베노르]";
+				mes "^3131FF수행처: "+.@input$+"^000000";
+				mes "흠.. 일단 기입해 두도록 하죠.";
 				next;
-				mes "[Lime Evenor]";
-				mes "Please let me know what kind of missions your are lookng for.";
-				mes "It should be briefly like 'Hunt 10 Porings.'";
+				mes "[라임 이베노르]";
+				mes "어떤 일을 수행하게 되는지 의뢰내용을 개략적으로 적어주세요.";
+				mes "'포링 10마리 처치'이런 식으로요.";
 				input .@input$;
 				next;
-				mes "[Lime Evenor]";
-				mes "Are you done?";
-				mes "Let me check.";
+				mes "[라임 이베노르]";
+				mes "다 쓰셨습니까?";
+				mes "어디보자.";
 				next;
-				mes "[Lime Evenor]";
-				mes "Huh...........";
+				cutin "LAIME_EVENOR03",2;
+				mes "[라임 이베노르]";
+				mes "음...........";
 				next;
-				mes "[Lime Evenor]";
-				mes "Hum.. huh??..................";
+				mes "[라임 이베노르]";
+				mes "으으음..................";
 				next;
 				emotion e_dots;
-				mes "[Lime Evenor]";
-				mes "I think you should complete one of our missions first before you take up a new mission.";
+				mes "[라임 이베노르]";
+				mes "의뢰 등록 이전에 저의 의뢰를 받아보시는게 어떻겠습니까?";
 				next;
+				cutin "LAIME_EVENOR04",2;
 				emotion e_pif;
-				mes "[Lime Evenor]";
-				mes "^3131FFClient: Lime Evenor^000000";
-				mes "^3131FFMission: Practice your handwriting for one month.^000000";
-				mes "You've got really bad penmanship!";
+				mes "[라임 이베노르]";
+				mes "^3131FF의뢰자: 라임 이베노르^000000";
+				mes "^3131FF수행내용: 글씨교정소에서 한달간 훈련^000000";
+				mes "참으로 난해한 글씨로군요.";
 				next;
-				mes "[Lime Evenor]";
-				mes "^3131FFMission:"+.@input$+"^000000";
-				mes "Anyway, you are done registering for a new mission.";
+				cutin "LAIME_EVENOR01",2;
+				mes "[라임 이베노르]";
+				mes "^3131FF수행내용:"+.@input$+"^000000";
+				mes "어쨌든 무사히 등록된 것 같습니다.";
 				next;
-				mes "[Lime Evenor]";
-				mes "Missions are fully booked. You have to wait for an spot to clear up.";
-				mes "Please kindly wait until your turn.";
+				mes "[라임 이베노르]";
+				mes "현재 등록건수가 상당하여 게시판에 등록되기 까지는 시간이 좀 걸릴 것 같군요.";
+				mes "차분히 순서를 기다려 주시면 감사하겠습니다.";
 				next;
 			}
 			break;
 		case 4:
-			if (countitem(6219) > 0) {
-				mes "[Lime Evenor]";
-				mes "Would like to try some missions as an Eden member?";
+			if (countitem(22508) > 0) {
+				mes "[라임 이베노르]";
+				mes "낙원단의 일원으로서 낙원단에 접수된 의뢰들을 수행하고 싶으십니까?";
 				next;
-				mes "[Lime Evenor]";
-				mes "Check the right side of the bulletin board, there are various kinds of missions waiting for you.";
-				mes "Please carefully read the mission list and the qualifications and choose one of them.";
+				mes "[라임 이베노르]";
+				mes "우측 벽면의 게시판에서 여러 종류의 의뢰들이 당신의 선택을 기다리고 있습니다.";
+				mes "의뢰수행 조건과 내용을 읽어보시고 자신의 능력에 맞추어 좋은 선택을 하시길 바랍니다.";
 				next;
 			}
 			else {
-				mes "[Lime Evenor]";
-				mes "You need to join Eden Group first if you want to do some missions.";
-				close;
+				mes "[라임 이베노르]";
+				mes "우선은 낙원단 가입 등록 절차를 마친 후 이야기 하도록 하죠.";
+				close2;
+				cutin "",255;
+				end;
 			}
 			break;
 		case 5:
-			mes "[Lime Evenor]";
-			mes "If you have any questions please come back again.";
+			cutin "",255;
+			mes "[라임 이베노르]";
+			mes "더 궁금하신 사항이 있으시면 언제든지 저를 찾아주세요.";
 			close;
 		}
 	}
 	close;
 }
 
--	script	Eden Teleport Officer#0::eto	-1,{
-	mes "[Eden Teleport Officer]";
-	mes "Those who are wandering around this strange world with aimless eyes listen up and come to me!";
-	mes "Eden group is here to help you and will show you the great future.";
+-	script	낙원단 공간이동사#0::eto	-1,{
+	mes "[낙원단 공간이동사]";
+	mes "이 세계의 모든 것이 낯설은 수련생이여 목표없이 방황중인 모험가여, 내게로 오세요!";
+	mes "당신의 어려움을 타파해 줄 낙원단 등장!";
 	next;
-	mes "[Eden Teleport Officer]";
-	mes "You have nothing to do but waste your time?";
-	mes "You are eager to do something good but no one offers you work?";
-	mes "Would you like to be a problem solver?";
-	mes "Eden group is here to solve your problem.";
+	mes "[낙원단 공간이동사]";
+	mes "흐르는 시간을 주체할 수가 없다고요?";
+	mes "기운은 넘치는데 할일이 없다고요?";
+	mes "전문 해결사가 되고 싶습니까?";
+	mes "무엇이 고민이십니까? 지금 당장 낙원단과 상담하세요!";
 	next;
-	switch (select("Move to Eden Group.:Don't want to talk anymore.")) {
+	switch (select("낙원단으로 이동:대화를 마친다")) {
 	case 1:
-		mes "[Eden Teleport Officer]";
-		mes "Let's go to our secret base!";
+		mes "[낙원단 공간이동사]";
+		mes "자아, 갑시다 우리들의 아지트로!";
 		nak_warp = strnpcinfo(2);
 		close2;
 		warp "moc_para01",31,14;
 		end;
 	case 2:
-		mes "[Eden Teleport Officer]";
-		mes "If you don't know what to do for your future, don't hesitate to tell me. Just drop by and talk to me! Ok?";
+		mes "[낙원단 공간이동사]";
+		mes "앞날이 막막할 땐 언제든지 낙원달을 찾아주세요!";
 		close;
 	}
+OnInit:
+	questinfo 1001, QTYPE_QUEST, 0;//미사용 퀘스트
+	end;
 }
-prontera,124,76,3	duplicate(eto)	Eden Teleport Officer#1	4_F_NOVICE
-moc_ruins,68,164,3	duplicate(eto)	Eden Teleport Officer#2	4_F_NOVICE
-geffen,132,66,3	duplicate(eto)	Eden Teleport Officer#3	4_F_NOVICE
-alberta,124,67,3	duplicate(eto)	Eden Teleport Officer#4	4_F_NOVICE
-aldebaran,133,119,5	duplicate(eto)	Eden Teleport Officer#5	4_F_NOVICE
-izlude_in,68,162,1	duplicate(eto)	Eden Teleport Officer#6	4_F_NOVICE
-prt_church,103,78,3	duplicate(eto)	Eden Teleport Officer#7	4_F_NOVICE
-geffen_in,160,104,5	duplicate(eto)	Eden Teleport Officer#8	4_F_NOVICE
-moc_prydb1,53,126,3	duplicate(eto)	Eden Teleport Officer#9	4_F_NOVICE
-alberta_in,75,39,3	duplicate(eto)	Eden Teleport Officer#10	4_F_NOVICE
-payon_in02,58,58,1	duplicate(eto)	Eden Teleport Officer#11	4_F_NOVICE
-payon,177,111,3	duplicate(eto)	Eden Teleport Officer#12	4_F_NOVICE
-que_ng,33,73,3	duplicate(eto)	Eden Teleport Officer#13	4_F_NOVICE
-que_ng,144,161,5	duplicate(eto)	Eden Teleport Officer#14	4_F_NOVICE
-yuno,144,189,5	duplicate(eto)	Eden Teleport Officer#15	4_F_NOVICE
-rachel,125,144,3	duplicate(eto)	Eden Teleport Officer#16	4_F_NOVICE
-comodo,202,151,4	duplicate(eto)	Eden Teleport Officer#17	4_F_NOVICE
-hugel,93,153,4	duplicate(eto)	Eden Teleport Officer#18	4_F_NOVICE
-veins,220,109,4	duplicate(eto)	Eden Teleport Officer#19	4_F_NOVICE
-einbroch,250,211,4	duplicate(eto)	Eden Teleport Officer#20	4_F_NOVICE
-lighthalzen,164,86,4	duplicate(eto)	Eden Teleport Officer#21	4_F_NOVICE
-amatsu,100,145,5	duplicate(eto)	Eden Teleport Officer#22	4_F_NOVICE
-ayothaya,221,191,3	duplicate(eto)	Eden Teleport Officer#23	4_F_NOVICE
-louyang,224,107,3	duplicate(eto)	Eden Teleport Officer#24	4_F_NOVICE
-gonryun,162,122,5	duplicate(eto)	Eden Teleport Officer#25	4_F_NOVICE
-moscovia,209,197,5	duplicate(eto)	Eden Teleport Officer#26	4_F_NOVICE
-brasilis,191,224,3	duplicate(eto)	Eden Teleport Officer#27	4_F_NOVICE
-dewata,192,193,5	duplicate(eto)	Eden Teleport Officer#28	4_F_NOVICE
-morocc,161,97,5	duplicate(eto)	Eden Teleport Officer#29	4_F_NOVICE
-izlude,131,148,4	duplicate(eto)	Eden Teleport Officer#30	4_F_NOVICE
-izlude_a,131,148,4	duplicate(eto)	Eden Teleport Officer#30::eto_iz_a	4_F_NOVICE
-izlude_b,131,148,4	duplicate(eto)	Eden Teleport Officer#30::eto_iz_b	4_F_NOVICE
-izlude_c,131,148,4	duplicate(eto)	Eden Teleport Officer#30::eto_iz_c	4_F_NOVICE
-izlude_d,131,148,4	duplicate(eto)	Eden Teleport Officer#30::eto_iz_d	4_F_NOVICE
-umbala,105,158,3	duplicate(eto)	Eden Teleport Officer#31	4_F_NOVICE
-malaya,238,206,6	duplicate(eto)	Eden Teleport Officer#32	4_F_NOVICE
+prontera,124,76,3	duplicate(eto)	낙원단 공간이동사#1	4_F_NOVICE
+moc_ruins,68,164,3	duplicate(eto)	낙원단 공간이동사#2	4_F_NOVICE
+geffen,132,66,3	duplicate(eto)	낙원단 공간이동사#3	4_F_NOVICE
+alberta,124,67,3	duplicate(eto)	낙원단 공간이동사#4	4_F_NOVICE
+aldebaran,133,119,5	duplicate(eto)	낙원단 공간이동사#5	4_F_NOVICE
+izlude_in,68,162,1	duplicate(eto)	낙원단 공간이동사#6	4_F_NOVICE
+prt_church,103,78,3	duplicate(eto)	낙원단 공간이동사#7	4_F_NOVICE
+geffen_in,160,104,5	duplicate(eto)	낙원단 공간이동사#8	4_F_NOVICE
+moc_prydb1,53,126,3	duplicate(eto)	낙원단 공간이동사#9	4_F_NOVICE
+alberta_in,75,39,3	duplicate(eto)	낙원단 공간이동사#10	4_F_NOVICE
+payon_in02,58,58,1	duplicate(eto)	낙원단 공간이동사#11	4_F_NOVICE
+payon,177,111,3	duplicate(eto)	낙원단 공간이동사#12	4_F_NOVICE
+que_ng,33,73,3	duplicate(eto)	낙원단 공간이동사#13	4_F_NOVICE
+que_ng,144,161,5	duplicate(eto)	낙원단 공간이동사#14	4_F_NOVICE
+yuno,144,189,5	duplicate(eto)	낙원단 공간이동사#15	4_F_NOVICE
+rachel,125,144,3	duplicate(eto)	낙원단 공간이동사#16	4_F_NOVICE
+comodo,202,151,4	duplicate(eto)	낙원단 공간이동사#17	4_F_NOVICE
+hugel,93,153,4	duplicate(eto)	낙원단 공간이동사#18	4_F_NOVICE
+veins,220,109,4	duplicate(eto)	낙원단 공간이동사#19	4_F_NOVICE
+einbroch,250,211,4	duplicate(eto)	낙원단 공간이동사#20	4_F_NOVICE
+lighthalzen,164,86,4	duplicate(eto)	낙원단 공간이동사#21	4_F_NOVICE
+amatsu,100,145,5	duplicate(eto)	낙원단 공간이동사#22	4_F_NOVICE
+ayothaya,221,191,3	duplicate(eto)	낙원단 공간이동사#23	4_F_NOVICE
+louyang,224,107,3	duplicate(eto)	낙원단 공간이동사#24	4_F_NOVICE
+gonryun,162,122,5	duplicate(eto)	낙원단 공간이동사#25	4_F_NOVICE
+moscovia,209,197,5	duplicate(eto)	낙원단 공간이동사#26	4_F_NOVICE
+brasilis,191,224,3	duplicate(eto)	낙원단 공간이동사#27	4_F_NOVICE
+dewata,192,193,5	duplicate(eto)	낙원단 공간이동사#28	4_F_NOVICE
+morocc,161,97,5	duplicate(eto)	낙원단 공간이동사#29	4_F_NOVICE
+izlude,131,148,4	duplicate(eto)	낙원단 공간이동사#30	4_F_NOVICE
+izlude_a,131,148,4	duplicate(eto)	낙원단 공간이동사#30::eto_iz_a	4_F_NOVICE
+izlude_b,131,148,4	duplicate(eto)	낙원단 공간이동사#30::eto_iz_b	4_F_NOVICE
+izlude_c,131,148,4	duplicate(eto)	낙원단 공간이동사#30::eto_iz_c	4_F_NOVICE
+izlude_d,131,148,4	duplicate(eto)	낙원단 공간이동사#30::eto_iz_d	4_F_NOVICE
+umbala,105,158,3	duplicate(eto)	낙원단 공간이동사#31	4_F_NOVICE
+malaya,238,206,6	duplicate(eto)	낙원단 공간이동사#32	4_F_NOVICE
 
 moc_para01,30,10,0	script	#eden_out	WARPNPC,1,1,{
 OnTouch:
@@ -281,7 +293,7 @@ OnTouch:
 		case 27: warp "brasilis",190,220; end;
 		case 28: warp "dewata",192,182; end;
 		case 29: warp "morocc",161,97; end;
-		case 30: warp "izlude",134,118; end;	// Old coordinates: (127,142)
+		case 30: warp "izlude",134,118; end;
 		case 31: warp "umbala",94,154; end;
 		case 32: warp "malaya",234,199; end;
 		default: warp "prontera",116,72; end;
@@ -289,118 +301,107 @@ OnTouch:
 	end;
 }
 
-moc_para01,47,39,3	script	#warp_2_pass	HIDDEN_NPC,{
-	if (countitem(6219) > 0) {
-		mes "[Lime Evenor]";
-		mes "Oh, it is an exclusive place only for Eden's members.";
-		mes "If you are a member, you can come whenever you want!";
-		next;
-		switch (select("Enter.:Don't Enter.")) {
-		case 1:
-			mes "This door is beautifully decorated but seems a little bit too heavy.";
-			close2;
-			warp "moc_para01",106,14;
-			end;
-		case 2:
-			mes "[Lime Evenor]";
-			mes "Well, if you are not interested.";
-			close;
-		}
+moc_para01,47,39,3	script	#warp_2_pass	WARPNPC,1,1,{
+	if (countitem(22508) > 0) {
+		warp "moc_para01",106,14;
+		end;
 	}
-	mes "[Lime Evenor]";
-	mes "Oh, this is an exclusive place for Eden's members only.";
-	mes "If you want to go inside, you have to join the Eden Group.";
+	mes "[라임 이베노르]";
+	mes "아, 그 곳은 낙원단 전용 공간입니다.";
+	mes "안으로 들어가시려면 저에게서 낙원단 가입신청서를 작성하셔야 합니다.";
 	close;
 }
 
-moc_para01,16,22,7	script	Old Adventurer#eden	4_M_HUMERCHANT,{
-	mes "[Old Adventurer]";
-	mes "Harsh, I am strong enough even if I look old! What is his name? Lime Evenor? He just ignores me like I am a some kind of old senile bastard.";
+moc_para01,16,22,7	script	늙은 모험가#eden	4_M_HUMERCHANT,{
+	mes "[늙은 모험가]";
+	mes "라임 이베노르인지 뭔지 저 머리에 피도 안마른 녀석이 아직 팔팔한 이 몸을 몰라뵙고 그저 '잡상인은 받지 않습니다'라잖아!?";
 	next;
-	mes "[Old Adventurer]";
-	mes "I came here to join the Eden group! I don't deserve this!";
-	mes "Do you also think I look like I'm senile?";
+	mes "[늙은 모험가]";
+	mes "이래뵈도 나도 낙원단에 가입하러 왔거늘 이게 무슨 푸대접인지!";
+	mes "자네도 내가 잡상인 처럼 보이나?";
 	close;
 }
 
-moc_para01,182,48,3	script	Eden's Chief#eden	4_COOK,{
+moc_para01,182,48,3	script	낙원단 요리사#eden	4_COOK,{
 	.@eggf = rand(1,118);
 	.@eggf_1 = .@eggf + 1;
 	.@eggf_2 = .@eggf + 2;
 	.@eggf_6 = .@eggf + 6;
-	mes "[Eden's Chief]";
+	mes "[낙원단 요리사]";
 	mes ""+.@eggf+".. "+.@eggf_1+"... "+.@eggf_2+".... "+.@eggf_6+"..?";
 	next;
 	emotion e_sob;
-	mes "[Eden's Chief]";
-	mes "Oh, Shoot! How many eggs have I done?";
-	mes "Aww!!! I totally forgot! I have to count again!";
+	mes "[낙원단 요리사]";
+	mes "아앗! 이게 몇 번째 계란후라이였지?";
+	mes "으아아아앙!!! 또 처음부터 세야하잖아!!";
 	next;
 	emotion e_sob;
-	mes "[Eden's Chief]";
-	mes "Why have you asked me to do this? What kind of mission is that?";
+	mes "[낙원단 요리사]";
+	mes "아가씨는 왜 나에게 이런 일을 의뢰랍시고 시키는거죠?";
 	next;
 	emotion e_sob;
-	mes "[Eden's Chief]";
-	mes "What are you going to with all of those fried eggs? I am sure you can't eat all of them. You just want to bother me, right?";
+	mes "[낙원단 요리사]";
+	mes "계란후라이를 123개나 만들어서 뭐에 쓰시려고! 혼자 다 드실거도 아니면서 이건 절 단순히 괴롭히고 싶어서 그런게 분명해요! 으아아앙!!!";
 	close;
 }
 
-moc_para01,172,28,5	script	Eden's Intern#eden	4_M_ALCHE_D,{
-	mes "[Eden's Intern]";
-	mes "Actually, I realized that.";
+moc_para01,172,28,5	script	수습 낙원단원#eden	4_M_ALCHE_D,{
+	mes "[수습 낙원단원]";
+	mes "내가 여기 낙원단을 와서 느낀건데";
 	next;
-	mes "[Eden's Intern]";
-	mes "We have to work really hard unless you want to fail.";
+	mes "[수습 낙원단원]";
+	mes "정말 열심히 하지 않으면 안될거 같아...";
 	next;
-	mes "[Eden's Intern]";
-	mes "But, I have never learned about pharmaceuticals yet.";
+	emotion e_otl;
+	mes "[수습 낙원단원]";
+	mes "근데 난 파머시조차 성공해본 적이 없잖아?";
 	next;
-	mes "[Eden's Intern]";
-	mes "I'm going to fail. I can't do this.";
+	emotion e_sob;
+	mes "[수습 낙원단원]";
+	mes "난 아마 안될거야...";
 	close;
 }
 
-moc_para01,20,35,5	script	Office Assistant Neede	4_F_CHNDOCTOR,{
-	mes "[Neede]";
-	mes "I became a Eden's member several years ago, but it feels like it was yesterday.";
-	mes "I have been doing lots of work, so I didn't even notice how many years I spent here.";
+moc_para01,20,35,5	script	사무보조 니데	4_F_CHNDOCTOR,{
+	mes "[니데]";
+	mes "제가 낙원단에 들어온게 엊그제 같은데 생각해보면 벌써 계절이 몇번이나 바뀌었지 뭐에요?";
+	mes "정말 일거리가 어찌나 많은지 시간가는 줄 모르고 있었어요.";
 	next;
-	mes "[Neede]";
-	mes "It reminds me that it was like a war everyday.";
+	mes "[니데]";
+	mes "곰곰히 생각해보면 하루하루가 전쟁과도 같은 나날이었어요.";
 	next;
-	mes "[Neede]";
-	mes "The chief of ^3131FFthe restaurant on the right side^000000";
-	mes "uses too much seasoning every time he cooks, the smell is all over the lobby. We have to open the window regularly because we can't stand the smell!";
+	mes "[니데]";
+	mes "^3131FF우측 식당^000000의 주방장은";
+	mes "대체 음식에 향신료를 어찌나 써대는지, 로비까지 그 자극적인 냄새가 끊이질 않아 정말이지 수시로 통풍을 시켜주지 않으면 여기가 로비인지 식당인지 알수가 없을 정도에요.";
 	next;
-	mes "[Neede]";
-	mes "And, do you see the ^3131FFgymnasium^000000 on the cross of ^3131FFthe north side of the lobby^000000? They always shout when they exercise, I can even hear them from here!";
+	mes "[니데]";
+	mes "거기다 ^3131FF로비 북쪽^000000의 문 건너에서는 ^3131FF연무장^000000의 함성소리가 그치질 않고,";
 	next;
 	emotion e_ag;
-	mes "[Neede]";
-	mes "Besides, the weird girl from ^3131FFthe second floor^000000 is crying all the time. Her cries drive me crazy.";
+	mes "[니데]";
+	mes "^3131FF2층 숙소^000000에서는 아가씨의 신경질적인 비명 소리가 계단을 타고 내려와 연무장의 함성소리에 맞춰 합창을 이룬다니까요?";
 	next;
-	mes "[Neede]";
-	mes "Ah, that weird girl is actually our boss...";
+	mes "[니데]";
+	mes "아, 아가씨는 우리 낙원단의 보스를 말하는 거에요.";
 	next;
-	mes "[Neede]";
-	mes "I don't know what she has been up to. But she cries and shouts all the time. Oh, sometimes I hear 'Bang!', loud booming sounds... I don't know where it came from.";
+	mes "[니데]";
+	mes "대체 하루종일 뭘 하는지 꽥-이라거나 아악-이라거나 캬악-이라거나, 혹은 뭔가 펑! 하는 소리가 들리기도 하고 정말이지 알 수가 없는 분이에요.";
 	next;
 	emotion e_omg;
-	mes "[Neede]";
-	mes "Wait!";
-	mes "Shh! It is a secret, you can't tell anybody!";
+	mes "[니데]";
+	mes "핫!";
+	mes "쉿... 제가 이런 말을 한건 비밀이에요!";
 	next;
-	mes "[Neede]";
+	mes "[니데]";
 	emotion e_sigh;
-	mes "I don't trust Evenor. She never shows her feelings... she's going to snitch on me to my boss.";
+	mes "이베노르씨는 저래보여도 속을 알 수 없는 능구렁이같은 사람이라 몰래 아가씨에게 고자질을 할지 모른다고요.";
 	next;
-	emotion e_pif,0,"Secretary Lime Evenor";
-	mes "[Lime Evenor]";
-	mes "I am not that kind of guy.";
+	emotion e_pif,0,"사무담당 라임 이베노르";
+	mes "[라임 이베노르]";
+	mes "저 그런 사람 아닙니다~";
 	next;
 	emotion e_wah;
-	mes "[Neede]";
-	mes "Huh? Did you hear that? Gosh~!";
+	mes "[니데]";
+	mes "어맛! 다 들렸나봐! 꺄악!";
 	close;
 }

@@ -7,6 +7,7 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 56 - 70.
 //===== Additional Comments: =================================
+//= kRO Official Texts. & Fixed Quest (3259->12217)  [nyalin]
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Added checkquest confirmation for -1. [Euphy]
@@ -15,33 +16,34 @@
 //= 1.5 Optimized, based on code by Zopokx. [Euphy]
 //============================================================
 
-moc_para01,42,38,3	script	Mission [56 - 70]	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "To get these missions, I need to Join the Eden Group first. I must find Secretary Lime Evenor and become a member.";
+moc_para01,42,38,3	script	의뢰 [56 - 70]	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes "의뢰를 받기 위해선 우선 이 곳에 가입을 하는 것이 먼저이다. 등록은 접수처에 있는 라임 이베노르를 통해 할 수 있는 모양이다.";
 		close;
 	}
-	mes "Here is the list of various adventures for level 56~70 adventurers.";
+	mes "대륙의 이곳저곳에서 모여든 크고작은 의뢰들 중 55~70 레벨의 모험가들을 대상으로 적당한 것들이 나열되어 있다.";
 	next;
-	mes "Lots of missions such as a Monster Hunting, Delivery Goods, Finding People.";
+	mes "몬스터 퇴치, 물건 배달, 사람 찾기";
+	mes "등등 다양한 의뢰들이 있는 것 같다.";
 	next;
-	switch(select("Mission Numbers 1~5:Mission Numbers 6~10:Mission Numbers 11~15")) {
+	switch(select("의뢰 번호 1~5:의뢰 번호 6~10:의뢰 번호 11~15")) {
 	case 1:
-		switch(select("What is this Bandage?:Dangerous Alligators.:That wasn't a mermaid...:My country is calling me!")) {
+		switch(select("무엇에 쓰는 붕대인고?:역습의 악어:나의 인어는 이렇지 않다는...:국가가 그대를 부른다")) {
 			case 1: callsub L_HuntingQuest,3250,15000,5000,930,30;
 			case 2: callsub L_HuntingQuest,3251,16000,6000;
 			case 3: callsub L_HuntingQuest,3252,17000,8000;
 			case 4: callsub L_Quest,3254,18000,8000,7043,10,1056,30;
 		}
 	case 2:
-		switch(select("Hunt Wild Boar:Preparing the Summer:A Woman's Grudge:Special ingredients:Puppet Master's Agony")) {
+		switch(select("멧돼지 토벌 작전:여름을 기다리는 준비:여자의 원한:별미의 재료:멧돼지 토벌의 흔적")) {
 			case 1: callsub L_HuntingQuest,3255,16000,7000;
 			case 2: callsub L_Quest,3256,15000,5000,918,30;
 			case 3: callsub L_HuntingQuest,3257,17000,8000;
 			case 4: callsub L_Quest,3258,16000,7000,7198,40;
-			case 5: callsub L_HuntingQuest,3259,17000,7000,1060,30;
+			case 5: callsub L_Quest,12217,17000,7000,1028,30;
 		}
 	case 3:
-		switch(select("Tiresome Flies:Dangerous Munak:Make the World green:Magic Wand")) {
+		switch(select("지긋지긋한 파리떼:부정한 소녀:괴상한 취미:도깨비 방망이")) {
 			case 1: callsub L_HuntingQuest,3260,16000,6000;
 			case 2: callsub L_HuntingQuest,3261,16000,7000;
 			case 3: callsub L_Quest,3262,17000,7000,1032,40;
@@ -54,11 +56,11 @@ L_Quest:
 	if (!questprogress(getarg(0))) {
 		callsub L_Details, getarg(0);
 		next;
-		mes "Would you like to accept this mission?";
+		mes "이 의뢰를 받아 들이겠습니까?";
 		next;
-		if(select("Accept the mission.:Do not accept the mission.") == 1) {
+		if(select("의뢰를 받는다.:의뢰를 포기한다.") == 1) {
 			if (BaseLevel < 55 || BaseLevel > 70) {
-				mes "These missions are not fit for my level. I should look for other missions.";
+				mes "이 곳의 의뢰들은 나의 레벨과는 어울리지 않는 의뢰들 뿐이다. 다른 의뢰들을 찾아보자.";
 				close;
 			}
 			setquest getarg(0);
@@ -99,11 +101,11 @@ L_HuntingQuest:
 	if (!questprogress(getarg(0))) {
 		callsub L_Details, getarg(0);
 		next;
-		mes "Would you like to accept this mission?";
+		mes "이 의뢰를 받아 들이겠습니까?";
 		next;
-		if(select("Accept the mission.:Do not accept the mission.") == 1) {
+		if(select("의뢰를 받는다.:의뢰를 포기한다.") == 1) {
 			if (BaseLevel < 55 || BaseLevel > 70) {
-				mes "These missions are not fit for my level. I should look for other missions.";
+				mes "이 곳의 의뢰들은 나의 레벨과는 어울리지 않는 의뢰들 뿐이다. 다른 의뢰들을 찾아보자.";
 				close;
 			}
 			setquest getarg(0);
@@ -142,217 +144,222 @@ L_HuntingQuest:
 L_Details:
 	switch(getarg(0)) {
 	case 3250:
-		mes "This mission is assigned by the Rekenber corporation from Lighthalzen. Below are the details.";
+		mes "리히타르젠의 레켄베르 기업 약품사업부에서 온 의뢰 입니다. 다음은 의뢰의 전문 입니다.";
 		next;
-		mes "Rekenber corporation is about to launch a new project called 'Green Medical Center'. For the first product of the project, we are preparing well-being Bandages.";
+		mes "레켄베르 그룹에서는 올 해 새로운 프로젝트 '친환경 의료'의 일환으로 선보일 가정용 웰빙 소독붕대를 준비중 입니다.";
 		next;
-		mes "Regarding the project, we need to research monster's reactions when they are wrapped with Rotten Bandages.";
+		mes "이와 관련하여 대륙 곳곳에서 발견할 수 있는 썩은 붕대를 감은 몬스터들을 연구하고자 합니다.";
 		next;
-		mes "If you are interested, please hunt 30 Mummies and bring 30 Rotten Bandages. You can find them in the Pyramid West of Morroc.";
+		mes "관심있는 모험가들은 피라미드 등에서 흔히 볼 수 있는 미이라 30마리를 사냥하여 썩은 붕대30개를 얻어 주시기 바랍니다.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "보고는 이 곳 의뢰용지의 밑으로 성함과 보고물을 남겨주시면 즉시 보상해 드리도록 하겠습니다.";
 		next;
-		mes "- Rekenber corporation chief director 'Julie E Delph' -";
+		mes " - 레켄베르 그룹 약품사업부 사무장 '쥴리 E 델피' -";
 		break;
 	case 3251:
-		mes "This mission is assigned by the Comodo cooperative society. Below are the details.";
+		mes "코모도 마을 상가 번영회로부터의 의뢰입니다. 다음은 의뢰의 전문입니다.";
 		next;
-		mes "Alligators have gone wild these days, they attack women and drunken people who hang out near the beach.";
+		mes "최근 마을 근처 늪지와 해안가에서 부쩍 늘어난 엘리게이터들에게 취객들과 여성들이 공격을 당하는 사례가 번번히 발생하고 있네.";
 		next;
-		mes "This is a very shameful situation for us, the most wonderful vacation spot in Rune-Midgard.";
+		mes "이래서는 대륙 최고의 휴양, 관광도시를 내세우는 우리 코모도 마을의 큰 걱정이 아닐 수가 없지.";
 		next;
-		mes "So, it would be very helpful if you hunt 30 Alligators to clean out this situation.";
+		mes "이 의뢰를 맡은 모험가들이 엘리게이터들을 30마리씩만 처리해 준다면 녀석들의 행패도 줄어들 것 같아서 이렇게 의뢰를 하네.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "보고는 이 곳 의뢰용지의 밑으로 이름과 성과를 남겨주면 즉시 보답하도록 하지.";
 		break;
 	case 3252:
-		mes "This mission is assigned by an unknown client from Izlude.";
+		mes "이즈루드 마을의 익명의 고객으로 부터 들어온 의뢰 입니다.";
 		next;
-		mes "I have admired the beach of Izlude, ever since I was born.";
+		mes "저...저는 평생을 이 이즈루드에서 바다를 동경해온... 해양학자 입니다.";
 		next;
-		mes "When I was young, I found a mysterious creature in the Izlude dungeon, I had never seen something like that before...";
+		mes "제...제가 어린 시절의 일이었습니다. 호기심에 찾아간 이즈루드 던전에서 전 인어를 발견할 수 있었지요.";
 		next;
-		mes "I instantly thought it was a mermaid. I was so supprised, I have studied about mermaids in whole my life.";
+		mes "인어를 발견한 저는 이날까지 해양학자의 길을 걸으며 이 곳의 수중생물에 대한 연구를 계속해 왔습니다.";
 		next;
-		mes "But, as I studied harder, I found that the creature was not a mermaid... yes, It wasn't beautiful at all like other mermaids...";
+		mes "하지만 어디에도 제가 보았던 인어따위는... 없었습니다. 아니 그건 인어가 아니야. 절대 그런 것을 나의 인어로 인정할 수 없어...";
 		next;
-		mes "I finally tracked down the fact that it was a Merman, not a Mermaid!";
+		mes "저의 꿈을... 저의 동심을... 저의 미래를 짓밟은 이 흉악한 생물들을 없애 주시기 바랍니다.";
 		next;
-		mes "Merman... I have wasted my life studying this monster! So please hunt 30 Mermans to make me feel better.";
+		mes "머맨... 입에 이름을 담기조차 흉측한 이 생물을 30마리 처치해 주신다면 이 사례는 꼭 하도록 하겠습니다.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "보고는 이 곳 의뢰용지의 밑으로 성함과 성과를 남겨주시면 즉시 하도록 하겠습니다.";
 		next;
-		mes "-- Izlude 'The Lost dream mermaid' --";
+		mes "-- 이즈루드 '꿈을 잃은 청춘' --";
 		break;
 	case 3254:
-		mes "This mission is assigned by the government officer of the Rune-Midgarts Kingdom.";
+		mes "다음은 프론테라 왕궁 도시관리국에서 온 의뢰 입니다.";
 		next;
-		mes "To prevent a flood in Prontera, we decided to build a huge dam to regulate the water supply.";
+		mes "프론테라 왕궁 도시관리국에서 알린다. 꿈과 희망으로 차 있어야 할 청춘들 중 최근 일자리를 구하지 않고 노는 이들이 있다는 보고를 들었다.";
 		next;
-		mes "But, we are shorthanded on supplies and we need to collect Fine Sand and Grit.";
+		mes "이에 정의와 사랑으로 뭉친 왕궁은 대책회의 끝에 일자리 창출을 위해 국가적 차원의 프론테라 각 처 유역의 치수개발 사업을 구상하게 되었다.";
 		next;
-		mes "So, we would like to ask for help. People, please bring us 10 Fine Sand and 30 Grit each so we can build the dam.";
+		mes "국가는 그대들을 사랑하고, 그대들을 필요로 한다. 젊은이 들이여! 이 위대한 사업을 위해 그대들의 힘을 모아보지 않겠는가?";
 		next;
-		mes "You can get those materials from Sand Man, I wish you good luck!";
+		mes "어마어마한 흙과 모래들이 필요로 하는 본 사업에서 그대들에게 부탁하고 싶은 물품들은 고운 모래가루 10개와 모래조각 30개씩 이다.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "듣자하니 샌드맨이라는 모래괴물에게서 얻을 수 있는 재료라고 하더군.";
+		mes "그대들의 건투를 빈다.";
 		next;
-		mes "-- Government officer of the Rune-Midgarts Kingdom, Dufre Kent --";
+		mes "물론 보상은 확실하게 해 주겠다. 이 곳 의뢰지 아래로 이름과 보고를 올리면 확인 후 즉시 포상을 지급하도록 하겠다.";
+		next;
+		mes "-- 프론테라 왕궁 도시관리국, 듀프리 켄트 --";
 		break;
 	case 3255:
-		mes "This mission is assigned by the Payon town hall.";
+		mes "다음은 페이욘 마을회관에서 온 의뢰 입니다.";
 		next;
-		mes "Wild animals are always annoyances to farmers.";
+		mes "입살스러운 세비지 떼들이 새끼들을 끌고와서 자주 논과 밭의 작물들을 헤집어 놓는다네.";
 		next;
-		mes "They attack our farm and ruin whole crops!! We can't stand it anymore!";
+		mes "이거 원 하루, 이틀도 아니고...";
+		mes "번번히 녀석들을 혼을 내 주려 하지만 여간 일손이 딸린게 아니야.";
 		next;
-		mes "So, we would like to ask for the help from brave adventurers.";
+		mes "우리 마을회관에서는 그래서 이 밉살스러운 세비지떼들을 포획하는데 모험가들의 도움을 구하기로 했다네.";
 		next;
-		mes "Please, hunt 30 Savages to save our crops!";
+		mes "세비지 30마리를 처치 해오는 모험가들을 포상하기로 했다네.";
 		next;
-		mes "You can easily find those monsters around our town and field.";
+		mes "마을 주변의 숲과 들판에서 이 밉살스러운 세비지떼들을 쉽게 찾을 수 있을 거네.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "이 곳 의뢰지 아래로 이름과 성과물을 올리면 확인 후 즉시 포상을 지급하도록 하겠네.";
 		next;
-		mes "-- Payon town hall members --";
+		mes "-- 페이욘 마을회관 주민 일동 --";
 		break;
 	case 3256:
-		mes "This mission is assigned by the Morroc blacksmith Aragham.";
+		mes "다음은 모로크의 대장장이 아라감씨로부터의 의뢰입니다.";
 		next;
-		mes "Hello~~~~, Adventurers! This is Aragham, the hottest blacksmith in Morroc!";
+		mes "쌀레~~~~, 모험가 여러분들... 오랫만이네. 나 사막의 대장장이 아라감 쌀레야~~~";
 		next;
-		mes "Anyway, I have a son named Aragam Junior, the cute one. Haha.";
+		mes "실은 모두들에게 간단한 부탁이 있어. 나의 사랑스러운 아들 아라감 쥬니어를 기억하고 있는지 모르겠군...";
 		next;
-		mes "He will be attending summer camp this summer, but he doesn't know how to swim.";
+		mes "뭐? 모른다고? 앞으로 제련 성공 따위는 기대하지마! 흠흠... 물론 농담일세.";
 		next;
-		mes "I want to teach him, but as you know I am a blacksmith, a far cry from swimming! Hehe.";
+		mes "우리 아라감 쥬니어가 친구들과 수영교실을 간다는데 이 뜨거운 사막의 대장장이의 아들답게 이 아이는 천연 맥주병이라네.";
 		next;
-		mes "But, I figured that if I make swim fins, it will be great for his confidence~!";
+		mes "변변치 않지만 아들에게 힘을 주기위해 물갈퀴를 만들어 주려고 해. 오리발이라고 하면 알아 듣겠나?";
 		next;
-		mes "To make it, I need 30 Sticky Webfoots from a Roda Frog. Can you bring them to me?";
+		mes "로다프로그란 녀석이 끈적끈적한 물갈퀴를 갖고있다는데 이게 한 30개쯤 필요할 거 같네. 좀 구해다 주면 사례하도록 하지.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "내가 직접 갈 수도 있지만, 나를 기다리는 이 수북한 제련 꺼리들이 어디 한두개인가. 다들 알면서잉...";
 		next;
-		mes "PS. Do not compare me with Hollgrehenn or Antonio!!!!";
+		mes "이 곳 의뢰지 아래로 물갈퀴를 붙여서 이름을 남겨주면 바로 보상을 해주도록 하지. 그럼 굿럭! 쌀레~~~~~~";
 		next;
-		mes "-- The hottest blacksmith, Morroc blacksmith Aragham --";
+		mes "PS. 나를 홀그렌과 안토니오 따위와 비교하지마!!!!";
+		next;
+		mes "-- 나는 뜨거운 남자, 사막의 대장장이 아라감 --";
 		break;
 	case 3257:
-		mes "This mission is assigned by an inventor Dorian from Izlude.";
+		mes "다음은 이즈루드의 발명가 도리안씨로부터의 의뢰입니다.";
 		next;
-		mes "Have you heard the story that if women have a grudge on their mind, it will bring natural disasters.";
+		mes "봉쥬~르 무슈 비... 모험가 여러분들에게 부탁이 있어요.";
 		next;
-		mes "Wow, so guys must watch out for those sensitive women! Make sure they don't have any grudges on you.";
+		mes "얼마 전에 이런 이야기를 들었어요. 여자가 한을 품으면 오뉴월에도 서리가 내린다고...";
 		next;
-		mes "Women can bring strange phenomenons with them!";
+		mes "오뉴월에 서리라니 정말 엄청난 현상이 아닐까요? 이건 대단한 발견일 겁니다.";
 		next;
-		mes "I am so intrigued with that story that I'm trying to prove that it can be true.";
+		mes "하지만 저 같은 신사가 어떻게 레이디의 마음을 아프게 할 까요... 오... 안돼 이건...";
 		next;
-		mes "So I need to make women upset! Haha, I know what a mean idea, right?";
+		mes "여러분들이 대신 여자의 한을 만들어 주셨으면 합니다. 이것은 위대한 과학적 발명의 초석이 되겠지요.";
 		next;
-		mes "But this is seriously just for studying... So please hunt 30 Sohee's who seems to be revived from victimized souls.";
+		mes "소희라는 처녀귀신이 있다고 합니다. 이 처녀귀신을 30마리만 처리하여 주시기 바랍니다. 여자의 한이라는 걸 봐두고 싶군요.";
 		next;
-		mes "So I can keep observing the case.";
+		mes "오... 레이디... 비록 살아있는 몸이 아니라 할지언정 이런 실례를... 하지만 이해해 주실거라 믿습니다.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "이 곳 의뢰지 아래로 이름과 성과를 남겨주면 바로 보상을 하도록 하겠어요. 그럼...";
 		next;
-		mes "-- Elegance inventor Dorian --";
+		mes "-- 엘레강스 사이언티스트 도리안 --";
 		break;
 	case 3258:
-		mes "This mission is assigned by Wallah from Payon.";
+		mes "다음은 페이욘의 월아씨로부터의 의뢰입니다.";
 		next;
-		mes "Hello, adventurer. How are you? How is your health?";
+		mes "안녕하시옵니까, 모험가 여러분. 소녀가 여러분께 부탁이 있습니다.";
 		next;
-		mes "I am a pharmacist and I am having a hard time getting special ingredients lately.";
+		mes "이곳저곳에서 약을 요청하는 요구는 들어오는데 마침 중요한 약재가 떨어져 버렸습니다.";
 		next;
-		mes "Because I am a little sensitive girl, how can I possibly get those things by myself.";
+		mes "커다란잎사귀란 약재이온데..";
+		mes "리프캣이란 고양이로부터 얻을 수 있는 물건이라고 들었습니다.";
 		next;
-		mes "So, please help me. Just bring 40 Huge Leafs to me, that will be enough to complete my special medicine!";
+		mes "연약한 소녀가 구해오기엔 너무 벅찬 일이므로 이렇게 부탁을 올리게 되었으니, 꼭 돌아봐 주시기 바랍니다.";
 		next;
-		mes "Please bring it as soon as possible, people need my medicine.";
+		mes "커다란 잎사귀를 40개만 구해다 주시면 됩니다. 최대한 빨리 말이죠...";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "이 곳 의뢰지 아래로 이름과 성과를 남겨주면 바로 보상을 하도록 하겠습니다.";
 		next;
-		mes "-- Wallah --";
+		mes "-- 월아 --";
 		break;
-	case 3259:
-		mes "This mission is assigned by puppet master Woonute from Geffen.";
+	case 12217:
+		mes "이것 역시 페이욘 마을회관에서 온 의뢰입니다.";
 		next;
-		mes "You know being a puppet master is kind of a hard job to satisfy people.";
+		mes "세비지떼가 몰려와 마을을 헤집어놓기 시작한것이 하루 이틀이 아니라네";
 		next;
-		mes "People can search and see so many different things on their own thesedays.";
+		mes "아무래도 그저 토벌만 하는것으로는 효과를 보기 힘들 듯 하니 특단의 조치가 필요할 것이야";
 		next;
-		mes "Their expectations are getting high, I can't satisfy them anymore.";
+		mes "살아있는 생생한 세비지를 처치한 뒤에 그 멧돼지의갈기털 30개를 가지고 돌아와주게";
 		next;
-		mes "But if I can make new toy concepts, like living toys, it will be ground breaking.";
-		next;
-		mes "I heard that there are live dolls called Marionettes. Can you hunt 30 Marionettes for me? And also bring 30 Golden Hair, those will be great materials for the new toys.";
-		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
-		next;
-		mes "-- Puppet Master Woonute --";
+		mes "세비지들이 습격하는 길목에 뿌려놓아 놈들의 경각심을 불러 일으켜야겠어";
 		break;
 	case 3260:
-		mes "This mission is assigned by an exterminator from Prontera.";
+		mes "최근 한정된 지역에서 서식하던 헌터 플라이들이 이곳저곳에서 그 왕성한 번식력을 뽐내고 있어 주민들의 불만이 끊이지 않고 있다.";
 		next;
-		mes "As the weather gets warmer, insects multiply more and more. It is already out of control.";
+		mes "특히 이 헌터플라이들이 자주 출몰한다는 인근 게펜마을의 한 주민은 밤마다 잠을 이루지 못하여 불면증을 호소하고 있다.";
 		next;
-		mes "People in Prontera cannot sleep because of all the bugs in their house.";
+		mes "리히타르젠 공화국에서 최근 개발되었다는 초강력 해중제거제를 도입해 보려 했지만... 아직은 시기상조.";
 		next;
-		mes "So, please help us, hunt 30 Hunter Flies. Then the flies can be reduced slowly.";
+		mes "모험가들의 힘을 모아 해충을 박멸해 볼 것을 제안한다. 헌터플라이를 30마리 이상 잡아오는 모든 이를 포상하겠다.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "잡아온 헌터 플라이의 숫자는 모두 빠짐없이 기록되니 30마리 이상을 박멸한 모험가들은 이 공고 밑으로 자신의 이름을 남기도록.";
 		next;
-		mes "-- The Prontera exterminator --";
+		mes "-- 프론테라 왕궁 도시관리국 --";
 		break;
 	case 3261:
-		mes "This mission is assigned by Cheese Dongja from Payon.";
+		mes "다음은 페이욘의 역술인 치즈동자님의 의뢰입니다.";
 		next;
-		mes "Have you heard about Munak?";
+		mes "요기가... 음기가 드세지고 양기가 말라 달그림자가 태양을 가리고...";
 		next;
-		mes "The ugly monster Munak is threatening people in Payon.";
+		mes "부정한 시체들이 뛰놀고 산 자가 한숨을 쉬니... 어허~ 큰일이구나.";
 		next;
-		mes "So we need brave adventurers like you!";
+		mes "이 흉물스런 요괴들을 당장 처치하지 않으면 큰 호통을 듣게 될 것이야!";
 		next;
-		mes "Please hunt 30 Munaks then Payon will be in peace.";
+		mes "요망한 무낙이란 요괴를 30마리 처치하지 않으면 이 페이욘에 큰 화가 미치게 될 것이야. 암!";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "복채는 이미 받았고... 수고비는 마을촌장께서 다 준비해 두셨으니 걱정말고 잡도록 해야 할 것이야~";
 		next;
-		mes "- Payon Cheese Dongja -";
+		mes "의뢰지 아래로 이름과 성과를 남기면 모든 게 잘 풀릴 것이니라~";
 		break;
 	case 3262:
-		mes "This mission is assigned by a gem dealer, Ibraham from Morroc.";
+		mes "다음은 모로코의 보석상 이브라힘씨로의 의뢰입니다.";
 		next;
-		mes "A small beautiful flower in the barren desert... What an incredible scene it would be!";
+		mes "칙칙한 사막에 핀 꽃 한 송이... 어떻습니까? 멋지지 않나요?";
 		next;
-		mes "Planting flowers can make the world green and it will be so pretty everywhere.";
+		mes "보석상인 제가 이런 말을 하는 것은 우습지만 꽃의 아름다움은 보석이란 유기물에 비할바가 아니라고 생각합니다.";
 		next;
-		mes "I plan to plant strong flowers in the Morroc desert so the soil gets better.";
+		mes "이 척박한 사막에도 꽃이 피어난다면... 그 아름다움은 분명 더 눈부신 결과가 될 것입니다.";
 		next;
-		mes "I need 40 Maneater Blossom from Flora, I know Maneater Blossom is an ugly flower, but still it is a plant.";
+		mes "전 지금 사막에서도 뿌리를 내리고 살 수 있는 이런저런 꽃들을 찾아보는 중입니다. 물론 저의 개인적인 취미이지요.";
 		next;
-		mes "I hope you can hunt Flora and get me 40 Maneater Blossoms. You are making the world green! Be proud!";
+		mes "플로라라는 생물은 생명력이 굉장하다고 하더군요. 아마 이 꽃이라면 척박한 모로크의 사막에서도 잘 자라지 않을까요?";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "플로라에게서 식인수의 꽃을 40개 구해주시기 바랍니다. 사례는 이 의뢰용지 밑으로 성함과 보고물을 달아주시면 즉시 보내 드리도록 하지요.";
 		next;
-		mes "-- Morroc Ibraham --";
+		mes "-- 모로크 이브라힘 --";
 		break;
 	case 3263:
-		mes "This mission is assigned by the Payon blacksmith Antonio.";
+		mes "다음은 페이욘의 대장장이 안토니오씨로의 의뢰입니다.";
 		next;
-		mes "Magic wand! Have you heard about it? It is an incredible wand!";
+		mes "도깨비 방망이! 들어 보았는가? 이 엄청난 녀석을?";
 		next;
-		mes "If you say the magic words and swing the wand, it will make your wishes come true.";
+		mes "도깨비 방망이를 휘두르고 주문을 외우면 무엇이든 원하는 것들이 펑펑 쏟아져 나온다는 전설이 있다네.";
 		next;
-		mes "So, I decided to make it by myself. Then I will be rich and powerful~! Haha!!";
+		mes "그게 사실이라면... 이제 난 당장이라도 이 더러운 대장장이질을 때려치고 새 삶을 살 수 있는게지.";
 		next;
-		mes "To make the wand, I need some special materials.";
+		mes "이제는 모두의 비난도 무리한 제련의 부담을 나에게 뒤집어 씌우려는 수 많은 무책임한 녀석들의 투정도 끝이다!";
 		next;
-		mes "Please bring me 30 Dokebi Horns and 30 Bamboo Cut. If you do so, I will lend you my magic wand once. Haha, good deal?";
+		mes "내 반평생을 함께한 분무질 실력을 발휘하여 한번 직접 이 방망이를 만들어 볼 생각이네.";
 		next;
-		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		mes "도깨비들의 뿔과 나무조각들이라면 어떻게든 만들어 볼 수 있을까 싶은데... 각각 30개씩만 구해다 주지 않겠나? 사례는 제대로 하지";
 		next;
-		mes "-- Payon blacksmith Antonio --";
+		mes "보고라면 이 의뢰용지 아래로 이름과 재료를 달아놓으면 바로 확인 후 보상을 보내도록 하겠네.";
+		next;
+		mes "잘 있거라 홀그렌이여, 아라감이여... 이제 이 지긋지긋한 대장장이 질도 끝이다. 으하하하.";
+		next;
+		mes "-- 새 삶을 꿈꾸는 안토니오 --";
 		break;
 	}
 	return;

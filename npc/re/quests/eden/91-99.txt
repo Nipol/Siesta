@@ -9,57 +9,58 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 91 - 99.
 //===== Additional Comments: =================================
+//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 1.0 First Version. [Chilly]
 //= 1.1 Some little improvements here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Updated to match the official script. [Euphy]
 //============================================================
 
-moc_para01,48,177,3	script	91-99 Mission Board	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "Wait a minute!";
-		mes "-You need to have an-";
-		mes "-^4d4dff'Eden Group Mark'^000000-";
-		mes "-to receive these missions.-";
+moc_para01,48,177,3	script	의뢰 [91-99]	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes ":: 잠깐!";
+		mes ":: 의뢰를 받기 위해서는";
+		mes ":: ^4d4dff낙원단^000000에 가입을";
+		mes ":: 하고 오셔야 합니다.";
 		next;
-		switch(select("Just walk away.:^0000FFEden Group^000000 missions?:How can I be a member of the ^0000FFEden Group^000000?")) {
+		switch(select("그냥 지나간다.:^0000FF낙원단^000000 의뢰가 뭔가요?:^0000FF낙원단^000000에 가입하려면?")) {
 		case 1:
 			close;
 		case 2:
-			mes "::The Eden Group Missions";
-			mes "::are basically missions";
-			mes "::requested by";
-			mes "::people from all around the kingdom.";
-			mes "::We just categorize them.";
+			mes ":: 낙원단 의뢰란";
+			mes ":: 각지의 여러 사람들이";
+			mes ":: 원하는 것들을";
+			mes ":: 낙원단에서 분류하여";
+			mes ":: 게시해 놓은 것입니다.";
 			next;
-			mes "::In the Eden Group,";
-			mes "::we sorted out the missions";
-			mes "::according to the level of difficulty.";
-			mes "::According to this level,";
-			mes "::you can find";
-			mes "::missions that";
-			mes "::suit you.";
+			mes ":: 낙원단에서는";
+			mes ":: 접수된 의뢰의";
+			mes ":: 난이도를 판단하여";
+			mes ":: 모험가 분들의";
+			mes ":: 공식적인 레벨에 맞게";
+			mes ":: 분류하여";
+			mes ":: 게시해 두었습니다.";
 			next;
-			mes "::When you are done,";
-			mes "::you can come back";
-			mes "::to the mission board.";
+			mes ":: 의뢰 완료 역시";
+			mes ":: 게시판을 통해";
+			mes ":: 알려주시면 됩니다.";
 			next;
-			mes "::Then you will be";
-			mes "::rewarded!!";
-			mes "::Simple, isn't it!!";
-			mes "::No commission required!!";
+			mes ":: 나머지 처리는";
+			mes ":: 낙원단에서 전부";
+			mes ":: 알아서 처리하겠습니다.";
+			mes ":: 수수료 없음!";
 			close;
 		case 3:
-			mes "::You can become a member";
-			mes "::of the Eden Group";
-			mes "::to ^0000FFLaime Evenor^000000,";
-			mes "::who is waiting on the 1st floor.";
+			mes ":: 낙원단 가입은";
+			mes ":: 아래 ^6633001층^000000에 위치한";
+			mes ":: ^0000FF라임 이베노르^000000를 통해";
+			mes ":: 가능합니다.";
 			next;
-			mes "::If you become a member,";
-			mes "::you will get an";
-			mes "::\"^006400Eden Group Mark^000000\".";
-			mes "::Then you will be able";
-			mes "::to see the mission board.";
+			mes ":: 낙원단원이 되시면";
+			mes ":: ^006400낙원단의 증표^000000를";
+			mes ":: 얻게 되며";
+			mes ":: 그 이후부터 게시판을";
+			mes ":: 확인할 수 있습니다.";
 			close;
 		}
 	}
@@ -78,7 +79,10 @@ moc_para01,48,177,3	script	91-99 Mission Board	4_BOARD3,{
 			96000,102000,110000,
 			102000,108000,
 			110000,138000,118000,96000,134000;
-		mes "You must be within level 91-99 to accept these missions.";
+		mes ":: 이 의뢰들은";
+		mes ":: ^0000FF레벨 91 ~ 99^000000의 경우에만";
+		mes ":: 열람이 가능하게";
+		mes ":: 만들어져 있습니다.";
 		for(.@quest = 4181; .@quest<=4196; ++.@quest) {
 			.@hunting = questprogress(.@quest,HUNTING);
 			if (.@hunting == 1) {
@@ -104,78 +108,335 @@ moc_para01,48,177,3	script	91-99 Mission Board	4_BOARD3,{
 		}
 		close;
 	}
-	mes "[91-99 Mission Board]";
-	mes "There are several requests on this board.";
+	mes ":: 여러가지 의뢰가";
+	mes ":: 많이 적혀있습니다.";
+	mes ":: 확인하고자 하는";
+	mes ":: 항목을 선택해 보세요.";
 	next;
-	switch(select("^8B4513Turtle Island^000000:^8B4513Glast Heim^000000:^8B4513Rachel / Veins^000000:^8B4513Expansion Cities^000000:^8B4513Other regions^000000")) {
+	switch(select("^8B4513거북이 섬 던전^000000 방면:^8B4513글래스트 헤임^000000 방면:^8B4513라헬 / 베인스^000000 방면:^8B4513로컬라이징 도시^000000 방면:^8B4513그 외^000000 지역")) {
 	case 1:
-		mes "^8B4513Turtle Island^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes ":: ^8B4513거북이 섬 던전^000000 방면";
+		mes ":: 의뢰가 적혀 있다.";
 		next;
-		switch(select("^0000FFSolider^000000:^0000FFFreezer^000000:^0000FFHeater^000000")) {
-			case 1: callsub L_Quest,4181,"Solider",90000,"솔리더카드","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
-			case 2: callsub L_Quest,4182,"Freezer",94000,"프리저카드","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
-			case 3: callsub L_Quest,4183,"Heater",114000,"히터카드","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
+		switch(select("^0000FF솔리더^000000 처리:^0000FF프리저^000000 처리:^0000FF힛터^000000 처리")) {
+		case 1:
+			callsub L_Check,4181,"솔리더",90000;
+			.@MobName$ = "솔리더";
+			mes "[의뢰 - "+.@MobName$+" 처리]";
+			mes "낙원단 의뢰의 성과로 인하여 거북이 섬의 위험이 조금 나아진다 싶었는데, 알고 봤더니 ^8B4513거북이 섬 던전^000000이야 말로 진정한 위험 지역이더군요.";
+			next;
+			mes "[의뢰 - "+.@MobName$+" 처리]";
+			mes "그 안에는 사람들을 위협하는 여러 괴물들이 시간이 갈수록 늘어나고 있습니다.";
+			next;
+			cutin "솔리더카드",3;
+			break;
+		case 2:
+			callsub L_Check,4182,"프리저",94000;
+			.@MobName$ = "프리저";
+			mes "[의뢰 - "+.@MobName$+" 처리]";
+			mes "알고봤더니 거북섬은 외부 뿐 아니라 내부의 던전도 정말 위험한 곳이더군요.";
+			mes "이대로 방치해서는 문제가 커질 수 있습니다.";
+			next;
+			cutin "프리저카드",3;
+			break;
+		case 3:
+			callsub L_Check,4183,"힛터",114000;
+			.@MobName$ = "힛터";
+			mes "[의뢰 - "+.@MobName$+" 처리]";
+			mes "^8B4513거북이 섬 던전^000000은 정말 위험하면서도 신기한 곳입니다.";
+			mes "차가운 거북이 괴물과 뜨거운 거북이 괴물이 사이좋게 사람들을 습격하는 곳이지요.";
+			next;
+			cutin "히터카드",3;
+			break;
 		}
+		mes "[의뢰 - "+.@MobName$+" 처리]";
+		mes "^8B4513거북이 섬 던전^000000 안으로 가셔서, ^FF0000"+.@MobName$+"^000000를 ^0000FF30마리^000000 이상 처리 해 주시길 바랍니다.";
+		mes " ";
+		mes ":: 의뢰인 포치";
+		next;
+		if (.@MobName$ == "솔리더") callsub L_Quest,4181,"솔리더";
+		if (.@MobName$ == "프리저") callsub L_Quest,4182,"프리저";
+		if (.@MobName$ == "힛터") callsub L_Quest,4183,"힛터";
 	case 2:
-		mes "^8B4513Glast Heim^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes ":: ^8B4513글래스트 헤임^000000 방면";
+		mes ":: 의뢰가 적혀 있다.";
 		next;
-		switch(select("^0000FFInjustice^000000:^0000FFRybio^000000:^0000FFDark Priest^000000")) {
-			case 1: callsub L_Quest,4184,"Injustice",96000,"인저스티스카드","There is a monster only found in ^8B4513Glast Heim prison^000000.";
-			case 2: callsub L_Quest,4185,"Rybio",96000,"리비오카드","There is a monster only found in ^8B4513Glast Heim prison^000000.";
-			case 3: callsub L_Quest,4186,"Dark Priest",146000,"다크프리스트카드","There is a monster only found in ^8B4513Glast Heim prison^000000.";
+		switch(select("^0000FF인저스티스^000000 처리:^0000FF리비오^000000 처리:^0000FF다크 프리스트^000000 처리")) {
+		case 1:
+			callsub L_Check,4184,"인저스티스",96000;
+			.@MobName$ = "인저스티스";
+			break;
+		case 2:
+			callsub L_Check,4185,"리비오",96000;
+			.@MobName$ = "리비오";
+			break;
+		case 3:
+			callsub L_Check,4186,"다크 프리스트",146000;
+			mes "[의뢰 - 다크 프리스트 처리]";
+			mes "혹시 예전에 슈발츠발드 쪽에서 제작되었던 그림책 다크나이트를 보신 적 있으신가요?";
+			next;
+			mes "[의뢰 - 다크 프리스트 처리]";
+			mes "그것때문에 나이트 직업을 가진 분들이 자신을 칭할 때, 다크로드나이트";
+			mes "어쩌고 하면서 유행을 즐기곤 했었죠.";
+			next;
+			cutin "다크프리스트카드",3;
+			mes "[의뢰 - 다크 프리스트 처리]";
+			mes "고귀한 프리스트의 이미지를 심각하게 훼손시키는 ^FF0000다크 프리스트^000000를 찾아 ^0000FF30마리^000000 이상 처단해 주세요.";
+			mes "^8B4513글래스트 헤임 공동묘지^000000로 가시면 됩니다.";
+			mes ":: 익명의 프리스트";
+			next;
+			callsub L_Quest,4186,"다크 프리스트";
+			end;
 		}
-	case 3:
-		mes "^8B4513Rachel / Veins^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "[의뢰 - "+.@MobName$+" 처리]";
+		mes "안녕~! 난 게펜에서 살고 있는 음유시인이야.";
+		mes "내 노래는 내가 생각해도 정말... 객관적으로도 대단한 것 같아.";
+		mes "그래서 ^8B4513글래스트 헤임^000000으로 공연을 하러 가볼까 생각했었지.";
 		next;
-		switch(select("^0000FFStapo^000000:^0000FFRoween^000000:^0000FFSiroma^000000")) {
-			case 1: callsub L_Quest,4187,"Stapo",96000,"스태포카드","There is a monster only found in ^8B4513Veins^000000.";
-			case 2: callsub L_Quest,4188,"Roween",102000,"로우윈카드","There is a monster only found in ^8B4513Rachel^000000.";
-			case 3: callsub L_Quest,4189,"Siroma",110000,"시로마카드","There is a monster only found in ^8B4513Ice Dungeon^000000.";
+		mes "[의뢰 - "+.@MobName$+" 처리]";
+		mes "어떤 장소인지 미리 보려고 가봤더니, 이상한 괴물들이 가득하더라고.";
+		mes "특이한 복장의 팬들이 벌써부터 소문을 듣고 모였나 착각했었다니까.";
+		next;
+		mes "[의뢰 - "+.@MobName$+" 처리]";
+		mes "글래스트 헤임이 공연장이 될 수 있도록 좀 도와주지 않을래?";
+		next;
+		if (.@MobName$ == "인저스티스") cutin "인저스티스카드",3;
+		if (.@MobName$ == "리비오") cutin "리비오카드",3;
+		mes "[의뢰 - "+.@MobName$+" 처리]";
+		mes "자 그럼, 목표 제시!";
+		mes "^8B4513글래스트 헤임 지하감옥^000000으로 가서, ^FF0000"+.@MobName$+"^000000를 ^0000FF30마리^000000 이상 처단!!";
+		mes " ";
+		mes ":: 의뢰인 음유시인 이렌드";
+		next;
+		if (.@MobName$ == "인저스티스") callsub L_Quest,4184,"인저스티스";
+		if (.@MobName$ == "리비오") callsub L_Quest,4185,"리비오";
+	case 3:
+		mes ":: ^8B4513라헬 / 베인스^000000 방면";
+		mes ":: 의뢰가 적혀 있다.";
+		next;
+		switch(select("^0000FF스태포^000000 처리:^0000FF로우윈^000000 처리:^0000FF시로마^000000 처리")) {
+		case 1:
+			callsub L_Check,4187,"스태포",96000;
+			mes "[의뢰 - 스태포 처리]";
+			mes "혹시 씻을 때 비누 사용해 보셨나요?";
+			mes "어떤 먼지도 쓱쓱 씻겨 나가는 걸 보면서, 정말 신기한 물건이라 생각하신 적이 있을 거에요.";
+			mes "저는 바로 그런 비누를 만드는 사람입니다. 후훗";
+			next;
+			cutin "스태포카드",3;
+			mes "[의뢰 - 스태포 처리]";
+			mes "요즘 저는 새로운 발견을 하게 되었는데요. 자세한 것은 비밀이지만 ^FF0000스태포^000000와 연관이 있다는 것 정도만 말씀드릴 수 있겠네요.";
+			mes "제 연구를 지속시키려면 ^FF0000스태포^000000와가 소멸된 장소가 많아야 합니다.",
+			next;
+			mes "[의뢰 - 스태포 처리]";
+			mes "힘 없는 비누 제작자를 위해, ^FF0000스태포^000000를 물리쳐 주세요.";
+			mes "^8B4513베인스 필드^000000로 가셔서, ^0000FF30마리^000000 이상 물리쳐 주시면 됩니다.";
+			mes " ";
+			mes ":: 의뢰인 아이버리";
+			next;
+			callsub L_Quest,4187,"스태포";
+		case 2:
+			callsub L_Check,4188,"로우윈",102000;
+			mes "[의뢰 - 로우윈 처리]";
+			mes "안녕하세요.";
+			mes "신관인 제가 낙원단에 의뢰를 하게 될 때가 다 있네요.";
+			next;
+			cutin "로우윈카드",3;
+			mes "[의뢰 - 로우윈 처리]";
+			mes "얼마 전, 신관복을 수송해 오던 상단이 습격을 당해 모두 잃어버리는 사태가 벌어졌었어요.";
+			mes "살아돌아온 상단 사람의 이야기를 들어보니 ^FF0000로우윈^000000이라는 몬스터의 짓이라는 것을 알 수 있었습니다.";
+			next;
+			mes "[의뢰 - 로우윈 처리]";
+			mes "탐욕이 넘친다는 못된 괴물을 혼내주시길 바래요.";
+			mes "^8B4513이다 평원^000000으로 가셔서 ^FF0000로우윈^000000을 최소 ^0000FF30마리 이상 ... 처단, 아 아니... 회개시켜 주시면 될 것입니다.";
+			next;
+			mes "[의뢰 - 로우윈 처리]";
+			mes "프레이야 여신의 축복이 깃들길...";
+			mes " ";
+			mes ":: 의뢰인 - 신관 네마";
+			next;
+			callsub L_Quest,4188,"로우윈";
+		case 3:
+			callsub L_Check,4189,"시로마",110000;
+			mes "[의뢰 - 시로마 처리]";
+			mes "저는 예전부터 참 아쉬운것이 있습니다.";
+			next;
+			mes "[의뢰 - 시로마 처리]";
+			mes "^8B4513얼음 동굴^000000은 괴물만 없으면 참 좋은 곳이라는 겁니다.";
+			mes "괴물들로 부터 자유로울 수 있다면야, 동굴 바닥에 엎드려서 잠이라도 정할 수 있을 텐데요.";
+			next;
+			cutin "시로마카드",3;
+			mes "[의뢰 - 시로마 처리]";
+			mes "괜찮으시다면, ^8B4513얼음 동굴^000000로 가셔서 ^FF0000시로마^000000라는 괴물을 ^0000FF30마리^000000 이상 물리쳐 주세요.";
+			next;
+			mes "[의뢰 - 시로마 처리]";
+			mes "저 같이 장사하는 사람도 가끔 휴업하고 얼음동굴로 놀러갈 수 있을 날이 오길 기대하고 있겠습니다.";
+			mes " ";
+			mes ":의뢰인 모하디안";
+			next;
+			callsub L_Quest,4189,"시로마";
 		}
 	case 4:
-		mes "^8B4513Expansion Cities^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes ":: ^8B4513로컬라이징 도시^000000 방면";
+		mes ":: 의뢰가 적혀 있다.";
 		next;
-		switch(select("^0000FFShinobi^000000:^0000FFEvil Nymph^000000")) {
-			case 1: callsub L_Quest,4190,"Shinobi",102000,"시노비카드","There is a monster only found in ^8B4513Amatsu Dungeon^000000.";
-			case 2: callsub L_Quest,4191,"Evil Nymph",108000,"요선녀카드","There is a monster only found in ^8B4513Kunlun Dungeon^000000.";
+		switch(select("^0000FF시노비^000000 처리:^0000FF요선녀^000000 처리")) {
+		case 1:
+			callsub L_Check,4190,"시노비",102000;
+			mes "[의뢰 - 시노비 처리]";
+			mes "모험가 분들이 ^8B4513아마쯔 던전^000000을 찾을 때 저도 따라가 본 적이 있어요.";
+			next;
+			cutin "시노비카드",3;
+			mes "[의뢰 - 시노비 처리]";
+			mes "그런데 제가 좋다고 자꾸만 따라다니는 괴물이 있어서 .......";
+			mes "이런 건 정말 곤란한데.";
+			next;
+			mes "[의뢰 - 시노비 처리]";
+			mes "^8B4513아마쯔 던전^000000으로 가셔서 나쁜 치한 같은 ^FF0000시노비^000000를 ^0000FF30마리^000000 이상 없애주세요!";
+			mes " ";
+			mes ":: 의뢰인 아마짱";
+			next;
+			callsub L_Quest,4190,"시노비";
+		case 2:
+			callsub L_Check,4191,"요선녀",108000;
+			cutin "요선녀카드",3;
+			mes "[의뢰 - 요선녀 처리]";
+			mes "지난 번에 ^8B4513곤륜 던전^000000을 찾아간 적이 있었지. 그런데 어떤 예쁜 아가씨가 나를 향해 달려오더라고.";
+			mes "처음에는 나의 팬인가 싶었는데, 알고 봤더니 모험가를 위협하는 ^FF0000요선녀^000000였더군.";
+			next;
+			mes "[의뢰 - 요선녀 처리]";
+			mes "당시의 나는 바빠서 ^FF0000요선녀^000000를 처리할 수가 없었다.";
+			mes "괜찮다면, 나 대신 ^FF0000요선녀^000000를 ^0000FF30마리^000000 이상 물리치고 와라!";
+			mes " ";
+			mes ":: 의뢰인 준포 량";
+			next;
+			callsub L_Quest,4191,"요선녀";
 		}
 	case 5:
-		mes "Other Regions.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes ":: 그 외 지역에 대한";
+		mes ":: 의뢰가 적혀 있다.";
 		next;
-		switch(select("^0000FFDeviruchi^000000:^0000FFMineral^000000:^0000FFKaho^000000:^0000FFNeraid^000000:^0000FFDisguise^000000")) {
-			case 1: callsub L_Quest,4192,"Deviruchi",110000,"데비루치카드","There is a monster only found in ^8B4513Geffen Dungeon^000000.";
-			case 2: callsub L_Quest,4193,"Mineral",138000,"미네랄","There is a monster only found in ^8B4513Einbech Dungeon^000000.";
-			case 3: callsub L_Quest,4194,"Kaho",118000,"카호카드","There is a monster found in ^8B4513Nogg Road Magma 1^000000.";
-			case 4: callsub L_Quest,4195,"Neraid",96000,"네레이드카드","There is a monster only found in ^8B4513Comodo Dungeon^000000.";
-			case 5: callsub L_Quest,4196,"Disguise",134000,"디스가이즈카드","There is a monster only found in ^8B4513Nifflheim^000000.";
+		switch(select("^0000FF데비루치^000000 처리:^0000FF미네랄^000000 처리:^0000FF카호^000000 처리:^0000FF네레이드^000000 처리:^0000FF디스가이즈^000000 처리")) {
+		case 1:
+			callsub L_Check,4192,"데비루치",110000;
+			cutin "데비루치카드",3;
+			mes "[의뢰 - 데비루치 처리]";
+			mes "안녕? 난 ^0000FF데비루치 팻^000000을 데리고 다니는 천재 모험가야.";
+			mes "내가 부탁하고자 하는 건 말이지...";
+			mes "다른 ^FF0000데비루치^000000를 처단하는 거야.";
+			next;
+			mes "[의뢰 - 데비루치 처리]";
+			mes "왜냐고?!";
+			mes "나의 데비루치 팻은 나만의 스타일이 되어야 하니까!";
+			mes "나 말고 다른 사람들은 아무도 데비루치를 팻으로 가져서는 안 된다고!";
+			next;
+			mes "[의뢰 - 데비루치 처리]";
+			mes "^8B4513게펜 던전^000000으로 가서 ^FF0000데비루치^000000를 ^0000FF30마리^000000 이상 물리치고 돌아와 줘.";
+			mes " ";
+			mes ":: 의뢰인 천재 모험가 II";
+			next;
+			callsub L_Quest,4192,"데비루치";
+		case 2:
+			callsub L_Check,4193,"미네랄",138000;
+			mes "[의뢰 - 미네랄 처리]";
+			mes "미인은 여름을 잘 보내야 진정한 아름다움을 갖출 수 있지요.";
+			mes "제 미모의 장점은 누가봐도 눈부신 피부랍니다.";
+			mes "여름 피부관리에 대한 힌트를 하나 드리자면...";
+			next;
+			mes "[의뢰 - 미네랄 처리]";
+			mes "햇빛이 없는 광산으로 가서 차분하게 독서를 하면 되는 거지요.";
+			mes "차분하게 잠을 자도 되고요.";
+			next;
+			cutin "미네랄",3;
+			mes "[의뢰 - 미네랄 처리]";
+			mes "그런데 차분함을 방해하려고 방방뛰는 괴물이 있어서 짜증나요.";
+			next;
+			mes "[의뢰 - 미네랄 처리]";
+			mes "^8B4513아인베흐 광산 던전^000000으로 가셔서, 산만하게 돌아다니는 ^FF0000미네랄^000000이라는 괴물들을 ^0000FF30마리 이상 처리해 주세요.";
+			next;
+			mes "[의뢰 - 미네랄 처리]";
+			mes "그럼 즐거운 광산 여행 되세요!";
+			mes " ";
+			mes ":: 의뢰인 미소녀 A";
+			next;
+			callsub L_Quest,4193,"미네랄";
+		case 3:
+			callsub L_Check,4194,"카호",118000;
+			mes "[의뢰 - 카호 처리]";
+			mes "난 ^8B4513루티에^000000에 살고 있어.";
+			mes "이 곳은 때때로 좀 추운 날씨가 있지. 눈으로 덮여 있잖아.";
+			mes "추위를 피해 놀러가면 좋은 곳으로는 ^8B4513용암 동굴^000000이 있지.";
+			next;
+			cutin "카호카드",3;
+			mes "[의뢰 - 카호 처리]";
+			mes "하지만 아무리 추위가 싫어도, 불덩어리가 돌아다녀서는 너무 위험하기 때문에 마음 편히 다닐 수가 없더라고.";
+			next;
+			mes "[의뢰 - 카호 처리]";
+			mes "^8B4513용암 동굴^000000에 있는 ^FF0000카호^000000라는 괴물을 ^0000FF30마리^000000 이상 물리쳐 주지 않을래?";
+			mes " ";
+			mes ":: 의뢰인 눈사람";
+			next;
+			callsub L_Quest,4194,"카호";
+		case 4:
+			callsub L_Check,4195,"네레이드",96000;
+			cutin "네레이드카드",3;
+			mes "[의뢰 - 네레이드 처리]";
+			mes "안녕하세요!";
+			mes "코모도는 휴양지로 정말 다 좋은데, 딱 한 가지 물안한 점이 있습니다.";
+			mes "바로 ^FF0000네레이드^000000라는 괴물 때문입니다.";
+			next;
+			mes "[의뢰 - 네레이드 처리]";
+			mes "요즘들어, 마을 안으로 네레이드가 가끔 넘어오기 때문입니다.";
+			mes "꿈틀거리는게 징그러워서, 여행을 왔던 사람들이 모두 기겁을 하지 뭡니까.";
+			next;
+			mes "[의뢰 - 네레이드 처리]";
+			mes "^8B4513코모도 서쪽 동굴^000000로 가셔서 ^FF0000네레이드^000000의 수를 줄여주세요.";
+			mes "^0000FF30마리^000000 이상 처리해 주시면 됩니다.";
+			mes " ";
+			mes ":: 의뢰인 코모도 상인";
+			next;
+			callsub L_Quest,4195,"네레이드";
+		case 5:
+			callsub L_Check,4196,"디스가이즈",134000;
+			mes "[의뢰 - 디스가이즈 처리]";
+			mes "얼마 전에 친구와 움발라에서 번지 점프라는 것을 해봤습니다.";
+			mes "그런데 떨어지고 보니 ^8B4513니플헤임^000000이라는 장소에 와 있었어요.";
+			next;
+			cutin "디스가이즈카드",3;
+			mes "[의뢰 - 디스가이즈 처리]";
+			mes "^8B4513니플헤임^000000이란 곳을 자주 와보지 못했던 저와 친구는 길을 헤메다가 이상한 괴물에서 습격을 당했습니다.";
+			mes "그 바람에 친구가 그만 ...";
+			next;
+			mes "[의뢰 - 디스가이즈 처리]";
+			mes "... 더 이상의 설명은 생략합니다.";
+			mes "^8B4513니플헤임^000000으로 가셔서 ^FF0000디스가이즈^000000를 ^0000FF30마리^000000이상 물리쳐 주세요!";
+			next;
+			mes "[의뢰 - 디스가이즈 처리]";
+			mes "살아있는 제 친구의 원한을 갚아 주세요!";
+			mes ":: 의뢰인 잭";
+			next;
+			callsub L_Quest,4196,"디스가이즈";
 		}
 	}
 	end;
 
-//callsub L_Quest,<quest ID>,"<monster name>",<reward EXP>,"<cutin image>","<description>"{,"s"};
-L_Quest:
+//callsub L_Check,<quest ID>,"<monster name>",<reward EXP>;
+L_Check:
 	.@quest1 = getarg(0);
 	.@quest2 = .@quest1+31;
 	.@playtime = questprogress(.@quest2,PLAYTIME);
 	if (.@playtime == 1) {
-		mes "[91-99 Mission Board]";
-		mes "You need to wait 3 hours before you can take this mission again.";
+		mes "[의뢰 - "+getarg(1)+"]";
+		mes ":: 이 의뢰는 조금 전에";
+		mes ":: 완료 하였습니다.";
+		mes ":: 다시 수행하려면";
+		mes ":: 몇 시간 정도";
+		mes ":: 기다려야 합니다.";
 		close;
 	}
-	.@hunting = questprogress(.@quest1,HUNTING);
-	if (.@hunting == 1) {
-		mes "[91-99 Mission Board]";
-		mes "Have you finished hunting all 30 "+getarg(1)+getarg(5,"")+" yet?";
-		close;
-	} else if (.@hunting == 2) {
-		mes "[91-99 Mission Board]";
-		mes "You have completed the hunting.";
-		mes "Please accept this reward as a compensation.";
+	if (.@hunting == 2) {
+		mes "[의뢰 - "+getarg(1)+"]";
+		mes "게시판을 통해 의뢰 완수를 알렸습니다.";
+		mes "의뢰 수행 과정을 통해 유익한 경험을 얻게 되었습니다.";
 		erasequest .@quest1;
 		if (.@playtime) erasequest .@quest2;
 		setquest .@quest2;
@@ -189,27 +450,26 @@ L_Quest:
 
 		getexp getarg(2),.@jexp;
 		close;
-	}/* else if (.@hunting == 3) {
-//		recall_completequest .@quest1
-		erasequest .@quest1;
-		mes "[91-99 Mission Board]";
-		mes "You have re-accepted the "+getarg(1)+" Hunting mission.";
-		close;
-	}*/ else {
-		mes "[91-99 Mission Board]";
-		mes getarg(4);
-		next;
-		if (getarg(3) != "") cutin getarg(3),3;
-		mes "[91-99 Mission Board]";
-		mes "Hunt 30 "+getarg(1)+" monsters there and post your success on this board.";
-		next;
-		if (getarg(3) != "") cutin getarg(3),255;
-		if(select("I'll hunt them.:No thanks.") == 1) {
-			mes "[91-99 Mission Board]";
-			mes "When you have completed the mission, post it on this board and collect your reward.";
-			if (.@playtime) erasequest .@quest2;
-			setquest .@quest1;
-		}
+	}
+	return;
+
+//callsub L_Quest,<quest ID>,"<monster name>";
+L_Quest:
+	.@quest1 = getarg(0);
+	.@quest2 = .@quest1+31;
+	.@hunting = questprogress(.@quest1,HUNTING);
+	cutin "",255;
+	if (.@hunting == 1) {
+		mes "[의뢰 - "+getarg(1)+"]";
+		mes "의뢰 내용을 처리하시면 다시 이 게시판을 통해 알려주시면 됩니다.";
 		close;
 	}
+	if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+		mes "[의뢰 - "+getarg(1)+" 처리]";
+		mes "의뢰 수행에 대한 내용이 접수 되었습니다.";
+		mes "의뢰 내용을 처리하시면 다시 이 게시판을 통해 알려주시면 됩니다.";
+		if (.@playtime) erasequest .@quest2;
+		setquest .@quest1;
+	}
+	close;
 }

@@ -9,57 +9,58 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 86 - 90.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version. [Chilly]
 //= 1.1 Some little improvements here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Updated to match the official script. [Euphy]
 //============================================================
 
-moc_para01,48,175,3	script	86-90 Mission Board	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "Wait a minute!";
-		mes "-You need to have an-";
-		mes "-^4d4dff'Eden Group Mark'^000000-";
-		mes "-to receive these missions.-";
+moc_para01,48,175,3	script	의뢰 [86-90]	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes ":: 잠깐!";
+		mes ":: 의뢰를 받기 위해서는";
+		mes ":: ^4d4dff낙원단^000000에 가입을";
+		mes ":: 하고 오셔야 합니다.";
 		next;
-		switch(select("Just walk away.:^0000FFEden Group^000000 missions?:How can I be a member of the ^0000FFEden Group^000000?")) {
+		switch(select("그냥 지나간다.:^0000FF낙원단^000000 의뢰가 뭔가요?:^0000FF낙원단^000000에 가입하려면?")) {
 		case 1:
 			close;
 		case 2:
-			mes "::The Eden Group Missions";
-			mes "::are basically missions";
-			mes "::requested by";
-			mes "::people from all around the kingdom.";
-			mes "::We just categorize them.";
+			mes ":: 낙원단 의뢰란";
+			mes ":: 각지의 여러 사람들이";
+			mes ":: 원하는 것들을";
+			mes ":: 낙원단에서 분류하여";
+			mes ":: 게시해 놓은 것입니다.";
 			next;
-			mes "::In the Eden Group,";
-			mes "::we sorted out the missions";
-			mes "::according to the level of difficulty.";
-			mes "::According to this level,";
-			mes "::you can find";
-			mes "::missions that";
-			mes "::suit you.";
+			mes ":: 낙원단에서는";
+			mes ":: 접수된 의뢰의";
+			mes ":: 난이도를 판단하여";
+			mes ":: 모험가 분들의";
+			mes ":: 공식적인 레벨에 맞게";
+			mes ":: 분류하여";
+			mes ":: 게시해 두었습니다.";
 			next;
-			mes "::When you are done,";
-			mes "::you can come back";
-			mes "::to the mission board.";
+			mes ":: 의뢰 완료 역시";
+			mes ":: 게시판을 통해";
+			mes ":: 알려주시면 됩니다.";
 			next;
-			mes "::Then you will be";
-			mes "::rewarded!!";
-			mes "::Simple, isn't it!!";
-			mes "::No commission required!!";
+			mes ":: 나머지 처리는";
+			mes ":: 낙원단에서 전부";
+			mes ":: 알아서 처리하겠습니다.";
+			mes ":: 수수료 없음!";
 			close;
 		case 3:
-			mes "::You can become a member";
-			mes "::of the Eden Group";
-			mes "::to ^0000FFLaime Evenor^000000,";
-			mes "::who is waiting on the 1st floor.";
+			mes ":: 낙원단 가입은";
+			mes ":: 아래 ^6633001층^000000에 위치한";
+			mes ":: ^0000FF라임 이베노르^000000를 통해";
+			mes ":: 가능합니다.";
 			next;
-			mes "::If you become a member,";
-			mes "::you will get an";
-			mes "::\"^006400Eden Group Mark^000000\".";
-			mes "::Then you will be able";
-			mes "::to see the mission board.";
+			mes ":: 낙원단원이 되시면";
+			mes ":: ^006400낙원단의 증표^000000를";
+			mes ":: 얻게 되며";
+			mes ":: 그 이후부터 게시판을";
+			mes ":: 확인할 수 있습니다.";
 			close;
 		}
 	}
@@ -76,7 +77,10 @@ moc_para01,48,175,3	script	86-90 Mission Board	4_BOARD3,{
 			72000,76000,
 			72000,78000,82000,80000,
 			72000,72000,72000,86000,80000;
-		mes "You must be within level 86-90 to accept these missions.";
+		mes ":: 이 의뢰들은";
+		mes ":: ^0000FF레벨 86 ~ 90^000000의 경우에만";
+		mes ":: 열람이 가능하게";
+		mes ":: 만들어져 있습니다.";
 		for(.@quest = 4167; .@quest<=4180; ++.@quest) {
 			.@hunting = questprogress(.@quest,HUNTING);
 			if (.@hunting == 1) {

@@ -12,13 +12,14 @@
 //= [Official Conversion]
 //= Repeatable quests for players between BaseLevel 111 - 120.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First version.
 //= 1.1 Some CleanUps. [Dastgir]
 //============================================================
 
-moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
-	mes "[Mingmin]";
-	if (!countitem(Para_Team_Mark)) {// Para_Team_Mark
+moc_para01,17,95,5	script	밍민#1	4_F_GENETIC,{
+	mes "[밍민]";
+	if (!countitem(Para_Team_Mark_)) {// Para_Team_Mark_
 		cutin "min02",0;
 		mes "A stranger. This place is supposed to be for Eden Group Members only.";
 		mes "I'm in need base level ^FF0000111 - 120^000000 adventurers to help my research.";
@@ -28,186 +29,233 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 		mes "......";
 		emotion e_dot;
 		next;
-		mes "[Mingmin]";
-		mes "(Wow...)";
+		mes "[밍민]";
+		mes "(와...왔군...)";
 		next;
-		mes "The Geneticist is muttering to herself.";
+		mes "눈부신 몸매의 여자는 뭔가 혼잣말을 중얼거리는 듯 하다.";
 		next;
-		mes "[Mingmin]";
+		mes "[밍민]";
 		mes "...";
 		next;
-		mes "[Mingmin]";
+		mes "[밍민]";
 		mes "......";
 		next;
-		mes "[Mingmin]";
-		mes "^0000ffA question: Art thou my servant?^000000";
+		mes "[밍민]";
+		mes "^0000ff무..묻겠다. 그대가 나의 노.. 노예인가?^000000";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "(What's this lady talking about?)";
+		mes "(뜬금없이 이게 무슨 소리지!?)";
 		emotion e_dot,1;
 		next;
-		mes "[Mingmin]";
-		mes "Answer me!";
-		mes "Art thou my servant?";
+		mes "[밍민]";
+		mes "대답하라...묻겠다. 그대가 나의 노예인가?";
 		emotion e_dot;
 		next;
-		select( "I am not.", "You be trippin'?" );
-		mes "[Mingmin]";
-		mes "Thou art not? Splendid...because I deigned that any servant of mine would have more dignity.";
+		select( "아닙니다.", "내가 노예 일리 없잖아!" );
+		mes "[밍민]";
+		mes "...역시 아닌가... 휴~ 내 노예가 될 자라면 더 기품 있을 거라 생각하긴 했지만 말입니다.";
 		emotion e_sigh;
 		next;
-		mes "[Mingmin]";
-		mes "Well, non-servant...What are you looking for here?";
+		mes "[밍민]";
+		mes "그럼 무슨 일로 날 찾아왔습니까?";
 		next;
-		if (select( "Nothing in particular.", "Quests! Who are you?" ) == 1) {
-			mes "[Mingmin]";
-			mes "That is acceptable, I hope ye find what ye seek.";
+		if (select( "볼일 없습니다.", "당신은 누구십니까?" ) == 1) {
+			mes "[밍민]";
+			mes "그렇군요. 저는 지금 기다리는 사람이 있어서 말입니다. 중요한 일이 아니면 다음에 뵙겠습니다.";
 			emotion e_ok;
 		}
 		else {
-			mes "[Mingmin]";
-			mes "Oh me? I am ^E51BD8Busaner Mingmin^000000 and I'm researching monsters by request of the Eden Group.";
+			mes "[밍민]";
+			mes "아 저 말입니까? 저는 낙원단의 의뢰로 당분간 여기서 몬스터를 연구하게 된 ^E51BD8부사너 밍민^000000이라고 합니다.";
 			next;
-			mes "[Mingmin]";
-			mes "I used to collect fungus and mold alone at my mountain lab. Since then, I joined a group looking for new monsters...";
+			mes "[밍민]";
+			mes "원래는 산에 혼자 살면서 버섯이나 키우는 게 낙이었는데...희귀한 몬스터를 찾아 다니는 동호회에 가입했다...";
 			next;
-			mes "[Mingmin]";
-			mes "With all my experience, they actually made me a professor here at the Eden Group.";
+			mes "[밍민]";
+			mes "몬스터를 찾으러 다니던 것이 결국 연구를 하게 되고 연구를 하다보니 어느덧 남들에게 교수라고 불릴 만큼 연구가 진행되었습니다.";
 			next;
-			mes "[Mingmin]";
-			mes "Anyways, there is a pressing task I must complete, please excuse me for a moment.";
+			mes "[밍민]";
+			mes "역시 ^FF0000그녀석^000000과 얽히는 일은 하는 게 아니었는데 말입니다.";
+			next;
+			mes "[밍민]";
+			mes "아무튼 저는 기다리는 사람이 있어서 이만.";
 			para_110lv01 = 1;
 		}
 	}
 	else if (para_110lv01 == 1) {
 		cutin "min02",0;
-		mes "^0C0CF2Pop quiz hot shot: Art thou my servant?^000000";
+		mes "^0C0CF2묻겠다. 그대가 나의 노예인가?^000000";
 		next;
-		select("No~ I'm "+ strcharinfo(0) +" remember?");
-		mes "[Mingmin]";
-		mes "Oh I have met you before, living in a house full of fungus seems to cause memory loss.";
+		select("저는 "+ strcharinfo(0) +"입니다.");
+		mes "[밍민]";
+		mes "아 저번에 만나 뵈었던 분입니까.";
+		mes "들락거리는 사람이 많아서 한번에 못 알아 봤습니다.";
 		emotion e_gasp;
 		next;
-		mes "[Mingmin]";
-		mes "Who were you again?";
+		mes "[밍민]";
+		mes "뭐 궁금한 거라도 있으십니까?";
 		emotion e_what;
 		next;
-		select("Eden Group requests and research");
-		mes "[Mingmin]";
-		mes "Ah, that I do remember.";
+		select("낙원단의 의뢰와 연구");
+		mes "[밍민]";
+		mes "관계자가 아니라서 자세히 밝힐 수는 없습니다. 간단히 말씀 드리자면 낙원단쪽에서 저에게 의뢰를 부탁했습니다.";
 		next;
-		mes "[Mingmin]";
-		mes "I am collecting information on the flora and fauna of Rune Midgard for the Eden Group.";
+		mes "[밍민]";
+		mes "모험자들이 앞으로 부딪치게 될 위험한 몬스터의 서식지나 활동 특징 같은 데이터를 수집하고 싶다는 거였습니다.";
 		next;
-		mes "[Mingmin]";
-		mes "The intention is to scientifically catalog and itemize the dangers of the world. I do not like this idea personally.";
+		mes "[밍민]";
+		mes "성장하고 있는 모험자들의 위험을 예방하겠다는 의미 인 것 같습니다.";
+		mes "개인적으론 마음에 들지 않는 발상이지만.";
 		next;
-		mes "[Mingmin]";
-		mes "Theory will only take you so far in this world.";
+		mes "[밍민]";
+		mes "모험자라면 언젠가는 목숨을 걸고 위험한 모험도 할 수 있어야 한다는 게 제 생각이라서 말입니다.";
 		next;
-		mes "[Mingmin]";
-		mes "Morever, an adventurer who travelled outside of Rune-Midgarts should be experienced enough to know themselves.";
+		mes "[밍민]";
+		mes "더군다나 미드가르드 밖에까지 나가 본 모험가라면 알아서 밥그릇쯤은 찾을 때도 되었는데...";
 		next;
-		mes "[Mingmin]";
-		mes "This is ^ff0000my opinion^000000 only so do not concern thyself.";
+		mes "[밍민]";
+		mes "이건 뭐. 저의 ^ff0000개인적인 생각^000000이니 신경 쓰진 말아주십시오.";
 		next;
-		mes "[Mingmin]";
-		mes "Well, after all this talking I need to take a rest. My feet are rather tired.";
+		mes "[밍민]";
+		mes "휴. 하루 종일 폼 잡고 서 있었더니 다리도 아프고. 흠흠. 저는 잠깐 쉬어야겠습니다.";
 		emotion e_yawn;
 		para_110lv01 = 2;
 	}
 	else if (para_110lv01 == 2) {
 		cutin "min02",0;
-		mes "Oh, "+ strcharinfo(0) +" its you... it is good you have ed, I was bored.";
+		mes "[밍민]";
+		mes "^0C0CF2묻겠다. 그대가 나의 노예인가?^000000";
 		next;
-		mes "[Mingmin]";
-		mes "Where was I? I just finished talking about the Eden Group's duty to protect others from danger.";
+		select("여전히 누군가 기다리고 있군요?");
+		mes "[밍민]";
+		mes "아하. "+ strcharinfo(0) +" 당신이군요. 마침 심심하던 참에 잘 왔습니다.";
 		next;
-		mes "[Mingmin]";
-		mes "To protect more people, I think they need adventurers who have experienced things first-hand.";
+		mes "[밍민]";
+		mes "저번에 하던 얘기를 계속 해 드리겠습니다.";
 		next;
-		mes "[Mingmin]";
-		mes "So we need those brave or foolhardy enough to venture out to gather info in the field.";
+		mes "[밍민]";
+		mes "어디까지 얘기했더라... 그렇습니다. 모험자들의 위험을 예방하려는 것 같다는 이야기까지 했습니다.";
 		next;
-		select("Sounds dangerous... when can I start?");
-		mes "[Mingmin]";
-		mes "Talk to me in a second and we'll get going.";
+		mes "[밍민]";
+		mes "하지만 앞으로 성장하게 될 모험자들의 위험을 예방하려면 그 위험을 겪어본 사람이 반드시 필요합니다.";
+		next;
+		mes "[밍민]";
+		mes "아시겠습니까? 다수의 모험가를 위해 한 발 앞서 위험에 뛰어들 누군가...";
+		mes "아마도 그 또한 모험가들이 되겠죠.";
+		next;
+		mes "[밍민]";
+		mes "누군가 먼저 위험을 겪고 몬스터들을 연구해야 훗날의 모험가들이 손쉽게 의뢰나 탐험을 수행할 수 있다는 겁니다.";
+		next;
+		mes "[밍민]";
+		mes "한번 더 말하자면 결국은 누군가 앞장서서 희생해야 한다는 겁니다.";
+		mes "아이러니 하게도 말입니다.";
+		next;
+		mes "[밍민]";
+		mes "아니 어쩌면 이거야 말로 ^ff0000그녀^000000의 생각일지도 모르지만... 아 미안합니다. 마지막 말은 당신에게 한 말은 아닙니다.";
+		next;
+		select("쉽지 않은 일이 되겠군요.");
+		mes "[밍민]";
+		mes "그렇습니다. 하지만 그들의 노력을 헛되게 하지는 않을 것입니다. 제가 연구하는 한 말이죠.";
+		next;
+		mes "[밍민]";
+		mes "슬슬 도착할 시간이 된 것 같은데...";
+		mes "기지개라도 한번 켜야겠습니다.";
 		emotion e_yawn;
 		para_110lv01 = 3;
 	}
 	else if (para_110lv01 == 3) {
 		cutin "min02",0;
-		mes "Question "+ strcharinfo(0) +"! I was practising because new servant is coming soon.";
+		mes "묻겠...아 "+ strcharinfo(0) +"님이십니까. 새로운 노예가 올 예정이라 연습 좀 해보고 있었습니다.";
 		next;
-		select("Waddya mean new servant?");
-		mes "[Mingmin]";
-		mes "Oh...sorry, I meant squire...";
-		mes "I mean adventurer...";
+		select("요즘 세상에 노예라니?");
+		mes "[밍민]";
+		mes "아 그러고 보니 조금 놀라셨을 수도 있겠습니다.";
 		emotion e_gasp;
 		next;
-		mes "[Mingmin]";
-		mes "Sorry, the fungus in my home has been getting quite rampant.";
+		mes "[밍민]";
+		mes "물론 진짜 노예를 찾고 있는 건 아닙니다. 무슨일인가 하면...";
 		next;
-		mes "[Mingmin]";
-		mes "I found Rohtert is working here when I arrived with a request from Eden Group.";
+		mes "[밍민]";
+		mes "낙원단의 의뢰를 받고 여기에 왔는데 마침 저기 로테르트 녀석이 여기서 일을 하고 있더군요.";
 		next;
 		if (para_100lv02 > 100) {
-			mes "[Mingmin]";
+			mes "[밍민]";
 			mes "Thou has met him prior to now? I do have a history with him.";
 		}
 		else {
-			mes "[Mingmin]";
-			mes "The guy with white hair by the entrance. You should drop by if you are interested, he is managing level 100-110 adventurers.";
+			mes "[밍민]";
+			mes "아 입구에서 보셨을 흰머리 녀석을 말하는거에요. 100레벨의 모험자들을 관리한다니 관심 있다면 한번 가보시길 바랍니다.";
 		}
 		next;
-		mes "[Mingmin]";
-		mes "Anyways, he had been working here so he knows better than me. I just came by to get advice.";
+		mes "[밍민]";
+		mes "아무튼 저 녀석이 저보단 좀 먼저 여기서 일해봤으니 뭔가 도움이 되는 말을 해준다고 해서 들어봤습니다.";
 		next;
-		mes "[Mingmin]";
-		mes "That was not that difficult so..";
+		mes "[밍민]";
+		mes "그랬더니 별 어려움은 없는 일이고 그냥 이렇게...";
 		next;
 		cutin "min01",0;
-		mes "[Mingmin]";
-		mes "Silly adventurers are going to come and ask me, ^ff0000'My queen, treat me like a naughty servant!'^000000";
+		mes "[밍민]";
+		mes "여기서 조금만 기다리면 어리버리한 모험가들이 ^ff0000여왕님 저를 노예처럼 부려주세요!^000000하고 막 몰려들 거라고 했습니다...";
 		next;
-		select("......Uh......");
+		select("......");
 		cutin "min02",0;
-		mes "[Mingmin]";
-		mes " For some reason there aren't many people lining up to assist me yet.";
+		mes "[밍민]";
+		mes "뭐 로테르트가 한말이니 그대로 믿을 수는 없어서 오가는 모험자 마다 물어 보고 있는데 선뜻 대답하는 사람은 많지 않습니다.";
 		emotion e_dot,1;
 		next;
-		mes "[Mingmin]";
-		mes "I think it requires ^ff0000bravery^000000 to take a new request.";
+		mes "[밍민]";
+		mes "그래도 새로운 의뢰를 시작하려면 그 정도의 ^ff0000용기^000000는 있어야 한다고 생각합니다. 때론 의뢰인이나 임무를 목숨보다 소중히 여겨야 할때도 있는 법이니까요.";
 		next;
-		mes "[Mingmin]";
-		mes "Enough dilly-dallying, I want to make a contract with someone who really craves adventure.";
+		mes "[밍민]";
+		mes "그런 의미에서 의뢰인인 저를 여왕님처럼 대접하는 건 힘든 일은 아닐 거라 생각합니다.";
 		next;
-		mes "[Mingmin]";
-		mes "Maybe "+ strcharinfo(0) +" I'll let you be my servant if you are interested in doing this Eden Group request for my research.";
+		mes "[밍민]";
+		mes "적어도 그 정도의 각오는 되어 있어야 한다는 생각입니다.";
+		next;
+		mes "[밍민]";
+		mes "그리고... 이 기묘한 문답에는 저의 개인적인 취향과 성격을 모험가가 감수해내야 한다는 의미도 있습니다만...";
+		next;
+		mes "[밍민]";
+		mes "질문은 이제 창피해서 더 이상 못하겠습니다.";
+		next;
+		mes "[밍민]";
+		mes "확실히 의뢰를 원하는 사람과 계약할 때만 써야 할 것 같습니다.";
+		next;
+		mes "[밍민]";
+		mes "아무튼 연구를 진행하려면 꽤 많은 표본과 자료들이 필요하니 모험가들이 얼른 나타나 주었으면 좋겠습니다.";
+		next;
+		mes "[밍민]";
+		mes "혹시라도 "+ strcharinfo(0) +"님도 저의 연구나 낙원단의 의뢰에 관심이 생기신다면 저의 노예가 되어주시길 바랍니다.";
+		next;
+		mes "[밍민]";
+		mes "다만 미드가르드 밖으로 다녀올 수 있는 정도의 실력은 되어야 합니다.";
+		next;
+		mes "[밍민]";
+		mes "하하하... 그런 일이 생길진 모르겠지만... ^ff0000그런 일^000000이 필요하면 뭔가 ^ff0000특별한 신호^000000를 보내주십시오. 창피하니까...";
 		para_110lv01 = 4;
 	}
 	else if (para_110lv01 > 3) {
 		cutin "min01",0;
 		if (para_110lv01 == 5)
-			mes "Welcome! "+ strcharinfo(0) +"...";
+			mes "어서와! "+ strcharinfo(0) +"...";
 		else
-			mes "Hello "+ strcharinfo(0) +".";
+			mes "안녕하십니까 "+ strcharinfo(0) +"님.";
 			next;
-		switch( select( "Request to research monsters", "Make small-talk" ) ) {
+		switch( select( "몬스터 연구 의뢰", "대화를 나눈다" ) ) {
 		case 1:
-			mes "[Mingmin]";
+			mes "[밍민]";
 			if (BaseLevel < 111) {
 				cutin "min02",0;
-				mes "I think I already told you that I am looking for an adventurer with more experience for my monster research. ";
+				mes "제가 말씀을 드린 것 같은데... 저의 몬스터 연구는 어느 정도 실력 있는 모험가를 대상으로 하고 있습니다.";
 				next;
-				mes "[Mingmin]";
-				mes "It is because this mission has very dangerous requests.";
+				mes "[밍민]";
+				mes "지금까지와는 비교 할 수 없을 만큼 위험한 의뢰가 포함되어 있기 때문입니다.";
 				next;
-				mes "[Mingmin]";
-				mes "Lets see. If you can handle all requests from rohtert standing there, then I will reconsider.";
+				mes "[밍민]";
+				mes "어디 보자... 그래. 저기 서 있는 로테르트가 주는 의뢰를 모두 완수 하고도 남을 정도는 되야 할 것 같습니다.";
 				next;
-				mes "[Mingmin]";
-				mes "I will reconsider if you turn to base level 111.";
+				mes "[밍민]";
+				mes "적어도 111레벨이 된다면 제가 다시 생각해보도록 하겠습니다.";
 			}
 			else if (BaseLevel < 121) {
 				if (para_110lv01 == 4) {
@@ -217,36 +265,36 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 					mes "She seems to be waiting for a ^FF0000special signal.^000000 What do you want to do?";
 					next;
 					while(select( "Make a heart with two hands.", "Dance around like a crazy person", "Wink at her", "Whistle at her." ) != 2) {
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "What's that for?";
 						emotion e_hmm;
 						next;
 						mes "Hmm, she didn't go for that.";
 						next;
 					}
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "This signal!?";
 					emotion e_flash;
 					next;
 					cutin "min01",0;
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "^FF0000..................now?^000000";
 					emotion e_flash;
 					next;
 					select("Say nothing and nod...");
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "......";
 					next;
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "Question...! Art thou my servant?";
 					next;
 					select("Yes, my leige...");
 					cutin "min02",0;
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "............";
 					next;
 					cutin "min01",0;
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "Well, that's all settled then! Thou shalt signeth this form.";
 					next;
 					mes "[Contract]";
@@ -262,162 +310,162 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 					mes "[Contract]";
 					mes "D - this contract shall be confidential except between the adventurer and Mingmin under ^FF0000penalty of death.^000000";
 					next;
-					mes "[Mingmin]";
+					mes "[밍민]";
 					mes "Don't worry too much. The Unions require it you know. Just sign on the line that is dotted.";
 					next;
 					if (select( "Sign the contract.", "Take time to think." ) == 2) {
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "You can take your time....";
 					}
 					else {
 						cutin "min01",0;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Did you sign it?";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "............";
 						next;
 						cutin "min03",0;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Haha! I feel much better now.";
 						emotion e_loud;
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Thank you for accepting the strange contract. Looking forward to working with thee.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I was careful for public requests because I have to be polite to adventurers.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I tried to be poilte . But it just doesn't suit my personality.";
 						next;
 						cutin "min02",0;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Thou shouldst be more careful...Did you notice something about the pen you signed with? There were ^FF0000orange shiitake mushroom spores^000000 on it.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "If the spores get in your bloodstream, you might grow mushrooms inside of your own body.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "It takes quite a long time so do thine best. I might give you the antidote if you do well.";
 						next;
 						cutin "min03",0;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "All right we became quite familiar now. So. Shall we get start to work?";
 						para_110lv01 = 5;
 					}
 				}
 				else if (para_110lv01 > 4) {
 					cutin "min01",0;
-					mes "We need some more information on the following monsters. Choose.";
+					mes "연구는 이제부터 시작이야! 자료수집에 힘내 줘!";
 					next;
-					switch( select( "Glastheim related requests", "Thanatos tower related requests", "Ash Vacuum related requests", "Mingmin's personal request" ) ) {
+					switch(select("글레스트헤임 관련 의뢰:타나토스 타워 관련 의뢰:이계 관련 의뢰:밍민의 개인적인 의뢰")) {
 					case 1:
-						mes "[Mingmin]";
-						mes "I heard something is going on in Glastheim. Monsters are afoot.";
+						mes "[밍민]";
+						mes "글레스트헤임에 어떤 이상 징조가 보인다는 첩보가 있어. 분명 무슨 일이 일어날 거야!";
 						next;
-						switch( select( "Raydric Research", "Khalitzberg Research", "Wanderer Research" ) ) {
+						switch(select("레이드릭 연구:칼리츠버그 연구:배회하는 자 연구")) {
 						case 1:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13068,PLAYTIME) == 1)
-								mes "Raydric's research is going well. It is better off having more samples to research.!";
+								mes "레이드릭 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13067,HUNTING) == 1) {
 								cutin "레이드릭카드",3;  //daydric_card
-								mes "You can find Raydric in the west entrance or on the 2nd floor of Glastheim.";
+								mes "레이드릭은 글레스트헤임의 외곽 서쪽 입구로 들어가면 찾을 수 있을 거야. 혹은 글레스트헤임 실내 2층에서도 만날 수 있겠지.";
 								next;
-								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Raydric^000000's.";
+								mes "[밍민]";
+								mes "어떤 일이 벌어지든 정보와 자료가 필요해. ^FF0000레이드릭^000000을 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "[밍민]";
+								mes "몬스터와 싸우면서 일어나는 일. 그 경험들이 전부 자료가 될 테니 힘내!";
 							}
 							else if (questprogress(13067,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "어때 단단한 녀석들과 치고 박고 온 소감은? 좋은 자료가 될 거야. 너에게도 좋은 경험이 될 거고!";
 								callsub S_Quest,13067,13068,700000,200000;
 							}
 							else {
 								cutin "레이드릭카드",3;  //daydric_card
-								mes "Something is happening in Glastheim. And that clue is in Raydrics that is information I have.";
+								mes "글레스트헤임에서 분명 무슨 일인가 벌어지려 하고 있어. 그리고 그 단서가 레이드릭에 있을 것 같다는 것 까지가 내가 가진 정보야.";
 								next;
-								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Raydric^000000's.";
+								mes "[밍민]";
+								mes "어떤 일이 벌어지든 정보와 자료가 필요해. ^FF0000레이드릭^000000을 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please come back to me after dealing with the monsters. I need all your stories for documentation.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "녀석들을 상대하고 내게 돌아와 이야기해줘. 그런 사소한 이야기 하나가 다 자료가 될 거야.";
 									callsub S_Quest,13068,13067;
 								}
 							}
 							break;
 						case 2:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13070,PLAYTIME) == 1)
-								mes "Khalitzburg's research is going well. It is better off having more samples to research!";
+								mes "칼리츠버그 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13069,HUNTING) == 1) {
 								cutin "스켈나이트카드",3;  //skullknight_card
-								mes "Khalitzburg will be found in west entrance of Glastheim.";
+								mes "칼리츠버그는 글레스트헤임의 서쪽 입구로 들어가면 찾을 수 있을 거야.";
 								next;
-								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
+								mes "[밍민]";
+								mes "어떤 일이 벌어지든 정보와 자료가 필요해. ^FF0000칼리츠버그^000000를 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "[밍민]";
+								mes "몬스터와 싸우면서 일어나는 일. 그 경험들이 전부 자료가 될 테니 힘내!";
 							}
 							else if (questprogress(13069,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel of dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "어때 단단한 녀석들과 치고 박고 온 소감은? 좋은 자료가 될거야. 너에게도 좋은 경험이 될거고!";
 								callsub S_Quest,13069,13070,700000,200000;
 							}
 							else {
 								cutin "스켈나이트카드",3;  //skullknight_card
-								mes "Maybe Khalitzburg is linked to what is happening in glastheim so lets research it.";
+								mes "글레스트헤임에서 벌어지는 일에는 칼리츠버그도 어느 정도 연관성이 있을지도 몰라. 뭐 연구해둬서 나쁠 건 없지.";
 								next;
-								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
+								mes "[밍민]";
+								mes "어떤 일이 벌어지든 정보와 자료가 필요해. ^FF0000칼리츠버그^000000를 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please tell me the story after dealing with them one by one. They will be important documents...";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "녀석들을 상대하고 내게 돌아와 이야기해줘. 그런 사소한 이야기 하나가 다 자료가 될거야.";
 									callsub S_Quest,13070,13069;
 								}
 							}
 							break;
 						case 3:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13072,PLAYTIME) == 1)
-								mes "Wanderer's research is going well. It is better off having more samples to research!";
+								mes "배회하는 자 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13071,HUNTING) == 1) {
 								cutin "배회하는자카드",3;  //wander_man_card
-								mes "Wanderer will be found if you enter from the north entrance and go to big entrance in the middle of the road in Glastheim.";
+								mes "글레스트헤임하면 역시 ^FF0000배회하는 자^000000 아니겠어?. 위험하지만 멋진 녀석이라고 생각해.";
 								next;
-								mes "[Mingmin]";
-								mes "I need information and documents no matter what happens. How about dealing with ^FF000030 Wanderers^000000.";
+								mes "[밍민]";
+								mes "어떤 일이 벌어지든 정보와 자료가 필요해. ^FF0000배회하는 자^000000를 ^FF000030^000000마리 상대해보고 돌아와."; //커스텀
 								next;
 								cutin "min01",0;
-								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "[밍민]";
+								mes "몬스터와 싸우면서 일어나는 일. 그 경험들이 전부 자료가 될 테니 힘내!"; //커스텀
 							}
 							else if (questprogress(13071,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel of dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "어때 강한자와 겨루고 온 소감은? 좋은 자료가 될 거야. 너에게도 좋은 경험이 될거고!";
 								callsub S_Quest,13071,13072,700000,200000;
 							}
 							else {
 								cutin "배회하는자카드",3;  //wander_man_card
-								mes "Wanderer is the representative of Glastheim. It is dangerous but cool!";
+								mes "글레스트헤임하면 역시 ^FF0000배회하는 자^000000 아니겠어?. 위험하지만 멋진 녀석이라고 생각해.";
 								next;
-								mes "[Mingmin]";
-								mes "It will be a good research. Come back after dealing with ^FF000030 Wanderers^000000.";
+								mes "[밍민]";
+								mes "분명 좋은 연구가 될거야. ^FF0000배회하는 자^000000를 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please tell me the story after dealing with them one by one. They will be important documents...";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "녀석들을 상대하고 내게 돌아와 이야기해줘. 그런 사소한 이야기 하나가 다 자료가 될거야.";
 									emotion e_no1;
 									callsub S_Quest,13072,13071;
 								}
@@ -425,411 +473,408 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 						}
 						break;
 					case 2:
-						mes "[Mingmin]";
-						mes "We need to research monsters in Thanatos tower.";
+						mes "[밍민]";
+						mes "타나토스 타워에 나타나는 몬스터들의 연구가 필요해. 여러 가지 의미로 말이지.";
 						next;
-						switch( select( "Ancient Mimic research", "Deathword research", "Owl Baron research", "Bloody Page research" ) ) {
+						switch(select("에인션트 미믹 연구:데스워드 연구:아울바론 연구:어떤 제네릭의 고서목록") ) {
 						case 1:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13074,PLAYTIME) == 1)
-								mes "Ancient mimic research is going well. It is better off having more samples for the research!";
+								mes "에인션트 미믹 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13073,HUNTING) == 1) {
 								cutin "에인션트미믹",3;  //ancient_mimic_card
-								mes "It is not far if you move from Juno or Hugel to Thanatos or Abyss lake.";
+								mes "유노나 휘겔에서 이동하면 그리 멀지 않을 거야. 타나토스 타워든 어비스 레이크든 말이지.";
 								next;
-								mes "[Mingmin]";
-								mes "Do not complain! It will be a good experience for you!";
+								mes "[밍민]";
+								mes "징징대지 말고 어서 다녀와! 너에게 분명 좋은 경험이 될 거야.";
 								next;
 								cutin "min01",0;
-								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record to research!";
+								mes "[밍민]";
+								mes "몬스터와 싸우면서 일어나는 일. 그 경험들이 전부 자료가 될 테니 힘내!";
 							}
 							else if (questprogress(13073,HUNTING) == 2) {
 								cutin "min02",0;
-								mes "You did good work today!";
+								mes "값진 전리품은 없는거야? 그래도 고생했어!";
 								callsub S_Quest,13073,13074,700000,300000;
 							}
 							else {
 								cutin "에인션트미믹",3;  //ancient_mimic_card
-								mes "You will see them often at thanatos tower or abyss lake. They are not generous with their drops but that is not important to finishing this request.";
+								mes "타나토스 타워와 어비스 레이크에서 쉽게 만날 수 있는 녀석이야. 뭔가 좋은 전리품을 줄 것 같은데 안주는 얄미운 녀석들이지. 뭐 중요한 건 그 부분은 아니니 넘어가고.";
 								next;
-								mes "[Mingmin]";
-								mes "I can not find any connection in two areas but they keep coming up so it is worth researching. Come back after taking care of ^FF000030 ancient mimic^000000.";
+								mes "[밍민]";
+								mes "나로선 두 지역의 연관성을 찾을 수 없지만 녀석들이 나타나고 있으니 연구해볼 가치는 있어.^FF0000에인션트 미믹^000000을 ^FF000030^000000마리 상대해보고 돌아와.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "If you possibly get a good drop from them, you know right? Do not forget about me!";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "혹시라도 녀석들을 상대하다가 좋은 전리품을 얻게 되면... 알지? 나한테도 꼭 얘기해줘!";
 									emotion e_flash;
 									callsub S_Quest,13074,13073;
 								}
 							}
 							break;
 						case 2:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13076,PLAYTIME) == 1)
-								mes "Deathword's research is going well. It is better off having more samples for the research!";
+								mes "데스워드 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13075,HUNTING) == 1) {
-								mes "Thanatos tower will be more dangerous than you thought. You might want to organize a party before going there.";
+								mes "타나토스 타워는 생각보다 더 위험할거야. 가능하면 꼭 동료들과 함께 떠나기를 바래.";
 								next;
-								mes "[Mingmin]";
-								mes "I want to research this so take this request please!";
+								mes "[밍민]";
+								mes "내가 꼭 하고 싶은 연구니까 이 의뢰는 정말 부탁해!";
 								next;
-								mes "[Mingmin]";
-								mes "I will give you a reward...";
+								mes "[밍민]";
+								mes "보상도 절대 서운하지 않게 해줄게.";
 							}
 							else if (questprogress(13075,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Thank you so much. This will be great research.";
+								mes "날아다니는 녀석들 쫓아 다니느라 고생했어! 정말 고마워!";
 								callsub S_Quest,13075,13076,700000,300000;
 							}
 							else {
-								mes "That is the reason why I chose Thanatos tower to research. Do not be surprised. This one is an old book that became a monster!";
+								mes "타나토스 타워를 연구 목적지로 선정한 이유 중 하나야. 이 녀석은 아주 오래된 고서가 몬스터화 된 것으로 추정되는데...놀라지마! 믿기지 않겠지만!";
 								next;
-								mes "[Mingmin]";
-								mes "I want to research the background of those creatures. Please check ^FF000030 Deathwords^000000.";
+								mes "[밍민]";
+								mes "가끔 몬스터가 되기전의 기록이 남아있는 경우가 있다는 거야! 정말 어메이징하지 않아? ^FF0000데스워드^000000를 ^FF000030^000000마리 살펴보고 확인해 주길 바래.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please take care of them one by one. Those books contain precious history of Rune Midgard so I want to research them.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "녀석들을 하나 하나 꼭 살펴봐줘! 몬스터가 되기 전의 그 책의 기록이 남아있다면 정말 대박이니까!";
 									callsub S_Quest,13076,13075;
 								}
 							}
 							break;
 						case 3:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13078,PLAYTIME) == 1)
-								mes "Owl Baron's research is going well. It is better off having more samples for the research!";
+								mes "아울바론 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!";
 							else if (questprogress(13077,HUNTING) == 1) {
 								cutin "아울바론카드",3;  //owl_baron_card
-								mes "You can meet it if you climb the tower according to the rumors. For me, well I've never been up there.";
+								mes "소문에 의하면 타워를 어느 정도 올라가야 만날 수 있다고 들었어. 하하하...미안 나도 그 위론 올라가 본적이 없어서.";
 								next;
-								mes "[Mingmin]";
-								mes "The guy with blue hat went to the top but I didn't bother to follow.";
+								mes "[밍민]";
+								mes "파란모자를 쓴 녀석은 좋다고 꼭대기까지 올라갔었지만...내 취향은 아니었지.";
 								next;
-								mes "[Mingmin]";
-								mes "Anyways, There will be enough reward for sure.";
+								mes "[밍민]";
+								mes "아무튼 보상은 절대 서운하지 않게 해줄게.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13077,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Safely back!? Eden Group will be happy.";
+								mes "무사히 다녀왔군!? 낙원단에서 분명 좋아 할거야.";
 								callsub S_Quest,13077,13078,700000,300000;
 							}
 							else {
 								cutin "아울바론카드",3;  //owl_baron_card
-								mes "Personally I have no interest in this monster but it was requested from the Eden Group.";
+								mes "개인적으론 관심이 없는 몬스터지만 이거야 말로 나의 사심이 들어가지 않은 낙원단의 의뢰라고 할 수 있겠지.";
 								next;
-								mes "[Mingmin]";
-								mes "Please take care of ^FF000020 Owl Barons^000000. It will help other adventurers to explore Thanatos tower.";
+								mes "[밍민]";
+								mes "다른 모험가들이 타나토스 타워를 조금 더 쉽게 탐험 할 수 있도록 ^FF0000아울바론^000000을 ^FF000020^000000마리 처리하고 보고해줘";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "It does not mean I am not going to research them. The more documents the better research.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "그렇다고 연구를 안 하겠다는 건 아니야. 자료란 많을 수록 좋은 거니까.";
 									callsub S_Quest,13078,13077;
 								}
 							}
 							break;
 						case 4:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13080,PLAYTIME) == 1) {
 								cutin "min03",0;
-								mes "I like old books! Okay I need to analyze this. Bloody Pages! Please bring more tomorrow or the day after tomorrow. Anytime!";
+								mes "데스워드 연구는 잘 되고 있어. 표본과 연구사례는 많을 수록 좋으니 앞으로도 잘 부탁해!"; //커스텀
 							}
 							else if (questprogress(13079) == 1) {
 								if (countitem(Bloody_Page) > 19) {// Bloody_Page
 									cutin "min03",0;
-									mes "Wow. It is so curious. It is exciting!";
+									mes "날아다니는 녀석들 쫓아 다니느라 고생했어! 정말 고마워!";
 									delitem Bloody_Page,20;
 									callsub S_Quest,13079,13080,700000,300000;
 								}
 								else {
 									cutin "데스워드",3;  //deathword_card
-									mes "3rd floor of thanatos has Deathword monsers that drop these bloody pages.";
+									mes "타나토스 타워 3층에서 가장 쉽게 얻을 수 있겠지만...";
 									next;
-									mes "[Mingmin]";
-									mes "I think if thou shalt collect 20 of these it should be enough for my research. It's barbaric, but it is a job!";
+									mes "[밍민]";
+									mes "내 생각에는 다른 의뢰들을 하면서 천천히 수집해도 될 것 같아. 아무튼 가장 쉽게 모을 수 있는 건 아마도 3층일거야. 나도 거기까진 가봤거든 후후훗.";
 									next;
-									mes "[Mingmin]";
-									mes "There will be enough reward for sure.";
+									mes "[밍민]";
+									mes "보상은 절대 서운하지 않게 해줄게.";
 									cutin "min01",0;
 								}
 							}
 							else {
 								cutin "데스워드",3;  //deathword_card
-								mes "The fact that I decided to travel to Thanatos has the reason. Haha, I heard that I can get Bloody Pages from Deathword monsters.";
+								mes "타나토스 타워 3층에서 가장 쉽게 얻을 수 있겠지만...";
 								next;
-								mes "[Mingmin]";
-								mes "I know they're gross and bloody but just imagine the centuries of stories preserved in those pages...";
-								next;
-								mes "[Mingmin]";
-								mes "Can you please get me 20 ^FF0000Bloody Pages^000000? I will be happy if there is one useful bookshelf we can use when you bring them back.";
+								mes "[밍민]";
+								mes "내 생각에는 다른 의뢰들을 하면서 천천히 수집해도 될 것 같아. 아무튼 가장 쉽게 모을 수 있는 건 아마도 3층일거야. 나도 거기까진 가봤거든 후후훗.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please, I really want to research this.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "그렇다고 연구를 안 하겠다는 건 아니야. 자료란 많을 수록 좋은 거니까.";
 									callsub S_Quest,13080,13079;
 								}
 							}
 						}
 						break;
 					case 3:
-						mes "[Mingmin]";
-						mes "The research for Ash Vacuum is just beginning. So there are still many thing to study!";
+						mes "[밍민]";
+						mes "이계 지역의 연구는 아직 초기 단계라고 생각해. 아직 많은 게 밝혀지지 않은 만큼 연구할 것도 많은 곳이지!";
 						next;
-						switch( select( "Dark Pinguicula research", "Nepenthes research", "Naga research", "Centipede Larva research", "Cornus research", "We know the magic power of the horn we saw that day." ) ) {
+						switch(select("핀귀큘라 다크 연구:네펜데스 연구:나가 연구:센티페데 유충 연구:코르누스 연구:그날 본 뿔의 마력을 우리는 아직 모른다")) {
 						case 1:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13082,PLAYTIME) == 1)
-								mes "Pinguicula dark's research is ongoing. Please come back to me next time.!";
+								mes "핀귀큘라 다크에 대한 연구는 진행 중이야. 다음에 시간이 또 되면 도와줘!";
 							else if (questprogress(13081,HUNTING) == 1) {
 								cutin "핀귀큘라다크카드",3;  //pinguicula_dark_card
-								mes "I think this research is easy. They are not too dangerous from the initial reports I've received.";
+								mes "뭐 어렵지 않은 연구일거라 생각해. 그다지 위험한 녀석들도 아니고 하니 말이야.";
 								next;
-								mes "[Mingmin]";
-								mes "It is north west from the Allied Forces Camp. It is not that far so hurry up.";
+								mes "[밍민]";
+								mes "원정대 주둔지의 서북쪽이야. 멀지 않으니 얼른 다녀와.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13081,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good job! keep helping my research. I still have so much to do.";
+								mes "수고했어. 다른 연구도 계속 도와줘. 할 일이 무지하게 많거든.";
 								callsub S_Quest,13081,13082,700000,180000;
 							}
 							else {
 								cutin "핀귀큘라다크카드",3;  //pinguicula_dark_card
-								mes "It is the monster living northwest of the Allied Forces Camp. I am not interested in going myself but the request was already paid for and I may as well research them.";
+								mes "원정대 주둔지의 서북쪽에 서식하는 몬스터야. 뭐 딱히 관심 있는 건 아니지만 연구해둬서 나쁠 건 없지. 의뢰비도 이미 받았으니까 말이지.";
 								next;
-								mes "[Mingmin]";
-								mes "Hunt ^FF000030 Dark Pinguicula^000000. Battling it will provide some good research materials.";
+								mes "[밍민]";
+								mes "^FF0000핀귀큘라 다크^000000를 30마리 연구해보고 오도록 해. 그 녀석들과 전투해 보는게 가장 쉬운 연구겠지?";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
 									mes "Be careful and safe.";
 									callsub S_Quest,13082,13081;
 								}
 							}
 							break;
 						case 2:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13084,PLAYTIME) == 1)
-								mes "Nepenthes's research is still ongoing. Please come back to me next time!";
+								mes "네펜데스에 대한 연구는 진행 중이야. 다음에 시간이 또 되면 도와줘!";
 							else if (questprogress(13083,HUNTING) == 1) {
 								cutin "네펜데스카드",3;  //nepenthes_card
-								mes "It could be a simple request or tough request. Try to find friends if you are in trouble. That is adventure too!";
+								mes "아주 쉬운 의뢰일수도 어려운 의뢰일 수도 있겠지만... 힘들다 싶으면 주변의 친구들을 찾아봐. 그것도 다 모험이야.";
 								next;
-								mes "[Mingmin]";
-								mes "It is east of the Allied Forces Camp. It is not that far so hurry up.";
+								mes "[밍민]";
+								mes "원정대 주둔지의 동쪽이야. 멀지 않으니 얼른 다녀와.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13083,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good job! Keep assisting with my research. I still have so much to do.";
+								mes "수고했어. 다른 연구도 계속 도와줘. 할 일이 무지하게 많거든.";
 								callsub S_Quest,13083,13084,700000,180000;
 							}
 							else {
 								cutin "네펜데스카드",3;  //nepenthes_card
-								mes "Do you know the monster name as mandragora? There is similar monster to the east of the expedition station. I am sure it will be related for researching monsters.";
+								mes "만드라고라라는 몬스터 알고 있지? 원정대 주둔지 동쪽으로 비슷하게 생긴 몬스터가 있어. 몬스터학으로 접근하자면 분명 관계가 있을법한데!";
 								next;
-								mes "[Mingmin]";
-								mes "Why don't you hunt 30 ^FF0000Nepenthes^000000? Their vines crawl up everywhere so be careful.";
+								mes "[밍민]";
+								mes "^FF0000네펜데스^000000를 30마리 연구해보고 오도록 해. 덩쿨이 조금 찰지니까 조심하도록 하고.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "The request like this satisfies me and the Eden Group. Be careful though.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "이런 의뢰는 쓸만한 것 같아. 낙원단도 나도 만족 할 수 있는 의뢰지. 조심해서 다녀와!";
 									callsub S_Quest,13084,13083;
 								}
 							}
 							break;
 						case 3:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13086,PLAYTIME) == 1)
-								mes "Naga's research is still ongoing. Please come back to me next time.";
+								mes "나가에 대한 연구는 진행 중이야. 다음에 시간이 또 되면 도와줘!";
 							else if (questprogress(13085,HUNTING) == 1) {
 								cutin "나가카드",3;  //naga_card
-								mes "You take care of those addicted to magic powers, I have no interest.";
+								mes "마력에 중독된 녀석들은 관심 없으니 잘 골라서 처리해줘.";
 								next;
-								mes "[Mingmin]";
-								mes "Please take care of 30 Naga monsters northwest of the expedition station.";
+								mes "[밍민]";
+								mes "원정대 주둔지의 북동쪽이나 남동쪽에서 찾을 수 있을 거야.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13085,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good. Keep helping my research. I have too many to check out.";
+								mes "수고했어. 다른 연구도 계속 도와줘. 할 일이 무지하게 많거든.";
 								callsub S_Quest,13085,13086,700000,180000;
 							}
 							else {
 								cutin "나가카드",3;  //naga_card
-								mes "Please take care of 30 ^FF0000Naga^000000 monsters northwest of the expedition station.";
+								mes "원정대 주둔지 서북쪽에서 ^FF0000나가^000000라는 몬스터를 30마리 처리해줘.";
 								next;
-								mes "[Mingmin]";
-								mes "I have no interest in it but it bothers my time to research the other monsters that I actually want to study. So I want the number of them to be reduced.";
+								mes "[밍민]";
+								mes "이 녀석 자체의 연구는 별 흥미가 없지만... 다른 몬스터를 연구하는데 너무 귀찮게 해! 그래서 좀 수가 줄었으면 좋겠어.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Please do your best. This request is also important to unlock additional research.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "다른 연구와 의뢰를 위해서라면 이 의뢰도 꽤 중요한 일이야. 열심히 해줘.";
 									callsub S_Quest,13086,13085;
 								}
 							}
 							break;
 						case 4:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13088,PLAYTIME) == 1)
-								mes "I'm still researching the Centipede Larva. Please come and help me next time.";
+								mes "센티페데 유충 박멸은 아직도 진행 중이야! 다음에 시간이 또 되면 꼭 도와줘!";
 							else if (questprogress(13087,HUNTING) == 1) {
 								cutin "센티페데유충카드",3;  //centipede_larva_card
-								mes "Oh... No Lets take a deep breath. For me, I want to exterminate more than 20 for research.";
+								mes "하아하아... 잠깐 심호흡으로 평상심을 되찾아야지... 하아하아... 생각 같아선 20마리가 아니라 200마리라도 없애버리고 싶지만 학자로서 그러면 안되겠지...";
 								next;
 								emotion e_sob;
-								mes "[Mingmin]";
-								mes "Be careful. And they're east of the expedition station.";
+								mes "[밍민]";
+								mes "원정대 주둔지의 동쪽이야. 조심해서 다녀와.";
 								cutin "min02",0;
 							}
 							else if (questprogress(13087,HUNTING) == 2) {
 								cutin "min02",0;
-								mes "Oh. Okay. You do not need to explain.";
+								mes "으으... 알겠어. 더 말하지 않아도 된다고. 고생했어!";
 								emotion e_otl;
 								callsub S_Quest,13087,13088,700000,180000;
 							}
 							else {
 								cutin "센티페데유충카드",3;  //centipede_larva_card
-								mes "Yuck! It is very disgusting. Look at me. It is so creepy I wanted to survey it because I was interested in Nepenthes. But I hate bugs with lots of legs...";
+								mes "꺄악! 상상만 했는데 또 소름 돋았어! 이 닭살 좀 봐... 네펜데스에 관심이 있어서 사실은 답사를 갔었는데... 정말 발 여러개 달린 벌레는 너무 싫어.";
 								next;
-								mes "[Mingmin]";
-								mes "Come back after 20 ^FF0000Centipede Larva^000000 are exterminated. Can you imagine how big they became? Just the thought makes my skin crawl.";
+								mes "[밍민]";
+								mes "^FF0000센티페데 유충^000000을 20마리 박멸! 해주길 바래. 그 놈들이 얼마나 더 커지는지 알아? 상상만해도 꺄악!!!";
 								next;
 								cutin "min02",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "I'm sorry that I didn't do it myself. I'm not ashamed to admit that it's too disgusting for me.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "제발 부탁해. 생긴게 무슨 죄가 있겠냐 싶지만... 내 취향도 존중해줘. 해충 박멸!";
 									callsub S_Quest,13088,13087;
 								}
 							}
 							break;
 						case 5:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13090,PLAYTIME) == 1)
-								mes "Cornus's research is still ongoing. Please research for other adventurers.";
+								mes "코르누스 연구는 여전히 진행 중이야! 다음 모험가들을 위한 연구. 또 부탁해!";
 							else if (questprogress(13089,HUNTING) == 1) {
 								cutin "코르누스카드",3;  //cornus_card
-								mes "I need to research those flying horse creatures so please help me out.";
+								mes "코르누스 연구 의뢰를 받았다면 아래의 의뢰를 하나 더 받아 가도록 해. 나의 연구에 도움이 될거야.";
 								next;
-								mes "[Mingmin]";
-								mes "Of course, It will help your adventurers too in some way I suppose.";
+								mes "[밍민]";
+								mes "물론 너의험에도 도움이 될 거고 말이지!";
 								cutin "min01",0;
 							}
 							else if (questprogress(13089,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How was it ? Is that monster easy for adventurers to get?";
+								mes "어때. 모험가들이 상대하기 수월한 몬스터 던가? 고생했어!";
 								callsub S_Quest,13089,13090,700000,180000;
 							}
 							else {
 								cutin "코르누스카드",3;  //cornus_card
-								mes "I found the monster that satisfies my research needs and helps adventurers to gain experience from the Eden Group. It is not weak or fierce monster either.";
+								mes "낙원단의 모험가 성장과 나의 연구를 동시에 만족시킬만한 몬스터를 찾아냈어. 사납지는 않지만 그렇다고 약하지도 않지.";
 								next;
-								mes "[Mingmin]";
-								mes "I believe that Adventurers will handle Cornus in the future, so go out and deal with ^FF000030 Cornus^000000 so I can research that viability.";
+								mes "[밍민]";
+								mes "모험가들이 앞으로 ^FF0000코르누스^000000를 상대하게 될 테니 먼저 가서 30마리 정도 상대해보고 와.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "This could be a revolution for Eden Group Adventurers. Be positive with this request please.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "앞으로 성장할 모험가들을 위한 길을 먼저 걷는다고 생각해. 조금 더 힘이 날 거야.";
 									callsub S_Quest,13090,13089;
 								}
 							}
 							break;
 						case 6:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13092,PLAYTIME) == 1)
-								mes "I'm still researching the Mystic Horns you brought. Quite interesting. I can beat blue hat soon.";
+								mes "마력의 뿔 연구는 여전히 진행 중이야! 흥미롭지! 파란모자 녀석을 무릎 꿇게 하는 날도 멀지 않았어.";
 							else if (questprogress(13091) == 1) {
 								if (countitem(Mystic_Horn) > 19) {// Mystic_Horn
 									cutin "min03",0;
-									mes "Yes this one! It is worth doing. Thank you for taking this request.";
+									mes "이거야. 이거! 분명 쓸 만 할거야. 정말 고마워!";
 									emotion e_thx;
 									delitem Mystic_Horn,20;
 									callsub S_Quest,13091,13092,700000,180000;
 								}
 								else {
 									cutin "코르누스카드",3;  //cornus_card
-									mes "I am still researching but I hope to extract magic power from magical touched things.";
+									mes "코르누스 연구 의뢰를 받았다면 아래의 의뢰를 하나 더 받아 가도록 해. 나의 연구에 도움이 될거야.";
 									next;
-									mes "[Mingmin]";
-									mes "It will be useful for me and adventurers, right?";
+									mes "[밍민]";
+									mes "물론 너의 모험에도 도움이 될 거고 말이지!";
 									cutin "min01",0;
 								}
 							}
 							else {
 								cutin "코르누스카드",3;  //cornus_card
-								mes "This is why I accepted the request for this from Eden Group. Find 20 ^FF0000Mystic Horn^000000 from the Cornus monsters.";
+								mes "낙원단의 연구 의뢰를 내가 받아 들인 결정적인 이유 중 하나가 바로 이것이야. 코르누스에게서 얻을 수 있는 ^FF0000마력의 뿔!^000000 이것 때문이지.";
 								next;
-								mes "[Mingmin]";
-								mes "I think I can use this horn for good things. It is easy to get. I will let you know later.";
+								mes "[밍민]";
+								mes "비교적 쉽게 구할 수 있는 이 뿔을 잘 이용하면 뭔가 좋은 곳에 사용할 수 있을 것 같아. 어디에 쓸지는 나중에 알려줄게.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "Ye gain experience and I get research material. Good deal right? Excellent!";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "너는 경험을 얻고 나는 재료를 얻는다! 좋은 의뢰야. 훌륭해.";
 									callsub S_Quest,13092,13091;
 								}
 							}
 						}
 						break;
 					case 4:
-						mes "[Mingmin]";
-						mes "This request is for my personal research. I research for Eden Group and they support me to hire people assisting my research.";
+						mes "[밍민]";
+						mes "나의 개인적인 연구를 위한 의뢰들이야. 낙원단에서 필요한 연구들을 해주는 대신 나의 연구를 도와줄 인력을 모집하는 거지.";
 						next;
-						switch( select( "Ancient Mummy research", "Geffenia survey", "Juperos survey", "Fragment and Rusty Screw collecting." ) ) {
+						switch(select("에인션트 미이라 연구:게페니아 답사:유페로스 답사:미지의 조각 발견할 적에")) {
 						case 1:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13094,PLAYTIME) == 1)
 								mes "Ancient Mummy's research is still ongoing.";
 							else if (questprogress(13093,HUNTING) == 1) {
 								cutin "에인션트미이라카드",3;  //ancient_mummy_card
-								mes "If I finish researching, the first thing I'm going to do is eat a 10 year aged strawberry pudding...";
+								mes "이 연구만 성공한다면 푸딩에 새로운 시대가 올 거야. 갓 수확한 딸기와 10년 묵은 딸기의 환상적인 맛의 조화를 간직한 푸딩!";
 								next;
-								mes "[Mingmin]";
-								mes "To finish my research I need you to hunt some Ancient Mummy.";
+								mes "[밍민]";
+								mes "그러기 위해선 에인션트 미이라에 대한 연구가 꼭 필요해! 부탁해! 정말로!";
 								cutin "min01",0;
 							}
 							else if (questprogress(13093,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Did a good job. Fantastic strawberry pudding is not easy to make. Trust me. I will let thee taste it someday soon.";
+								mes "고생했어! 단번에 그런 환상의 딸기 푸딩이 탄생하진 않겠지만. 날 믿어! 언젠간 꼭 맛 보여 줄 테니 말이야.";
 								callsub S_Quest,13093,13094,700000,200000;
 							}
 							else {
 								cutin "에인션트미이라카드",3;  //ancient_mummy_card
-								mes "Things are supposed to go bad. Most of them but people want to keep and preserve food for a long time. ";
+								mes "모든 물질은 언젠가는 낡고 썩기 마련이야. 거의 대부분이 그렇지. 하지만 사람들은 오랫동안 먹을 것을 보관하고 저장하길 바라지.";
 								next;
-								mes "[Mingmin]";
-								mes "Have you even seen the bandage that Ancient Mummy are wound up in? They last even for centuries at a time.";
+								mes "[밍민]";
+								mes "에인션트 미이라를 두르고 있는 붕대를 본적이 있나? 수백 년은 되었을 것 같은 몬스터인데 붕대가 쌩쌩한 부분이 남아 있단 말이지.";
 								next;
-								mes "[Mingmin]";
-								mes "I guess it is rotten but we can make big money if this research goes well. Preservatives can make a strawberry pudding that does not go bad with time.";
+								mes "[밍민]";
+								mes "뭐 대부분은 썩어 가는 중이지만... 아무튼 이 연구가 잘만 되면 큰 돈을 벌게 될지도 몰라. 방부제! 시간이 가도 썩지 않는 딸기 푸딩 같은걸 만들 수 있어!";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "This research is necessary so that I can make my strawberry pudding.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "딸기 푸딩을 위해서라면 이 연구, 꼭 필요해!";
 									callsub S_Quest,13094,13093;
 								}
 							}
 							break;
 						case 2:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13096,PLAYTIME) == 1)
 								mes "Geffenia's research has just started. It is beginning so go slowly. Lets research.";
 							else if (questprogress(13095,HUNTING) == 1) {
 								cutin "서큐버스카드",3;  //succubus_card
-								mes "I do not expect a lot because it is very dangerous and not easy to access.";
+								mes "이건 정확한 연구를 하기 전에 미리 정보를 얻고자 하는 사전 답 사라고 할 수 있어. 게페니아는 쉽게 들어갈 수 없거든.";
 								next;
-								mes "[Mingmin]";
-								mes "This request is attempting to an adventurer who used to enjoy it. Simple! Fun! Worthy experience!";
+								mes "[밍민]";
+								mes "들어가는 방법을 찾는 것부터가 의뢰야. 그리고 안에 어떤 녀석들이 있는지 대충 살피고 와줘. 일단 ^FF000010마리^000000 정도 연구해줘. 자세한 연구는 그후에 시작하도록 하지.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13095,HUNTING) == 2) {
@@ -839,29 +884,29 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							}
 							else {
 								cutin "인큐버스카드",3;  //incubus_card
-								mes "This is pre-survey for precious research because Geffenia is easy to access.";
+								mes "이건 정확한 연구를 하기 전에 미리 정보를 얻고자 하는 사전 답 사라고 할 수 있어. 게페니아는 쉽게 들어갈 수 없거든.";
 								next;
-								mes "[Mingmin]";
-								mes "The request starts from how to find a way in. Please take a look what kind of monsters are in there. first of all, start by hunting ^FF000010^000000 Incubus, Succubus and Violy. Then lets research the details later.";
+								mes "[밍민]";
+								mes "들어가는 방법을 찾는 것부터가 의뢰야. 그리고 안에 어떤 녀석들이 있는지 대충 살피고 와줘. 일단 ^FF000010마리^000000 정도 연구해줘. 자세한 연구는 그후에 시작하도록 하지.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
 									mes "Try to start from Geffen fountain, if you want more information.";
 									callsub S_Quest,13096,13095;
 								}
 							}
 							break;
 						case 3:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13098,PLAYTIME) == 1)
 								mes "They all look the same for me.	I should research harder.";
 							else if (questprogress(13097,HUNTING) == 1) {
 								cutin "베나투",3;  //venatu_card
-								mes "There is one more reason why many adventurers are sent to Juperos and that is my real request.";
+								mes "유페로스 여기저기에서 ^FF0000미지의 조각^000000들을 찾을 수 있을 거야. 대부분의 몬스터들이 그것을 가지고 있어.";
 								next;
-								mes "[Mingmin]";
-								mes "If you go to Juperos? I wish you to take a request about ^FF0000Venatus^000000.";
+								mes "[밍민]";
+								mes "쉬운 일은 아니겠지만 꼭 해줬으면 하는 의뢰야. 부탁해.";
 								cutin "min01",0;
 							}
 							else if (questprogress(13097,HUNTING) == 2) {
@@ -872,30 +917,30 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							}
 							else {
 								cutin "베나투",3;  //venatu_card
-								mes "The remains of ancient, Juperos is mysterious. There are lots of ^FF0000secrets^000000. But this is yet again a simple monster research survey.";
+								mes "고대의 유적 유페로스! 신비한 곳이야. 크고 작은 ^FF0000비밀^000000들이 있지만 이번에 연구할건 내 전공인 몬스터 부분이야. 놀라지 마.";
 								next;
-								mes "[Mingmin]";
-								mes "The monster ^FF0000Venatu^000000 in juperos has 4 types of colors. Which means there are four types of monsters.";
+								mes "[밍민]";
+								mes "유페로스에 나오는 ^FF0000베나투^000000라는 몬스터는 무려 네가지 속성을 가지고 있어! 네가지 몬스터가 존재 한다는 거야!";
 								next;
-								mes "[Mingmin]";
-								mes "I thought they are the same because they look the same. Is it only me? I can not distinguish. Hunt 30 of each Green, Orange and Blue ones just to be sure.";
+								mes "[밍민]";
+								mes "난 다 똑같이 생겨서 같은 녀석인줄 알았거든... 나만 신기한가... 녀석들을 골고루 연구해보고 오도록 해. 사실 난 아직도 잘 구분하지 못하겠어.";
 								next;
 								cutin "min01",0;
-								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "It wil not be easy to be alone. But looking for a fellow for adventure is what an adventurer does.";
+								if(select("의뢰를 수행한다.:그만둔다.") == 1) {
+									mes "[밍민]";
+									mes "혼자서는 쉽지 않을 거야. 함께 할 수 있는 동료를 구하는 것도 모험가의 일이지! 힘내.";
 									callsub S_Quest,13098,13097;
 								}
 							}
 							break;
 						case 4:
-							mes "[Mingmin]";
+							mes "[밍민]";
 							if (questprogress(13100,PLAYTIME) == 1)
 								mes "I will make anything better than you imagine.";
 							else if (questprogress(13099) == 1) {
 								if (countitem(Mystery_Piece) > 9 && countitem(Screw) > 19) {
 									cutin "min03",0;
-									mes "Thank you. You will appreciate me if my research is completed.";
+									mes "고마워! 정말! 나중에 나의 연구가 완료되면 분명 당신도 나에게 고마워 하는 날이 올거야!";
 									emotion e_loud;
 									delitem Mystery_Piece,10;// Mystery_Piece
 									delitem Screw,20;// Screw
@@ -903,24 +948,24 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								}
 								else {
 									cutin "베나투",3;  //venatu_card
-									mes "You can find ^FF0000Fragment and Rusty Screw^000000 in juperos everywhere. Most of the monsters have it.";
+									mes "이번 연구의 핵심이야. 그 녀석의 정체를 꼭 풀어야 해. 분명 굉장할 거야. ^FF0000미지의 조각^000000을 10개만 구해다 줘.";
 									next;
-									mes "[Mingmin]";
-									mes "I know it is not easy but I wish thee to take this request. Please.";
+									mes "[밍민]";
+									mes "얼마나 얻을 수 있는 전리품인지 잘 모르겠지만 가능 하면이 구해다 줘. 구해오는 김에 ^FF0000녹슬어버린 나사^000000도 20개 부탁해.";
 									cutin "min01",0;
 								}
 							}
 							else {
 								cutin "베나투",3;  //venatu_card
-								mes "Juperos is intense and mysterious. When he showed up, It seems like it is not Midgard.";
+								mes "유페로스는 특유의 어떤 긴장감과 신비함이 있어. 입장하는 순간부터 마치 미드다르드가 아닌 것 같은 기분이 들지..";
 								next;
-								mes "[Mingmin]";
-								mes "It is core research. I need to know who he is. That will be amazing. Can you bring me 10 ^FF0000Fragment^000000 and 20 ^FF0000Rusty Screw^000000?";
+								mes "[밍민]";
+								mes "그 중에서도 ^FF0000미지의 조각^000000이란 수집품은 정말 정말 굉장해. 마치 무엇인가를 압축해서 모아 놓은 것 같은 기분이 들어.";
 								next;
 								cutin "min01",0;
 								if (select( "Take the request.", "Quit" ) == 1) {
-									mes "[Mingmin]";
-									mes "I do not know how many drops you can carry but I want as many as you can. May I ask you to bring 10 ^FF0000Fragment^000000 and 20 ^FF0000Rusty Screw^000000?";
+									mes "[밍민]";
+									mes "이번 연구의 핵심이야. 그 녀석의 정체를 꼭 풀어야 해. 분명 굉장할 거야. ^FF0000미지의 조각^000000을 10개만 구해다 줘.";
 									callsub S_Quest,13100,13099;
 								}
 							}
@@ -929,17 +974,21 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 				}
 			}
 			else if (para_110lv01 < 5) {
-				mes "The request for researching monsters seem to easy for you.";
+				mes "[밍민]";
+				mes "흐음...저의 몬스터 연구 의뢰는 당신에겐 너무 쉬울 것 같습니다..";
 				next;
-				mes "[Mingmin]";
-				mes "There is nothing I can do because these are the rules of the Eden Group.";
+				mes "[밍민]";
+				mes "모험가들에겐 그에 걸 맞는 모험이 있다고 전 생각합니다. 지금의 당신은 음... 어울리지 않습니다.";
 				next;
-				mes "[Mingmin]";
-				mes "There is someone who strongly wishes you to solve your request.";
+				mes "[밍민]";
+				mes "아무튼 제가 드릴 수 있는 건 없습니다.";
+				next;
+				mes "[밍민]";
+				mes "당신이 의뢰를 해결 해주길 애타게 기다리는 누군가가 있을 겁니다.";
 			}
 			else {
 				cutin "min01",0;
-				mes "Contract is terminated. "+ strcharinfo(0) +" reward for completed research. ^FF0000I will delete incompleted research from your quest list.^000000";
+				mes "계약은 종료 되었습니다. "+strcharinfo(0)+"님. 완료된 연구는 보상을, ^FF0000미완료된 연구는 의뢰 목록에서 삭제해 드리겠습니다.^000000";
 				para_110lv01 = 6;
 				next;
 				callsub S_Hunting,
@@ -962,98 +1011,105 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 					13095,200000,"Geffenia expedition",
 					13097,300000,"Juperos";
 				callsub S_Gathering,13099,200000,"Fragments and Rusty Screws",7094,10,7317,20;
-				mes "[Mingmin]";
-				mes "It is a little bit inconvenient. I will read to you politely ^FF0000again^000000 in public.";
+				mes "[밍민]";
+				mes "조금 불편하긴 하지만 이런 공식적인 자리에선 ^FF0000다시^000000 예의 바르게 대접해 드리겠습니다.";
 				next;
-				mes "[Mingmin]";
-				mes "Anyway "+ strcharinfo(0) +" thank you for helping me start my research.";
+				mes "[밍민]";
+				mes "어찌되었건 "+strcharinfo(0)+"님 덕분에 저의 연구가 조금이라도 진행이 되었으니 말입니다.";
 				next;
 				cutin "min03",0;
-				mes "[Mingmin]";
-				mes "Do not worry, I will treat you like a slave if we meet outside of Eden Group or if you tell anyone I was nice to you.";
+				mes "[밍민]";
+				mes "뭐 지금 이 장소가 아닌 어딘가에서 다시 만난다면 또 노예처럼 대해 줄 테니 너무 긴장 풀지는 말라고! 아하핫.";
 				emotion e_loud;
 				next;
 				cutin "min01",0;
-				mes "[Mingmin]";
-				mes "Just because I'm being nice now doesn't mean we're automatically friends though.";
+				mes "[밍민]";
+				mes "흠흠흠... 뭐 정도 들었고 하니 약간의 팁을 드리자면 말입니다.";
+				next;
+				mes "[밍민]";
+				mes "^FF0000작은 노래 소리가 들리는 곳^000000을 찾아가면 좋을 겁니다. 분명 당신의 그 열정을 기다리고 있을 겁니다. 아주 귀여운 아가씨가 말입니다.";
 			}
 			break;
 		case 2:
 			if (para_110lv01 == 5)
 				mes "Do you want to know something? I am busy researching.";
 			else
-				mes "It is fine day for researching. It is always fun to talk to someone of sufficient intelligence.";
+				mes "연구하기 참 좋은 날씨입니다. 누군가와 이야기를 나누는 건 항상 즐겁습니다.";
 			while(1) {
 				next;
-				switch( select( "^0000ffFriends^000000 story", "Something to research", "Orange beard gluey mushroom...", "Finish conversation" ) ) {
+				switch(select("^0000ff친구들^000000 이야기:연구하고 있는 것:주홍수염끈적버섯...:대화를 마친다.")) {
 				case 1:
-					mes "[Mingmin]";
+					mes "[밍민]";
 					if (para_110lv01 < 5) {
 						cutin "min02",0;
-						mes "I found a familiar face since I arrived to Eden Group with this request. ^ff0000Rohtert^000000 is the one.";
+						mes "이번에 의뢰를 받고 낙원단에 와보니 낯익은 얼굴이 하나 있더랍니다. ^ff0000로테르트^000000라고 하는 친구입니다.";
 						next;
-						mes "[Mingmin]";
-						mes "I used to join clubs that researched rare monsters. I heard it became a guild and anyway I met him there.";
+						mes "[밍민]";
+						mes "전에 희귀 몬스터를 찾아 다니는 동호회에 가입한 적이 있거든요. 나중엔 길드가 되었다고 들었는데... 아무튼 거기서 만난 사이에요.";
 						next;
-						mes "[Mingmin]";
-						mes "I look younger but I am like his sister. There was so many things that happened in that club. However, I shouldn't go on and on about it. I might tell you later when we have time.";
+						mes "[밍민]";
+						mes "보기엔 제가 좀 더 어려 보이지만 제가 누나랍니다. 그 동호회에서 참 많은 일이 있었는데... 이크! 이 얘기 시작하면 끝이 없습니다. 언젠가 시간이 나면 이야기 해드리겠습니다.";
 					}
 					else if (para_110lv01 == 5) {
 						cutin "min03",0;
 						mes "I found a familiar face since I arrived to Eden Group with this request. Do you see the guy ^FF0000Rohtert^000000 with white hair near the entrance?";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Now that he's grown up... well he used to follow me calling me his sister. By the way where is the blue hat guy who used to stick to him like glue. Did they have a fight?";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "That blue hat guy... He used to annoy me even at the club. If I see him again I just might smack him...";
 					}
 					else {
 						cutin "min02",0;
 						mes "I used to talk to Rohtert from time to time while researching. There was a lot of things to talk about ever since I left the guild.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I think the guild is still around since there were so many members even when I was there.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I even heard that blue hat guy made himself a guild master. Imagine that fool being a master oh ho ho ho.";
 					}
 					continue;
 				case 2:
-					mes "[Mingmin]";
+					mes "[밍민]";
 					if (para_110lv01 < 5) {
 						cutin "min01",0;
-						mes "I research monsters. Especially their features, personality, spleens, locations and relationship with other monsters. Etc.";
+						mes "몬스터를 연구하고 있습니다. 몬스터의 모습, 특성, 성격, 서식지, 다른 몬스터와의 관계. 뭐 여러 가지가 있습니다.";
+						next;
+						mes "[밍민]";
+						mes "...는 공식적인 입장이고.";
+						mes "개인적으로도 여러 가지 연구를 하고 있습니다. 하하핫.";
 					}
 					else if (para_110lv01 == 5) {
 						cutin "min03",0;
 						mes "Researching these magic items there is more to it than just having them in your possession.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "My plan so far is like this. Extracted magic from the Mystic Horn is compressed by the Fragments and Screws. Then I will input the ancient information which was written in the Bloody Pages.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I'm hoping to create some type of small hand-held storage device.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I wil be rich if I complete this research! I am sure.";
 					}
 					else {
 						cutin "min01",0;
 						mes "Well do you remember my personal research I mentioned before? It is not easy even I tried to develop...";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I tried to make a magic device that you can hold in your hand.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "No. I can not give up for this. I will make it.";
 					}
 					continue;
 				case 3:
-					mes "[Mingmin]";
+					mes "[밍민]";
 					if (para_110lv01 < 5) {
 						cutin "min02",0;
-						mes "Orange mushroom? I do not know.";
+						mes "음? 주홍무슨 버섯이요? 전 잘 모르겠군요.";
 					}
 					else if (para_110lv01 == 5) {
 						cutin "min01",0;
@@ -1063,43 +1119,43 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 						cutin "min02",0;
 						mes "... orange shiitake gluey mushroom?";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Let me see. It might be dangerous.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "You helped me to research so let me help you! I will get rid of your mushroom spore infection.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "......";
 						next;
 						cutin "min03",0;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "...hee hee...";
 						emotion e_heh;
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "Hmmph, You are so naive. Did you believe it? Sticky.. some kind of mushroom is growing in your body? Hahaha";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "It was just a joke. A little joke between friends.";
 						next;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "I am sorry if you are upset. You made it too easy...";
 						next;
 						emotion e_heh;
-						mes "[Mingmin]";
+						mes "[밍민]";
 						mes "You are funnier than I thought. Do not worry. That mushroom does not exist.";
 					}
 					continue;
 				case 4:
-					mes "[Mingmin]";
+					mes "[밍민]";
 					if (para_110lv01 == 5) {
 						cutin "min01",0;
 						mes "Please help me there are so many things to research.";
 					}
 					else {
 						cutin "min02",0;
-						mes "I hope you have a good time";
+						mes "그럼 좋은 하루 되시길 바랍니다.";
 					}
 				}
 				break;
@@ -1127,11 +1183,11 @@ S_Hunting:
 				erasequest (.@quest_id+1);
 			continue;
 		case 1:
-			mes "[Mingmin]";
+			mes "[밍민]";
 			mes "I will delete "+ getarg(.@i+2) +" research from request list.";
 			break;
 		case 2:
-			mes "[Mingmin]";
+			mes "[밍민]";
 			mes "You finished researching about "+ getarg(.@i+2) +". Thank you.";
 			getexp 700000,getarg(.@i+1);
 			break;
@@ -1145,7 +1201,7 @@ S_Gathering:
 	if (questprogress(getarg(0))) {
 		if (getarg(5,0))
 			.@count_item2 = countitem(getarg(5));
-		mes "[Mingmin]";
+		mes "[밍민]";
 		if (countitem(getarg(3)) >= getarg(4) && .@count_item2 >= getarg(6,0)) {
 			if (.@count_item2)
 				mes "You finished researching about "+ getitemname(getarg(3)) +" and "+ getitemname(getarg(5)) +". Thank you.";

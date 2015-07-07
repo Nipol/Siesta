@@ -7,17 +7,18 @@
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 71 - 85.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Updated to match the official scripts. [Euphy]
 //============================================================
 
-moc_para01,44,38,3	script	Mission [71 - 85]	4_BOARD3,{
-	if (countitem(6219) < 1) {
-		mes "- Only members of the -";
-		mes "- Eden Group can read -";
-		mes "- this bulletin board. -";
+moc_para01,44,38,3	script	의뢰 [71 - 85]	4_BOARD3,{
+	if (countitem(22508) < 1) {
+		mes "- 낙원단의 증표가 없는 -";
+		mes "- 사람은 볼 수 없는 -";
+		mes "- 게시판인 것 같다 -";
 		close;
 	}
 
@@ -35,11 +36,9 @@ moc_para01,44,38,3	script	Mission [71 - 85]	4_BOARD3,{
 	}
 
 	if (BaseLevel < 71) {
-		mes "- Only members of the -";
-		mes "- right level can read -";
-		mes "- this bulletin board. -";
-		mes "- Try to find a board -";
-		mes "- that suits your level. -";
+		mes "- 여긴 지금의 내가 볼 곳이 -";
+		mes "- 아닌 것 같다. 다른 게시판을 -";
+		mes "- 보도록 하자... -";
 		close;
 	} else if (BaseLevel > 85) {
 		// Quest IDs: 10107-10123, 5055-5057
@@ -65,11 +64,9 @@ moc_para01,44,38,3	script	Mission [71 - 85]	4_BOARD3,{
 				callsub L_Quest,.@complete[.@i];
 			close;
 		}
-		mes "- Only members of the -";
-		mes "- right level can read -";
-		mes "- this bulletin board. -";
-		mes "- Try to find a board -";
-		mes "- that suits your level. -";
+		mes "- 여긴 지금의 내가 볼 곳이 -";
+		mes "- 아닌 것 같다. 다른 게시판을 -";
+		mes "- 보도록 하자... -";
 		close;
 	}
 	mes "- Choose where you -";

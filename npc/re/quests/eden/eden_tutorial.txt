@@ -8,60 +8,64 @@
 //= A series of quests introducing the major features of
 //= Ragnarok Online.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 First Version. [Euphy]
 //============================================================
 
-moc_para01,34,178,3	script	Tutorial Instructor	4_M_KHMAN,{
+moc_para01,34,178,3	script	튜토리얼 맨	4_M_KHMAN,{
 	if (Class == Job_Novice) {
-		// Fall through
+		mes "[튜토리얼 맨]";
+		mes "요즘에는 소켓이 없는 장비에 소켓을 뚫어주거나";
+		mes "스테이터스 옵션을 추가하는 기술이 발전하고 있다고 해";
+		close;
 	} else if (!questprogress(9167)) {
 	OnStartQuest:
 		if (@tutorial_restart) {
 			.@tutorial_restart = 1;
 			@tutorial_restart = 0;
 		}
-		mes "[Tutorial Instructor]";
-		mes "Lately, it has been said that";
-		mes "they are developing ways to add options";
-		mes "to put in sockets or add statuses";
-		mes "on equipment that normally don't have it.";
-		mes "They call that ^006400Enchant^000000.";
+		mes "[튜토리얼 맨]";
+		mes "요즘엔 소켓이 없는 장비에";
+		mes "소켓을 뚫어주거나";
+		mes "스테이터스 옵션을 추가하는";
+		mes "기술이 발전하고 있다고 해";
+		mes "그 것을 ^006400인챈트^000000라고 하지";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "After seeing that being developed,";
-		mes "I was so inspired by it";
-		mes "that I worked hard to discover";
-		mes "a way to do it and I finally";
-		mes "made my own way to ^006400Enchant^000000!";
+		mes "[튜토리얼 맨]";
+		mes "그런 기술의 발전을";
+		mes "보고 감동을 받아서";
+		mes "나도 열심히 노력한 결과";
+		mes "드디어 ^006400인챈트^000000의 비법을";
+		mes "알아내고야 말았어!";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "But in order do to this";
-		mes "I need some special materials.";
-		mes "If you're okay with it...";
-		mes "Do you think you can";
-		mes "help me out by gathering them?";
+		mes "[튜토리얼 맨]";
+		mes "하지만 그러기 위해서는";
+		mes "특별한 재료가 필요하다네";
+		mes "혹시 괜찮다면";
+		mes "재료를 구하는 일을";
+		mes "도와 줄 수 있겠나?";
 		next;
-		switch(select("Sure, I can help out!:I'm a little busy right now...")) {
+		switch(select("그러도록 하죠:지금은 바빠서..")) {
 		case 1:
-			mes "[Tutorial Instructor]";
-			mes "However, looking at you";
-			mes "in your current state makes me";
-			mes "doubt your ability to gather";
-			mes "the items I need...";
+			mes "[튜토리얼 맨]";
+			mes "하지만 자네의 모습을 보니";
+			mes "내가 원하는 재료를";
+			mes "무사히 구해 올 수 있을지";
+			mes "믿음이 가질 않는군";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Well, I guess if you employ";
-			mes "a ^006400Mercenary^000000 for this";
-			mes "then I think I can entrust you";
-			mes "with my requests... right?";
+			mes "[튜토리얼 맨]";
+			mes "아무래도 ^006400용병^000000정도는";
+			mes "고용하고 다니는 사람에게";
+			mes "작은 부탁 하나를 해도";
+			mes "믿음이 가지 않겠나?";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to employ a Mercenary,";
-			mes "go find the ^006400Mercenary Guild^000000";
-			mes "which is by the front door of ^8B4513Prontera^000000.";
-			mes "Go to the ^006400Information Agent^000000";
-			mes "and ask them where the ^006400Mercenary Guild Official^000000";
-			mes "is located and they will let you know.";
+			mes "[튜토리얼 맨]";
+			mes "용병을 고용하기 위해서는";
+			mes "^006400용병길드^000000를 찾아가야 하는데";
+			mes "^8B4513프론테라^000000 문 앞에 위치한";
+			mes "^006400안내요원^000000에게";
+			mes "^006400용병길드 관계자^000000의 위치를 물어보면";
+			mes "자세하게 알 수 있을것이네";
 			next;
 			if (.@tutorial_restart) {
 				erasequest 9167;
@@ -73,34 +77,33 @@ moc_para01,34,178,3	script	Tutorial Instructor	4_M_KHMAN,{
 				completequest 9173;
 				erasequest 9173;
 			}
-			mes "[Tutorial Instructor]";
-			mes "Now... Hurry and employ";
-			mes "a ^006400Mercenary^000000 and come back to me!";
+			mes "[튜토리얼 맨]";
+			mes "자~ 그럼 어서";
+			mes "^006400용병^000000을 고용하고 오도록 하게";
 			setquest 9167;
 			close;
 		case 2:
-			mes "[Tutorial Instructor]";
-			mes "Well since you said you're busy";
-			mes "I can't be helped...";
-			mes "When you're not so busy, come find me again.";
+			mes "[튜토리얼 맨]";
+			mes "바쁘다니 할 수 없군..";
+			mes "나중에 시간이 생기면 다시 찾아와 주게";
 			close;
 		}
 	} else if (questprogress(9167) == 1) {
 		if (!getmercinfo(1)) {
-			mes "[Tutorial Instructor]";
-			mes "You haven't gotten a mercenary yet.";
+			mes "[튜토리얼 맨]";
+			mes "아직 용병을 고용하지 못했군";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to employ a Mercenary,";
-			mes "go find the ^006400Mercenary Guild^000000";
-			mes "which is by the front door of ^8B4513Prontera^000000.";
-			mes "Go to the ^006400Information Agent^000000";
-			mes "and ask them where the ^006400Mercenary Guild Official^000000";
-			mes "is located and they will let you know.";
+			mes "[튜토리얼 맨]";
+			mes "용병을 고용하기 위해서는";
+			mes "^006400용병길드^000000를 찾아가야 하는데";
+			mes "^8B4513프론테라^000000 문 앞에 위치한";
+			mes "^006400안내요원^000000에게";
+			mes "^006400용병길드 관계자^000000의 위치를 물어보면";
+			mes "자세하게 알 수 있을것이네";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Now... Hurry and employ";
-			mes "a ^006400Mercenary^000000 and come back to me!";
+			mes "[튜토리얼 맨]";
+			mes "자~ 그럼 어서";
+			mes "^006400용병^000000을 고용하고 오도록 하게";
 			close;
 		}
 		mes "[Tutorial Instructor]";
@@ -567,7 +570,7 @@ moc_para01,34,178,3	script	Tutorial Instructor	4_M_KHMAN,{
 	close;
 }
 
-moc_para01,32,179,4	script	Tutorial Goal	4_F_KHELLY,{
+moc_para01,32,179,4	script	튜토리얼 걸	4_F_KHELLY,{
 	if (checkweight(608,7) == 0) {
 		if (MaxWeight - Weight < getiteminfo(608,7)) {
 			mes "[Tutorial Goal]";
@@ -580,41 +583,60 @@ moc_para01,32,179,4	script	Tutorial Goal	4_F_KHELLY,{
 		}
 	}
 	if (questprogress(4161) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Well~ We gotta go challenge the experts right?";
-		mes "Let's start off by finding the ^006400Siege Expert^000000!";
+		mes "[튜토리얼 걸]";
+		mes "자~ 달인에게 도전해야죠~?";
+		mes "^006400공성의 달인^000000부터";
+		mes "찾아가 보는게 어때요?";
 		close;
 	} else if (questprogress(4162) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You've passed the ^006400Siege Expert^000000's test! Congrats!";
-		mes "Now, go find the ^006400Party Recruiting Expert^000000!";
+		mes "[튜토리얼 걸]";
+		mes "^006400공성의 달인^000000의 시험을";
+		mes "통과 했군요! 축하해요~!";
+		mes "다음은 ^006400파티 모집의 달인^000000을";
+		mes "찾아가 보는게 어때요?";
 		close;
 	} else if (questprogress(4163) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Oh! You've passed the ^006400Party Recruiting Expert^000000's test! Congrats!";
-		mes "Now, go find the ^006400Battleground Expert^000000!";
+		mes "[튜토리얼 걸]";
+		mes "^006400파티 모집의 달인^000000의 시험을";
+		mes "통과 했군요! 축하해요~!";
+		mes "다음은 ^006400전장의 달인^000000을";
+		mes "찾아가 보는게 어때요?";
 		close;
 	} else if (questprogress(4164) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Yay! You passed the test from the ^006400Battleground Expert^000000! Congrats!";
-		mes "Next, go and find the ^006400Memorial Dungeon Expert^000000!";
+		mes "[튜토리얼 걸]";
+		mes "^006400전장의 달인^000000의 시험을";
+		mes "통과 했군요! 축하해요~!";
+		mes "다음은 ^006400메모리얼 던전의 달인^000000을";
+		mes "찾아가 보는게 어때요?";
 		close;
 	} else if (questprogress(4165) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You passed the test from ^006400Memorial Dungeon Expert^000000! That's great!";
-		mes "Try finding the ^006400Map Expert^000000!";
+		mes "[튜토리얼 걸]";
+		mes "^006400메모리얼 던전의 달인^000000의 시험을";
+		mes "통과 했군요! 축하해요~!";
+		mes "다음은 ^006400지도의 달인^000000을";
+		mes "찾아가 보는게 어때요?";
 		close;
 	} else if (questprogress(4166) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You passed ^006400Map Expert^000000's test! Congrats!";
-		mes "I'm so glad that you were to pass all the Experts' tests! You're better than I expected!!";
+		mes "[튜토리얼 걸]";
+		mes "^006400지도의 달인^000000의 시험을";
+		mes "통과 했군요! 축하해요~!";
+		mes "모든 달인의 시험을 통과하다니,";
+		mes "정말 대단해요~!!";
+		mes "기대 이상이에요~!!";
 		next;
-		mes "[Tutorial Goal]";
-		mes "Now, even you are an ^006400Expert^000000!! Such a fitting nick name for you!";
-		mes "Thank you so much for your hard work. As promised, here is a small little reward for you.";
+		mes "[튜토리얼 걸]";
+		mes "이제는 당신이야 말로";
+		mes "^006400달인^000000!! 으로 불릴 만 해요.";
+		mes "정말 수고하셨고";
+		mes "약속 한 대로";
+		mes "작은 보상을 드리도록 할게요";
 		next;
-		mes "[Tutorial Goal]";
-		mes "I think it'll be useful to you during your adventures. I wish you luck on your future adventures~";
+		mes "[튜토리얼 걸]";
+		mes "모험을 하는 도중에";
+		mes "여러모로 도움이 많이 될 거에요.";
+		mes "앞으로 펼쳐질 모험에";
+		mes "항상 행운만이 가득하기를";
+		mes "바랄게요~.";
 		completequest 4166;
 		getitem 510,5; //Blue_Herb
 		getitem 511,5; //Green_Herb
@@ -622,939 +644,1455 @@ moc_para01,32,179,4	script	Tutorial Goal	4_F_KHELLY,{
 		getitem 608,1; //Seed_Of_Yggdrasil
 		close;
 	} else if (questprogress(4166) == 2) {
-		mes "[Tutorial Goal]";
-		mes "Now, even you are an ^006400Expert^000000!! Such a fitting nick name for you!";
-		mes "Thank you so much for your hard work.";
-		mes "I hope that your future adventures are filled with good luck.";
+		mes "[튜토리얼 걸]";
+		mes "이제는 당신이야 말로";
+		mes "^006400달인^000000!! 으로 불릴 만 해요.";
+		mes "정말 수고하셨어요.";
+		mes "앞으로 펼쳐질 모험에";
+		mes "항상 행운만이 가득하기를";
+		mes "바랄게요~.";
 		close;
 	}
 	if (Class == Job_Novice) {
-		mes "[Tutorial Goal]";
-		mes "Hmm, I wonder if there is any adventurer that is smart enough to challenge our Experts...";
+		mes "[튜토리얼 걸]";
+		mes "우리 달인들에게 도전 할 똑똑한 모험가 없나..?";
 		close;
 	}
-	mes "[Tutorial Goal]";
-	mes "Hey you! You look like an adventurer... Though you look a little dull...";
+	mes "[튜토리얼 걸]";
+	mes "음~ 행색을 보아하니";
+	mes "모험가처럼 보이는데....";
+	mes "전형적인 무식한 모험가처럼";
+	mes "닥히 아는 건 별로 없어보이네요.";
 	next;
-	if(select("What'd you say? I'm smart!:Yeah... I'm dull.") == 1) {
-		mes "[Tutorial Goal]";
-		mes "Serious? Though I don't know if I can believe that. Look at the expert who is in front of me! He took up only one area of study for 16 years and now he is as dignified as can be!";
+	if(select("내가 얼마나 똑똑한데!!:그래.. 난 무식해..") == 1) {
+		mes "[튜토리얼 걸]";
+		mes "정말로요?";
+		mes "하지만 믿을 수 없어요.";
+		mes "제 앞에 있는 달인들을 보세요!";
+		mes "16년 동안 한 분야에만";
+		mes "매진 해 온 저 늠름한 모습을!!";
 		next;
-		mes "[Tutorial Goal]";
-		mes "Well, if you manage to pass all their tests then I will believe in your abilities.";
+		mes "[튜토리얼 걸]";
+		mes "만약 저 달인들의";
+		mes "지식과 능력을 모두";
+		mes "당신의 것으로 만들고";
+		mes "그들의 시험까지 전부 통과한다면,";
+		mes "제가 인정을 해드리도록 할게요.";
 		next;
-		mes "[Tutorial Goal]";
-		mes "And I will apologize for calling you dull. How about it, Dull Expert?! Do you want to challenge them?";
+		mes "[튜토리얼 걸]";
+		mes "그리고 당신을 무시한 것을";
+		mes "사죄하는 의미에서";
+		mes "보상또한 드리도록 할게요.";
+		mes "어때요? 무식한 모험가님~!!";
+		mes "도전 해 보겠어요?";
 		next;
-		if(select("Ch... Challenge!!:Um... I think I'll just give up now...") == 1) {
-			mes "[Tutorial Goal]";
-			mes "You're braver than you look. You can't go back now that you've decided to challenge!";
+		if(select("도...도전~!!:아니.. 그냥 포기할래..") == 1) {
+			mes "[튜토리얼 걸]";
+			mes "음~ 보기보다 용감한데요?";
+			mes "도전하기로 한 이상 이제는 돌이킬 수 없어요!!";
 			next;
-			mes "[Tutorial Goal]";
-			mes "Okay~ Start by talking to the ^006400Siege Expert^000000 who's right there in front.";
+			mes "[튜토리얼 걸]";
+			mes "자~ 그럼 먼저";
+			mes "저 앞에 있는 ^006400공성의 달인^000000부터";
+			mes "찾아가 보는게 어때요?";
 			setquest 4161;
 			close;
 		}
 	}
-	mes "[Tutorial Goal]";
-	mes "Well, don't get discouraged... If you change your mind and want to do the challenge, come find me.";
+	mes "[튜토리얼 걸]";
+	mes "흠.. 그렇다고";
+	mes "너무 좌절하지는 말아요.";
+	mes "혹시라도 도전하고싶은";
+	mes "마음이 생기면";
+	mes "다시 절 찾아오도록 해요.";
 	close;
 }
 
-moc_para01,24,175,4	script	Siege Master	4_M_JOB_KNIGHT2,{
+moc_para01,24,175,4	script	공성의 달인	4_M_JOB_KNIGHT2,{
 	.@checkquest = questprogress(4161);
 	if (.@checkquest == 2) {
-		mes "[Siege Expert]";
-		mes "Since you've come again, I assume you're curious about ^006400Siege^000000?";
+		mes "[공성의 달인]";
+		mes "다시 나를 찾아 온 것을 보니";
+		mes "^006400공성전^000000에 대해서";
+		mes "궁금한 점이 생긴거 같은데?";
 		next;
-		switch(select("Listen about Siege.:End Conversation.")) {
+		switch(select("공성전에 대해 들어본다.:대화를 마친다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Siege Expert]";
-			mes "Now that you've gone through all of this with an expert, isn't it easy to understand? If you want to go over anything, just come talk to me.";
+			mes "[공성의 달인]";
+			mes "자~ 달인에게 설명을 들으니";
+			mes "더욱 더 쉽게 쏙쏙 들어오지?";
+			mes "궁금한 점이 생기면";
+			mes "다시 찾아오게~";
 			close;
 		case 2:
-			mes "[Siege Expert]";
-			mes "If you want to go over anything, just come talk to me.";
+			mes "[공성의 달인]";
+			mes "그래~ 궁금한 점이 생기면";
+			mes "다시 찾아오게~";
 			close;
 		}
 	} else if (.@checkquest == 1) {
-		mes "[Siege Expert]";
-		mes "I am someone who has studied War of Emperium for 16 years! So that makes me an expert! Since you came to find me, I assume you want to learn more about ^006400Siege^000000.";
+		mes "[공성의 달인]";
+		mes "나는 16년동안 공성전만 연구해 온";
+		mes "^006400공성전^000000의 달인이라고 하지.";
+		mes "나를 찾는 모습을 보니";
+		mes "^006400공성전^000000에 대해서";
+		mes "궁금한 점이 있나보군";
 		next;
-		mes "[Siege Expert]";
-		mes "You have great desire and enthusiasm. As the Expert of ^006400Siege^000000, you have motivated me! All the other Experts are waiting for you! Go get'em!";
+		mes "[공성의 달인]";
+		mes "자네의 열의를 보니";
+		mes "^006400공성전^000000의 달인으로서";
+		mes "의욕이 불타오르는군";
+		mes "여기 있는 달인들은 모두";
+		mes "자네와 같은 모험가를 기다리고";
+		mes "있었다네.";
 		next;
-		mes "[Siege Expert]";
-		mes "If I told you that there was a great prize for being able to pass all the Experts' tests~ would you go for the challenge?";
+		mes "[공성의 달인]";
+		mes "만약 모든 달인들의 설명을";
+		mes "듣고 문제를 맞출 경우";
+		mes "화끈한 보상이 기다리고 있으니";
+		mes "도전 해 보지 않겠나?";
 		next;
-		mes "[Siege Expert]";
-		mes "As the first Expert, I can teach you about ^006400Siege^000000. How about it? Did you wanna learn about ^006400Siege^000000s?";
+		mes "[공성의 달인]";
+		mes "그 첫 번째 달인으로서 내가";
+		mes "^006400공성전^000000에 대해서";
+		mes "성심 성의껏 알려주도록 하지";
+		mes "어때?";
+		mes "일단 ^006400공성전^000000에 대해서";
+		mes "들어나 보게";
 		next;
-		switch(select("Listen about Siege.:End Conversation.")) {
+		switch(select("공성전에 대해 들어본다.:이야기를 끝낸다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Siege Expert]";
-			mes "Now that you've gone through all of this with an expert, isn't it easy to understand?";
-			mes "Now I'll give you 3 questions~ get those right and you've passed! Do you want a challenge?";
+			mes "[공성의 달인]";
+			mes "자~ 달인에게 설명을 들으니";
+			mes "더욱 더 쉽게 쏙쏙 들어오지?";
+			mes "이제 3가지 문제를 낼 텐데";
+			mes "전부 맞출 경우 통과 일세.";
+			mes "도전 해보겠나?";
 			while(1) {
 				.@correct = 0;
 				next;
-				switch(select("Challenge me!:Listen Again:Quit")) {
+				switch(select("문제에 도전한다:설명을 다시 듣는다:그만 둔다")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Siege Expert]";
-						mes "A Siege is done in order to take over a [].";
-						mes "It's a war that happens between a [] and another [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[공성의 달인]";
+						mes "공성전은";
+						mes "[]을 차지하기 위해서";
+						mes "[]와 []가 벌이는 대전이다";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Castle, User, Guild:Castle, Guild, Guild:Town, Guild, Guild:Town, User, User") == 2)
+						if(select("성, 유저, 길드:성, 길드, 길드:마을, 길드, 길드:마을, 유저, 유저") == 2)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "What is the wrong Siege time?";
+						mes "[공성의 달인]";
+						mes "공성전이 진행되는 시간 중";
+						mes "틀린 것은?";
 						next;
-						if(select("WoE 1 Tues 9-11:WoE 1 Sat 4-6:WoE 1 Thurs 8-10") == 3)
+						if(select("수요일 저녁 9~11시:일요일 저녁 8~9시:수요일 저녁 7~9시:토요일 저녁 7~9시") == 3)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "When you get a castle, you must raise [] in order to get better benefits.";
-						mes "What words go in the empty spaces of []?";
+						mes "[공성의 달인]";
+						mes "성을 소유한 후";
+						mes "더욱 더 다양한";
+						mes "혜택을 얻기 위해서는";
+						mes "[]을 높여야 한다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Commerce Development:Industrial Development:Guild Development:Town Development") == 1)
+						if(select("상업 발전도:공업 발전도:길드 발전도:마을 발전도") == 1)
 							.@correct += 10;
 						break;
 					case 2:
-						mes "[Siege Expert]";
-						mes "There are 2 types of Siege.";
-						mes "There is the normal War of Emperium";
-						mes "and then there is [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[공성의 달인]";
+						mes "공성에는 3가지 종류가 있는데";
+						mes "일반적인 공성전과 공성전  SE,";
+						mes "그리고 1차, 2차 직업과";
+						mes "확장 직업군만 참여 할 수 있는";
+						mes "[]이 있다";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("War of Emperium MO:War of Emperium NE:War of Emperium SK:War of Emperium SE") == 4)
+						if(select("공성전 MO:공성전 NE:공성전 SK:공성전 TE") == 4)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "As the guild that owns a castle, you must protect the [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[공성의 달인]";
+						mes "공성전이 진행될 때";
+						mes "수성을 하는 길드가";
+						mes "파괴되지 않도록";
+						mes "지켜야 하는 것은 []이다";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Emperial:Emperium:Emperiom:Imperial") == 2)
+						if(select("임페리얼:엠펠리움:임펠리움:엠페리얼") == 2)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "What benefits does the guild get for winning the Siege?";
+						mes "[공성의 달인]";
+						mes "공성전 에서 승리한";
+						mes "길드가 얻는 혜택 중";
+						mes "맞는 것은?";
 						next;
-						if(select("30% off all items when purchasing:Increase experience gained by 20%:Access to Guild Dungeon:Getting Weapons everyday at midnight.") == 3)
+						if(select("구입하는 모든 물품 30% 할인:획득 경험치 20% 증가:길드 전용 던전 획득:매일 자정마다 공성무기 획득") == 3)
 							.@correct += 10;
 						break;
 					case 3:
-						mes "[Siege Expert]";
-						mes "What benefits does the guild get for winning the Siege?";
+						mes "[공성의 달인]";
+						mes "공성전 에서 승리한";
+						mes "길드가 얻는 혜택 중";
+						mes "맞는 것은?";
 						next;
-						if(select("Increase experience gained by 20%:30% off all items when purchasing:Access to Guild Field:Treasure Box daily at midnight") == 4)
+						if(select("획득 경험치 20% 증가:구입하는 모든 물품 30% 할인:길드 전용 필드 획득: 매일 자정마다 보물상자 획득") == 4)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "How many hours does a siege last?";
+						mes "[공성의 달인]";
+						mes "공성전SE을 진행하는데";
+						mes "소요되는 시간은?";
 						next;
-						if(select("1 Hour:2 Hours:3 Hours:4 Hours") == 2)
+						if(select("1 시간:2 시간:3 시간:4 시간") == 2)
 							.@correct += 10;
-						mes "[Siege Expert]";
-						mes "When you get a castle, you must raise [] in order to get better benefits.";
-						mes "What words go in the empty spaces of []?";
+						mes "[공성의 달인]";
+						mes "성을 소유한 후";
+						mes "더욱 더 다양한";
+						mes "혜택을 얻기 위해서는";
+						mes "[]을 높여야 한다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Town Development:Industry Development:Guild Development:Commerce Development") == 4)
+						if(select("마을 발전도:공업 발전도:길드 발전도:상업 발전도") == 4)
 							.@correct += 10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Siege Expert]";
-						mes "Wow! You got all 3 questions correct! So, you feel pretty good about ^006400Siege^000000s? Right?";
+						mes "[공성의 달인]";
+						mes "오오~ 3문제 전부";
+						mes "정답을 맞췄군";
+						mes "이제 ^006400공성전^000000에 대해서";
+						mes "조금 알겠지?";
 						next;
-						mes "[Siege Expert]";
-						mes "If you ever want to learn about ^006400Siege^000000, come find me.";
+						mes "[공성의 달인]";
+						mes "혹시라도 ^006400공성전^000000에 대해서";
+						mes "다시 설명을 듣고 싶다면";
+						mes "나를 찾아오도록 하게.";
+						mes "자네라면 기꺼이 언제든지";
+						mes "이야기 해 주도록 하지.";
 						next;
-						mes "[Siege Expert]";
-						mes "Now, go and find the ^0000FFParty Recruiting Expert^000000. He's waiting for you.";
+						mes "[공성의 달인]";
+						mes "그럼 이제";
+						mes "^0000FF파티 모집의 달인^000000을";
+						mes "찾아가 보도록 하게";
+						mes "자네를 기다리고 있을거야.";
 						completequest 4161;
 						setquest 4162;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Siege Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[공성의 달인]";
+					mes "3문제 밖에 안되는데";
+					mes "전부 다 맞추지 못했군!";
+					mes "아쉽지만 이런 실력으로는";
+					mes "나머지 달인들을";
+					mes "뵐 면목이 없네.";
 					next;
-					mes "[Siege Expert]";
-					mes "But when I look at you I know you have potential. Did you want to try to tackle it again?";
+					mes "[공성의 달인]";
+					mes "하지만 내가 볼 때는";
+					mes "분명히 가능성이 보이는군.";
+					mes "문제에 다시 한 번";
+					mes "도전 해보는게 어떤가?";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Siege Expert]";
-					mes "Now that you've gone through all of this with an expert, isn't it easy to understand?";
-					mes "Now I'll give you 3 questions~ get those right and you've passed! Do you want a challenge?";
+					mes "[공성의 달인]";
+					mes "자~ 달인에게 설명을 들으니";
+					mes "더욱 더 쉽게 쏙쏙 들어오지?";
+					mes "이제 3가지 문제를 낼 텐데";
+					mes "전부 맞출 경우 통과 일세.";
+					mes "도전 해보겠나?";
 					break;
 				case 3:
-					mes "[Siege Expert]";
-					mes "Bah! You're no fun... you give up too easy! If you change your mind, come find me.";
+					mes "[공성의 달인]";
+					mes "포기는 배추를 셀 때나";
+					mes "쓰는 말인데..";
+					mes "생각이 바뀌면";
+					mes "다시 나를 찾아오독 하게";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Siege Expert]";
-			mes "Are you giving up? If you change your mind, come find me.";
+			mes "[공성의 달인]";
+			mes "들어보지도 않고";
+			mes "포기하는 건가?";
+			mes "생각이 바뀌면";
+			mes "다시 나를 찾아오도록 하게";
 			close;
 		}
 	}
-	mes "[Siege Expert]";
-	mes "If you want to learn something from me, go meet ^006400Tutorial Goal^000000 first.";
+	mes "[공성의 달인]";
+	mes "나에게 뭔가 배우고 싶다면 먼저 ^006400튜토리얼 걸^000000을 만나고 오게";
 	close;
 
 L_Info:
-	mes "[Siege Expert]";
-	mes "A ^006400Siege^000000 is a ^0000FFGuild vs. Guild^000000 war in hope to occupy a castle!";
+	mes "[공성의 달인]";
+	mes "^006400공성전^000000이란 말 그대로";
+	mes "성을 차지하기 위한";
+	mes "^0000FF길드와 길드간의^000000 피 튀기는";
+	mes "대전이라고 할 수 있지";
 	next;
-	mes "[Siege Expert]";
-	mes "There are 2 different types of ^006400Siege^000000.";
-	mes "There is the standard ^006400War of Emperium^000000 and one that is slightly different which is known as ^006400War of Emperium 2^000000.";
+	mes "[공성의 달인]";
+	mes "^006400공성전^000000은 3가지 종류가 있는데";
+	mes "일반 ^006400공성전^000000과";
+	mes "신규 공성전 ^006400공성전SE^000000";
+	mes "그리고 1,2차 직업군 및 확장직업만";
+	mes "참여 할 수 있는";
+	mes "^006400공성전TE^000000 가 있다네";
 	next;
-	mes "[Siege Expert]";
-	mes "So during this time, there are two sides of the war.";
-	mes "The ^0000FFGuild That Owns a Castle^000000 tries to protect the ^006400Emperium^000000 and the ^0000FFGuild That Attacks a Castle^000000 tries to break the ^006400Emperium^000000.";
+	mes "[공성의 달인]";
+	mes "^006400공성전^000000은";
+	mes "^0000FF수요일 저녁 9~11시^000000에";
+	mes "^006400공성전SE^000000는";
+	mes "^0000FF토요요일 저녁 7~9시^000000에";
+	mes "^006400공성전TE^000000는";
+	mes "^0000FF일요일 저녁 8~9시^000000에 진행된다네.";
 	next;
-	mes "[Siege Expert]";
-	mes "You can find ^006400Siege^000000 times on our website.";
-	mes "And guilds that win also get a special something-something.";
+	mes "[공성의 달인]";
+	mes "공성 시간 동안 성 내부에는";
+	mes "^006400엠펠리움^000000이 존재한다네.";
+	mes "^0000FF성을 소유한 길드^000000는";
+	mes "^006400엠펠리움^000000을 지켜야 하고,";
+	mes "^0000FF성을 공격하는 길드^000000는";
+	mes "^006400엠펠리움^000000을 파괴해야 하지.";
 	next;
-	mes "[Siege Expert]";
-	mes "Guilds that win during the Siege";
-	mes "get access to a ^006400Guild Dungeon^000000";
-	mes "and the Guild Master gets to open ^006400Treasure Box^000000es at ^0000FFMidnight each day^000000.";
-	mes "Isn't that a great benefit?";
+	mes "[공성의 달인]";
+	mes "공성전에 승리한 길드는";
+	mes "^006400길드 전용 던전^000000을 얻을 수 있지,";
+	mes "게다가 길드 마스터는";
+	mes "^0000FF매일 자정^000000마다 ^006400보물상자^000000를";
+	mes "얻을 수 있으니";
+	mes "매우 특별한 혜택이겠지?";
 	next;
-	mes "[Siege Expert]";
-	mes "Another thing you have to do when you win a castle is called ^006400Commerce Development^000000. The more you do it, the better the benefits.";
+	mes "[공성의 달인]";
+	mes "또한 단순히 성을 소유한 후";
+	mes "끝이 아니라 소유한 성의";
+	mes "^006400상업 발전도^000000를 높여가며";
+	mes "더욱더 다양한 혜택을";
+	mes "얻을 수 있다네.";
 	next;
 	return;
 }
 
-moc_para01,21,172,4	script	Party Recruiting Expert	4_M_OILMAN,{
+moc_para01,21,172,4	script	파티 모집의 달인	4_M_OILMAN,{
 	.@checkquest = questprogress(4162);
 	if (.@checkquest == 2) {
-		mes "[Party Recruiting Expert]";
-		mes "Since you've come and found me, it seems you're curious about ^006400Party Recruiting^000000?";
+		mes "[파티 모집의 달인]";
+		mes "다시 나를 찾아 온 것을 보니";
+		mes "^006400파티 모집^000000에 대해서";
+		mes "궁금한 점이 생긴거 같은데?";
 		next;
-		switch(select("Listen about Party Recruiting.:End Conversation.")) {
+		switch(select("파티 모집에 대해 들어본다.:대화를 마친다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Party Recruiting Expert]";
-			mes "This expert's explanation was pretty great, huh? If you need a refresher, come find me again.";
+			mes "[파티 모집의 달인]";
+			mes "자~ 달인의 설명은 ?";
+			mes "끝내주지?";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오도록 해~";
 			close;
 		case 2:
-			mes "[Party Recruiting Expert]";
-			mes "Well, if you have any questions, come find me.";
+			mes "[파티 모집의 달인]";
+			mes "그래~ 궁금한 점이 생기면";
+			mes "다시 찾아와~";
 			close;
 		}
 	} else if (.@checkquest == 1) {
-		mes "[Party Recruiting Expert]";
-		mes "I am the ^006400Party Recruiting^000000 expert because I did research about Party Recruting for 16 years! It seems that the ^006400Siege Expert^000000 sent you my way since you passed his tests, hmm?";
+		mes "[파티 모집의 달인]";
+		mes "나는 16년 동안 파티만 모집한";
+		mes "^006400파티 모집^000000의 달인이야~!";
+		mes "나를 이렇게 찾아 온 것을 보니";
+		mes "^006400공성의 달인^000000의 문제를";
+		mes "통과했나 본데?";
 		next;
-		mes "[Party Recruiting Expert]";
-		mes "You may have already heard but if you pass all the Experts' quizzes, you'll get an awesome prize!";
+		mes "[파티 모집의 달인]";
+		mes "이미 들어서 알겠지만";
+		mes "만약 모든 달인들의 설명을";
+		mes "듣고 문제를 맞출 경우";
+		mes "화끈한 보상이 기다리고 있어";
 		next;
-		mes "[Party Recruiting Expert]";
-		mes "As the 2nd expert, I'll tell you all about ^006400Party Recruiting^000000! How about it?";
+		mes "[파티 모집의 달인]";
+		mes "그 두 번째 달인으로서 내가";
+		mes "^006400파티 모집^000000에 대해서";
+		mes "화끈하게 알려주도록 할게~";
+		mes "어때?";
+		mes "일단 ^006400파티 모집^000000에 대해서";
+		mes "들어나 봐~!";
 		next;
-		switch(select("Listen about Party Recruiting.:End Conversation.")) {
+		switch(select("파티 파티모집에 대해 들어본다.:이야기를 끝낸다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Party Recruiting Expert]";
-			mes "Now~ my explanations were smoother than a smooth criminal, right? Now I'm gonna give you a quiz with 3 questions. Get them all right and you've passed. Wanna take the challenge?";
+			mes "[파티 모집의 달인]";
+			mes "자~ 달인에게 설명은";
+			mes "나이트 클럽의";
+			mes "킹카보다 더 완벽하지??";
+			mes "이제 3가지 문제를 낼 텐데";
+			mes "전부 맞출 경우 통과야.";
+			mes "도전 해볼래?";
 			while(1) {
 				.@correct = 0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("문제에 도전한다:설명을 다시 듣는다:그만 둔다")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Party Recruiting Expert]";
-						mes "Party Recruiting is used to help";
-						mes "users that are looking for []";
-						mes "and those looking for a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집은";
+						mes "[]를 구하는 유저와";
+						mes "[]를 구하는 유저를";
+						mes "서로 만나게 해 주는 것 이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Guild, Guildmate:Club, Club Members:Paris, Party Members:Party, Party Members") == 4)
+						if(select("길드, 길드원:동아리, 동아리원:파리, 파티원:파티, 파티원") == 4)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "The window that is used to help users look and search for a party is called a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "다른 유저들이 등록 해 놓은";
+						mes "파티 목록을 검색해서 보여주는";
+						mes "창을 [] 이라고 한다";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Party List:Party Wanted List:Party Recruiting List:Costume Party List") == 3)
+						if(select("파티 리스트:파티 구함 리스트:파티 모집 리스트:파티 의상 리스트") == 3)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "Which of the choices are not listed as a choice to pick when making a party recruit notice?";
+						mes "[파티 모집의 달인]";
+						mes "파티를 모집할 때";
+						mes "선택해야 하는 설정들 중";
+						mes "틀린 것은 무엇인가?";
 						next;
 						if(select("LEVEL:SKILL:JOB:MAP") == 2)
 							.@correct += 10;
 						break;
 					case 2:
-						mes "[Party Recruiting Expert]";
-						mes "There are 2 types of Party Recruiting.";
-						mes "Registering Party Recruiting is one";
-						mes "and the 2nd one is [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집에는 2가지 단계가 있는데";
+						mes "파티 모집을 등록하는 단계와";
+						mes "[]는 단계가 있다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Search for Parties that are Recruiting:Parties that are starting to hunt:Party Recruit and Item Distribution:Party Stuff") == 1)
+						if(select("모집 중인 파티를 검색:파티완료 후 사냥 시작:모집한 파티원과 아이템 분배:모집 중인 파티를 해산") == 1)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "In order to start Party Recruiting, you have to click the [] button which is located in the info section of the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집을 시작하기 위해서는";
+						mes "좌측 상단에 위치한 정보 창 에서";
+						mes "[]라고 쓰여져 있는";
+						mes "버튼을 클릭 해야 한다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
 						if(select("party:guild:booking:skill") == 3)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "If you want to know more about commands for Party Recruiting, you have to press the [] button on the Party Recruting List window.";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집과 관련된";
+						mes "명령어를 자세히 알고 싶다면";
+						mes "파티 모집 리스트 창";
+						mes "우 하단에 위치한";
+						mes "[] 버튼을 클릭 해야 한다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Basic Information:Help:Party:Confirm") == 2)
+						if(select("기본 정보:도움말:party:확인") == 2)
 							.@correct += 10;
 						break;
 					case 3:
-						mes "[Party Recruiting Expert]";
-						mes "For Party Recruiting, in order to make the";
-						mes "Party Recruiting Window pop up,";
-						mes "You type in this command [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집의 명령어 중";
+						mes "파티 모집 창을 띄우기 위해서는";
+						mes "[]이라는 명령어를 입력해야 한다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("/Party Collection Window:/Party Collection:/Party Recruitment Window:/Party Recruitment") == 4)
+						if(select("/파티모음창:/파티모음:/파티모집창:/파티모집") == 4)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "When recruiting for a party, you can set 3 parameters. Those 3 are";
-						mes "LEVEL, JOB, and [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티를 모집할 때";
+						mes "선택해야 하는 설정들이";
+						mes "3가지가 있는데";
+						mes "LEVEL, JOB, 그리고 []이다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
 						if(select("SKILL:GUILD:MAP:OPTION") == 3)
 							.@correct += 10;
-						mes "[Party Recruiting Expert]";
-						mes "Party Recruiting is used to help";
-						mes "users that are looking for []";
-						mes "and those looking for a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[파티 모집의 달인]";
+						mes "파티 모집은";
+						mes "[]를 구하는 유저와";
+						mes "[]를 구하는 유저를";
+						mes "서로 만나게 해 주는 것 이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Parry, Party Members:Club, Club Members:Party, Party Members:Guild, Guild Members") == 3)
+						if(select("파리, 파티원:동아리, 동아리원:파티, 파티원:길드, 길드원") == 3)
 							.@correct += 10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Party Recruiting Expert]";
-						mes "Nice! You got all 3 correct! Now do you feel more confident about ^006400Party Recruiting^000000?";
+						mes "[파티 모집의 달인]";
+						mes "와우~ 3문제 전부";
+						mes "정답을 맞췄네?";
+						mes "이제 ^006400파티 모집^000000에 대해서";
+						mes "조금 알겠지?";
 						next;
-						mes "[Party Recruiting Expert]";
-						mes "If you ever want to hear more about ^006400Party Recruiting^000000, come find me anytime.";
+						mes "[파티 모집의 달인]";
+						mes "혹시 ^006400파티 모집^000000에 대해서";
+						mes "다시 설명을 듣고 싶다면";
+						mes "언제든지 나를 찾아와~";
+						mes "무엇이든 알려줄게~.";
 						next;
-						mes "[Party Recruiting Expert]";
-						mes "Well, off you go to the ^0000FFBattleground Expert^000000! He is probably waiting for you.";
+						mes "[파티 모집의 달인]";
+						mes "그럼 이제";
+						mes "^0000FF전장의 달인^000000을";
+						mes "찾아가 보도록 해~";
+						mes "아마 기다리고 있을거야.";
 						completequest 4162;
 						setquest 4163;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Party Recruiting Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[파티 모집의 달인]";
+					mes "3문제 밖에 안되는데";
+					mes "전부 다 맞추지 못했어~!";
+					mes "아쉽지만 이런 실력으로는";
+					mes "나머지 달인들을";
+					mes "만나기는 힘들어~";
 					next;
-					mes "[Party Recruiting Expert]";
-					mes "But if you want to retake the quiz! Go for it! I think you have potential! Wanna take the quiz again?";
+					mes "[파티 모집의 달인]";
+					mes "하지만 다시 도전한다면";
+					mes "분명히 가능성이 보여!";
+					mes "문제에 다시 한 번";
+					mes "도전 해보도록 해~";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Party Recruiting Expert]";
-					mes "Now~ my explanations were smoother than a smooth criminal, right? Now I'm gonna give you a quiz with 3 questions. Get them all right and you've passed. Wanna take the challenge?";
+					mes "[파티 모집의 달인]";
+					mes "자~ 달인에게 설명은";
+					mes "나이트 클럽의";
+					mes "킹카보다 더 완벽하지??";
+					mes "이제 3가지 문제를 낼 텐데";
+					mes "전부 맞출 경우 통과야.";
+					mes "도전 해볼래?";
 					break;
 				case 3:
-					mes "[Party Recruiting Expert]";
-					mes "Don't give up! You can do it! If you change your mind, come talk to me again!";
+					mes "[파티 모집의 달인]";
+					mes "포기하지마~!!";
+					mes "넌 할 수 있어!!";
+					mes "생각이 바뀌면";
+					mes "다시 나를 찾아와~";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Party Recruiting Expert]";
-			mes "You're gonna give up without even listening to me? If you change your mind, come talk to me again!";
+			mes "[파티 모집의 달인]";
+			mes "들어보지도 않고";
+			mes "포기하는 거야?";
+			mes "생각이 바뀌면";
+			mes "다시 나를 찾아와~";
 			close;
 		}
 	}
-	mes "[Party Recruiting Expert]";
-	mes "If you want to learn something from me, talk to the ^006400Siege Master^000000 first.";
+	mes "[파티모집의 달인]";
+	mes "나에게 뭔가 배우고 싶다면 먼저 ^006400공성의 달인^000000의 인정을 받고 와~.";
 	close;
 
 L_Info:
-	mes "[Party Recruiting Expert]";
-	mes "^006400Party Recruiting^000000 is pretty self explanatory. It helps people find party members and it helps people find parties.";
+	mes "[파티 모집의 달인]";
+	mes "^006400파티 모집^000000이란 말 그대로";
+	mes "즉석 만남이 이루어지는 거야~!";
+	mes "유저들의 원활한 파티플레이를 위해";
+	mes "파티를 구하는 유저와";
+	mes "파티원을 구하는 유저를";
+	mes "서로 만나게 해 주는거지~!";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "There are 2 parts to Party Recruiting.";
-	mes "1st step is ^0000FFRegistering Party Recruiting^000000,";
-	mes "and the 2nd step is ^0000FFParty Search^000000.";
+	mes "[파티 모집의 달인]";
+	mes "파티 모집은 2가지 단계가 있어.";
+	mes "첫 번째는";
+	mes "^0000FF파티 모집을 등록하는 단계^000000,";
+	mes "두 번째는";
+	mes "^0000FF모집 중인 파티를 검색하는 단계^000000";
+	mes "로 이루어져 있어.";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In order to look up Party Recruiting, in the info window on the upper left, click the button that says ^006400booking^000000. Then the ^006400Party Recruiting List^000000 will come up.";
+	mes "[파티 모집의 달인]";
+	mes "파티 모집을 시작하기 위해서는";
+	mes "좌측 상단에 위치한 정보 창 에서";
+	mes "^006400booking^000000이라고 쓰여져 있는";
+	mes "버튼을 클릭 해야 해.";
+	mes "그럼 ^006400파티 모집 리스트^000000 라는";
+	mes "창이 나타날거야";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "^006400Party Recruiting List^000000 window shows you the parties that are looking for members that was listed by other users. You can search through it.";
+	mes "[파티 모집의 달인]";
+	mes "^006400파티 모집 리스트^000000창은";
+	mes "다른 유저들이 등록 해 놓은";
+	mes "파티 목록을 검색해서 보여주는";
+	mes "창 이라고 할 수 있어";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In the case that you don't want to join a party, but you want to recruit for one, type in the ^0000FF/Party Recruit^000000 command then in the ^006400Party Recruiting^000000 window, you can do some recruiting!";
+	mes "[파티 모집의 달인]";
+	mes "만약 모집 중인";
+	mes "파티에 들어가지 않고";
+	mes "내가 파티를 모집하고 싶다면";
+	mes "^0000FF/파티모집^000000 이라는 명령어를";
+	mes "입력해서 ^006400파티 모집^000000창을";
+	mes "띄워서 모집 할 수 있어.";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "Once you register your party recruit notice in the ^006400Party Recruiting^000000 window, the users can search out your ^006400Party Recruiting List^000000";
+	mes "[파티 모집의 달인]";
+	mes "^006400파티 모집^000000창은";
+	mes "내가 모집하기 원하는 파티를";
+	mes "등록하여 다른 유저들이";
+	mes "^006400파티 모집 리스트^000000에서";
+	mes "검색 할 수 있도록 하는거야";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In the ^006400Party Recruiting List^000000 and";
-	mes "^006400Party Recruiting^000000 you can put in basic information of what you're going to be doing, or what you're looking for like ";
-	mes "^006400LEVEL^000000, ^006400MAP^000000, ^006400JOB^000000.";
-	mes "Then the users can search using those parameters and utilizing the ^006400Party Recruitment^000000 system.";
+	mes "[파티 모집의 달인]";
+	mes "^006400파티 모집 리스트^000000와";
+	mes "^006400파티 모집^000000에서 공통적으로";
+	mes "^006400LEVEL^000000, ^006400MAP^000000, ^006400JOB^000000에 관한 정보를";
+	mes "선택할 수 있는데, 이 것을";
+	mes "등록 & 검색 하여 화끈한 ^006400파티 모집^000000을";
+	mes "즐길 수 있게 되는거야!.";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "If you want to learn more commands about ^006400Party Recruiting^000000, click on the ^006400Help^000000 button on the bottom right of the ^006400Party Recruiting list^000000.";
+	mes "[파티 모집의 달인]";
+	mes "^006400파티 모집^000000 에 관한";
+	mes "명령어를 자세히 알고 싶다면";
+	mes "^006400파티 모집 리스트^000000 창";
+	mes "우 하단에 위치한";
+	mes "^006400도움말^000000 버튼을 클릭하면 돼.";
 	next;
 	return;
 }
 
-moc_para01,12,179,6	script	Battleground Master	4_M_KY_HEAD,{
+moc_para01,12,179,6	script	전장의 달인	4_M_KY_HEAD,{
 	.@checkquest = questprogress(4163);
 	if (.@checkquest == 2) {
-		mes "[Battleground Expert]";
-		mes "Seeing that you sought me out, I guess you want to learn about ^006400Battleground^000000s, eh?";
+		mes "[전장의 달인]";
+		mes "다시 나를 찾아 온 것을 보니";
+		mes "^006400전장^000000에 대해서";
+		mes "궁금한 점이 생긴거 같은데?";
 		next;
-		switch(select("Learn about Battlegrounds.:End Conversation.")) {
+		switch(select("전장에 대해 들어본다.:대화를 마친다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Battleground Expert]";
-			mes "There's nothing better than hearing it straight from the expert! If you want to go over it again, just talk to me.";
+			mes "[전장의 달인]";
+			mes "달인에게 설명을 들으니";
+			mes "이보다 더 좋을 수 없다고";
+			mes "생각되는군.";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오도록.";
 			close;
 		case 2:
-			mes "[Battleground Expert]";
-			mes "If you want to go over anything, let me know.";
+			mes "[전장의 달인]";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오도록.";
 			close;
 		}
 	} else if (.@checkquest == 1) {
-		mes "[Battleground Expert]";
-		mes "For 16 years, I experienced the intense heat of battle on the ^006400Battleground^000000s... I am the ^006400Battleground^000000 Expert!";
-		mes "It seems that the ^006400Party Recruiting Expert^000000 sent you to me since you passed his quiz.";
+		mes "[전장의 달인]";
+		mes "나는 16년 동안";
+		mes "^006400전장^000000의 치열함을 온 몸으로 느껴온";
+		mes "^006400전장^000000의 달인이다.";
+		mes "나를 이렇게 찾아 온 것을 보니";
+		mes "^006400파티 모집의 달인^000000의 문제를";
+		mes "통과했겠군.";
 		next;
-		mes "[Battleground Expert]";
-		mes "You may already know but if you get pass all the quizzes from the Experts, you'll get a prize!";
+		mes "[전장의 달인]";
+		mes "이미 들어서 알겠지만";
+		mes "만약 모든 달인들의 설명을";
+		mes "듣고 문제를 맞출 경우";
+		mes "멋진 보상이 기다리고 있다.";
 		next;
-		mes "[Battleground Expert]";
-		mes "I will tell you about the ^006400Battleground^000000s! I will tell you everything I know! How about it? Wanna hear about it?";
+		mes "[전장의 달인]";
+		mes "그 세 번째 달인으로서 내가";
+		mes "^006400전장^000000에 대해서";
+		mes "완벽하게 알려주도록 하겠다.";
+		mes "어떤가?";
+		mes "^006400전장^000000에 대해서";
+		mes "들어보겠는가?";
 		next;
-		switch(select("Learn about Battlegrounds.:End Conversation.")) {
+		switch(select("전장에 대해 들어본다.:이야기를 끝낸다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Battleground Expert]";
-			mes "There's nothing better than hearing it straight from the expert! Now, do you wanna take my 3-question quiz? You have to answer all 3 correctly to pass!";
+			mes "[전장의 달인]";
+			mes "달인에게 설명을 들으니";
+			mes "이보다 더 좋을 수 없다고";
+			mes "생각되는군.";
+			mes "이제 3가지 문제를 낼 텐데";
+			mes "전부 맞출 경우 통과다.";
+			mes "도전 하겠는가?";
 			while(1) {
 				.@correct = 0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("문제에 도전한다:설명을 다시 듣는다:그만 둔다")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Battleground Expert]";
-						mes "For starters, you have to pick either the side of [] Camp or [] Camp in order to to participate in Battleground.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "전장이란";
+						mes "[] 진영과 [] 진영 중";
+						mes "하나를 선택하여";
+						mes "각 진영에 소속된 유저들끼리";
+						mes "대립하고 전투하는 지역이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Guillaume, Tierra:Rachel, KVM:Guillaume, Croix:Maroll, KVM") == 3)
+						if(select("기욤, 티에라:라헬, KVM:기욤, 크루아:마롤, KVM") == 3)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "[] can do either 10vs10 and you have to attack the crystals of the opposing team while protecting yours.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "10:10 으로 진행되며";
+						mes "상대 진영의 크리스탈을 공격하고";
+						mes "아군의 크리스탈을 지키는 것이 목표인";
+						mes "전장은 [] 협곡 이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Tierra:Flavius:KVM:Maroll") == 2)
+						if(select("티에라:플라비우스:KVM:마롤") == 2)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "When you complete a battle, you may get a reward! From a KVM battle, you get [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "전장의 결과를 통해서";
+						mes "다양한 보상을 획득 할 수 있는데";
+						mes "그 중 KVM은 보상으로";
+						mes "[] 을 획득 할 수 있다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 1)
+						if(select("포인트:용맹 휘장:특공 휘장:영광 휘장") == 1)
 							.@correct += 10;
 						break;
 					case 2:
-						mes "[Battleground Expert]";
-						mes "For [], it's 10vs10. You also need to attack the enemies supply depot while protecting your own.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "10:10 으로 진행되며";
+						mes "상대 진영의 보급창고를 공격하고";
+						mes "아군의 보급창고를 지키는 것이 목표인";
+						mes "전장은 [] 협곡 이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Maroll:KVM:Flavius:Tierra") == 4)
+						if(select("마롤:KVM:플라비우스:티에라") == 4)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "In order to get into the battlegrounds, which one is not the recruiter you need to find?";
+						mes "[전장의 달인]";
+						mes "전장에 참여하기 위해서";
+						mes "찾아가야 하는 사무관이";
+						mes "아닌 것은 무엇인가?";
 						next;
-						if(select("Maroll Mercenary Recruiter:KVM Mercenary Recruiter:Tierra Mercenary Recruiter:Flavius Mercenary Recruiter") == 1)
+						if(select("마롤 용병 사무관:KVM 용병 사무관:티에라 용병 사무관:플라비우스 용병 사무관") == 1)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "You can get [] from participating in the Battlegrounds of Tierra.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "전장의 결과를 통해서";
+						mes "다양한 보상을 획득 할 수 있는데";
+						mes "그 중 티에라 협곡은 보상으로";
+						mes "[] 을 획득 할 수 있다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 2)
+						if(select("포인트:용맹 휘장:특공 휘장:영광 휘장") == 2)
 							.@correct += 10;
 						break;
 					case 3:
-						mes "[Battleground Expert]";
-						mes "In every major city, you can find [] to enter the Battlegrounds.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "모든 전장은";
+						mes "각 마을에 위치한";
+						mes "[]을 통해서";
+						mes "입장 할 수 있다.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Maroll Battleground Recruiter:Tierra Battleground Recruiter:Flavius Battleground Recruiter:KVM Battleground Recruiter") == 1)
+						if(select("마롤 전장 모병관:티에라 전장 모병관:플라비우스 전장 모병관:KVM 전장 모병관") == 1)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "For [], you go in 5vs5 with the intention of trying to reduce the number of enemies on the opposite side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "5:5 로 진행되며";
+						mes "상대 진영을 공격하여";
+						mes "인원 수를 줄이는 것이 목표인";
+						mes "전장은 [] 이다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Maroll:Flavius:KVM:Tierra") == 3)
+						if(select("마롤:플라비우스:KVM:티에라") == 3)
 							.@correct += 10;
-						mes "[Battleground Expert]";
-						mes "When you complete a battle, you get a prize. The prize from Flavius is called [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[전장의 달인]";
+						mes "전장의 결과를 통해서";
+						mes "다양한 보상을 획득 할 수 있는데";
+						mes "그 중 플라비우스 협곡은 보상으로";
+						mes "[] 을 획득 할 수 있다.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 3)
+						if(select("포인트:용맹 휘장:특공 휘장:영광 휘장") == 3)
 							.@correct += 10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Battleground Expert]";
-						mes "You got all 3 correct! I think you got a pretty good head on your shoulders. You know a thing or two about ^006400Battleground^000000s.";
+						mes "[전장의 달인]";
+						mes "3문제 전부 정답을 맞추다니..";
+						mes "실력이 조금 되는데?";
+						mes "이제 ^006400전장^000000에 대해서";
+						mes "이해가 갈 것 같군.";
 						next;
-						mes "[Battleground Expert]";
-						mes "If you ever want to go over anything about ^006400Battleground^000000s, feel free to come talk to me!";
+						mes "[전장의 달인]";
+						mes "혹시 ^006400전장^000000에 대해서";
+						mes "다시 설명을 듣고 싶다면";
+						mes "언제든지 나를 찾아오길 바란다.";
 						next;
-						mes "[Battleground Expert]";
-						mes "Go on and find and talk to the 0000FFMemorial Dungeon Expert^000000!";
+						mes "[전장의 달인]";
+						mes "그럼 이제";
+						mes "^0000FF메모리얼 던전의 달인^000000을";
+						mes "찾아가 보도록";
 						completequest 4163;
 						setquest 4164;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Battleground Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[전장의 달인]";
+					mes "3문제 밖에 안되는 문제를";
+					mes "맞추지 못하다니..";
+					mes "이런 실력으로는";
+					mes "생사가 갈리는 전장에 나서서";
+					mes "적들의 밥이 될 뿐이다.";
 					next;
-					mes "[Battleground Expert]";
-					mes "But if you want to take it on again, you should.";
+					mes "[전장의 달인]";
+					mes "하지만 다시 도전한다면";
+					mes "분명히 가능성이 보이니";
+					mes "문제에 다시 한 번";
+					mes "도전 해보도록.";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Battleground Expert]";
-					mes "There's nothing better than hearing it straight from the expert! Now, do you wanna take my 3-question quiz? You have to answer all 3 correctly to pass!";
+					mes "[전장의 달인]";
+					mes "달인에게 설명을 들으니";
+					mes "이보다 더 좋을 수 없다고";
+					mes "생각되는군.";
+					mes "이제 3가지 문제를 낼 텐데";
+					mes "전부 맞출 경우 통과다.";
+					mes "도전 하겠는가?";
 					break;
 				case 3:
-					mes "[Battleground Expert]";
-					mes "Don't disappoint me by giving up. If you change your mind, come find me again.";
+					mes "[전장의 달인]";
+					mes "날 실망시키지 말아라.";
+					mes "포기하지 말고";
+					mes "생각이 바뀌면";
+					mes "다시 나를 찾아오도록.";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Battleground Expert]";
-			mes "You're a coward if you give up even before starting. If you change your mind, come find me again.";
+			mes "[전장의 달인]";
+			mes "들어보지도 않고";
+			mes "포기하는 게 제일 비겁하다.";
+			mes "생각이 바뀌면";
+			mes "다시 나를 찾아오도록.";
 			close;
 		}
 		close;
 	}
-	mes "[Battleground Expert]";
-	mes "If you want to learn something from me, go get acknowledged by the ^006400Party Recruiting Expert^000000 first.";
+	mes "[전장의 달인]";
+	mes "나에게 뭔가 배우고 싶다면 먼저 ^006400파티 모집의 달인^000000의 인정을 받고 오도록.";
 	close;
 
 L_Info:
-	mes "[Battleground Expert]";
-	mes "To explain ^006400Battleground^000000 easily...";
-	mes "You pick either Camp ^006400Guillaume^000000 or Camp ^006400Croix^000000 then you fight each other.";
+	mes "[전장의 달인]";
+	mes "^006400전장^000000이란 쉽게 말해서";
+	mes "^006400기욤^000000 진영과 ^006400크루아^000000진영 중";
+	mes "하나를 선택하여";
+	mes "각 진영에 소속된 유저들끼리";
+	mes "대립하고 전투하는 지역이라고";
+	mes "말할 수 있다.";
 	next;
-	mes "[Battleground Expert]";
-	mes "There are 3 types of ^006400Battleground^000000s.";
-	mes "First is ^006400KVM^000000. It is a 5vs5 battle with the goal of reducing the number of people on either side.";
+	mes "[전장의 달인]";
+	mes "^006400전장^000000은 총 3가지 종류가 있다.";
+	mes "첫 번째로";
+	mes "5:5 로 진행되며 상대를 공격하여";
+	mes "인원 수를 줄이는 것이 목표인";
+	mes "^006400KVM^000000.";
 	next;
-	mes "[Battleground Expert]";
-	mes "The second one is 10vs10. You attack the supply depots of your opponents and in turn, you protect your supply depots. This is called ^006400Tierra^000000.";
+	mes "[전장의 달인]";
+	mes "두 번째로";
+	mes "10:10 으로 진행되며";
+	mes "상대 진영의 보급창고를 공격하고";
+	mes "아군의 보급창고를 지키는 것이 목표인";
+	mes "^006400티에라^000000 협곡.";
 	next;
-	mes "[Battleground Expert]";
-	mes "The third and final one is called ^006400Flavius^000000. This one is also 10vs10. For this one, you attack the crystals of your opponents while trying to protect your own.";
+	mes "[전장의 달인]";
+	mes "세 번째로";
+	mes "10:10 으로 진행되며";
+	mes "상대 진영의 크리스탈을 공격하고";
+	mes "아군의 크리스탈을 지키는 것이 목표인";
+	mes "^006400플라비우스^000000 협곡 이다.";
 	next;
-	mes "[Battleground Expert]";
-	mes "To get to ^006400Battleground^000000s, find ^006400Maroll, the Recruiter^000000 who can be found in all major towns.";
+	mes "[전장의 달인]";
+	mes "모든 ^006400전장^000000은";
+	mes "각 마을에 위치한";
+	mes "^006400마롤 전장 모병관^000000을 통해서";
+	mes "입장 하도록 되어 있다.";
 	next;
-	mes "[Battleground Expert]";
-	mes "After you enter, pick if you want to side with Guillaume or Croix, then on their side, pick either...";
-	mes "^006400KVM Mercenary Recruiter^000000,";
-	mes "^006400Tierra Mercenary Recruiter^000000, or";
-	mes "^006400Flavius Mercenary Recruiter^000000,";
-	mes "then you can join the ^006400Battleground^000000s.";
+	mes "[전장의 달인]";
+	mes "입장 후 에는 기욤과 크루아 진영 중";
+	mes "하나를 선택하고 각 진영에 위치한";
+	mes "^006400KVM 용병 사무관^000000,";
+	mes "^006400티에라 협곡 용병 사무관^000000,";
+	mes "^006400플라비우스 협곡 용병 사무관^000000,";
+	mes "에게서 ^006400전장^000000에 참여 할 수 있다.";
 	next;
-	mes "[Battleground Expert]";
-	mes "Depending on the outcome of the ^006400Battleground^000000 you can get a prize too.";
-	mes "You get KVM Badges from ^006400KVM^000000,";
-	mes "from ^006400Tierra^000000 you obtain Bravery Badges and";
-	mes "you receive Valor Badges ^006400Flavius^000000.";
+	mes "[전장의 달인]";
+	mes "^006400전장^000000의 결과를 통해서";
+	mes "다양한 보상을 획득 할 수 있는데";
+	mes "^006400KVM^000000은 포인트,";
+	mes "^006400티에라^000000 협곡은 용맹 휘장,";
+	mes "^006400플라비우스^000000 협곡은 특공 휘장을";
+	mes "획득 할 수 있다.";
 	next;
-	mes "[Battleground Expert]";
-	mes "With the rewards from ^006400Battleground^000000s, you can get items that you can't normally get elsewhere.";
-	mes "Each ^006400Battleground^000000 reward you can obtain is different so you'll have to check on it.";
+	mes "[전장의 달인]";
+	mes "각각의 ^006400전장^000000에서 받은 보상으로는";
+	mes "일반적으로는 구입 할 수 없는";
+	mes "특별한 아이템을 구입 할 수 있으며,";
+	mes "각각의 ^006400전장^000000의 보상마다";
+	mes "구입 할 수 있는 아이템이 다르므로";
+	mes "잘 알아봐야 할 것이다.";
 	next;
 	return;
 }
 
-moc_para01,28,167,3	script	Memorial Dungeon Expert	4_M_LGTGUARD,{
+moc_para01,28,167,3	script	메모리얼 던전의 달인	4_M_LGTGUARD,{
 	.@checkquest = questprogress(4164);
 	if (.@checkquest == 2) {
-		mes "[Memorial Dungeon Expert]";
-		mes "Since you've come here, it seems you want to learn about the ^006400Memorial Dungeon^000000.";
+		mes "[메모리얼 던전의 달인]";
+		mes "다시 나를 찾아 온 것을 보니";
+		mes "^006400메모리얼 던전^000000에 대해서";
+		mes "궁금한 점이 생긴거 같구만.";
 		next;
-		switch(select("Listen about Memorial Dungeon.:End Conversation.")) {
+		switch(select("메모리얼 던전에 대해 들어본다.:대화를 마친다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Memorial Dungeon Expert]";
-			mes "Now that you've listend to an expert, it's easy to understand, right? If you want to hear about it again, come find me.";
+			mes "[메모리얼 던전의 달인]";
+			mes "달인의 설명을 들으니";
+			mes "이제 좀 이해가 가겠지?";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오게.";
 			close;
 		case 2:
-			mes "[Memorial Dungeon Expert]";
-			mes " If you want to hear about it again, come find me.";
+			mes "[메모리얼 던전의 달인]";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오게.";
 			close;
 		}
 	} else if (.@checkquest == 1) {
-		mes "[Memorial Dungeon Expert]";
-		mes "I am the ^006400Memorial Dungeon^000000 Expert! I studied the ^006400Memorial Dungeon^000000 for 16 years!";
-		mes "Since you've sought me out, I assume that you've passed the ^006400Battleground Expert^000000's quiz.";
+		mes "[메모리얼 던전의 달인]";
+		mes "나는 16년 동안";
+		mes "^006400메모리얼 던전^000000 만을 연구해 온";
+		mes "^006400메모리얼 던전^000000의 달인이네.";
+		mes "나를 이렇게 찾아 온 것을 보니";
+		mes "^006400전장의 달인^000000의 문제를";
+		mes "모두 통과했군.";
 		next;
-		mes "[Memorial Dungeon Expert]";
-		mes "As you already know, if you pass all the Experts' quiz you'll get a prize.";
+		mes "[메모리얼 던전의 달인]";
+		mes "이미 들어서 알겠지만";
+		mes "만약 모든 달인들의 설명을";
+		mes "듣고 문제를 맞출 경우";
+		mes "멋진 보상이 기다리고 있네.";
 		next;
-		mes "[Memorial Dungeon Expert]";
-		mes "As the 4th Expert, I will explain everything to you about ^006400Memorial Dungeon^000000.";
-		mes "Want to hear about ^006400Memorial Dungeon^000000?";
+		mes "[메모리얼 던전의 달인]";
+		mes "그 네 번째 달인으로서 내가";
+		mes "^006400메모리얼 던전^000000에 대해서";
+		mes "완벽하게 알려주도록 하지.";
+		mes "한 번 ^006400메모리얼 던전^000000에 대해서";
+		mes "들어 보는게 어떨지?";
 		next;
-		switch(select("Listen about Memorial Dungeon.:End Conversation.")) {
+		switch(select("메모리얼 던전에 대해 들어본다.:이야기를 끝낸다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Memorial Dungeon Expert]";
-			mes "Now that you've listend to an expert, it's easy to understand, right? If you want to hear about it again, come find me.";
-			mes "Okay, now I'm gonna give you a quiz. You have to get all the questions right to pass. Ready?";
+			mes "[메모리얼 던전의 달인]";
+			mes "달인의 설명을 들으니";
+			mes "아주 이해가 빠를거야.";
+			mes "이제 3가지 문제를 낼 텐데";
+			mes "전부 맞출 경우 통과라네.";
+			mes "도전 하는게 어떤가?";
 			while(1) {
 				.@correct = 0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("문제에 도전한다:설명을 다시 듣는다:그만 둔다")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Memorial Dungeon Expert]";
-						mes "^006400Memorial Dungeon^000000 isn't a dungeon that is open to all users. It's only available to you and your [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "^006400메모리얼 던전^000000이란";
+						mes "다른 유저들에게도";
+						mes "모두 개방되어 있는 던전이 아니라,";
+						mes "나와 나의[] 에게만";
+						mes "열리는 독자적인 던전이지.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Party Members:Guildmates:Friends:Family") == 1)
+						if(select("파티원들:길드원들:친구들:가족들") == 1)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to [] and find [], he will give you information about Endless Tower- which is a huge and tall dungeon.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "[]에 위치한 []를 찾아가면";
+						mes "엔들리스 타워 라는";
+						mes "아주 높고 거대한 던전에 관해";
+						mes "정보를 얻을 수 있을 것 이네.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Prontera, Seiyablem:Alberta, Leyablem:Alberta, Captain Jansen:Prontera, Captin Jansen") == 3)
+						if(select("프론테라, 세야블렘:알베르타, 레야블렘:알베르타, 함장 얀센:프론테라, 대장 얀센") == 3)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "In order to enter Memorial Dungeon the [] must apply and then be on stand-by to enter. You will enter in the order the application was put in.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "메모리얼 던전을 입장하기 위해서는";
+						mes "[]이 입장 신청을 한 후에";
+						mes "신청 순서에 따라서";
+						mes "일정 대기시간을 가져야 한다네.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Guild Member:Guild Leader:Party Leader:Party Member") == 3)
+						if(select("길드원:길드장:파티장:파티원") == 3)
 							.@correct += 10;
 						break;
 					case 2:
-						mes "[Memorial Dungeon Expert]";
-						mes "When you're done with the [], you cannot re-enter the same dungeon for a certain period of time.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "메모리얼 던전에서";
+						mes "정해진 시간동안";
+						mes "[]이(가) 끝난 후 에는";
+						mes "일정 시간동안 같은 메모리얼 던전에";
+						mes "재 입장 할 수 없다네.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Buff:Ritual:Exploration:Inspection") == 3)
+						if(select("버프:의식:탐험:도굴") == 3)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to the Orc Map where all the orcs live, you will be able to find []. He will probably be able to give you information about the Orc's Memory dungeon.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "오크들이 서식하는";
+						mes "오크마을에 가면";
+						mes "[]를 찾을 수 있는데";
+						mes "아마 오크의 기억과 관련된";
+						mes "던전의 정보를 알 수 있을거야.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Insane Scientist:Crazy Scientist:Insane Alchemist:Crazy Alchemist") == 1)
+						if(select("광기어린 과학자:미치광이 과학자:광기어린 연금술사:미치광이 연금술사") == 1)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "In order to enter Memorial Dungeon, the [] must apply- then you'll be able to enter in order of when your application was turned in.";
-						mes "You have to be on stand-by for this.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "메모리얼 던전을 입장하기 위해서는";
+						mes "[]이 입장 신청을 한 후에";
+						mes "신청 순서에 따라서";
+						mes "일정 대기시간을 가져야 한다네.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Guild Leader:Guildmate:Party Member:Party Leader") == 4)
+						if(select("길드장:길드원:파티원:파티장") == 4)
 							.@correct += 10;
 						break;
 					case 3:
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to the place where you can become a monk, the Capitolina Monastery, you can meet []. He will tell you about the dungeon with the Sealed Baphomet.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "몽크로 전직 할 수 있는";
+						mes "카피톨리나 수도원을 찾아가면";
+						mes "[]을 만날 수 있는데";
+						mes "봉인된 바포메트에 관한";
+						mes "던전의 정보를 알 수 있을거야.";
+						mes "여기서 []에 들어 갈 말은?";
 						next;
-						if(select("Agent Patrick:Patrolman Patrick:Drunken Patrick:Detective Patrick") == 4)
+						if(select("항마술사 패트릭:항아수사 패트릭:항아술사 패트릭:항마수사 패트릭") == 4)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "When you're done with the [], you cannot re-enter the same dungeon for a certain period of time.";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "메모리얼 던전에서";
+						mes "정해진 시간동안";
+						mes "[]이(가) 끝난 후 에는";
+						mes "일정 시간동안 같은 메모리얼 던전에";
+						mes "재 입장 할 수 없다네.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Exploration:Inspection:Buff:Ritual") == 1)
+						if(select("탐험:도굴:버프:의식") == 1)
 							.@correct += 10;
-						mes "[Memorial Dungeon Expert]";
-						mes "^006400Memorial Dungeon^000000 is not just open to all users. It is open available for you and your [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[메모리얼 던전의 달인]";
+						mes "^006400메모리얼 던전^000000이란";
+						mes "다른 유저들에게도";
+						mes "모두 개방되어 있는 던전이 아니라,";
+						mes "나와 나의[] 에게만";
+						mes "열리는 독자적인 던전이지.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Friends:Family:Party Members:Guildmates") == 3)
+						if(select("친구들:가족들:파티원들:길드원들") == 3)
 							.@correct += 10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Memorial Dungeon Expert]";
-						mes "You're pretty bright~ seeing that you got all 3 correct. Now do you understand about ^006400Memorial Dungeon^000000?";
+						mes "[메모리얼 던전의 달인]";
+						mes "3문제 모두 맞추는 걸 보니";
+						mes "실력이 괜찮군.";
+						mes "이제 ^006400메모리얼 던전^000000에 대해서";
+						mes "조금은 알겠지?";
 						next;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you ever want to go over things about ^006400Memorial Dungeon^000000, come talk to me any time.";
+						mes "[메모리얼 던전의 달인]";
+						mes "혹시 ^006400메모리얼 던전^000000에 대해서";
+						mes "다시 설명을 듣고 싶다면";
+						mes "언제든지 나를 찾아오길 바라네.";
 						next;
-						mes "[Memorial Dungeon Expert]";
-						mes "Now, off you go to the the ^0000FFMap Expert^000000!";
+						mes "[메모리얼 던전의 달인]";
+						mes "그럼 이제 마지막으로";
+						mes "^0000FF지도의 달인^000000을";
+						mes "찾아가 보게.";
 						completequest 4164;
 						setquest 4165;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Memorial Dungeon Expert]";
-					mes "The quiz wasn't that hard...";
+					mes "[메모리얼 던전의 달인]";
+					mes "3문제 맞추는 일은";
+					mes "그리 어렵지 않을텐데..";
 					next;
-					mes "[Memorial Dungeon Expert]";
-					mes "You look like you have potential... you should try again.";
+					mes "[메모리얼 던전의 달인]";
+					mes "그래도 가능성이 보이니";
+					mes "문제에 다시 한 번";
+					mes "도전 해보게.";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Memorial Dungeon Expert]";
-					mes "It's easy to understand since it's coming from an expert like me. Now it's quiz time. You have to get all the answers correct to pass. Are you ready?";
+					mes "[메모리얼 던전의 달인]";
+					mes "달인의 설명을 들으니";
+					mes "아주 이해가 빠를거야.";
+					mes "이제 3가지 문제를 낼 텐데";
+					mes "전부 맞출 경우 통과라네.";
+					mes "도전 하는게 어떤가?";
 					break;
 				case 3:
-					mes "[Memorial Dungeon Expert]";
-					mes "Giving up is lame. If you change your mind, come talk to me.";
+					mes "[메모리얼 던전의 달인]";
+					mes "포기하는 건 좋지 않네..";
+					mes "생각이 바뀌면";
+					mes "다시 나를 찾아오게.";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Memorial Dungeon Expert]";
-			mes "Giving up without even trying is lame. If you change your mind, come talk to me.";
+			mes "[메모리얼 던전의 달인]";
+			mes "들어보지도 않고";
+			mes "포기하는 건 좋지 않네.";
+			mes "생각이 바뀌면";
+			mes "다시 나를 찾아오게.";
 			close;
 		}
 		close;
 	}
-	mes "[Memorial Dungeon Expert]";
-	mes "If you want to learn anything from me, talk to the ^006400Battleground Master^000000 first and get acknowledged by him.";
+	mes "[메모리얼 던전의 달인]";
+	mes "나에게 뭔가 배우고 싶다면 먼저^006400전장의 달인^000000의 인정을 받고 오도록 하게";
 	close;
 
 L_Info:
-	mes "[Memorial Dungeon Expert]";
-	mes "The ^006400Memorial Dungeon^000000is not a dungeon that is open to everyone. It only opens to ^0000FFYou and your Party Members^000000.";
+	mes "[메모리얼 던전의 달인]";
+	mes "^006400메모리얼 던전^000000이란";
+	mes "다른 유저들에게도";
+	mes "모두 개방되어 있는 던전이 아니라,";
+	mes "^0000FF나와 나의 파티원들^000000에게만";
+	mes "열리는 독자적인 던전이지.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Therefore, in order to enter ^006400Memorial Dungeon^000000, the Party Leader must apply to enter. Since you enter in the order you apply, you must be on stand-by to enter.";
+	mes "[메모리얼 던전의 달인]";
+	mes "그렇기 때문에";
+	mes "^006400메모리얼 던전^000000을 입장하기 위해서는";
+	mes "파티장이 입장 신청을 한 후에";
+	mes "신청 순서에 따라서";
+	mes "일정 대기시간을 가져야 한다네.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Also, after you explore Memorial Dungeon, you cannot re-enter the same ^006400Memorial Dungeon^000000 for a certain period of time.";
+	mes "[메모리얼 던전의 달인]";
+	mes "마찬가지로";
+	mes "메모리얼 던전에서";
+	mes "정해진 시간동안";
+	mes "탐험이 끝난 후 에는";
+	mes "일정 시간동안 같은 ^006400메모리얼 던전^000000에";
+	mes "재 입장 할 수 없게 된다네.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Many ^006400Memorial Dungeon^000000s exist, but we will give you hints to help you find Memorial Dungeon in the world of Rune Midgard.";
+	mes "[메모리얼 던전의 달인]";
+	mes "많은 ^006400메모리얼 던전^000000이 존재하는데";
+	mes "아직 모험이 서투른 자네를 위해서";
+	mes "룬 미드가츠 대륙에 존재하는";
+	mes "메모리얼 던전을 찾아 갈 수 있는";
+	mes "간단한 힌트를 알려주도록 하지.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "First, go to ^8B4513Alberta^000000 and find ^006400Captain Jansen^000000.";
-	mes "He will give you information about the really huge and tall dungeon known as ^006400Endless Tower^000000.";
+	mes "[메모리얼 던전의 달인]";
+	mes "첫 번째로";
+	mes "^8B4513알베르타^000000 항구에 ^006400함장 얀센^000000을 찾아가면";
+	mes "^006400엔들리스 타워^000000라는";
+	mes "아주 높고 거대한 던전에 관해";
+	mes "정보를 얻을 수 있을 것 이네.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Second, go to the ^8B4513Orc Map^000000 where all the orcs live and find the ^006400Insane Scientist^000000.";
-	mes "You might be able to get some information about a dungeon that has to do with ^006400Orc's Memory^000000.";
+	mes "[메모리얼 던전의 달인]";
+	mes "두 번째로";
+	mes "오크들이 서식하는";
+	mes "^8B4513오크마을^000000에 가면";
+	mes "^006400광기어린 과학자^000000를 찾을 수 있는데";
+	mes "아마 ^006400오크의 기억^000000과 관련된";
+	mes "던전의 정보를 알 수 있을거야.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Third and last, seek out the place where you can become a monk, which is the ^8B4513Capitolina Monastery^000000 and seek out ^006400Detective Patrick^000000.";
-	mes "He will be able to give you information about the dungeon with the ^006400Sealed Baphomet^000000+.";
+	mes "[메모리얼 던전의 달인]";
+	mes "세 번째로";
+	mes "몽크로 전직 할 수 있는";
+	mes "^8B4513카피톨리나 수도원^000000을 찾아가면";
+	mes "^006400항마수사 패트릭^000000을 만날 수 있는데";
+	mes "^006400봉인된 바포메트^000000에 관한";
+	mes "던전의 정보를 얻을 수 있을거야.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Of course there are other locations for Memorial Dungeon but it's best to start where you can find it easily.";
-	mes "As you continue to go on your adventures you will be able to find them more easily.";
+	mes "[메모리얼 던전의 달인]";
+	mes "내가 설명한 3가지의 정보 외에도";
+	mes "다른 ^006400메모리얼 던전^000000이 있지만";
+	mes "일단 가깝게 찾을 수 있는 곳 부터";
+	mes "모험을 시작하도록 하게.";
+	mes "모험을 계속 즐기다 보면";
+	mes "자연스럽게 알 수 있을거야.";
 	next;
 	return;
 }
 
-moc_para01,14,168,6	script	Map Expert	2_M_SAGE_OLD,{
+moc_para01,14,168,6	script	지도의 달인	2_M_SAGE_OLD,{
 	.@checkquest = questprogress(4165);
 	if (.@checkquest == 2) {
-		mes "[Map Expert]";
-		mes "Seeing that you came to me, I assume you have some questions about ^006400MAP^000000s?";
+		mes "[지도의 달인]";
+		mes "다시 나를 찾아 온 것을 보니";
+		mes "^006400지도^000000에 대해서";
+		mes "궁금한 점이 거에요?";
 		next;
-		switch(select("List about the Map.:End Conversation.")) {
+		switch(select("지도에 대해 들어본다.:대화를 마친다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Map Expert]";
-			mes "If you end up in those areas while you're adventuring, be sure to tell me all about it!";
-			mes "And now, since you've passed all the Expert's quizzes, go on and talk to ^006400Tutorial Goal^000000.";
+			mes "[지도의 달인]";
+			mes "나중에 모험을 하다가";
+			mes "혹시라도 그런 곳에 가게되면";
+			mes "저에게 꼭 알려주세요~!";
+			mes "그리고 모든 달인의 시험을";
+			mes "다 통과하셨으니";
+			mes "^006400튜토리얼 걸^000000을 찾아가 보세요.";
 			close;
 		case 2:
-			mes "[Map Expert]";
-			mes "If you have any more questions, come find me.";
+			mes "[지도의 달인]";
+			mes "혹시 또 궁금한 점이 생기면";
+			mes "다시 찾아오세요~.";
 			close;
 		}
 	} else if (.@checkquest == 1) {
-		mes "[Map Expert]";
-		mes "I have been researching and studying ^006400MAP^000000s for 16 years and so now I am the ^006400MAP^000000 Expert!";
-		mes "Since you've sought me out, it seems you've passed ^006400Memorial Dungeon Expert^000000's quiz.";
+		mes "[지도의 달인]";
+		mes "저는 16년 동안";
+		mes "^006400지도^000000 만을 연구해 온";
+		mes "^006400지도^000000의 달인이에요.";
+		mes "저를 이렇게 찾아 온 것을 보니";
+		mes "^006400메모리얼 던전의 달인^000000의 문제를";
+		mes "모두 통과했군요!.";
 		next;
-		mes "[Map Expert]";
-		mes "As you already know, if you pass all the Experts' quiz you'll get a prize.";
+		mes "[지도의 달인]";
+		mes "이미 들어서 알겠지만";
+		mes "만약 모든 달인들의 설명을";
+		mes "듣고 문제를 맞출 경우";
+		mes "멋진 보상이 기다리고 있어요.";
 		next;
-		mes "[Map Expert]";
-		mes "As the last Expert, I will try to explain everything about ^006400MAP^000000s to make it easy on you. Ready to start?";
+		mes "[지도의 달인]";
+		mes "그 마지막 달인으로서 제가";
+		mes "^006400지도^000000에 대해서";
+		mes "쉽게 알려주도록 할게요.";
+		mes "한 번 ^006400지도^000000에 대해서";
+		mes "들어 보는게 어때요?";
 		next;
-		switch(select("Listen about Maps.:End Conversation.")) {
+		switch(select("지도에 대해 들어본다.:이야기를 끝낸다.")) {
 		case 1:
 			callsub L_Info;
-			mes "[Map Expert]";
-			mes "How was my explanation? Now I am gonna give you a quick quiz! You have to get all the answers correct in order to pass. Ready?";
+			mes "[지도의 달인]";
+			mes "나중에 모험을 하다가";
+			mes "혹시라도 그런 곳에 가게되면";
+			mes "저에게 꼭 알려주세요~!";
+			next;
+			mes "[지도의 달인]";
+			mes "달인의 설명이 어때요?";
+			mes "이제 3가지 문제를 낼 텐데";
+			mes "전부 맞출 경우 통과에요.";
+			mes "도전 해볼래요?";
 			while(1) {
 				.@correct = 0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("문제에 도전한다:설명을 다시 듣는다:그만 둔다")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Map Expert]";
-						mes "You can view the map by clicking on the [] button that is located in the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도는";
+						mes "화면 좌 상단에 위치한";
+						mes "[] 이라고 쓰여져 있는";
+						mes "버튼을 클릭하면 볼 수 있어요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
 						if(select("SKILL:GUILD:MAP:BOOKING") == 3)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "When looking at the map, each area offers the [] and [] information about the monsters. That will take all the guess work out of where you should hunt.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도를 보면";
+						mes "각 지역에 서식하는 몬스터의";
+						mes "[]와(과) []을 알 수 있어요.";
+						mes "사냥터를 고를 때 고민하는 시간이";
+						mes "많이 줄어들거에요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Name, Age:Attributes, Level:Attributes, Tribe:Name, Level") == 4)
+						if(select("이름, 나이:속성, 레벨:속성, 종족:이름, 레벨") == 4)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "If you want to stop looking at the map, simple press the shortcut key of [] or ESC and it will close the map for you.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도를 보던 중";
+						mes "만약 그만 보고 싶다면";
+						mes "[] 또는 ESC";
+						mes "단축키를 눌러야 해요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
 						if(select("ALT + F4:CTRL + %:CTRL + M:ALT + ESC") == 2)
 							.@correct += 10;
 						break;
 					case 2:
-						mes "[Map Expert]";
-						mes "After you open your map and you";
-						mes "hover your mouse over specific areas";
-						mes "you can see the [] and [] of the region.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도를 열고 나서";
+						mes "마우스를 특정 지역에 가져다 대면";
+						mes "해당 지역의 []과(와) []을";
+						mes "알 수 있죠.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Name, Area Details:Name, Monster Attributes:Specialties, Area Details:Specialties, Name") == 1)
+						if(select("이름, 상세 지형:이름, 몬스터 속성:특산물, 상세 지형:특산물, 이름") == 1)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "If you look to the bottom right of the map, you will see a drawing of []. Click on that or press the TAB shortcut key and you can find out various information.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도 화면에서 오른쪽 아래에 보면";
+						mes "[]그림 이 있는데";
+						mes "이 그림을 클릭하거나";
+						mes "TAP 단축키를 누르면";
+						mes "다양한 정보를 알 수 있게 돼요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Desert Wolf:Mimic:Siroma:Poring") == 4)
+						if(select("데저트 울프:미믹:시로마:포링") == 4)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "While looking at the map, when you press the TAB shortcut key, you will be able to find and locate various dungeons and their Entrance Locations.";
-						mes "You can also find the [] of the monsters in that area.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도에서 TAP 단축키를 누르면";
+						mes "대륙에 위치한 다양한 던전들의";
+						mes "입장 위치와 해당 던전에서 서식하는";
+						mes "몬스터의 []을 알 수 있어요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Name:Level:Attribute:Size") == 2)
+						if(select("이름:레벨:속성:크기") == 2)
 							.@correct += 10;
 						break;
 					case 3:
-						mes "[Map Expert]";
-						mes "If you want to stop looking at the map, all you need to do is press the [] to go back to your normal screen.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도를 보던 중";
+						mes "만약 그만 보고 싶다면";
+						mes "지도 우 상단에 있는";
+						mes "[] 버튼을 누르면 쉽게 원래의";
+						mes "화면으로 돌아 갈 수 있을 거에요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
 						if(select("O:X:EXIT:ALT") == 2)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "While looking at the map, when you press the TAB shortcut key, you will be able to find and locate various dungeons and their Entrance Locations.";
-						mes "You can also find the [] of the monsters in that area.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도에서 TAP 단축키를 누르면";
+						mes "대륙에 위치한 다양한 던전들의";
+						mes "입장 위치와 해당 던전에서 서식하는";
+						mes "몬스터의 []을 알 수 있어요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
-						if(select("Level:Name:Size:Attribute") == 1)
+						if(select("레벨:이름:크기:속성") == 1)
 							.@correct += 10;
-						mes "[Map Expert]";
-						mes "You can view the map by clicking on the [] button that is located in the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[지도의 달인]";
+						mes "지도는";
+						mes "화면 좌 상단에 위치한";
+						mes "[] 이라고 쓰여져 있는";
+						mes "버튼을 클릭하면 볼 수 있어요.";
+						mes "여기서 [] 안에 들어 갈 말은?";
 						next;
 						if(select("GUILD:SKILL:BOOKING:MAP") == 4)
 							.@correct += 10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Map Expert]";
-						mes "Bingo! You got all 3 answers correct! Now, do you feel like you understand stuff about ^006400MAP^000000s more?";
+						mes "[지도의 달인]";
+						mes "3문제 모두 맞추는 걸 보니";
+						mes "매우 뛰어나네요.";
+						mes "이제 ^006400지도^000000에 대해서";
+						mes "조금은 알겠죠?";
 						next;
-						mes "[Map Expert]";
-						mes "If you ever feel like you want to learn more about ^006400MAP^000000s, come talk to me anytime.";
+						mes "[지도의 달인]";
+						mes "혹시 ^006400지도^000000에 대해서";
+						mes "다시 설명을 듣고 싶다면";
+						mes "언제든지 나를 찾아오길 바래요.";
 						next;
-						mes "[Map Expert]";
-						mes "Congrats on passing all the Experts' quizzes! Now, go find and talk to the ^006400Tutorial Goal^000000!";
+						mes "[지도의 달인]";
+						mes "모든 달인의";
+						mes "시험을 통과 한 것을 축하드리며";
+						mes "이제 ^006400튜토리얼 걸^000000 에게 가보세요.";
 						completequest 4165;
 						setquest 4166;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Map Expert]";
-					mes "The 3 questions shouldn't have been that hard...";
+					mes "[지도의 달인]";
+					mes "3문제 맞추는 일은";
+					mes "어렵지 않을텐데요..";
 					next;
-					mes "[Map Expert]";
-					mes "Well, you seem to be pretty smart so why not try the quiz again?";
+					mes "[지도의 달인]";
+					mes "그래도 가능성이 보이니";
+					mes "문제에 다시 한 번";
+					mes "도전 해보세요.";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Map Expert]";
-					mes "How is this Expert's explanations? Now I am gonna give you a quick quiz. You have to get all the answers correct to pass. Want to try it?";
+					mes "[지도의 달인]";
+					mes "달인의 설명이 어때요?";
+					mes "이제 3가지 문제를 낼 텐데";
+					mes "전부 맞출 경우 통과에요.";
+					mes "도전 해볼래요?";
 					break;
 				case 3:
-					mes "[Map Expert]";
-					mes "I'm the last Expert! Dont' give up! Come find me again when you're ready!";
+					mes "[지도의 달인]";
+					mes "이제 마지막 도전이에요~";
+					mes "포기 하지 말고";
+					mes "다시 절 찾아오세요~.";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Map Expert]";
-			mes "You're gonna give up without even trying? But I'm the last Expert! Dont' give up! Come find me again when you're ready!";
+			mes "[지도의 달인]";
+			mes "들어보지도 않고";
+			mes "포기 할 건가요?";
+			mes "이제 마지막 도전이에요~";
+			mes "포기 하지 말고";
+			mes "다시 절 찾아오세요~.";
 			close;
 		}
 		close;
 	}
-	mes "[Map Expert]";
-	mes "If you want to learn from me, go get acknowledged by the ^006400Memorial Dungeon^000000 first.";
+	mes "[지도의 달인]";
+	mes "저에게 뭔가 배우고 싶다면 먼저 ^006400메모리얼 던전^000000의 달인의 인정을 받고 오도록 해요~";
 	close;
 
 L_Info:
-	mes "[Map Expert]";
-	mes "A ^006400MAP^000000 shows you things that is much needed for travelling around the world; such as the lay of the land, major towns and fields and such. It's a very important tool!";
+	mes "[지도의 달인]";
+	mes "^006400지도^000000는";
+	mes "대륙의 상세한 모습과";
+	mes "주요 마을 및 필드와 같은";
+	mes "세계를 여행하는데 없어서는 안 될";
+	mes "아주 중요한 정보를 가지고 있어요.";
 	next;
-	mes "[Map Expert]";
-	mes "Because of this, it's more important than everything else that you know about ^006400MAP^000000s.";
+	mes "[지도의 달인]";
+	mes "그렇기 때문에 ^006400지도^000000에 대해서";
+	mes "잘 아는 건 그 무엇보다.";
+	mes "중요하다고 생각해요";
 	next;
-	mes "[Map Expert]";
-	mes "The map can be accessed by clicking on the button that says ^006400MAP^000000 on the upper left side of your screen.";
+	mes "[지도의 달인]";
+	mes "지도는";
+	mes "화면 좌 상단에 위치한";
+	mes "^006400MAP^000000 이라고 쓰여져 있는";
+	mes "버튼을 클릭하면 볼 수 있어요.";
 	next;
-	mes "[Map Expert]";
-	mes "When you click on the ^006400MAP^000000 button, a full sized map of Rune Midgards will take up your screen.";
-	mes "When you ^0000FFHover your mouse over specific areas^000000, you can find out more things such as ^006400NAME^000000 and Area Details.";
+	mes "[지도의 달인]";
+	mes "^006400MAP^000000 버튼을 클릭 후에";
+	mes "화면 가득히 룬 미드가츠 대륙의";
+	mes "멋진 지도가 펼쳐지는데";
+	mes "^0000FF마우스를 특정 지역에 가져다 대면^000000";
+	mes "해당 지역의 ^006400이름^000000과 ^006400상세 지형^000000을";
+	mes "알 수 있죠.";
 	next;
-	mes "[Map Expert]";
-	mes "If you look to the lower right side of your map, there is a ^006400Poring drawing^000000.";
-	mes "If you click on it or press the ^006400TAB^000000 shortcut key, you will be able to various information.";
+	mes "[지도의 달인]";
+	mes "지도 화면에서 오른쪽 아래에 보면";
+	mes "^006400포링 그림^000000이 있는데";
+	mes "이 그림을 클릭하거나";
+	mes "^006400TAP^000000 단축키를 누르면";
+	mes "다양한 정보를 알 수 있게 돼요.";
 	next;
-	mes "[Map Expert]";
-	mes "Firstly, you can find out the ^006400NAME^000000 and ^006400LEVEL^000000 of the monsters in each area. That will take a lot of the guess work out of where you want to go hunt.";
+	mes "[지도의 달인]";
+	mes "첫 번째로";
+	mes "각 지역에 서식하는 몬스터의";
+	mes "^006400이름^000000과 ^006400레벨^000000을 알 수 있어요.";
+	mes "사냥터를 고를 때 고민하는 시간이";
+	mes "많이 줄어들거에요.";
 	next;
-	mes "[Map Expert]";
-	mes "Secondly, You can locate various ^006400DUNGEON^000000s and their";
-	mes "^006400Entrance Location^000000. Plus, it'll also tell you monsters that reside in that area";
-	mes "along with their ^006400LEVEL^000000. It's displayed in red so it's easy to find.";
+	mes "[지도의 달인]";
+	mes "두 번째로";
+	mes "대륙에 위치한 다양한 ^006400던전^000000들의";
+	mes "^006400입장 위치^000000와 해당 던전에서 서식하는";
+	mes "몬스터의 ^006400레벨^000000을 알 수 있어요.";
+	mes "붉은색으로 표시되어 있으니";
+	mes "쉽게 찾을 수 있겠죠?";
 	next;
-	mes "[Map Expert]";
-	mes "If you want to stop looking at the map, there are 2 ways to do this.";
-	mes "You can press the shortcut keys which are ^006400CTRL + %^000000 or ^006400ESC^000000";
-	mes "Or at the top right of the map, there is a ^006400X^000000 button. Click that and you will return to your normal game screen.";
+	mes "[지도의 달인]";
+	mes "만약 지도를 그만 보고 싶다면";
+	mes "2가지 방법이 있는데";
+	mes "^006400CTRL + `^000000 또는 ^006400ESC^000000 단축키를";
+	mes "누르거나 지도 우 상단에 있는";
+	mes "^006400X^000000 버튼을 누르면 쉽게 원래의";
+	mes "화면으로 돌아 갈 수 있을 거에요.";
 	next;
-	mes "[Map Expert]";
-	mes "Currently, we cannot see places that are beyond Rune Midgards but it has been said that there are a lot of unknown worlds that exist in the beyond.";
+	mes "[지도의 달인]";
+	mes "우리가 지금";
+	mes "지도를 통해서는";
+	mes "룬 미드가츠 대륙밖에 볼 수 없지만";
+	mes "알려지지 않은 미지의 지역도";
+	mes "존재 한다고 해요";
 	next;
 	return;
 }
