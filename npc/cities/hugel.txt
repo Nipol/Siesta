@@ -4,7 +4,7 @@
 //= vicious_pucca, Poki#3, erKURITA, Munin, and everybody in the
 //= comments
 //===== Current Version: =====================================
-//= 1.7
+//= 1.8
 //===== Description: =========================================
 //= NPC's for the City of Hugel.
 //===== Additional Comments: =================================
@@ -25,96 +25,74 @@
 //= 1.5 Fixed Party Supplies Shop. [L0ne_W0lf]
 //= 1.6 Removed duplicate "Mudie". [L0ne_W0lf]
 //= 1.7 Removed whitespace and junk. [Kisuka]
+//= 1.8 kRO Official Texts. [nyalin]
 //============================================================
 
 // Hugel
 //============================================================
-hugel,189,143,5	script	Young Man	4_M_HUMAN_01,{
-	mes "[Young Man]";
-	mes "Huh. So that giant";
-	mes "air pouch can make";
-	mes "people float in midair?";
-	mes "Would filling my tummy";
-	mes "with air work the same way?";
+hugel,189,143,5	script	순박한 청년	4_M_HUMAN_01,{
+	mes "[순박한 청년]";
+	mes "오! 저 거대한 바람주머니가";
+	mes "하늘에 뜨게 해준다는 거야?";
+	mes "나도 배에 바람을 잔뜩 넣어서";
+	mes "공중에 둥둥 떠다닐까?";
 	close;
 }
 
-hugel,126,151,3	script	Emily	4_F_01,{
-	mes "[Emily]";
-	mes "I feel so blessed to";
-	mes "live in this quant, little";
-	mes "town. It's so beautiful, and";
-	mes "everyone here is so nice~";
+hugel,126,151,3	script	에밀리	4_F_01,{
+	mes "[에밀리]";
+	mes "시골이긴 하지만 정말 여기는";
+	mes "평화로운 곳 이예요.";
+	mes "이웃들도 모두 좋으신 분들만";
+	mes "계시고.";
 	next;
-	mes "[Emily]";
-	mes "For some reason, my older";
-	mes "sister wants to move out of";
-	mes "Hugel as soon as she can. She";
-	mes "Says that she's getting creeped";
-	mes "out by the people that live here.";
-	mes "Don't you think that sounds weird?";
+	mes "[에밀리]";
+	mes "하지만 우리 언니는 맨날";
+	mes "이곳을 나가려고만 해요.";
+	mes "왠지 지내면 지낼수록";
+	mes "무섭고 두려움이 느껴진데요.";
+	mes "정말 이상하죠?";
 	close;
 }
  
-hugel,86,165,5	script	Kayplas	4_M_HUBOY,{
-	mes "[Kayplas]";
-	mes "Ooh, I really want to";
-	mes "have that red bottle.";
-	mes "I should ask my mom";
-	mes "to buy me one. It doesn't";
-	mes "look too expensive, does it?";
+hugel,86,165,5	script	마을 소년	4_M_HUBOY,{
+	mes "[마을 소년]";
+	mes "저 빨간통 너무 갖고 싶어요.";
+	mes "우리 엄마에게 나도 저 빨간통";
+	mes "사 달라고 할까요?";
 	close;
 }
 
-hugel,71,197,3	script	Lisa	4_F_01,{
-	mes "[Lisa]";
-	mes "Hugel is a pretty";
-	mes "small, homely village.";
-	mes "Everyone knows everyone,";
-	mes "everybody knows what";
-	mes "everybody else is doing.";
-	mes "It's so suffocating!";
+hugel,71,197,3	script	리사	4_F_01,{
+	mes "[리사]";
+	mes "휘겔은 워낙 마을이 작아서.";
+	mes "하루에도 누가 무슨일이 있었는지";
+	mes "금방 소문이 퍼지죠.";
 	next;
-	mes "[Lisa]";
-	mes "There's no privacy in";
-	mes "small towns. Someday,";
-	mes "I wanna go out and";
-	mes "live in the big city~";
+	mes "[리사]";
+	mes "저는 이런 시골 마을이";
+	mes "너무 싫어요.";
+	mes "어서 큰 마을로 나가서";
+	mes "살고싶어요.";
 	close;
 }
 
-hugel,169,112,5	script	Old Nikki	4_F_HUGRANMA,{
-	mes "[Old Nikki]";
-	mes "You must not be from";
-	mes "around here. Ah, you're";
-	mes "an adventurer, right? Do";
-	mes "you know how I could tell?";
-	next;
-	mes "[Old Nikki]";
-	mes "It's because everyone";
-	mes "who's lived here starts";
-	mes "to look alike after a while.";
-	mes "And you certainly don't look";
-	mes "as old as us. Well, have";
-	mes "a nice day, adventurer~";
+hugel,169,112,5	script	마을 할머니	4_F_HUGRANMA,{
+	mes "[마을 할머니]";
+	mes "홍홍홍~ 우리 마을은 말이야";
+	mes "많은 사람들이 비숫하게 생겼지~";
+	mes "아마 아주 오랫동안 같은 마을에";
+	mes "살아서 그런지 다들 닮아가~";
 	close;
 }
 
-hugel,175,115,5	script	Marius	4_M_HUGRANFA,{
-	mes "[Marius]";
-	mes "Yes, I'm an old man, but";
-	mes "I can lick a whippersnapper";
-	mes "like you any day of the week!";
-	mes "You know, Hugel's got a longer";
-	mes "life expectancy than all the other towns. You wanna know why?";
-	next;
-	mes "[Marius]";
-	mes "It's because the old";
-	mes "coots in this town refuse";
-	mes "to just lay down and die!";
-	mes "Now, c'mon! Lemme show";
-	mes "you how strong I am! Let's";
-	mes "wrestle or something, kid~";
+hugel,175,115,5	script	마을 노인	4_M_HUGRANFA,{
+	mes "[마을 노인]";
+	mes "나이가 먹어도 이 넘치는 근력을";
+	mes "주체할수가 없네 그려.";
+	mes "우리 마을 사람들은 대대로 장수를";
+	mes "하니 나도 아직 팔팔한 나이지.";
+	mes "어때? 팔씨름 한번 할 텐가?";
 	close;
 }
 

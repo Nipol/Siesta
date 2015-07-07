@@ -3,94 +3,96 @@
 //===== By: ==================================================
 //= Kisuka
 //===== Current Version: =====================================
-//= 1.2
+//= 1.3
 //===== Description: =========================================
 //= Moscovia Town Script
 //===== Additional Comments: =================================
 //= 1.0 First Version. [Kisuka]
 //= 1.1 Removed villagers (they are part of a quest). [Kisuka]
 //= 1.2 Moved Alberta NPC to pre-re/re paths. [Euphy]
+//= 1.3 kRO Official Texts. [nyalin]
 //============================================================
 
 // Moscovia Transportation :: mosk_trans
 //============================================================
 -	script	::PR_Officer_moscovia	-1,{
-	mes "[Moscovia P.R. Officer]";
-	mes "Moscovia! Do you know Moscovia?";
-	mes "the paradise spreading on the endless seas...";
-	mes "Welcome to Moscovia";
-	mes "It's adventurous and mystic.";
+	mes "[모스코비아 홍보사절]";
+	mes "모스코비아!! 모스코비아를 아십니까?";
+	mes "끝없는 바다위의 지상 낙원... ";
+	mes "끝없는 모험과 신비가 가득한 저희";
+	mes "모스코비아로 당신을 초대합니다.";
 	next;
-	switch(select("About Moscovia...:Go to Moscovia.:Cancel")) {
+	switch(select("모스코비아에 대해서...:모스코비아로 간다.:취소한다.")) {
 		case 1:
-			mes "[Moscovia P.R. Officer]";
-			mes "Moscovia is a beautiful kingdom";
-			mes "on an island located north of Rune";
-			mes "Midgarts.";
+			mes "[모스코비아 홍보사절]";
+			mes "저희 모스코비아는 룬 미드가츠";
+			mes "대륙에서 북쪽 바다의 끝에 있는  ";
+			mes "아름다운 섬의 왕국입니다.";
 			next;
-			mes "[Moscovia P.R. Officer]";
-			mes "I'm sure that you will be";
-			mes "absolutely fascinated";
-			mes "by Moscovia's beautiful scenery";
-			mes "and gorgeous palace.";
+			mes "[모스코비아 홍보사절]";
+			mes "자연이 만든 신비로운 절경의 광경!";
+			mes "아름답고 화려한 예배당과 왕궁의";
+			mes "모습을 보신다면 분명 모스코비아의";
+			mes "매력에 푹 빠지실 겁니다.";
 			next;
-			mes "[Moscovia P.R. Officer]";
-			mes "Now that our long winter has";
-			mes "passed,";
-			mes "I'm happy that I can now show you";
-			mes "our gorgeous hometown.";
+			mes "[모스코비아 홍보사절]";
+			mes "길고 길었던 겨울이 지나고 이제야";
+			mes "모두에게 저희의 아름다운 고향을";
+			mes "소개할 수 있게되어 정말 기쁘답니다.";
+			mes "모스코비아의 겨울은 정말 길고도";
+			mes "춥기 때문이지요.";
 			next;
-			mes "[Moscovia P.R. Officer]";
-			mes "If you feel like visiting Moscovia";
-			mes "take the chance now!";
-			mes "I'll help you to have a nice trip";
-			mes "to Moscovia!";
+			mes "[모스코비아 홍보사절]";
+			mes "자, 아름다운 모스코비아로 오시고";
+			mes "싶다면 지금이 기회입니다.";
+			mes "성심성의껏 멋진 여행이 될 수 있게";
+			mes "도와 드리겠습니다.";
 			close;
 			
 		case 2:
-			mes "[Moscovia P.R. Officer]";
-			mes "Ok then, let us start now.";
-			mes "You should pay me 10,000 zeny";
-			mes "to go to Moscovia.";
-			mes "But when you come back,";
-			mes "you don't have to pay.";
+			mes "[모스코비아 홍보사절]";
+			mes "그럼, 바로 출발하도록 하지요.";
+			mes "저희 모스코비아까지 가는데에 필요한";
+			mes "여비는 10000 제니입니다.";
+			mes "돌아오실 때에는 무료로 모셔다";
+			mes "드립니다.";
 			next;
-			mes "[Moscovia P.R. Officer]";
-			mes "Can we leave now?";
+			mes "[모스코비아 홍보사절]";
+			mes "그럼, 출발해도 괜찮겠습니까?";
 			next;
-			if (select("Let's go!:Cancel") == 2) {
-				mes "[Moscovia P.R. Officer]";
-				mes "If you're too busy now,";
-				mes "please tell me again whenever you want.";
-				mes "I'm always ready to guide anyone to Moscovia.";
+			if (select("출발!:취소.") == 2) {
+				mes "[모스코비아 홍보사절]";
+				mes "지금 바쁘시다면, 다음에 언제든";
+				mes "말씀해주세요. 여러분들께 저희";
+				mes "모스코비아를 소개할 수 있는 영광을 기다리고 있겠습니다.";
 				close;
 			}
 			if (Zeny < 10000) {
-				mes "[Moscovia P.R. Officer]";
-				mes "I'm sorry but you don't have";
-				mes "enough zeny now";
-				mes "You need 10,000 zeny";
-				mes "to go to Moscovia";
-				mes "Thank you.";
+				mes "[모스코비아 홍보사절]";
+				mes "죄송합니다만, 여행에 필요한";
+				mes "10,000 제니를 준비해주셔야";
+				mes "합니다. 소지금을 다시 한번";
+				mes "확인하시고 말씀해주세요.";
+				mes "감사합니다.";
 				close;
 			} else {
-				mes "[Moscovia P.R. Officer]";
-				mes "Ok then, we're leaving now.";
+				mes "[모스코비아 홍보사절]";
+				mes "그럼 바로 출발할께요.";
 				close2;
 				Zeny -= 10000;
 				warp "moscovia",163,55;
 				end;
 			}
 		case 3:
-			mes "[Moscovia P.R. Officer]";
-			mes "If you're too busy now,";
-			mes "please tell me again whenever you want.";
-			mes "I'm always ready to guide anyone to Moscovia.";
+			mes "[모스코비아 홍보사절]";
+			mes "지금 바쁘시다면, 다음에 언제든";
+			mes "말씀해주세요. 여러분들께 저희";
+			mes "모스코비아를 소개할 수 있는 영광을 기다리고 있겠습니다.";
 			close;
 	}
 }
 
-moscovia,166,53,4	script	Moscovia P.R. Officer#2	4_F_RUSWOMAN2,{
+moscovia,166,53,4	script	모스코비아 홍보사절#2	4_F_RUSWOMAN2,{
 	mes "[Moscovia P.R. Officer]";
 	mes "How was your trip?";
 	mes "Do you have good memories from Moscovia?";
@@ -117,7 +119,7 @@ moscovia,166,53,4	script	Moscovia P.R. Officer#2	4_F_RUSWOMAN2,{
 
 // Moscovia Palace :: mos_swan
 //============================================================
-moscovia,253,166,4	script	Soldier#mosk1	4_M_RUSKNIGHT,{
+moscovia,253,166,4	script	경비병#mosk1	4_M_RUSKNIGHT,{
 	mes "[Soldier]";
 	mes "Our dear Csar Alexsay III is in the palace.";
 	mes "He rules over Moscovia.";
@@ -125,12 +127,12 @@ moscovia,253,166,4	script	Soldier#mosk1	4_M_RUSKNIGHT,{
 	close;
 }
 
--	script	Soldier#mosk::MoscSoldier	4_M_RUSKNIGHT,{
+-	script	경비병#mosk::MoscSoldier	4_M_RUSKNIGHT,{
 	mes "[Soldier]";
 	mes "Please be silent or the Csar will be angry.";
 	close;
 }
-mosk_in,118,66,5	duplicate(MoscSoldier)	Soldier#mosk02	4_M_RUSKNIGHT
-mosk_in,133,110,3	duplicate(MoscSoldier)	Soldier#mosk03	4_M_RUSKNIGHT
-mosk_in,133,73,3	duplicate(MoscSoldier)	Soldier#mosk04	4_M_RUSKNIGHT
-mosk_in,113,124,5	duplicate(MoscSoldier)	Soldier#mosk05	4_M_RUSKNIGHT
+mosk_in,118,66,5	duplicate(MoscSoldier)	경비병#mosk02	4_M_RUSKNIGHT
+mosk_in,133,110,3	duplicate(MoscSoldier)	경비병#mosk03	4_M_RUSKNIGHT
+mosk_in,133,73,3	duplicate(MoscSoldier)	경비병#mosk04	4_M_RUSKNIGHT
+mosk_in,113,124,5	duplicate(MoscSoldier)	경비병#mosk05	4_M_RUSKNIGHT

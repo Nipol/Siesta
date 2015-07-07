@@ -4,10 +4,11 @@
 //= Muad Dib (1.0) Darkchild (1.1) Muad Dib (1.2)
 //= Darkchild (1.3) DracoRPG (1.5) L0ne_W0lf (2.1)
 //===== Current Version: =====================================
-//= 2.1c
+//= 2.2
 //===== Description: =========================================
 //= Payon City Npcs
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= Most Credits To Muad Dib, Some Stuff By Me
 //= 1.4 Corrected a few typos
 //= 1.5 Rescripted old NPCs + scripted new ones (from iRO Sak) [DracoRPG]
@@ -24,6 +25,7 @@
 //=     Moved Fortune Teller to /other/fortune.txt
 //= 2.1b Added a missing close in the Monster Scholar. [L0ne_W0lf]
 //= 2.1c Minor bug fixes. [Euphy]
+//= 2.2 kRO Official Texts. [nyalin]
 //============================================================
 
 // Payon
@@ -990,87 +992,57 @@ payon_in03,102,185,5	script	Guard#payon	4_M_PAY_SOLDIER,{
 
 // Payon Archer Village
 //============================================================
-pay_arche,77,131,2	script	Archer Joe#payon	4_M_ORIENT01,{
-	mes "[Archer Joe]";
-	mes "Payon!";
-	mes "Such a wonderful";
-	mes "place! Superb Bows";
-	mes "and skillful Archers!";
+pay_arche,77,131,2	script	궁수 조스마#payon	4_M_ORIENT01,{
+	mes "[궁수 조스마]";
+	mes " 페이욘! 좋은 곳입니다! 활도 좋고! 궁수들이 아주 우수합니다! ";
+	mes " 당신! 페이욘의 궁수가 얼마나 대단한지 알고 있나요? ";
 	next;
-	mes "[Archer Joe]";
-	mes "Hey you~!";
-	mes "Have you heard";
-	mes "of famous Payon?";
-	next;
-	switch(select("Yeah, of course~! :Pay...on?:...")) {
+	switch(select("알죠!:모르겠는데요?!:......")) {
 	case 1:
-		mes "[Archer Joe]";
-		mes "Oh! You the man!";
-		mes "You know the Archers of Payon!";
-		mes "We never miss our target! Even from a distance, the hearts of our foes are unsafe!";
+		mes "[궁수 조스마]";
+		mes " 오우! 역시 아는군요! 페이욘의 궁수! 너무나 멋집니다! ";
+		mes " 페이욘의 궁수가 쏘는 활은 항상 백발백중입니다! 멀리 떨어져서도 적의 심장을 정확히 겨누지요! ";
 		next;
-		if (select("So, you like this place, huh? :Hahahaha~") == 1) {
-			mes "[Archer Joe]";
-			mes "Yes! I love this place!";
-			mes "I love this city so much,";
-			mes "I've even been doing research on it! If there's anything you wanna know about Payon, please ask me!";
+		if (select("이 곳을 좋아하시는 군요?:하하...") == 1) {
+			mes "[궁수 조스마]";
+			mes " 네! 아주 좋아합니다! 그래서 페이욘을 공부 중이지요! ";
+			mes " 궁금한 게 있으면 물어 보세요! ";
 			next;
-			switch(select("The people wear unique clothing here.:What's the building in the middle of town?:Who's that guy drinking over there? :Talk to you later.")) {
+			switch(select("이 곳은 옷차림이 특이하군요.:마을 가운데 커다란 건물은 뭐죠?:저기 술 마시는 아저씨... 누구에요?:다음 기회에 이야기하죠.")) {
 			case 1:
-				mes "[Archer Joe]";
-				mes "Yes, I agree.";
-				mes "You must know this place used to be isolated because of the thick forests and the mountainous area.";
-				next;
-				mes "[Archer Joe]";
-				mes "Because of that, the Payon developed a culture of its own, which is quite different than that of the rest of Rune-Midgard.";
-				next;
-				mes "[Archer Joe]";
-				mes "This garment is traditional Payon clothing! Why don't you try wearing one? It's very comfortable~";
-				break;
+				mes "[궁수 조스마]";
+				mes " 페이욘의 옷차림은 참 특이하지요? ";
+				mes " 이곳은 옛부터 울창한 숲에 둘러싸여 외지와 단절되었기 때문에 대륙의 다른 곳과는 틀린 독특한 문화가 형성되었지요. ";
+				mes " 이 복장도 그런 문화가 살아있는 전통복장입니다! 입으면 아주 편해요! ";
+				close;
 			case 2:
-				mes "[Archer Joe]";
-				mes "You mean the Central Palace? Strangers aren't allowed to enter that place. People say the royal family and their friends from outside gather there.";
-				next;
-				mes "[Archer Joe]";
-				mes "I'd like to go there sometime, and see what it's like on the inside!";
-				break;
+				mes "[궁수 조스마]";
+				mes " 중앙궁에 외지인이 함부로 들어가면 안 됩니다. 저도 들어가본 적이 없어요. ";
+				mes " 들리는 소문으로는 중앙궁에는 페이욘의 귀인들과, 그들이 불러들인 외지인이 모여있다는군요. ";
+				mes " 꼭 들어가 보고 싶어요. 정말 흥미로운 곳이 아닐 수 없습니다. ";
+				close;
 			case 3:
-				mes "[Archer Joe]";
-				mes "Oh! That guy's notorious!";
-				mes "Whatever you do, don't treat";
-				mes "him to any drinks!";
-				mes "You'll regret it!";
-				break;
+				mes "[궁수 조스마]";
+				mes " 오우! 그 사람 아주 유명합니다! 술 자주 사주지 마세요! 버릇들면 큰일납니다! ";
+				close;
 			case 4:
-				mes "[Archer Joe]";
-				mes "Okay!";
-				mes "See ya!";
-				mes "Catch you later!";
-				break;
+				mes "[궁수 조스마]";
+				mes " 그래요! 잘 가요! 나중에 또 봐요! ";
+				close;
 			}
 		}
 		close;
 
 	case 2:
-		mes "[Archer Joe]";
-		mes "What a shame...";
-		mes "How have you not";
-		mes "heard of the Payon Archers?";
-		next;
-		mes "[Archer Joe]";
-		mes "Well, when you ";
-		mes "learn more about us,";
-		mes "let's talk again and I can tell you why the Payon Archers are";
-		mes "so great!";
-		break;
+		mes "[궁수 조스마]";
+		mes " 오우! 아쉽군요! 페이욘의 궁수의 매력을 모르다니! ";
+		mes " 좀 더 수련을 쌓고 저를 찾아 주세요! 그때, 페이욘의 궁수의 매력에 대해 이야기합시다! ";
+		close;
 	case 3:
-		mes "[Archer Joe]";
-		mes "Why are";
-		mes "you so quiet?";
-		mes "You're not shy, are you?";
-		mes "Come on, there's no reason";
-		mes "to be bashful around me~";
-		break;
+		mes "[궁수 조스마]";
+		mes " 왜 말이 없죠? 수줍음을 타나요? ";
+		mes " 흠... 이상한 사람이군요! ";
+		close;
 	}
 	close;
 }

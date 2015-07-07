@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= x[tsk], KarLaeda
 //===== Current Version: =====================================
-//= 1.6
+//= 1.7
 //===== Description: =========================================
 //= [Official Conversion]
 //= Kunlun Town Script
@@ -11,136 +11,95 @@
 //= 1.5 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //=     Moved Lost Knife mini-quest to quest file.
 //= 1.6 Moved Alberta NPC to pre-re/re paths. [Euphy]
+//= 1.7 kRO Official Texts. [nyalin]
 //============================================================
 
 // Kunlun Transportation
 //============================================================
 -	script	::Kunlun_Envoy_gonryun	-1,{
-	mes "[Wa Bai Hu]";
-	mes "Good day~";
-	mes "Let me invite you all";
-	mes "to my homeland, Kunlun.";
-	mes "It is my honor to guide";
-	mes "such distinguished quests from";
-	mes "the Rune-Midgard kingdom.";
+	mes "[와백호]";
+	mes "안녕하십니까, 저는 저의 고향인";
+	mes "쿤룬으로 여러분을 초대하고자";
+	mes "합니다. 룬-미드가츠 왕국과는";
+	mes "전혀 다른 저희 쿤룬에 대륙의";
+	mes "귀빈들을 모시는 것은 큰 영광이";
+	mes "아닐 수 없습니다.";
 	next;
-	switch(select("About Kunlun:Visit Kunlun:Cancel")) {
+	switch(select("쿤룬에 대해서...:쿤룬으로 간다.:취소한다.")) {
 	case 1:
-		mes "[Wa Bai Hu]";
-		mes "Kunlun is a beautiful place,";
-		mes "rich with history, and its";
-		mes "own traditions. I also think";
-		mes "Kunlun is the best place for";
-		mes "sightseeing.";
+		mes "[와백호]";
+		mes "저희 쿤룬은 대륙의 손님들께서";
+		mes "최고의 관광을 즐기실 수 있는";
+		mes "멋진 곳이랍니다. 작은 집들로";
+		mes "꾸며진 소인국을 지나서 하늘로";
+		mes "이끄는 신비로운 빛의 기둥을";
+		mes "통해 들어가시게 됩니다.";
 		next;
-		mes "[Wa Bai Hu]";
-		mes "When you arrive at the harbor of";
-		mes "Kunlun, you'll be able to see";
-		mes "miniature replicas of";
-		mes "buildings found in Alberta";
-		mes "and Prontera.";
+		mes "[와백호]";
+		mes "이 대륙에도 하늘에 떠있는 도시";
+		mes "가 있다고 들었습니다만, 저희";
+		mes "쿤룬은 특별한 동력없이 하늘에";
+		mes "떠있지요. 덕분에 멋진 경치를";
+		mes "감상하실 수 있습니다.";
 		next;
-		mes "[Wa Bai Hu]";
-		mes "After enjoying a nice, leisurely";
-		mes "stroll, step into the beautiful";
-		mes "column of light that will take";
-		mes "you up into the clouds to";
-		mes "Kunlun Village.";
+		mes "[와백호]";
+		mes "저희 쿤룬의 특산품인 왕만두와";
+		mes "천도복숭아의 맛 또한 일품이죠.";
+		mes "물론 위험한 던전도 있으니 만약";
+		mes "가시게 된다면, 철저하게 준비를";
+		mes "하고 가셔야 할껍니다.";
 		next;
-		mes "[Wa Bai Hu]";
-		mes "I've heard that on the";
-		mes "Rune-Midgarts continent,";
-		mes "there is another city that is";
-		mes "is kept aloft in the sky by";
-		mes "an ancient, mysterious power...";
-		next;
-		mes "[Wa Bai Hu]";
-		mes "Well, my Kunlun also floats";
-		mes "in the air, but without any";
-		mes "so called technology or";
-		mes "power supply. We consider";
-		mes "our land especially blessed...";
-		next;
-		mes "[Wa Bai Hu]";
-		mes "When you're in Kunlun, don't";
-		mes "forget to try our specialties";
-		mes "such as the giant dumpling or the heaven peach.";
-		next;
-		mes "[Wa Bai Hu]";
-		mes "You'd better prepare yourself";
-		mes "if you are planning to visit";
-		mes "the Kunlun dungeon. I must";
-		mes "say, that is not a safe place to go for fun.";
-		next;
-		mes "[Wa Bai Hu]";
-		mes "If you are interested in visiting";
-		mes "Kunlun, do not hesitate to let";
-		mes "me know. It's my great pleasure";
-		mes "to serve you, honorable guest.";
+		mes "[와백호]";
+		mes "그럼, 생각이 있으시다면 제게";
+		mes "말씀해주세요. 대륙의 귀빈들을";
+		mes "모시는 것은 최고의 기쁨이지요.";
 		close;
 	case 2:
-		mes "[Wa Bai Hu]";
-		mes "Excellent choice, I am glad";
-		mes "to have you as our guest~";
-		mes "However, a small fee is required";
-		mes "to board the ship to Kunlun.";
+		mes "[와백호]";
+		mes "그럼, 바로 출발하도록 하지요.";
+		mes "저희 쿤룬까지 가는 비용이 조금";
+		mes "필요합니다. 10,000 제니를 미리";
+		mes "주시면, 돌아오실 경우에 무료로";
+		mes "모셔드리겠습니다.";
 		next;
-		mes "[Wa Bai Hu]";
-		mes "We ask that you pay 10,000 zeny";
-		mes "prior to departure. That fee also";
-		mes "covers the cost of returning";
-		mes "to Alberta. I am ready to guide";
-		mes "you to Kunlun at any time.";
+		mes "[와백호]";
+		mes "그럼, 출발해도 괜찮겠습니까?";
 		next;
-		mes "[Wa Bai Hu]";
-		mes "Would you like to board?";
-		next;
-		if (select("To Kunlun~!:No.") == 1) {
+		if (select("출발!:취소.") == 1) {
 			if (Zeny > 9999) {
-				mes "[Wa Bai Hu]";
-				mes "Thank you, let me guide you there immediately.";
-				close2;
 				Zeny -= 10000;
 				warp "gon_fild01",258,82;
 				end;
 			}
-			mes "[Wa Bai Hu]";
-			mes "I am sorry, but you must have";
-			mes "10,000 zeny to travel to Kunlun.";
-			mes "Please make sure you have enough";
-			mes "zeny with you. Thank you, and";
-			mes "please come again.";
+			mes "[와백호]";
+			mes "죄송합니다만, 여행에 필요한";
+			mes "10,000 제니를 준비해주셔야";
+			mes "합니다. 소지금을 다시 한번";
+			mes "확인하시고 말씀해주세요.";
+			mes "감사합니다.";
 			close;
 		}
-		mes "[Wa Bai Hu]";
-		mes "I see. However, whenever you";
-		mes "change your mind, please let";
-		mes "me know. It would be a great";
-		mes "please to serve you, most";
-		mes "honorable guest.";
-		close;
 	case 3:
-		mes "[Wa Bai Hu]";
-		mes "I see. However, whenever you";
-		mes "change your mind, please let me";
-		mes "know. It would be a great pleasure to serve you, most honorable guest.";
+		mes "[와백호]";
+		mes "나중에라도 가시겠다면, 제게 꼭";
+		mes "말씀해주세요. 대륙의 귀빈들을";
+		mes "모시는 것은 최고의 기쁨이지요.";
 		close;
 	}
 }
 
-gon_fild01,255,79,7	script	Kunlun Envoy#gon2	4_M_TWMIDMAN,{
-	mes "[Wa Bai Hu]";
-	mes "So, did you enjoy your trip?";
-	mes "I guess it's the time for you to";
-	mes "go home. The ship to Rune-Midgard is ready to depart at any time.";
+gon_fild01,255,79,7	script	쿤룬 홍보 사신#gon2	4_M_TWMIDMAN,{
+	mes "[와백호]";
+	mes "즐거운 여행 되셨는지요? 이제";
+	mes "그럼 돌아가실 시간인가보군요.";
+	mes "대륙으로 돌아가는 배가 지금";
+	mes "준비되어 있습니다.";
 	next;
-	if (select("Go back to Alberta:Cancel") == 1) {
-		mes "[Wa Bai Hu]";
-		mes "Please come again.";
-		mes "I hope you will let your friends";
-		mes "know about Kunlun when you get";
-		mes "back. Now, let me guide you";
-		mes "back to Alberta.";
+	if (select("알베르타로 돌아간다:취소한다.") == 1) {
+		mes "[와백호]";
+		mes "다음에 다시 들려주십시오.";
+		mes "다른 분들에게도 알려주시구요.";
+		mes "자, 출발하겠습니다.";
 		close2;
 		if (RENEWAL)
 			warp "alberta",244,60;
@@ -148,159 +107,159 @@ gon_fild01,255,79,7	script	Kunlun Envoy#gon2	4_M_TWMIDMAN,{
 			warp "alberta",243,67;
 		end;
 	}
-	mes "[Wa Bai Hu]";
-	mes "Take your time, my guest.";
-	mes "There should be many places";
-	mes "you may have missed.";
+	mes "[와백호]";
+	mes "천천히 더 구경하다 오십시오.";
+	mes "아직 찾아보시지 못한 장소도";
+	mes "쿤룬에는 많으니까요.";
 	close;
 }
 
-gon_fild01,187,239,7	script	Kunlun Envoy#gon3	4_M_TWMIDMAN,{
-	mes "[Zhang Quing Long]";
-	mes "Please head north to enter Kunlun.";
-	mes "I hope you will have a great time";
-	mes "while staying in Kunlun.";
+gon_fild01,187,239,7	script	쿤룬 홍보 사신#gon3	4_M_TWMIDMAN,{
+	mes "[장청룡]";
+	mes "위쪽으로 올라가시면 됩니다.";
+	mes "저희 쿤룬에서 좋은 추억들을";
+	mes "많이 만드시고 가셨으면 참";
+	mes "좋겠습니다...";
 	close;
 }
 
-gonryun,153,64,7	script	Kunlun Envoy#gon4	4_M_TWMIDMAN,{
-	mes "[Zhang Quing Long]";
-	mes "Please make yourself comfortable.";
-	mes "If you want to go back, I will";
-	mes "be more than happy to guide you";
-	mes "to the ship to Alberta.";
+gonryun,153,64,7	script	쿤룬 홍보 사신#gon4	4_M_TWMIDMAN,{
+	mes "[장청룡]";
+	mes "쿤룬에서 편안한 하루 되시길.";
+	mes "여행이 끝나셨다면 대륙으로";
+	mes "돌아가는 배까지 직접 모셔다";
+	mes "드리겠습니다.";
 	next;
-	if (select("Go back to the harbor:Cancel") == 1) {
-		mes "[Zhang Quing Long]";
-		mes "I hope you enjoyed your trip.";
-		mes "Now, let me guide you back";
-		mes "to the harbor.";
+	if (select("항구로 돌아간다:취소한다.") == 1) {
+		mes "[장청룡]";
+		mes "다음에 다시 들려주십시오.";
+		mes "다른 분들에게도 알려주시구요.";
+		mes "자, 출발하겠습니다.";
 		close2;
 		warp "gon_fild01",258,82;
 		end;
 	}
-	mes "[Zhang Quing Long]";
-	mes "Take your time, my guest.";
-	mes "There should be many places";
-	mes "you may have missed.";
+	mes "[장청룡]";
+	mes "천천히 더 구경하다 오십시오.";
+	mes "아직 찾아보시지 못한 장소도";
+	mes "쿤룬에는 많으니까요.";
 	close;
 }
 
 // Generic Kunlun NPCs
 //============================================================
-gonryun,200,82,3	script	Jian Chung Xun#gon	4_M_TWBOY,{
-	mes "[Jian Chung Xun]";
-	mes "I simply adore festivals.";
-	mes "That's why I love this town.";
-	mes "This town makes me feel like I am";
-	mes "in the middle of a festival all year round.";
+gonryun,200,82,3	script	성손 감#gon	4_M_TWBOY,{
+	mes "[성손 감]";
+	mes "축제는 정말로 즐거워요.";
+	mes "저는 그래서 언제나 축제를";
+	mes "하는 듯한 이 마을을";
+	mes "너무너무 좋아해요 에헤.";
 	close;
 }
 
-gonryun,268,88,3	script	Liang Zhun Bu#gon	4_M_TWMIDMAN,{
-	mes "[Liang Zhun Bu]";
-	mes "We are proud to be an independent";
-	mes "nation, and have been fighting";
-	mes "against the evil invaders who've";
-	mes "wanted to conquer this blessed land for many years...";
+gonryun,268,88,3	script	준포 량#gon	4_M_TWMIDMAN,{
+	mes "[준포 량]";
+	mes "우리들은 독립된 민족으로서";
+	mes "이런 축복받은 땅을 부러워하여";
+	mes "침략해온 악의 무리들에게";
+	mes "굴하지않고 싸워 이겨왔다.";
 	next;
-	mes "[Liang Zhun Bu]";
-	mes "But we have victoriously fended";
-	mes "off every invasion! As long";
-	mes "as we believe in ourselves,";
-	mes "we shall never forget the";
-	mes "Trumphal Song that has helped us in our struggles.";
+	mes "[준포 량]";
+	mes "믿고있다. 승리의 개가를!";
+	mes "그것이 우리의 아침해돋이다!";
 	close;
 }
 
-gonryun,118,111,5	script	Qian Yuen Shuang#gon	4_M_ORIENT02,{
-	mes "[Qian Yuen Shuang]";
-	mes "The chief of this town is a man";
-	mes "who opens his heart to others.";
-	mes "However, I have heard that there";
-	mes "are some people who don't like his personality...";
+gonryun,118,111,5	script	원석 첸#gon	4_M_ORIENT02,{
+	mes "[원석 첸]";
+	mes "이 곳의 당주님은 정말 개방된";
+	mes "분이시지. 그렇지만 그";
+	mes "개방된 성격때문에 싫어하는";
+	mes "사람도 있다고 하던데 으음...";
 	next;
-	mes "[Qian Yuen Shuang]";
-	mes "Well, I like my town. The Chief's";
-	mes "efforts have made our town safer.";
-	mes "I just hope other people feel the";
-	mes "same way about what he has done.";
+	mes "[원석 첸]";
+	mes "뭐 그 분 덕분에 우리마을도";
+	mes "개방되고 좋은데... 엉뚱한";
+	mes "짓을 하는 인간이나 안 나왔음";
+	mes "좋겠군.";
 	close;
 }
 
-gonryun,181,161,3	script	Jing Wen Zhen#gon	4_F_TWMIDWOMAN,{
-	mes "[Jing Wen Zhen]";
-	mes "The men in our town, Kunlun, are";
-	mes "all brave and courageous.";
-	mes "But, they are unable to get";
-	mes "married. It's quite a shame really...";
+gonryun,181,161,3	script	문진 정#gon	4_F_TWMIDWOMAN,{
+	mes "[문진 정]";
+	mes "우리 쿤룬의 남자들은 전부";
+	mes "씩씩하고 기가 넘쳐난다우.";
+	mes "그런데 그런 남자들이 최근";
+	mes "장가도 못들고 있는데...";
 	next;
-	mes "[Jing Wen Zhen]";
-	mes "It's all because there are";
-	mes "more men than women.";
-	mes "I am not even sure whether";
-	mes "or not my son will be able to";
-	mes "find me a daughter in law.";
+	mes "[문진 정]";
+	mes "이게 전부 남자들이 너무";
+	mes "많아졌기 때문에 상대적으로";
+	mes "여자가 부족해서 그래요.";
+	mes "내 자식놈 장가나 보낼 수";
+	mes "있을런지... 휘유.";
 	close;
 }
 
-gonryun,113,135,6	script	Gatekeeper#gon	8_M_TWSOLDIER,{
-	mes "[Kunlun Guard]";
-	mes "Welcome.";
-	mes "This is the residence of Shi Yan Wen, the chief of Kunlun.";
+gonryun,113,135,6	script	문지기#gon	8_M_TWSOLDIER,{
+	mes "[문지기]";
+	mes "어서오십시오. 이곳은 쿤룬을";
+	mes "이끌어가시고 계시는";
+	mes "사염문님의 저택입니다.";
 	next;
-	mes "[Kunlun Guard]";
-	mes "You better behave yourself while";
-	mes "you are here. If we see anything";
-	mes "suspicious, we'll arrest you in a heartbeat.";
+	mes "[문지기]";
+	mes "그럴리는 없겠지만 혹시나";
+	mes "불미스러운 일을 저지르시면";
+	mes "저희가 즉시 찌릅니다.";
 	next;
-	mes "[Kunlun Guard]";
-	mes "However, rest assured, you seem";
-	mes "like a trustworthy person.";
-	mes "I'm sure nothing will happen. Enjoy your visit.";
+	mes "[문지기]";
+	mes "그럴 일은 거의 없을테니";
+	mes "너무 신경쓰지마시고 좋은";
+	mes "방문되시길 빌겠습니다.";
 	close;
 }
 
-gonryun,113,127,6	script	Gatekeeper#gon2	8_M_TWSOLDIER,{
-	mes "[Kunlun Guard]";
-	mes "Welcome.";
-	mes "This is the residence of Shi Yan Wen, the chief of Kunlun.";
+gonryun,113,127,6	script	문지기#gon2	8_M_TWSOLDIER,{
+	mes "[문지기]";
+	mes "어서오십시오. 이곳은 쿤룬을";
+	mes "이끌어가시고 계시는";
+	mes "사염문님의 저택입니다.";
 	next;
-	mes "[Kunlun Guard]";
-	mes "You better behave yourself while";
-	mes "you are here. If we see anything";
-	mes "suspicious, we'll arrest you in a heartbeat.";
+	mes "[문지기]";
+	mes "그럴리는 없겠지만 혹시나";
+	mes "불미스러운 일을 저지르시면";
+	mes "저희가 즉시 찌릅니다.";
 	next;
-	mes "[Kunlun Guard]";
-	mes "However, rest assured, you seem";
-	mes "like a trustworthy person.";
-	mes "I'm sure nothing will happen. Enjoy your visit.";
+	mes "[문지기]";
+	mes "그럴 일은 거의 없을테니";
+	mes "너무 신경쓰지마시고 좋은";
+	mes "방문되시길 빌겠습니다.";
 	close;
 }
 
-gon_in,73,82,5	script	Ji Chung Zhe#gon	4_M_TWTEAMAN,{
+gon_in,73,82,5	script	성철 기#gon	4_M_TWTEAMAN,{
 	if (nakha >= 0 && nakha <= 2) {
-		mes "[Ji Chung Zhe]";
+		mes "[성철 기]";
 		mes "............";
 		next;
-		mes "[Ji Chung Zhe]";
-		mes "puuuuu....This sure is";
-		mes "something to worry about.";
+		mes "[성철 기]";
+		mes "휴우......";
+		mes "걱정일세 걱정이야.";
 		close;
 	}
 	if (nakha == 3) {
 		cha = 1;
-		mes "[Ji Chung Zhe]";
+		mes "[성철 기]";
 		mes "I am Ji Chung Zhe, a renown brewer";
 		mes "of teas. Everyday, I put all my";
 		mes "efforts in making scrumptious, delicious tea.";
 		next;
-		mes "[Ji Chung Zhe]";
+		mes "[성철 기]";
 		mes "*Sigh* But lately, the tea I've";
 		mes "been making hasn't been that";
 		mes "great... If I only had some special ingredients...";
 		next;
-		mes "[Ji Chung Zhe]";
+		mes "[성철 기]";
 		mes "I've been told that if you use";
 		mes "a snake, you can concoct a truly";
 		mes "extraordinary beverage~";
@@ -311,102 +270,94 @@ gon_in,73,82,5	script	Ji Chung Zhe#gon	4_M_TWTEAMAN,{
 	}
 }
 
-gon_in,173,27,3	script	Yu Jiu Xia#gon	4_M_TWBOY,{
-	mes "[Yu Jiu Xia]";
-	mes "Geez, just as I thought.";
-	mes "They won't sell alcohol to me.";
-	mes "Maybe its cuz I'm too young...";
-	mes "Hmmm...I wonder how it tastes...";
+gon_in,173,27,3	script	구하 우#gon	4_M_TWBOY,{
+	mes "[구하 우]";
+	mes "역시... 제 나이로는 술집에";
+	mes "들어와도 술은 팔지않는군요.";
+	mes "어른들이 잘 마시길래 무슨";
+	mes "맛인지 엄청 궁금했는데... 쩝";
 	next;
-	mes "[Yu Jiu Xia]";
-	mes "However, I know they're making";
-	mes "some tasty tea that even kids";
-	mes "like me can enjoy.";
-	mes "It makes my mouth water just";
-	mes "thinking about this new tea.";
+	mes "[구하 우]";
+	mes "대신 저같은 꼬마도 마실 수";
+	mes "있는 맛난 차를 개발중이래요.";
+	mes "언제될지... 잘은 모르겠지만";
+	mes "맛난 차를 마신다고 생각하면";
+	mes "정말 두근대요.";
 	close;
 }
 
-gonryun,166,196,3	script	Soldier#gon	8_M_TWSOLDIER,{
+gonryun,166,196,3	script	병사#gon	8_M_TWSOLDIER,{
 	if (b_sword < 7) {
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "Let me tell you something";
 		mes "interesting about this place~";
 		mes "Long ago, this entire area used to be a shrine.";
 		next;
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "In those days, Taoist hermits";
 		mes "used to gather here in order to";
 		mes "reach the Sky Kingdom. However,";
 		mes "they failed miserably...slowly the monsters began to come...";
-		close;
 	}
 	else if ((b_sword > 6) && (b_sword < 10)) {
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "Don't you think it was quite noisy";
 		mes "last night? It was all because";
 		mes "of that thief. He made quite";
 		mes "a scene...It was so loud that";
 		mes "I couldn't sleep at all...";
 		next;
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "Ahh~~~~!";
 		mes "In the middle of all that";
 		mes "commotion, I saw";
 		mes "something running straight";
 		mes "into the shrine.";
 		next;
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "It was moving so fast that";
 		mes "I couldn't even tell what it was.";
 		mes "From what I could recognize, it";
 		mes "looked human. I wonder";
 		mes "what it was...";
 		next;
-		mes "[Wa Qiu Wu]";
+		mes "[와구오]";
 		mes "It might have been the";
 		mes "thief, but it moved";
 		mes "so fast, it seemed like";
 		mes "just a blur.";
 		close;
 	}
-	mes "[Wa Qiu Wu]";
-	mes "Let me tell you something";
-	mes "interesting~ This entire area";
-	mes "used to be a shrine.";
-	next;
-	mes "[Wa Qiu Wu]";
-	mes "A long time ago, Taoist hermits";
-	mes "used to gather here in order to";
-	mes "reach the Sky Kingdom. However,";
-	mes "they failed miserably...slowly the monsters began to come.";
-	next;
-	mes "[Wa Qiu Wu]";
-	mes "The town is getting ready for the";
-	mes "Festival, but something is delaying";
-	mes "it. This has never happened before...";
+	mes "[와구오]";
+	mes "당신 그거 알아요?";
+	mes "원래 여긴 사당이었는데 언젠가";
+	mes "부터 등선하지 못한 신선들이 자";
+	mes "리 잡기 시작하면서 몬스터들의";
+	mes "소굴이 되어버렸어요. 덕분에 사";
+	mes "당도 황폐화되고..";
 	close;
 }
 
-gonryun,169,71,3	script	Guidev#gon	4_F_TWGIRL,{
-	mes "[Li Xi Jiao]";
-	mes "Welcome to Kunlun!";
-	mes "Did you enjoy all the incredible";
-	mes "scenery on your way here?";
-	mes "The buildings may be small, but we";
-	mes "all worked hard to build this city.";
+gonryun,169,71,3	script	안내인#gon	4_F_TWGIRL,{
+	mes "[이희민]";
+	mes "어서오세요.";
+	mes "마을에 들어오시기 전에";
+	mes "마을 아래는 잘 구경하셨나요?";
+	mes "마을 밖의 건물들은 이번에";
+	mes "저희가 제작한 역작이랍니다.";
 	next;
-	mes "[Li Xi Jiao]";
-	mes "I have some miniatures of";
-	mes "the Rune-Midgarts Kingdom.";
-	mes "You can view all of Prontera in a";
-	mes "single glance. The craftsmanship";
-	mes "on these masterpieces is quite stunning!";
+	mes "[이희민]";
+	mes "룬 미드가츠 왕국의 도시들을";
+	mes "한눈에 알아 볼 수 있도록 작은";
+	mes "모형으로 제작한 것인데...";
+	mes "저희가 오랫동안 외부와 교류가";
+	mes "없어서, 힘들긴 했지만 열심히";
+	mes "만들었답니다.";
 	next;
-	mes "[Li Xi Jiao]";
-	mes "If you look around carefully,";
-	mes "You'll find all sorts of beautiful";
-	mes "sights throughout the town.";
+	mes "[이희민]";
+	mes "구석구석 돌아다니시다보면";
+	mes "멋진 풍경들을 발견하실 수";
+	mes "있으실 꺼에요.";
 	close;
 }
 

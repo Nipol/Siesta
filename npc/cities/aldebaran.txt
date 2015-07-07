@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= rAthena Dev Team; L0ne_W0lf
 //===== Current Version: =====================================
-//= 2.3
+//= 2.4
 //===== Description: =========================================
 //= [Official Conversion]
 //= Al De Baran Town NPCs
@@ -27,753 +27,1080 @@
 //= 2.1 Rescripted most NPCs to Aegis 10.3 standards. [L0ne_W0lf]
 //= 2.2 Corrected NPC names to fall within proper resctrictions. [L0ne_W0lf]
 //= 2.3 Fixed exploit with kafra pass
+//= 2.4 kRO Official Texts. [nyalin]
 //============================================================
 
 // Al De Baran
 //============================================================
-aldebaran,113,70,4	script	Forger Munster#alde	1_M_02,{
-	mes "[Munster]";
-	mes "My family used to live in Geffen. So I guess it was natural that we studied forging and eventually became Blacksmiths. Then, we finally moved to this town,";
-	mes "Al De Baran.";
+aldebaran,113,70,4	script	제련공 먼스터#alde	1_M_02,{
+	mes "[먼스터]";
+	mes "저희 집은 본래 게펜이었는데";
+	mes "작년 겨울 이 곳 알데바란으로";
+	mes "이사 왔답니다 ..";
 	next;
-	if (select("About ^3355FFItem Upgrade^000000:Quit") == 1) {
-		mes "[Munster]";
-		mes "My father was a famous blacksmith in Geffen, and he taught me a lot about forging equipment.";
+	if (select("^3355FF' 제련 '^000000 에 관하여 ..:대화를 그만둔다") == 1) {
+		mes "[먼스터]";
+		mes "아버지께서는";
+		mes "블랙스미스의 마을 게펜에서도";
+		mes "꽤 이름이 나셨던 블랙스미스셨죠";
+		mes "어머니의 고향으로 이사왔거든요";
 		next;
-		mes "[Munster]";
-		mes "One of the fundamentals is that the success probability of upgrading an item depends on the level of the weapon.";
+		mes "[먼스터]";
+		mes "저도 가끔 아버지의 일을 도와요";
+		mes "최근에 배우고 있는 일은";
+		mes "무기의 레벨에 따른";
+		mes "제련확률에 관련된 거랍니다";
 		next;
-		mes "[Munster]";
-		mes "For level 1 weapons, you may upgrade up to + 7 without the risk of breaking the weapon. Level 2 weapons can be upgraded to +6. Level 3 weapons can be upgraded to +5 safely.";
+		mes "[먼스터]";
+		mes "1 레벨의 무기는";
+		mes "+ 7 까지 제련할수 있으며";
+		mes "2 레벨의 무기는 6";
+		mes "그리고 3 레벨의 무기는";
+		mes "5 까지 제련이 가능해요";
+		mes "4 레벨의 경우에는";
 		next;
-		mes "[Munster]";
-		mes "For level 4 weapons, you can upgrade + 4 without too much risk. As for armors, you can upgrade them to +4. But if the upgrade for the equipment fails, it will be destroyed!";
+		mes "[먼스터]";
+		mes "보통 4 까지 가능하죠 ..";
+		mes "방어구의 경우에는";
+		mes "일반적으로 4 까지래요";
+		mes "제련이 실패할 경우에는";
+		mes "강도를 견뎌내지 못한 장비가";
+		mes "파괴되고 만데요 !!";
 		close;
 	}
-	mes "[Munster]";
-	mes "Hmm...";
-	mes "If you get a chance, try to visit my father's workshop here in Al de Baran. If I may say so, he's a pretty talented Blacksmith.";
+	mes "[먼스터]";
+	mes "아직 아버지의";
+	mes "제련소가 어디 있는지";
+	mes "모르는 사람이 더 많지만";
+	mes "이 알데바란에서도";
+	mes "아버지가 유명해 졌으면 좋겠어요";
 	close;
 }
 
-aldebaran,64,104,4	script	Smithing Guy#alde	1_M_JOBTESTER,{
-	mes "[Quatro]";
-	mes "Have you heard that a famous Blacksmith moved here from Geffen?";
+aldebaran,64,104,4	script	제련아저씨#alde	1_M_JOBTESTER,{
+	mes "[쿼트로]";
+	mes "이 알데바란에";
+	mes "게펜에서 꽤 유명한";
+	mes "대장장이가 왔다고 하는데 ..";
 	next;
-	if (select("Famous Blacksmith?:End Conversation") == 1) {
-		mes "[Quatro]";
-		mes "From what I've heard, he's one of those Blacksmiths that can upgrade your weapons and armor. When you upgrade a weapon, its attack strength is increased.";
+	if (select("유명한 대장장이에 대해:대화를 그만둔다") == 1) {
+		mes "[쿼트로]";
+		mes "그런데 말이야 듣기로는";
+		mes "무기레벨에 따라";
+		mes "추가되는 공격력의 세기가";
+		mes "달라진다던데 ..";
 		next;
-		mes "[Quatro]";
-		mes "For each upgrade level, attack strength increases by 2 for level 1 weapons. On level 2 weapons, 3 attack strength is added.";
-		next;
-		mes "[Quatro]";
-		mes "On level 3 weapons, 5 attack strength is added for each level, and for level 4 weapons, 7 attack strength is added for each level.";
+		mes "[쿼트로]";
+		mes "1 레벨일 경우에는 2";
+		mes "2 레벨의 경우 3 씩";
+		mes "3 레벨은 무려 5 !";
+		mes "4 레벨은 7 이나 한다더군!!";
 		close;
 	}
-	mes "[Quatro]";
-	mes "This Blacksmith's family lives here, since his wife is sick and weak. Because of her condition, she needs to take medicinal herbs that grow near Al de Baran.";
-	next;
-	mes "[Quatro]";
-	mes "They also have a dutiful son who's always helping out with the family business. I'm sure that kid will grow up to become a good Blacksmith like his father.";
+	mes "[쿼트로]";
+	mes "아내가 몸이 약해서";
+	mes "알데바란 주변에서 자라나는 약초를";
+	mes "꾸준히 복용해야 한다더군";
+	mes "아들 녀석도 효자라고";
+	mes "아버지 일을 아주 잘 도와준다네 ..";
+	mes "녀석 괜찮은 블랙스미스가 될걸세";
 	close;
 }
 
-aldebaran,49,93,4	script	Young Man#alde	4_M_01,{
-	mes "[Miller]";
-	mes "Aren't level 4 weapons cool!";
-	mes "I can't believe such powerful";
-	mes "weapons exist!";
+aldebaran,49,93,4	script	무기레벨청년#alde	4_M_01,{
+	mes "[밀레알]";
+	mes "그거 아세요 ? 무기 중에서는";
+	mes "3 레벨 뿐만이 아닌 ..";
+	mes "4 레벨의 무기라는게 존재한다는것을 !!";
 	next;
-	mes "[Miller]";
-	mes "Well, they're rarely seen in the open market, but boss monsters will drop them by a low chance if you happen to be able to kill them.";
+	mes "[밀레알]";
+	mes "시중에서는 구하기 힘든";
+	mes "이 4 레벨 무기들은";
+	mes "보스 몬스터들을 해치웠을 경우에";
+	mes "아주 낮은 확률로";
+	mes "나올 때 가 있답니다";
 	close;
 }
 
-aldebaran,81,61,4	script	Shell Gathering Lady#ald	4W_F_01,{
-	mes "[Joanne]";
-	mes "I enjoy gathering shells from the sea. It's really fun and relaxing~";
+aldebaran,81,61,4	script	조개잡이 아가씨#ald	4W_F_01,{
+	mes "[조세]";
+	mes "바닷가 또는 갯벌 등지에서";
+	mes "조개를 잡는 일은 정말 재미있어요";
 	next;
-	if (select("Shell Gathering?:End Conversation") == 1) {
-		mes "[Joanne]";
-		mes "When you see bubbles popping up from the sand or muddy puddles, try digging into the ground a bit. You might find some shells underneath the ground!";
+	if (select("조개잡이에 대하여:대화를 그만둔다") == 1) {
+		mes "[조세]";
+		mes "모래사장 .. 물웅덩이 등지에서";
+		mes "물방울이 뽀글뽀글";
+		mes "올라오는것이 보이면";
+		mes "바닥을 조금 파내는거예요";
+		mes "대부분 조개가 땅속을";
+		mes "헤집고 들어가 있거든요 !";
 		next;
-		mes "[Joanne]";
-		mes "Have you heard";
-		mes "of Ambernite?";
-		mes "That shell monster";
-		mes "is pretty tough~";
+		mes "[조세]";
+		mes "그런데 말이죠";
+		mes "껍질이 너무나도 단단하고";
+		mes "습성이 고약해서";
+		mes "건드리지도 못하는";
+		mes "녀석이 있다니까요 !";
 		next;
-		mes "[Joanne]";
-		mes "It's usually seen at the beach near the west province of Prontera. If you ever try attacking it without being prepared, you might be in trouble.";
+		mes "[조세]";
+		mes "녀석은 앰버나이트라고하여";
+		mes "프론테라 서부 지방의";
+		mes "바닷가 근방에서 볼수 있는데 ..";
+		mes "잘못 건드리면 그 날 조개는";
+		mes "다 잡은거나 마찬가지가 되요";
 		next;
-		mes "[Joanne]";
-		mes "Ambernite is";
-		mes "pretty strong!";
-		mes "So look out for it!";
+		mes "[조세]";
+		mes "어찌나 무서운지 ..";
 		close;
 	}
-	mes "[Joanne]";
-	mes "Ambernite is";
-	mes "pretty strong!";
-	mes "So look out for it!";
+	mes "[조세]";
+	mes "언젠가 그 유명하다는";
+	mes "동굴 조개를 맛볼거예요 !";
+	mes "조금 위험하겠지만 ..";
+	mes "감수 할 만한 가치는 충분하겠죠 ?";
 	close;
 }
 
-aldebaran,46,129,4	script	Canal Guy#alde	4W_M_01,{
-	mes "[Panama]";
-	mes "Al De Baran is known world wide as the City of Canals. The waterways really add a sophisticated, romantic touch to our fair city.";
+aldebaran,46,129,4	script	운하 청년#alde	4W_M_01,{
+	mes "[파나마]";
+	mes "알데바란은 미드가르드 어디에서도";
+	mes "이 곳의 이야기를";
+	mes "들을수 있을만큼";
+	mes "유명한 운하의 도시 입니다";
 	next;
-	switch(select("About the Canals:End Conversation")) {
+	switch(select("운하의 도시에 대하여:대화를 그만둔다")) {
 	case 1:
-		mes "[Panama]";
-		mes "Well, a canal is an artificial waterway used for travel,";
-		mes "shipping, or irrigation.";
+		mes "[파나마]";
+		mes "운하란 ..";
+		mes "내륙에 선박의 항행이나";
+		mes "농지의 관개 ..";
+		mes "배수 또는 용수를 위하여";
+		mes "인공적으로 만든 수로 (水路) 이지요";
 		next;
-		mes "[Panama]";
-		mes "However, the canals over here are just for show. If we needed to transport anything, we just use the Kafra Corporation Teleport service!";
+		mes "[파나마]";
+		mes "운하란 . 일반적으로 볼때에";
+		mes "교통기관의 일부분 입니다";
+		mes "운하의 대부분은 육지를 굴착하여 만드나";
+		mes "매립 (埋立) 을 할 때 남겨둔 수로 ..";
+		next;
+		mes "[파나마]";
+		mes "하천에 손질을 하여 만든";
+		mes "인공수로도 운하라고";
+		mes "부르기도 하지요";
 		close;
 		break;
 	case 2:
-		mes "[Panama]";
-		mes "I have that you will enjoy your stay in Al De Baran.";
+		mes "[파나마]";
+		mes "물도 참 맑지요 ?";
+		mes "산골마을이라고 하면";
+		mes "산골마을이라서리 ..";
+		mes ". . . . .";
+		mes "편히 쉬었다 가세요";
 		close;
 		break;
 	}
 }
 
-aldebaran,67,154,4	script	Forest Guy#alde	4W_M_02,{
-	mes "[Isenberg]";
-	mes "Mt. Mjolnir and Payon Forest.";
-	mes "Both of those places are tough";
-	mes "to travel through.";
+aldebaran,67,154,4	script	산길 청년#alde	4W_M_02,{
+	mes "[아이젠버그]";
+	mes "묘르닐 산맥 . 페이욘의 숲";
+	mes "모두 험하디 험한";
+	mes "지형으로 유명하지요";
 	next;
-	switch(select("Mt.Mjolnir?:Payon Forest...?:End Conversation")) {
+	switch(select("묘르닐 산맥에 대하여:페이욘 숲에 대하여:대화를 그만둔다")) {
 	case 1:
-		mes "[Isenberg]";
-		mes "To arrive here from Prontera or Geffen, you've got to cross the Mjolnir Mountains.";
+		mes "[아이젠버그]";
+		mes "룬-미드가츠왕국의 수도";
+		mes "프론테라와 마법도시 게펜으로부터";
+		mes "이 곳 알데바란까지";
+		mes "오려면 반드시 거쳐야 하는 산맥 ..";
+		mes "묘 르 닐 !";
 		next;
-		mes "[Isenberg]";
-		mes "If you've made it here by foot without using the Kafra Teleportation service,";
-		mes "then good job!";
+		mes "[아이젠버그]";
+		mes "기사 길드와 룬-미드가츠 왕국의";
+		mes "수도 프론테라 ..";
+		mes "마술사 (Magician) 와";
+		mes "대장장이 (Black Smith) 의";
+		mes "마을 게펜";
 		next;
-		mes "[Isenberg]";
-		mes "The Mjolnir Mountains are really steep, and it's full of aggressive and hostile monsters. So it's always a risk to travel through there alone.";
+		mes "[아이젠버그]";
+		mes "그리고 몽크의 사원으로부터";
+		mes "이 알데바란으로 도착하려면";
+		mes "반드시 묘르닐을";
+		mes "거쳐야만 하지요 ..";
+		mes "묘르닐 산맥은";
+		mes "산세가 가파르고 험한데다가 ..";
+		next;
+		mes "[아이젠버그]";
+		mes "사납고 강력한";
+		mes "선제공격 몬스터가 대부분이므로";
+		mes "지나오기가 힘든데";
+		mes "오시느라 고생하셨습니다";
 		close;
 	case 2:
-		mes "[Isenberg]";
-		mes "If you wish to visit Alberta or the city of Payon, you must first travel through the Payon Forest.";
+		mes "[아이젠버그]";
+		mes "모로코의 사막으로부터";
+		mes "알베르타 . 그리고";
+		mes "페이욘으로 가기 까지에는";
+		mes "반드시 페이욘의 숲을";
+		mes "지나서 가야만 합니다";
 		next;
-		mes "[Isenberg]";
-		mes "The Payon Forest is a winding, intricate maze where it's easy to get lost. Unless you concentrate and keep track of your path, you might be stuck wandering in that dangerous place.";
+		mes "[아이젠버그]";
+		mes "알베르타와 페이욘의 사이에";
+		mes "위치한 이 숲의 지형은";
+		mes "상당히 복잡한 미로와도";
+		mes "같이 구성되어있기 때문에";
+		mes "왠만한 집중력을 쏟아붓지 않고서는";
+		mes "헤매다가 지쳐버리고 말지요";
 		next;
-		mes "[Isenberg]";
-		mes "Payon, the Archer Village, was built deep inside this steep and rugged forest so that it may be protected from outside invaders. So I guess that a good decision on their part.";
+		mes "[아이젠버그]";
+		mes "알베르타의 숲";
+		mes "이라고 하지 않고";
+		mes "페이욘의 숲";
+		mes "이라고 하는 이유에는 ..";
+		next;
+		mes "[아이젠버그]";
+		mes "궁수마을 페이욘의 경우";
+		mes "외세의 침략을 받지 않기 위해";
+		mes "주거지를 . 외부 국가로부터";
+		mes "간섭받지 않는";
+		mes "깊고 험한 산속을 택했으므로";
+		next;
+		mes "[아이젠버그]";
+		mes "이 이유에서 외국인들의 왕래가 잦은";
+		mes "알베르타 보다는 페이욘 쪽의 이름을";
+		mes "따온것이 아닌가 생각합니다";
 		close;
 	case 3:
-		mes "[Isenberg]";
-		mes "The huge mountains surrounding this town";
-		mes "blocks people from outside to come into this town.";
-		mes "That may be a part of the reason how we have been able to";
-		mes "keep this beautiful canal and mysterious alchemy";
-		mes "without any influence from outside.";
+		mes "[아이젠버그]";
+		mes "10 블럭도 넘는 엄청난 규모의 산맥이";
+		mes "타 지방으로부터의 여행객들을";
+		mes "곤란하게 만들기도 하지요";
+		mes "덕분에 운하와 연금술등의";
+		mes "개성어린 신비로운 분위기를";
+		mes "지킬수 있게 되었습니다만 ..";
 		close;
 	}
 }
 
-aldebaran,90,170,4	script	Slot Guy#alde	1_M_01,{
-	mes "[Epthiel]";
-	mes "Some weapons or armor have Slots where you can insert Cards obtained from monsters.";
+aldebaran,90,170,4	script	슬롯 청년#alde	1_M_01,{
+	mes "[엡티얼]";
+	mes "무기 또는 방어구중에는";
+	mes "슬롯 (Slot) 이라는것이 있어서";
+	mes "몬스터를 쓰러뜨렸을 때";
+	mes "얻어낸 몬스터 카드를 끼워넣는";
+	mes "구멍이 있는 경우가 있답니다";
 	next;
-	switch(select("About the number of Slots:Relation between Cards and Slots:End Conversation")) {
+	switch(select("슬롯수에 대해 ..:몬스터 카드와 슬롯의 관계:대화를 그만둔다")) {
 	case 1:
-		mes "[Epthiel]";
-		mes "Items dropped by monsters possess more Slots than ordinary weapons or armor sold in NPC shops.";
+		mes "[엡티얼]";
+		mes "일반 상점에서 팔고있는";
+		mes "정품 무기와 방어구의 슬롯수 보다";
+		mes "몬스터로부터 전리품으로 얻은";
+		mes "아이템일 경우에 슬롯수가 더 많아요";
 		next;
-		mes "[Epthiel]";
-		mes "I guess you can assume that an item with more Slots is more valuable than the same item with fewer Slots.";
+		mes "[엡티얼]";
+		mes "이러한 아이템에는 카드가";
+		mes "두장이상 들어가는 경우가 있어";
+		mes "아이템의 가치를";
+		mes "더더욱 빛낼수가 있지요";
 		close;
 	case 2:
-		mes "[Epthiel]";
-		mes "Once a Card is inserted into a Slot, it is impossible to remove it. So please be careful when you insert Cards into weapons or armor.";
-		next;
-		mes "[Epthiel]";
-		mes "Also, when you mouse over equipment in the Item Window or Vending Window, the name of the item will be followed by the number of its Slots in brackets.";
-		next;
-		mes "[Epthiel]";
-		mes "For example, a Shield with 1 Slot, when moused over, would display the name 'Shield [1].'";
-		next;
-		mes "[Epthiel]";
-		mes "You may also right-click an item, and check the Card Slot window below the item description window for the number of Slots.";
+		mes "[엡티얼]";
+		mes "슬롯에 한번 끼워넣은 카드는";
+		mes "다시는 뺄수가 없게 되므로";
+		mes "주의해서 사용하시기 바랍니다";
+		mes "끼우기 전에 다시한번";
+		mes "곰곰히 생각해 보세요";
 		close;
 	case 3:
-		mes "[Epithiel]";
-		mes "Have you ever obtained a card from a monster?";
+		mes "[엡티얼]";
+		mes "몬스터로부터 얻은 카드를";
+		mes "가지고 계신가요 ?";
 		close;
 	}
 }
 
-aldebaran,117,181,4	script	Phracon Guy#alde	1_M_02,{
-	mes "[Joy]";
-	mes "Level 1 weapons, which are the lowest grade, need a metal named ^3355FFPhracon^000000 in order to be upgraded.";
+aldebaran,117,181,4	script	프라콘 청년#alde	1_M_02,{
+	mes "[쥬얼리]";
+	mes "장비 아이템중";
+	mes "가장 낮은 등급 ( Level 1 ) 의";
+	mes "무기를 제련하는데에는";
+	mes "' 프라콘 ' 이라는";
+	mes "금속이 필요합니다";
 	next;
-	switch(select("About Phracon:Advice about Phracon:End Conversation")) {
+	switch(select("프라콘에 대하여:프라콘에 대한 담백한 조언:대화를 그만둔다")) {
 	case 1:
-		mes "[Joy]";
-		mes "Phracon is a pretty common metal and can be found all over the Rune-Midgard continent.";
+		mes "[쥬얼리]";
+		mes "프라콘이란 .. 오래전부터";
+		mes "미드가르드 전역에 걸쳐";
+		mes "수많은 사람들이 사용해 왔던";
+		mes "가장 보편적인 제련용";
+		mes "금속이라 할수 있겠습니다";
 		next;
-		mes "[Joy]";
-		mes "Although it lacks the strength of other metals, it's easy to find and obtain. You can get Phracons by killing monsters or by buying them in Forging Shops in towns.";
+		mes "[쥬얼리]";
+		mes "비록 강철이나";
+		mes "여러가지 희귀한 광석들과";
+		mes "비교해서 높은 강도를";
+		mes "가지고 있지는 않지만 ..";
 		next;
-		mes "[Joy]";
-		mes "When you no longer need Phracons because you are using higher level weapons, you can sell them for some zeny!";
+		mes "[쥬얼리]";
+		mes "일반인들도 간단히";
+		mes "손에 넣을수 있다는 범용성에서";
+		mes "적잖은 인기를 누리고 있지요";
+		next;
+		mes "[쥬얼리]";
+		mes "이 프라콘은";
+		mes "몬스터로부터 전리품으로 얻거나";
+		mes "대장장이들이 모여있는 제련소에서";
+		mes "금속판매를";
+		mes "전문적으로 도맡아 하는";
+		next;
+		mes "[쥬얼리]";
+		mes "제련공으로부터 구입 하여";
+		mes "획득할수 있습니다";
+		mes "어느정도 레벨이 오른뒤에 ..";
+		mes "고급 레벨의 무기를";
+		mes "사용할수 있게 될 경우";
+		next;
+		mes "[쥬얼리]";
+		mes "프라콘을 손에 넣었어도 ..";
+		mes "어디에 쓸까 -";
+		mes "막막할 경우가 있는데요 ..";
+		mes "그럴땐 팔아버리세요 !!";
+		mes "무려 100 제니의 현금을";
+		mes "거머쥘수 있답니다 ♪";
 		close;
 	case 2:
-		mes "[Joy]";
-		mes "Well, I hear lots of monsters carry Phracons and will drop them once killed. Why don't you go hunting for them?";
+		mes "[쥬얼리]";
+		mes "프라콘을 가지고 있는";
+		mes "몬스터는 꽤 많다고 들었는데요";
+		mes "의외로 손쉽게 가질수 있는";
+		mes "금속이니 한번";
+		mes "찾아보시는건 어떨까요 ?";
 		next;
-		mes "[Joy]";
-		mes "It shouldn't be too difficult. Once I found a Phracon that dropped after killing a Bebe Savage! But if you're desperate, you can always buy them at the Forging Shop.";
+		mes "[쥬얼리]";
+		mes "얼마전 휴일 에는";
+		mes "옆집 주점 마스터 아저씨와 함께";
+		mes "사냥을 나간적이 있었는데 ..";
+		mes "멧돼지의 새끼로부터";
+		mes "얻은적도 있습니다";
 		close;
 	case 3:
-		mes "[Joy]";
-		mes "Good luck with finding Phracons!";
+		mes "[쥬얼리]";
+		mes "좋은 프라콘 구하세요 -";
 		close;
 	}
 }
 
-aldebaran,121,231,4	script	Alchemy Guy#alde	1_M_03,{
-	mes "[Chemirre]";
-	mes "Alchemists, one of the 2nd Jobs, are able to create items out of several materials using knowledge from the ancient age of Al De Baran.";
+aldebaran,121,231,4	script	연금술 청년#alde	1_M_03,{
+	mes "[케미얼]";
+	mes "연금술사 (alchemist) 란 고대 알데바란에서";
+	mes "비금속 (卑金屬) 을 인공적 수단으로";
+	mes "귀금속으로 전환하는 것을 목표로 삼았던";
+	mes "화학 . 과학자들을 일컫는";
+	mes "2 차 직업명이지";
 	next;
-	switch(select("About Alchemy in Payon:Definition of Alchemy:. . . . .:End Conversation")) {
+	switch(select("페이욘 연금술에 대하여:연금술사의 의미:. . . . .:대화를 그만둔다")) {
 	case 1:
-		mes "[Chemirre]";
-		mes "Most people don't know that there was an oriental form of Alchemy that developed in Payon.";
+		mes "[케미얼]";
+		mes "거의 같은 무렵";
+		mes "페이욘 에서는";
+		mes "도교 (道敎) 에서 나와";
+		mes "복용에 의하여 사람이 장수하고";
+		mes "신선 (神仙) 으로";
+		mes "화할 수 있는 ' 단 ( 丹 ) '";
 		next;
-		mes "[Chemirre]";
-		mes "These Payon Alchemists were able to create Gold out of different materials. However, Payon Alchemy never advanced as much as the Alchemy in Al De Baran.";
+		mes "[케미얼]";
+		mes "즉 금의 제출을 추구하는";
+		mes "주술과 사상이 있어서";
+		mes "과학사상 연금술과 대비하여";
+		mes "페이욘 연금술이라고 했다네";
 		next;
-		mes "[Chemirre]";
-		mes "Materials for Alchemy in Payon were scarse and interest in that field eventually waned. Now, you can only study Alchemy here in Al De Baran.";
+		mes "[케미얼]";
+		mes "허나 페이욘 지방에서의";
+		mes "화학은 발달하지 못했던것이";
+		mes "알데바란과는 다르게";
+		mes "자연환경이 너무나도 척박해서";
+		mes "연금술 연구에 필요한";
+		mes "좋은 재료가 부족했다네";
 		next;
-		mes "[Chemirre]";
-		mes "Still, I can't help but wonder what secrets were lost after the Payon art of Alchemy disappeared from the face of the Earth...";
+		mes "[케미얼]";
+		mes "그리하여 지금";
+		mes "미드가르드 전역을 통틀어서";
+		mes "' 연금술 ' 하면";
+		mes "이 알데바란의 연금술길드 밖에";
+		mes "떠오르는 것이 없게 된거지 ..";
 		close;
 	case 2:
-		mes "[Chemirre]";
-		mes "Alchemists specialize in chemical research in order to create useful items out of various things.";
-		next;
-		mes "[Chemirre]";
-		mes "I also hear that they create all sorts of Potions, and can even summon certain monsters! It seems that their studies have all sorts of nifty applications.";
+		mes "[케미얼]";
+		mes "연금술사라 함은";
+		mes "화학방면에 능통하여";
+		mes "여러가지 물질을 혼합하여";
+		mes "기능적인 아이템을 조합해 내는";
+		mes "능력을 가지고 있다네";
 		close;
 	case 3:
-		mes "[Chemirre]";
-		mes "You are bored, aren't you?";
-		mes "Alright then, I will tell you a story about monster cards and item slots.";
-		mes "As you already know, if you ever have obtained a monster card before,";
+		mes "[케미얼]";
+		mes "따분한가 보구만 그렇다면";
+		mes "몬스터 카드와 슬롯에 관련된";
+		mes "이야기를 늘어 놓아 주지 ..";
+		mes "몬스터 카드를 한장이라도";
+		mes "갖고 있다면 이미 눈치 챘겠지만";
 		next;
-		mes "[Chemirre]";
-		mes "you can only insert a monster card to an item";
-		mes "that satisfies the card's location requirement.";
-		mes "For instance, let's say, you have obtained a Poring Card.";
+		mes "[케미얼]";
+		mes "해당 카드에는 장비 위치에";
+		mes "관련된 슬롯 속성이 있어서 ..";
+		mes "반드시 그 종류의 아이템에만";
+		mes "장착이 가능하게끔 되어있지";
+		mes "예를들어 포링카드를 얻었다고 하자 ..";
 		next;
-		mes "[Chemirre]";
-		mes "When you right click on the card, you will see";
-		mes "its ability as LUK+2 and Perfect Dodge+1";
-		mes "and its location as 'Armor'. ";
+		mes "[케미얼]";
+		mes "포링카드의 앞면에는";
+		mes "LUK + 2 / 완전회피 + 1 이라는";
+		mes "효능에 대한 수치와";
+		mes "장착부위가 ' 갑옷 '";
+		mes "이라고 표기 되어있는데";
 		next;
-		mes "[Chemirre]";
-		mes "If you try to insert this card to a dagger with many slots,";
-		mes "it is not going to work because the card only can be inserted to";
-		mes "armor items.";
+		mes "[케미얼]";
+		mes "이 카드를 아무리 슬롯이 많은";
+		mes "단검류에 끼우려고해도";
+		mes "끼워지지 않음이야 -";
+		mes "라는 이야기지";
 		next;
-		mes "[Chemirre]";
-		mes "Almost every armor items that are being sold";
-		mes "in town shops do not have slots on them.";
-		mes "That means, you can only obtain";
-		mes "slotted armors by hunting monsters.";
+		mes "[케미얼]";
+		mes "또 . 대부분 마을 상점에서";
+		mes "판매하고있는 갑옷류는";
+		mes "슬롯을 포함하고 있지 않은";
+		mes "경우가 더러 있으므로";
+		mes "몬스터로부터의";
+		mes "전리품 따위에나 조합이";
+		mes "가능하니 기억해 두라구";
 		next;
-		mes "[Chemirre]";
-		mes "Ah, let me tell you how you can insert a card to an item.";
-		mes "If you want to insert a card on your equipped armor,";
-		mes "you must unequip the armor first.";
-		mes "And then, double click a card that you want to use.";
-		mes "Then a list of armor, that you can insert the card, will be displayed.";
+		mes "[케미얼]";
+		mes "아 . 그리고 몬스터 카드를";
+		mes "장비에 끼워넣는 방법은";
+		mes "장비를 해제시켜";
+		mes "아이템 리스트에 띄워놓은후";
+		mes "해당 카드를 더블클릭하여";
+		mes "사용하면";
 		next;
-		mes "[Chemirre]";
-		mes "It is not that complicated, is it?";
+		mes "[케미얼]";
+		mes "어떤 장비와 조합할것인가에";
+		mes "대한 리스트가 나오니";
+		mes "손쉽게 끼워넣을수 있지";
 		close;
 	case 4:
-		mes "[Chemirre]";
-		mes "You can talk about Rune Midgard's alchemy";
-		mes "without talking about the Al De Baran Alchemist Guild!";
-		mes "Long Live Alchemists!";
+		mes "[케미얼]";
+		mes "미드가르드 연금술 하면 -";
+		mes "알데바란 연금술사 길드 !!";
+		mes "연금술사여 영원하라 !!";
 		close;
 	}
 }
 
-aldebaran,86,228,4	script	Little Kid#alde	1_M_SIZ,{
-	mes "[Bebe]";
-	mes "A while ago I went out for a walk toward Mt. Mjolnir with my pet Savage Bebe. His name is NukNuk!";
-	mes "We got attacked, but luckily we weren't hurt.";
+aldebaran,86,228,4	script	꼬마아이#alde	1_M_SIZ,{
+	mes "[베베]";
+	mes "얼마전 저희집에서";
+	mes "키우는 새끼돼지";
+	mes "' 베베벵 ' 을 데리고";
+	mes "묘르닐 산맥 쪽으로";
+	mes "산책을 나갔었더랬어요 ..";
+	mes "베베벵은 멧돼지 새끼의";
+	mes "일종으로서 . 아주 귀여운";
+	mes "핑크빛 꼬마 돼지 였답니다";
 	next;
-	switch(select("Attacked?:About Mt.Mjolnir:End Conversation")) {
+	switch(select("베베벵 이야기:묘르닐 산맥의 분위기에 대하여:대화를 그만둔다")) {
 	case 1:
-		mes "[Bebe]";
-		mes "I was walking up a narrow path, and out of the blue, a giant and ugly plant started to attack me and NukNuk!";
+		mes "[베베]";
+		mes "산길을 따라";
+		mes "주욱 올라가고 있었는데";
+		mes "예쁜 꽃이라 생각되었던";
+		mes "커다란 괴식물이 저와 베베벵을";
+		mes "못살게 구는 것이었어요";
 		next;
-		mes "[Bebe]";
-		mes "I was so surprised, so me and NukNuk had to run away. I threw rocks at it, but I don't think I hurt it. It must have been really strong!";
+		mes "[베베]";
+		mes "너무 놀래서 멀찌감치 떨어져서";
+		mes "길가에 떨어진 돌을";
+		mes "던져 보았지만 ( 매우 비겁하게도 )";
+		mes "녀석은 끄떡도 안했어요";
+		mes "엄청 단단한 녀석인가봐요 !";
 		next;
-		mes "[Bebe]";
-		mes "What really surprised me was the plant that attacked me was a huge flower with the face of a person! So, look out for those. They're dangerous!";
+		mes "[베베]";
+		mes "더욱 놀라운것은";
+		mes "사람의 얼굴을 닮은 꽃";
+		mes "이었다는 사실이예요 !";
+		mes "가까이 다가서면";
+		mes "이빨로 물어 뜯는다니까요 !";
 		close;
 	case 2:
-		mes "[Bebe]";
-		mes "Even though people are fascinated by the scenic beauty of Mt. Mjolnir, it's full of dangerous monsters!";
+		mes "[베베]";
+		mes "묘르닐 산맥은 . 각종 화려한 식물과";
+		mes "예쁘게 생겼지만 무서운 곤충";
+		mes "동물들이 가득하답니다";
+		mes "꽃 . 벌레 .. 특히 벌과 나비";
+		mes "나방등을 함부로 건드리면 안되요";
 		next;
-		mes "[Bebe]";
-		mes "There are Flowers, Insects, Bees, Butterflies and Moths that are big enough to kill you if you're not careful!";
-		next;
-		mes "[Bebe]";
-		mes "Then again, most of these monsters won't hurt you if you don't attack first. But some of them will attack you once they see you!";
+		mes "[베베]";
+		mes "대부분의 짐승 . 벌레들은";
+		mes "우리가 공격하지만 않는다면";
+		mes "짜증섞인 해를 끼치지";
+		mes "않을테니까요 ..";
 		close;
 	case 3:
-		mes "[Bebe]";
-		mes "By the way, where is my NukNuk...?";
-		mes "NukNuk! Come out!";
+		mes "[베베]";
+		mes "그런데 베베벵은 어디간거지 .. ?";
+		mes "베베벵아 ! 이리 나오련 !";
 		close;
 	}
 }
 
-aldebaran,159,242,4	script	Insect Guy#alde	2_M_SWORDMASTER,{
-	mes "[Stromme]";
-	mes "Even to a strong Swordman, the Insects or Mt. Mjolnir pose a considerable threat. You've got to know your enemy before engaging it in battle!";
+aldebaran,159,242,4	script	곤충 아저씨#alde	2_M_SWORDMASTER,{
+	mes "[스트롱]";
+	mes "묘르닐 산맥 ..";
+	mes "산길을 걸어보면";
+	mes "누구라도 알수있는 사실 !";
+	mes "바로 곤충의 습성에 따라";
+	mes "강하기가 나뉜다는것을 ..";
+	mes "그대는 알고 있느뇨 ?";
 	next;
-	if (select("About Insects:End Conversation") == 1) {
-		mes "[Stromme]";
-		mes "Honey Bees, Butterflies and Moths seem like simple creatures, but that doesn't mean you should underestimate them.";
+	if (select("곤충에 대하여:대화를 그만둔다") == 1) {
+		mes "[스트롱]";
+		mes "꿀벌이나 . 나비 .. 나방등은";
+		mes "꽃 과 꽃 사이를 날아다니며";
+		mes "꿀을 빨아먹고 살지";
+		mes "꽃들에게 꽃가루를 묻히며";
+		mes "다니기 때문에";
+		mes "꽃의 수분을 돕기도 하는";
+		mes "고맙고도 귀여운것들 ..";
 		next;
-		mes "[Stromme]";
-		mes "These Insects have evolved over time, and can counter attacks from threats like you adventurers!";
+		mes "[스트롱]";
+		mes "아 . 물론 그렇다고 해서";
+		mes "녀석들을 얕잡아 보면";
+		mes "안된다는 사실을 잊지말아줘";
+		mes "생존하기 위해서";
+		mes "나름대로의 전투력을";
+		mes "갖추도록 진화했으니 말야";
 		next;
-		mes "[Stromme]";
-		mes "There are also carnivorous Insects, such as praying Spiders, praying Mantises, and the millipede like Argiopes.";
+		mes "[스트롱]";
+		mes "그리고 . 이러한 곤충들을";
+		mes "잡아먹는 육식 곤충이 있어";
+		mes "사마귀라든가 거미";
+		mes "그리고 지네등이";
+		mes "그 대표적인 녀석들인데";
 		next;
-		mes "[Stromme]";
-		mes "These monsters have mutated and are too strong for a person at certain levels. You should especially watch out for Argiopes.";
+		mes "[스트롱]";
+		mes "몬스터로 탈바꿈한 녀석들은";
+		mes "왠만한 레벨로는 한마리";
+		mes "상대하기 벅찰정도로 강력하지";
+		mes "특히 지네인지 거머리인지";
+		mes "굼벵이인지 알수 없는 녀석 !";
 		next;
-		mes "[Stromme]";
-		mes "Luckily, their eyesight is pretty bad, so it won't notice you if you walk a safe distance away from it.";
+		mes "[스트롱]";
+		mes "조심하라구 !";
+		mes "단 한방에 요단강을 건너버려 !";
+		mes "불행중 다행인 점은";
+		mes "이 지네녀석의";
+		mes "시력이 무진장 안좋아서";
+		next;
+		mes "[스트롱]";
+		mes "멀리 돌아가면";
+		mes "눈치채지 못한다는 사실 ..";
 		close;
 	}
-	mes "[Stromme]";
-	mes "No matter how harmless and pretty insects are,";
-	mes "take heed to not touch them.";
-	mes "They are extremely strong unlike their innocent looking.";
-	mes "Don't belittle the livings in the Mt. Mjolnir.";
+	mes "[스트롱]";
+	mes "아무리 예쁘고 나약해";
+	mes "보이는 무당벌레 같은 곤충도";
+	mes "함부로 대했다가는";
+	mes "큰 코 다쳐요 -";
+	mes "묘르닐 산맥의 대자연을";
+	mes "우습게 보면 안된단다 ..";
 	close;
 }
 
-aldebaran,60,70,4	script	Sylvia#alde	1_F_04,{
-	mes "[Sylvia]";
-	mes "I came all the way here from Prontera because I heard the Kafra Main Office was somewhere here in Al De Baran.";
+aldebaran,60,70,4	script	아가씨#alde	1_F_04,{
+	mes "[세뇨리타실비아]";
+	mes "이 알데바란 마을 어딘가에";
+	mes "카프라서비스 본사가";
+	mes "있다고해서 프론테라에서 이곳";
+	mes "알데바란까지 먼길을 왔답니다";
+	mes "그 .. 그런데 .. 히잉";
 	next;
-	mes "[Sylvia]";
-	mes "It shouldn't be that hard to find, but I'm awful at following directions. I always get lost, no matter how hard I try!";
+	mes "[세뇨리타실비아]";
+	mes "카프라서비스 본사를";
+	mes "찾기 시작한지 5 시간이나";
+	mes "지났는데 .. 도대체 어딘지 ..";
+	mes "우아앙 - 저는 .. 이렇게";
+	mes "똑똑해 보여두 길치랍니다";
 	next;
-	mes "[Sylvia]";
-	mes "If that wasn't bad enough, I left my Magnifiers back in Prontera, so now I have to find someone to help me with these weapons I've got to appraise!";
+	mes "[세뇨리타실비아]";
+	mes "아 그리구 제가 알고있는";
+	mes "유용한 정보가 하나 있는데";
+	mes "알려드릴까요 ?";
 	next;
-	if (select("Appraise?:That's very nice.") == 1) {
-		mes "[Sylvia]";
-		mes "Equipment that is dropped by monsters can't be equipped right away.";
+	if (select("대화를 진행한다:그만둔다") == 1) {
+		mes "[세뇨리타실비아]";
+		mes "장비 아이템의 경우";
+		mes "갓 구입했거나";
+		mes "각종 몬스터들에게서";
+		mes "전리품으로";
+		mes "받았을 경우에";
 		next;
-		mes "[Sylvia]";
-		mes "If you right-click the equippable item in the Item Inventory, you'll see that it is Unidentified and that Appraisal is needed. What to do?";
+		mes "[세뇨리타실비아]";
+		mes "장비 아이템인데도 불구하고";
+		mes "장비가 불가능할때가 있습니다";
+		mes "이런 때 에는 .. 쟈안 !!";
+		mes "^3355FF돋 보 기 !!^000000";
 		next;
-		mes "[Sylvia]";
-		mes "Well, in that case, you've gotta use ^3355FF Magnifier^000000!";
-		next;
-		mes "[Sylvia]";
-		mes "Even without a Blacksmith, Alchemist or Merchant in your party, you can appraise your equipment! Of course, a Magnifier is consumed each time you use one...";
+		mes "[세뇨리타실비아]";
+		mes "돋보기를 사용하시면";
+		mes "파티 내에";
+		mes "블랙스미스가 없어도";
+		mes "간단히 아이템 감정을";
+		mes "할수가 있지롱요";
 		close;
 	}
-	mes "[Sylvia]";
-	mes "Hey...";
-	mes "Was that a hint of sarcasm in your voice when you said that?";
+	mes "[세뇨리타실비아]";
+	mes "치이 .....";
 	close;
 }
 
-aldebaran,93,80,4	script	Issei#alde	1_M_02,{
-	mes "[Issei]";
-	mes "Al De Baran is such a wonderful place with its romantic canals and classic architecture. I love nothing more than to stroll through this city with my beautiful girlfriend.";
+aldebaran,93,80,4	script	긴다리 청년#alde	1_M_02,{
+	mes "[듀카티]";
+	mes "이 곳 알데바란은 도시 곳곳에 수로가 파여있어";
+	mes "여기저기 맑은 물이 흐르는 덕택에 수려한 경관을 자랑하죠";
+	mes "그 . 러 . 나";
 	next;
-	if (select("You have a girlfriend?:End Conversation.") == 1) {
-		mes "[Issei]";
-		mes "Hey...";
-		mes "Is that so hard to believe?! Yeah, ask anyone! She really exists! Although, sometimes, just sometimes mind you, she gets too excited about weapons and armor.";
+	mes "[듀카티]";
+	mes "어젯밤 . 가족들 몰래 여자친구를 만나러 나가던도중";
+	mes "저 수로에 발이 빠져서";
+	mes "한밤의 데이트를 깔끔하게 즐기지 못했어요";
+	next;
+	if (select("저런저런 안됐군요:참 . 네 . 그래서요 ?") == 1) {
+		mes "[듀카티]";
+		mes "어제 방어구점 막내딸인";
+		mes "제 여자친구에게 들은 이야기인데";
+		mes "무기점 방어구점 도구점 등에서 파는";
+		mes "정품 아이템 보다";
 		next;
-		mes "[Issei]";
-		mes "I mean, instead of enjoying a romantic dinner, she'll just go on about how equipment dropped from monsters is higher quality than those sold in shops...";
+		mes "[듀카티]";
+		mes "각 종 몬스터들로부터 얻은 전리품";
+		mes "아이템 쪽이 성능이 좋은 경우가";
+		mes "많다고 하더군요";
 		next;
-		mes "[Issei]";
-		mes "I mean, why should I care if equipment dropped by monsters tend to have more Slots?! I can't even kill a Poring!";
-		next;
-		mes "[Issei]";
-		mes "As you can see,";
-		mes "I'm a lover,";
-		mes " not a fighter.";
+		mes "[듀카티]";
+		mes "전문 용어로";
+		mes "' 슬롯이 많다 ' 라고 한다나요 ?";
+		mes "저는 무슨 뜻인지";
+		mes "정확히는 모르겠습니다만 ..";
 		close;
 	}
-	mes "[Issei]";
-	mes "So, you don't think of me stupid, do you?";
+	mes "[듀카티]";
+	mes "우우우 ..";
+	mes "절 어리버리한 녀석이라고";
+	mes "생각 하시는 거죠 ?";
 	close;
 }
 
-aldebaran,180,46,4	script	Joo Jahk#alde	4_M_ORIENT01,{
-	mes "[Joo Jahk]";
-	mes "I'm a tourist";
-	mes "from Payon,";
-	mes "the City of Forests.";
+aldebaran,180,46,4	script	동양인#alde	4_M_ORIENT01,{
+	mes "[하주작]";
+	mes "저는 페이욘이라는 숲속의 나라로부터 온 관광객입니다 .";
+	mes "이곳은 .. 수로에 물이 흐르고있어";
+	mes "매우 시원하군요";
 	next;
-	mes "[Joo Jahk]";
-	mes "The tempature here in Al De Baran is very cool, probably because of the waterways. Do you think the water in the canals is drinkable?";
+	mes "[하주작]";
+	mes "그런데 .. 이 물 ..";
+	mes "마셔도 되는걸까요 ?";
+	mes "저 ..... 이미 마셔버렸습니다만 ..";
 	next;
-	mes "[Joo Jahk]";
-	mes "Well, it's too late for me, since I already drank some. Still, I'm a little worried...";
-	next;
-	if (select("Continue.:End conversation.") == 1) {
-		mes "[Joo Jahk]";
-		mes "On one of my travels around Rune-Midgard, I've heard from a really high level Mage that physical attacks, or magic with Neutral Property, won't damage Spiritual Property monsters.";
+	if (select("대화를 진행한다:그만둔다") == 1) {
+		mes "[하주작]";
+		mes "미드가르드 곳곳을 여행하고 있는 중입니다";
+		mes "알데바란까지 오는 도중에";
+		mes "어떤 고급 마법사분께 전해들은 이야기 인데요";
 		next;
-		mes "[Joo Jahk]";
-		mes "Maybe that advice will come in handy, now that you know that. Always remember the importance of the Properties of your skills and weapons when battling monsters.";
+		mes "[하주작]";
+		mes "실체가 없는 ^3355FF염속성^000000 몬스터의 경우";
+		mes "무속성 공격 또는 마법으로는";
+		mes "데미지를 주기가 매우 힘들다고 하더라구요";
+		next;
+		mes "[하주작]";
+		mes "도움이 되셨기를 빕니다";
+		mes "그럼 ..";
 		close;
 	}
-	mes "[Joo Jahk]";
-	mes "On the other hand, the water I drank did taste pretty good. Hopefully it didn't have anything too weird in it...";
+	mes "[하주작]";
+	mes "이 곳 알데바란은";
+	mes "주변 환경이 깨끗해서인지";
+	mes "물맛이 아주 좋군요";
+	mes "뱃속의 물은 걱정하지 않아도 괜찮을 것 같습니다";
 	close;
 }
 
-aldebaran,212,122,4	script	Citizen#alde	4W_M_01,{
-	mes "[Gavin]";
-	mes "Welcome!";
-	mes "The town of";
-	mes "Al De Baran";
-	mes "welcomes you!";
+aldebaran,212,122,4	script	알데바란 시민#alde	4W_M_01,{
+	mes "[실린더]";
+	mes "어서옵쇼 ! 알데바란입니다 !";
+	mes "저희 알데바란 시민은 당신을 환영합니다";
+	mes ". . . . .";
 	next;
-	mes "[Gavin]";
-	mes "Well, that might be an exaggeration. After all, it's just me that's welcoming you.";
-	mes "Hey there!";
+	mes "[실린더]";
+	mes "너무 거창하지요 ? 시민대표라니 ..";
+	mes "으음 . 저 혼자 뿐이지만 .. 열렬히 ..";
 	next;
-	if (select("Now, tell me about monsters.:End conversation.") == 1) {
-		mes "[Gavin]";
-		mes "Monsters...?";
-		mes "Aren't we straying off topic a little bit? Ah, you must be one of those adventurers!";
+	mes "[실린더]";
+	mes "당신을 환영합니다 !";
+	next;
+	if (select("대화를 진행한다:그만둔다") == 1) {
+		mes "[실린더]";
+		mes "아 그러고보니 재미있는 녀석을";
+		mes "발견했지 뭐예요";
+		mes "바로 몇일 전 일이었답니다";
+		mes "이 알데바란 주변을 둘러 싸고있는";
 		next;
-		mes "[Gavin]";
-		mes "Can't get your mind off the job, eh? Alright, now there was some monster that I saw just recently...";
+		mes "[실린더]";
+		mes "묘르닐 산맥 . 묘르닐 숲 부근에서";
+		mes "천사의 날개를 가진 포링을 보았어요 !";
+		mes "정말이라니까요 !";
 		next;
-		mes "[Gavin]";
-		mes "Ah, now I remember! Just a few days ago, I saw a really interesting looking monster! It was a Poring with Angel's wings!";
-		next;
-		mes "[Gavin]";
-		mes "I swear! He was jumping around somewhere near Mt. Mjolnir with some ordinary Porings. I think he was, like, their leader.";
+		mes "[실린더]";
+		mes "여러마리의 평범한 포링들과";
+		mes "뛰어놀고 있었어요";
+		mes "천사 포링이라 ..";
+		mes "도대체 어떤 녀석일까요 ?";
 		close;
 	}
-	mes "[Gavin]";
-	mes "Awww...";
-	mes "Don't be too disappointed that there's only one person in your welcome wagon!";
+	mes "[실린더]";
+	mes "알데바란은 깨끗하고 아름다운 묘르닐 산맥에";
+	mes "둘러싸여져있는 멋진 운하의 도시입니다";
+	mes "알데바란으로 오신 당신을";
+	mes "환영합니다";
 	close;
 }
 
-aldebaran,146,124,4	script	Town Girl#alde	4W_F_01,{
-	mes "[Nastasia]";
-	mes "Somewhere in the world there is an ^3355FFAssassin Guild^000000, where they teach people the subtle art of assassination.";
+aldebaran,146,124,4	script	마을 소녀#alde	4W_F_01,{
+	mes "[캠샤프트]";
+	mes "이 세계 어딘가에는 ^3355FF' 어쌔신길드 '^000000 라는 곳이 있어서";
+	mes "사람을 기척없이 살해하는 기술을 가르쳐 준다고 하네요";
+	mes "그 곳 ..";
 	next;
-	mes "[Nastasia]";
-	mes "But isn't killing illegal? And do they even collect educational tutition?";
+	mes "[캠샤프트]";
+	mes "불법이겠죠 ?";
+	mes ". . . . .";
+	mes "불법인데 . 기술수료를 하는데 비용이 들까요 ?";
 	next;
-	if (select("Continue conversation.:End Conversation.") == 1) {
-		mes "[Nastasia]";
-		mes "Although Assassins benefit from being very quick and having lots of AGI, they should still have some DEX.";
+	if (select("대화를 진행한다:그만둔다") == 1) {
+		mes "[캠샤프트]";
+		mes "날개가 달려있어 비행능력이 있는";
+		mes "몬스터들은 대부분";
+		mes "이동 . 공격속도가 매우빨라";
+		mes "이쪽에서의 공격을 성공시키기가";
+		mes "매우 힘들답니다";
 		next;
-		mes "[Nastasia]";
-		mes "DEX is especially important if you want to hit monsters with wings. Those monsters are quick moving and fast in attacking.";
-		next;
-		mes "[Nastasia]";
-		mes "In general, if you want to hit monsters that are as fast, or even faster, than you are, you're going to need some DEX.";
+		mes "[캠샤프트]";
+		mes "녀석들을 상대하기 위해서는";
+		mes "더욱 정교한 손놀림 (DEX) 이";
+		mes "필요하겠지요 ?";
 		close;
 	}
-	mes "[Nastasia]";
-	mes "It's usually said that in this world, nothing is free. Still, if you don't have to pay money to learn to be an Assassin...";
+	mes "[캠샤프트]";
+	mes "세상에 공짜가 없다는 말 처럼";
+	mes "물론 무료로 교육을 받을수 있거나";
+	mes "하지는 않을것같네요";
+	mes "우우웅 ..";
 	close;
 }
 
-aldebaran,143,136,4	script	Bell Keeper#A	4_M_ORIENT02,{
-	mes "[Bell Keeper]";
-	mes "I have been charged by the Committee of 'Heaven on Earth' to guard this entrance of the Clock Tower.";
+aldebaran,143,136,4	script	종지기#A	4_M_ORIENT02,{
+	mes "[벤자민 홀]";
+	mes "나는 알데바란의 시계탑을 관리하는 종지기라네.";
+	mes "자네 이 시계탑에 관심이 많은 모양이군? 어떤가 좋은 정보 하나를 알려주도록 할까?";
 	next;
-	if (select("About Clock Tower.:Quit.") == 1) {
-		mes "[Bell Keeper]";
-		mes "Every floor of this tower is connected to each other by a certain device we like to call 'Warp Gear.'";
+	if (select("시계탑에 대하여 듣는다.:그만둔다.") == 1) {
+		mes "[벤자민 홀]";
+		mes "이 시계탑안은 모종의 장치를 통해 여러층들이 하나로 묶여있다고 할 수 있지.";
+		mes "바로 '층간 연동 워프 시스템'이라고 하는 장치라네.";
 		next;
-		mes "[Bell Keeper]";
-		mes "Even though there are interconnecting warps everywhere in the Clock Tower, beware the 'Random Warp.'";
+		mes "[벤자민 홀]";
+		mes "시계탑 곳곳에 존재하는 워프들은 서로 연동되는 곳도 있지만 어디에 떨어질지 모르는 '랜덤워프'라는 장치도 존재한다네.";
+		mes "동료와 함께 이 시계탑안에 들어갈 작정이라면 이 랜덤워프를 조심하는 것이 좋을것이야.. ";
 		next;
-		mes "[Bell Keeper]";
-		mes "The 'Random Warp' will transport you to an unknown spot. Be advised if you don't want to suddenly be separated from your party...";
-		next;
-		mes "[Bell Keeper]";
-		mes "Remember, Random Warps are shown in green on the mini-map. So keep your eyes peeled for that, as well as for those dangerous Clocks.";
+		mes "[벤자민 홀]";
+		mes "힌트를 알려주자면 랜덤워프는 미니맵상에 초록색으로 표시된다네. 그러니 미니맵을 주의해서 보는 것이 좋을 것이야.";
+		mes "시계들과 좋은 시간 보내길 바라네. 후후후...";
 		close;
 	}
-	mes "[Bell Keeper]";
-	mes "Please take heed that this Clock Tower is filled with extremely dangerous monsters.";
+	mes "[벤자민 홀]";
+	mes "조심하게... 시계탑은 무서운 곳이야.";
+	mes "지금은 어떻게 돌아가는지 나조차도 모른다네...";
 	close;
 }
 
 // Inside Al De Baran
 //============================================================
-aldeba_in,232,241,4	script	RS125#alde	1_M_02,{
+aldeba_in,232,241,4	script	알데바란소시민#alde	1_M_02,{
 	mes "[RS125]";
-	mes "I may sound unhuman rather robotic";
-	mes "however, I hope you will not be afraid of me. I am as humane as you are.";
+	mes "제 이름이 비인간적이고 제 말투가 건조 하다고 하여";
+	mes "절 두려워 마세요 . 마음만은 따뜻한 녀석 이랍니다 ..";
 	next;
 	mes "[RS125]";
-	mes "I may have a machine heart and I may disturb you with loud noises from the heart,";
-	mes "that will never stop me from running for future of Al De Baran.";
+	mes "비록 제 가슴 속 에는 평범한 사람과는 다르게 ..";
+	mes "미천한 2 행정 심장이 뛰고있고";
+	mes "그 시끄러운 심장음이 귀에 거슬린다 할지라도 ..";
+	mes "전 알데바란의 미래를 위해 달릴겁니다 .";
 	next;
-	if (select("Listen to his story.:End Conversation") == 1) {
+	if (select("사정을 듣는다:대화를 그만둔다") == 1) {
 		mes "[RS125]";
-		mes "It's been 3 years already.";
-		mes "My brother 996 used to be a short track athlete in the Al De Baran city field team.";
-		mes "Back then, people gave him a nickname, 'Al De Baran's Pco Peco',";
-		mes "for his amazingly fast legs...";
+		mes ".. 벌써 3 년이 지났군요 ..";
+		mes "제 형이었던 996 은 알데바란 대표 단거리 육상선수로서 ..";
+		mes "한때 ' 알데바란의 페코페코 ' 라 불리울정도로";
+		mes "빠른 다리를 자랑했었지요 ..";
 		next;
 		mes "[RS125]";
-		mes "He became so popular for his exciting play,";
-		mes "so everytime when the 'Al De Baran Turbo Track' was held once every 4 years,";
-		mes "many people from all over the continent came to this city only to see my brother.";
-		mes "I was his manager at the time and I was so stressed out because of his fans.";
+		mes "4 년마다 한번씩 알데바란에서 열리는 ' 알데바란 터보트랙 ' 에서는";
+		mes "형의 모습을 잠깐이라도 보려고 모여드는 세계 각지의 팬들 성화에 ..";
+		mes "매니져였던 제가 노이로제에 걸릴 지경이었으니까";
+		mes "그 인기는 정말 대단했지요 ..";
 		next;
 		mes "[RS125]";
-		mes "However, there is nothing last forever...";
-		mes "One day, a girl from Payon beat my brother from a game.";
+		mes "하지만 . 영원한 것은 없는법 ..";
+		mes "페이욘이라는 울창한 숲속 마을의 어느 산골소녀가 .";
+		mes "제 형의 독주를 막아내었습니다 .";
 		next;
 		mes "[RS125]";
-		mes "My brother couldn't accept the fact that he lost the game";
-		mes "so he did too much of practice and had a serious heart attack.";
-		mes "He is still in bed.";
+		mes "형은 그 뒤로 과도하게 무리한 훈련에 따른 심장이상으로";
+		mes "지금 병상에서 제 모습을 바라보고 있답니다 .";
 		next;
 		mes "[RS125]";
-		mes "I am my brother's only hope and the future of Al De Baran!";
-		mes "Please wish me luck, I will beat her, 'Breezy Havana' from Payon!";
+		mes "전 . 이 알데바란의 미래이자 형의 희망이예요 !";
+		mes "지켜봐주세요 . 반드시 페이욘의 ' 산들바람 하바나 ' 를 꺾고야 말겠습니다 !";
 		close;
 	}
 	mes "[RS125]";
-	mes "I want to travel around the world one of thesedays.";
-	mes "If I can see the ocean from the port of Alberta, it must be so wonderful.";
-	mes "After the next year's athletic competition, I will go on a round-the-world tour with my brother.";
+	mes "언젠가는 세계일주를 하고 싶어요 .";
+	mes "항구도시 알베르타에서 바라보는 바다는 얼마나 멋질까요 ..";
+	mes "내년의 육상대회가 끝나면 제 형과 세계일주를 시도할거예요 .";
 	close;
 }
 
-aldeba_in,223,121,4	script	Threatening-Looking Man	1_M_SMITH,{
-	mes "[Threatening-Looking Man]";
-	mes "Hey, you don't come inside someone else's house without permission.";
-	mes "This is ridiculous!";
-	mes "How dare you to come inside of my house and talk to me as if that is a normal thing to do?";
+aldeba_in,223,121,4	script	험상궂은 아저씨	1_M_SMITH,{
+	mes "[험상궂은아저씨]";
+	mes "어이 . 남의 집에 함부로 들어오는것이 아니야 .";
+	mes "자네 되게 황당하구만 ";
+	mes "뭘 믿고 성큼성큼 들어와 내게 떡 하니 말을 거나 ?";
 	next;
-	mes "[Threatening-Looking Man]";
-	mes "Hahahaha...chill out, I was just joking.";
+	mes "[험상궂은아저씨]";
+	mes "훗훗훗 .. 알고있네 알고있어 .";
+	mes "내가 잠시 현실세계와 착각을 했구만 그래 ..";
 	next;
-	if (select("Continue:Quit") == 1) {
-		mes "[Threatening-Looking Man]";
-		mes "You may know this already, but";
-		mes "we have a system called, the mercenary system in this world.";
-		mes "Yes, I am a mercenary soldier.";
+	if (select("대화를 지속한다:그만둔다") == 1) {
+		mes "[험상궂은아저씨]";
+		mes "자네 . 이미 알고있는지 모르겠지만";
+		mes "이 세계에는 용병 시스템이란게 존재하네";
+		mes "그리고 나 또한 그 용병이란 녀석들 중 하나이지 ..";
 		next;
-		mes "[Threatening-Looking Man]";
-		mes "It is simple. You just pay for someone to aid you in fight.";
-		mes "Better mercenary soldier you want, more money you have to pay, you know?";
+		mes "[험상궂은아저씨]";
+		mes "용병의 의미와 시스템은 정말 단순하지";
+		mes "돈으로 같이 싸워줄 놈을 찾는거야 ..";
+		mes "실력이 있는만큼 값이 나가겠지 ..";
 		next;
-		mes "[Threatening-Looking Man]";
-		mes "Let's stop talking about boring stuffs.";
-		mes "I will tell you how you can find a good mercenary soldier.";
+		mes "[험상궂은아저씨]";
+		mes "따분한 이야기는 그만두고";
+		mes "좋은 용병을 고르는 선별법을";
+		mes "간단하게 이야기 해주겠네";
 		next;
-		mes "[Threatening-Looking Man]";
-		mes "Check its nose if it is clean and wet.";
-		mes "A good mercenary soldier must have the wet nose";
-		mes "because it shows that the soldier is at his best in health condition.";
-		mes "If the nose is dry, that means that he caught a cold.";
+		mes "[험상궂은아저씨]";
+		mes "먼저 콧잔등이 깨끗한가 보게나";
+		mes "좋은 용병은 건강상태에 따라 콧잔등이";
+		mes "언제나 촉촉하게 젖어있어야 하네 . 코가 말라있으면";
+		mes "감기에 걸려 있다는 이야기가 되지 ..";
 		next;
-		mes "[Threatening-Looking Man]";
-		mes "And don't forget to check the soldier's ankle.";
-		mes "The best mercenary soldier has thin ankles and a white neck!";
-		mes "If he has long hair, it's better! If the hair is permed and wavy, that's perfect!";
+		mes "[험상궂은아저씨]";
+		mes "그리고 발목이 가늘어야 하네";
+		mes "역시 용병이라고 하면 가느다란 발목과 새하얀 목덜미라네 !";
+		mes "긴 생머리 또는 돈 좀 퍼부은 셋팅 퍼머라면 금상첨화 겠지 ?!";
 		next;
-		mes "[Threatening-Looking Man]";
-		mes "Lastly, you have to check whether he is ready to serve you with quality service!";
-		mes "That means, he must do his best in aiding you in fight!";
+		mes "[험상궂은아저씨]";
+		mes "마지막으로 용병이라함은 .. 서비스라네 !";
+		mes "소비자가 마지막 한방울 까지 짜내드실수 있도록";
+		mes "곁에서 보조 . 조언을 아끼지 않는것이 진정한 용병이라네 !";
+		mes "물수건 제때 갈아드리는것 잊지말고 !";
 		close;
 	}
-	mes "[Threatening-Looking Man]";
-	mes "Get out, now!";
-	mes "If you a cop, show me a warrent,";
-	mes "if you are a member of my family, prove it with your birth mark!";
+	mes "[험상궂은아저씨]";
+	mes "얼른 나가지 못해 ?";
+	mes "경찰이라면 수색영장 ..";
+	mes "우리 집안 사람이라면 엉덩이의 몽고반점을 보여봐 !";
 	close;
 }
 
-aldeba_in,219,61,4	script	Friendly-Looking Man#ald	4_M_MANAGER,{
-	mes "[Friendly-Looking Man]";
-	mes "You don't have to listen to a guy right next to my room.";
-	mes "Two years ago, he was in a mercenary training center and fell off from a tree";
-	mes "while trying to gather a nut from it.";
+aldeba_in,219,61,4	script	인상좋은 아저씨#ald	4_M_MANAGER,{
+	mes "[인상좋은아저씨]";
+	mes "옆방의 험상궂은 아저씨 이야기를 귀담아 듣지 말게나 ..";
+	mes "제작년 사설 용병 훈련소에서 나무열매를 노리다가";
+	mes "나무에서 머리부터 떨어져 저 모양이라네 ..";
 	next;
-	mes "[Friendly-Looking Man]";
-	mes "He keeps talking to himself loud and it gives me a headache...";
-	mes "Gosh!";
+	mes "[인상좋은아저씨]";
+	mes "계속 대화를 나누니 나도 미칠것같네 ..";
+	mes "어이구 머리아퍼 !";
 	close;
 }
 
-aldeba_in,152,47,4	script	Fussy Man#alde	4W_M_01,{
-	mes "[Fussy Man]";
-	mes "Aaaaarrrggghhh...I AM IN TROUBLE!";
-	mes "My little chicken has left me!";
-	mes "Oh, my god! Oh, my god!";
+aldeba_in,152,47,4	script	호들갑 청년#alde	4W_M_01,{
+	mes "[호들갑청년]";
+	mes "크 크 크 .. 큰일났어요오 !";
+	mes "제가 기르던 우리 귀여운 뼝아리가";
+	mes "집을 나가버린 것이어요 !!";
 	next;
-	if (select("What do you call the chicken?:. . . . .") == 1) {
-		mes "[Fussy Man]";
-		mes "I used to call it 'Amazing Picky'...";
-		mes "*Sob* What should I do! How could this happen!";
-		mes "Please, please help me to find my sweet little chicken!";
+	if (select("병아리 이름이 뭐예요 ?:. . . . .") == 1) {
+		mes "[호들갑청년]";
+		mes "' 굉장한픽키 ' 라고 해요 ..";
+		mes "엉엉 이를 어째에 ~";
+		mes "제발 우리 귀염둥이를 찾아주세요오 ~";
 		next;
-		if (select("What? That is such a boring name!:. . . . .") == 1) {
-			mes "[Fussy Man]";
-			mes "Don't be so ridiculous!";
-			mes "'Amazing Picky' is the most wonderful and the most unique name";
-			mes "in this world, and my chicken deserves the name!";
+		if (select("뭐야 ! 흔하디 흔한 이름이잖아 ?:. . . . .") == 1) {
+			mes "[호들갑청년]";
+			mes "무슨 말도 안되는 말씀을 !";
+			mes "우리 ' 굉장한픽키 ' 는 이 세상에 하나밖에 없는";
+			mes "무지막지하게 귀여운 병아리 라구요 !! 이씽 =3";
 			close;
 		}
-		mes "[Fussy Man]";
-		mes "You don't care, do you?";
-		mes "I am only child in my family, so I have been thinking of my little chicken as my brother!";
-		mes "I want my chicken back...*Sob*";
+		mes "[호들갑청년]";
+		mes "절 우습게 보시는군요 !";
+		mes "전 형제가 없어서 귀염둥이 병아리를 동생처럼 생각했단 말예요 !";
+		mes "으허엉 엉엉엉 ; ; ; ; ;";
 		close;
 	}
-	mes "[Fussy Man]";
-	mes "You don't care, do you?";
-	mes "I am only child in my family, so I have been thinking of my little chicken as my brother!";
-	mes "I want my chicken back...*Sob*";
+	mes "[호들갑청년]";
+	mes "절 우습게 보시는군요 !";
+	mes "전 형제가 없어서 귀염둥이 병아리를 동생처럼 생각했단 말예요 !";
+	mes "으허엉 엉엉엉 ; ; ; ; ;";
 	close;
 }
 
-aldeba_in,156,179,4	script	Master#alde	1_M_PUBMASTER,{
-	mes "[Master]";
-	mes "The Kafra Corporation Headquarters is located here in Al De Baran.";
-	mes "Do you know";
-	mes "what that means?";
+aldeba_in,156,179,4	script	마스터#alde	1_M_PUBMASTER,{
+	mes "[마스터]";
+	mes "알데바란에는 카프라 본사가 있어요 ..";
+	mes "그 곳 언니들이 가끔 저희 바에 놀러오는데";
+	mes "굉장히 유쾌한 식구들이 아닐수 없답니다";
 	next;
-	mes "[Master]";
-	mes "That means those cute Kafra Employees come here for their lunch breaks! Isn't that great?!";
+	mes "[마스터]";
+	mes "자아 . 바로 이 시점에서 당신께 질문 !";
+	mes "그대의 여성 취향을 알아보는 ' 땡큐 마스터 ' 시간입니다 !";
 	next;
-	mes "[Master]";
-	mes "Alright, then!";
-	mes "Pop Quiz Time!";
-	mes "Who's your";
-	mes "favorite Kafra girl?";
+	mes "[마스터]";
+	mes "그저 . 평소에 . 아앗 이 누나 ! 언니 !";
+	mes "아주아주 멋져 주는데 ~";
+	mes ".. 라고 생각했던 카프라언니를 선택해 주는 겁니닷 !";
 	next;
 	if (Sex == 0) {
-		mes "[Master]";
-		mes "Oh, and don't worry. I know that girls have some kind of opinion about how pretty other girls are.";
+		mes "[마스터]";
+		mes "아 . 아 . 댁이 남성이든 여성이든 그건 상관없습니다 .";
 		next;
 	}
-	if (select("Awesome!:No way, I ain't a perv.") == 1) {
-		mes "[Master]";
-		mes "Alright, here we go!";
-		mes "Choose your favorite Kafra Lady!";
+	if (select("오오 재밌겠는걸 !:에이 안해요 ..") == 1) {
+		mes "[마스터]";
+		mes "자아 그럼 보기가 나갑니다 !";
+		mes "페이지를 신중히 넘기세요오 !";
 		next;
-		mes "[Master]";
-		mes "The original Kafra Mascot, the classic blue haired lady! Candidate Number One: ^3355FFPavianne^000000!";
+		mes "[마스터]";
+		mes "우리들의 오리지날 카프라 언니 클래식한 푸른 머리칼이 멋져요";
+		mes "기호 (1) 번 ^3355FF' 디포르테 '^000000 !!";
+		mes "포니테일의 차분한 이미지로 덜렁거리는 남자고교생 손님들을 사로 잡았다 !";
+		mes "기호 (2) 번 ^5533FF' 테일링 '^000000 !!";
+		mes "긴 생머리가 챠암 포인트 나긋나긋 그 자체 ! 페이욘 출신의";
+		mes "기호 (3) 번 ^555555' 소린 '^000000 !!";
 		next;
-		mes "[Master]";
-		mes "Her graceful ponytail takes mens' breath away! The fan favorite amongst teen males! Candidate Number Two: ^5533FFBlossom^000000!";
+		mes "[마스터]";
+		mes "보잇쉬한 숏컷에 마냥 씩씩하여 활기넘쳐 버리는 ..";
+		mes "기호 (4) 번 ^1133DD' 비닛 '^000000 !!";
+		mes "냉정하고 침착한 OL 스타일로 나가주마 ! 럭셔리한 안경테가 어울리는";
+		mes "기호 (5) 번 ^33FF55' 글라리스 '^000000 !!";
+		mes "양갈래 머리에 뽀용뽀용 ~ 어려보여두 제 할몫은 다 한다구요 !";
+		mes "기호 (6) 번 ^AAAA00' 더블류 '^000000 !!";
 		next;
-		mes "[Master]";
-		mes "Her long, straight hair, like silk from the East, is her charm point. Direct from Payon, it's Candidate Number Three: ^555555Jasmine^000000!";
+		mes "[마스터]";
+		mes "협찬 : (주) 카프라서비스";
+		mes ". . . . .(유) 존다이벤트";
+		mes "이상입니다";
 		next;
-		mes "[Master]";
-		mes "A tomboy with bright orange, shortly cut hair. Candidate Number Four: ^1133DDRoxie^000000!";
-		next;
-		mes "[Master]";
-		mes "Intelligent, sophisticated and never seen without her luxurious glasses. It's Candidate Number Five: ^33FF55Leilah^000000!";
-		next;
-		mes "[Master]";
-		mes "Pretty, cute and fresh faced. Although She looks young and immature,She's the best staff!";
-		mes "Candidate Number (6) ^AAAA00Curly Sue^000000 !!";
-		next;
-		switch(select("(1) Pavianne:(2) Blossom:(3) Jasmine:(4) Roxie:(5) Leilah:(6) Curly Sue")) {
+		switch(select("(1) 디포르테:(2) 테일링:(3) 소린:(4) 비닛:(5) 글라리스:(6) 더블류")) {
 		case 1:
-			mes "[Master]";
-			mes "Oh~";
-			mes "So you're a lover of classics. I respect that very much.";
-			next;
-			mes "[Master]";
-			mes "I'll also guess that you tend to enjoy the original movie more than sequels, and dislike bad imitations. Am I right?";
+			mes "[마스터]";
+			mes "오우 낡은것을 선호하는 당신은";
+			mes "무척이나 고지식한 사람 !";
+			mes "신 문물을 받아들이세요 ! 현실로부터 도망쳐 봐야 소용 없습니다 !";
 			close;
 		case 2:
-			mes "[Master]";
-			mes "Hmmm...";
-			mes "Blossom strikes me as the girl-next-door type. So I guess that's the type of girl you're attracted to, eh?";
+			mes "[마스터]";
+			mes "지나치게 주의산만 하시군요 !";
+			mes "당신의 파트너 역시 주의산만 했다가는 ..";
+			mes "주변에 민폐만 끼치게 될것입니다 !";
 			close;
 		case 3:
-			mes "[Master]";
-			mes "So...";
-			mes "Long, luxurious hair is important to you, hmm? I suppose it such hair makes a woman look quite elegant.";
+			mes "[마스터]";
+			mes "이도 저도 아니면";
+			mes "과도하게 싱겁다는 소리 듣기 십상 입니다 .";
+			mes "삶에 의욕을 가지세요 !";
 			close;
 		case 4:
-			mes "[Master]";
-			mes "Ah, so you tend to like active, spontaneous types. I can understand that...";
-			next;
-			mes "[Master]";
-			mes "Since Roxie isn't exactly the demure housewife type, you probably have an open mind when it comes to defining femininity, right?";
+			mes "[마스터]";
+			mes "언제까지 꿈속에서 허우적 거리고";
+			mes "이상형을 찾아 헤매실겁니까 ?";
+			mes "현실을 직시하세요 !";
 			close;
 		case 5:
-			mes "[Master]";
-			mes "Ah, so you like the intellectual type. That's good, that's good.";
-			next;
-			mes "[Master]";
-			mes "Still, that Leilah can be cold as stone sometimes. I've seen her shrug off many young men and crush even more hearts!";
+			mes "[마스터]";
+			mes "시니컬한 당신에게 한마디 !";
+			mes "마음을 여세요 !";
+			mes "혼자 놀지 마시고요 !";
 			close;
 		case 6:
-			mes "[Master]";
-			mes "Say whaaat?!";
-			mes "She's too young!";
+			mes "[마스터]";
+			mes "이 .. 이런 !";
+			mes "어린 연인을 갈구 하시는 당신 !";
+			mes "버 . 범죄입니다 ! 헉헉 .";
 			close;
 		}
 	}
-	mes "[Master]";
-	mes "But I worked so hard on this delightful survey! Come now, be a sport! Admiring a pretty woman is like appreciating fine art.";
+	mes "[마스터]";
+	mes "으아악 !! 어제 밤을 세워 만들어놓은";
+	mes "멋진 앙케이트가 이리도 간단히 깨져버리다닛 !!";
+	mes "당신 미워어엉";
 	close;
 }
 
-aldeba_in,84,166,4	script	Kafra Service#alde	4_F_KAFRA1,{
+aldeba_in,84,166,4	script	카프라 서비스#alde	4_F_KAFRA1,{
 	cutin "kafra_01",2;
-	mes "[Kafra Pavianne]";
-	mes "Welcome! I'm Pavianne,";
-	mes "one of the senior Kafra Employees. The Kafra Corporation Service is always trying to satisfy 100 % of our customers' expectations.";
+	mes "[카프라디포르테]";
+	mes "어서오십시요 ! 카프라서비스 초대";
+	mes "카프라 타입 ' 디포르테 ' 입니다 ! ";
+	mes "잘 부탁드립니다 .";
 	next;
-	mes "[Kafra Pavianne]";
-	mes "Due to a change in customer support policy, we no longer accept Kafra Passes. However, we are offering refunds for our customers who still possess these passes.";
+	mes "[카프라디포르테]";
+	mes "저희 카프라서비스는 언제나 고객님의 만족도에 기여하기 위해서";
+	mes "성실 . 신용 . 정직 . 3 대 원칙을 바탕으로 ..";
+	mes "철저한 서비스 훈련과 관리를 통해 최선을 다해 고객님을 모시고 있습니다 .";
 	next;
-	if (select("Sell Kafra Pass:Alright, bye~") == 1) {
+	mes "[카프라디포르테]";
+	mes "아 참 , 그리고 카프라 서비스의";
+	mes "개편으로 인해 더이상 카프라패스";
+	mes "사용제도를 폐지하였습니다 . 그런";
+	mes "관계로 이제 더이상 카프라패스";
+	mes "판매를 하지않아요 .";
+	next;
+	mes "[카프라디포르테]";
+	mes "하지만 걱정마세요 !";
+	mes "지금까지 사용하시지 않고 가지고";
+	mes "계셨던 카프라패스는구입하신";
+	mes "가격에서 1제니도 손해보시지 않게";
+	mes "그대로 보상해드리고 있으니까요 .";
+	next;
+	if (select("카프라패스 보상받기.:안녕히 계세요.") == 1) {
 		if (countitem(1084) == 0) {
-			mes "[Kafra Pavianne]";
-			mes "I'm sorry,";
-			mes "but you don't";
-			mes "have any Kafra Passes.";
+			mes "[카프라디포르테]";
+			mes "에엣 ? 농담이시죠 ? 고객님께서는 카프라패스를 가지고 계시지 않아요!";
+			mes "하긴 ... 이제 구할 수 없는 물건이 되어버렸으니까 무리도 아니죠 .";
 			close2;
 			cutin "",255;
 			end;
@@ -809,237 +1136,169 @@ aldeba_in,84,166,4	script	Kafra Service#alde	4_F_KAFRA1,{
 			end;
 		}
 	}
-	mes "[Kafra Pavianne]";
-	mes "Thank you,";
-	mes "have a good day.";
+	mes "[카프라디포르테]";
+	mes "이용해 주셔서 감사합니다 !";
+	mes "카프라디포르테 였습니다 .";
 	close2;
 	cutin "",255;
 	end;
 }
 
-aldeba_in,83,245,4	script	Kafra Service#2alde	4_F_KAFRA2,{
+aldeba_in,83,245,4	script	카프라 서비스#2alde	4_F_KAFRA2,{
 	cutin "kafra_02",2;
-	mes "[Kafra Blossom]";
-	mes "Welcome to the";
-	mes "Kafra Corporation.";
-	mes "The Kafra Employees are";
-	mes "always here to serve you.";
+	mes "[카프라테일링]";
+	mes "..... 큰언니 (포르테) 는 언제나 그렇다니깐 !";
+	mes "깐깐해가지고 말이야 .";
+	mes "본사에서는 본사답게 다른 세계에서 볼수없는";
+	mes "조금은 다른 카프라의 색을 밝혀야지";
 	next;
-	mes "[Kafra Blossom]";
-	mes "We appreciate your continued use of the Kafra Service. Please feel free to ask me if you have any questions.";
+	mes "[카프라테일링]";
+	mes "자아 ! 안녕하시와요오 ~ 카프라 테일링 타입 입니다 .";
+	mes "앞으로두 저희 카프라서비스 애용해주시옵고 ..";
+	mes "저 . 테일링을 잊지 말아주세요오";
 	next;
-	switch(select("How does Kafra Storage work?:How do you teleport people?")) {
+	switch(select("카프라언니 ! 팬이예요 !:에헤헤")) {
 	case 1:
-		mes "[Kafra Blossom]";
-		mes "Well, adventurers like yourself can place items into Kafra Storage, so that you don't have to carry all of your stuff around.";
+		mes "[카프라테일링]";
+		mes "앗싸 !";
+		mes "정말 감사드립니다 ~";
+		mes "자 . 여기 사인 ..";
 		next;
-		mes "[Kafra Blossom]";
-		mes "Now, the Kafra Storage Window is separated into three tabs into which items are automatically sorted.";
+		mes "[카프라테일링]";
+		mes "^3355FF- 슥 삭 슥 삭 -^000000";
 		next;
-		mes "[Kafra Blossom]";
-		mes "The ^3355FFItem^000000, ^3355FFEquip^000000, and ^3355FFEtc^000000 tabs work just like the tabs in your character Item Inventory.";
-		next;
-		mes "[Kafra Blossom]";
-		mes "Multiple items of the same type will only take up one Slot in the Item and Etc. tabs. For example, 324 Jellopies would take up only one Slot, and 22 Red Potions would take another Slot.";
-		next;
-		mes "[Kafra Blossom]";
-		mes "However, in the Equip tab, each and every single item takes up its own Slot. I guess that's because each and every single equipment can be uniquely upgraded by forging or through Cards.";
-		next;
-		mes "[Kafra Blossom]";
-		mes "There's a total of 300 Slots for all three item categories in the Kafra Storage, so it might be helpful to remember that.";
-		next;
-		break;
+		mes "[카프라테일링]";
+		mes "헤헤 .. 아이템 인벤토리를";
+		mes "확인해 보셔두 소용없을거예요";
+		mes "제 사인은 당신의 가슴에 . .";
+		close2;
+		cutin "",255;
+		end;
 	case 2:
-		mes "[Kafra Blossom]";
-		mes "Oh, I get that question all the time. '^CC0066Oh Blossom, how do you do it?^000000' Well...";
-		next;
-		mes "[Kafra Blossom]";
-		mes "Well, I couldn't really go too much into detail, of course. That's confidential information. But I can tell you our teleportation works through a mix of magic and technology.";
-		next;
-		mes "[Kafra Blossom]";
-		mes "Also, the Kafra girls alone can't teleport our customers. We just receive and process your teleportation request.";
-		next;
-		mes "[Kafra Blossom]";
-		mes "Behind the scenes, skilled professionals and technicians are working 24 hours a day to ensure that you teleport quickly and safely to your destination.";
-		next;
-		break;
-	}
-	mes "[Kafra Blossom]";
-	mes "Anyway, I hope you enjoy your visit here in the Kafra Corporation Headquarters.";
-	if (rand(1,11) == 9) {
-		next;
-		mes "[Kafra Blossom]";
-		mes "...";
-		next;
-		mes "[Kafra Blossom]";
-		mes "...";
-		mes "......";
-		next;
-		mes "[Kafra Blossom]";
-		mes "Oh Mansoo...";
-	}
-	close2;
-	cutin "",255;
-	end;
-}
-
-aldeba_in,24,245,4	script	Kafra Jasmine#alde	4_F_KAFRA3,{
-	cutin "kafra_03",2;
-	mes "[Kafra Jasmine]";
-	mes "Welcome!";
-	mes "The Kafra service is";
-	mes "always on your side.";
-	next;
-	mes "[Kafra Jasmine]";
-	mes "Thank you for coming all the way to visit us at the Kafra Corporation Headquarters here in Al De Baran!";
-	next;
-	mes "[Kafra Jasmine]";
-	mes "The Kafra Service is always behind our customers with a dependable reputation that has been established over five thousand, eight hundred years...";
-	next;
-	switch(select("What?! I can't believe that!:Ahh~ Shut Up!:Your service is great!")) {
-	case 1:
-		mes "["+ strcharinfo(0) +"]";
-		mes "What?!";
-		mes "I can't";
-		mes "believe that!";
-		next;
-		mes "["+ strcharinfo(0) +"]";
-		mes "FIVE THOUSAND AND EIGHT HUNDRED YEARS?! THAT'S INSANE!";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "Arrrrghh! Shut up and listen! It took me a week to memorize all this! My memory isn't as good as the other Kafra Employees...!";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "Now, um...";
-		mes "As I was saying, the Kafra Corporation was founded eight thousand, five hundred years ago by, um, Emilio Alexander Kafra... Inventor of the word 'Kafra?'";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "He...";
-		mes "He was a great man. He... Argh! I can't remember!";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "Oh no...!";
-		mes "This can't be the right story! Five million, eight hundred years?! It's impossible!";
-		break;
-	case 2:
-		mes "[Kafra Jasmine]";
-		mes "Listen...";
-		mes "Punk.";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "I was a member of the Kafra Garrison before joining the Kafra Service Team. My specialty was ^990000Magnum Break^000000, so if you know what's good for you, don't mess with me.";
-		next;
-		mes "[Kafra Jasmine]";
-		mes "I'm trying my best to live as quietly and as femininely as I can, so don't make me break your knuckles! You got it?!";
-		break;
-	case 3:
-		mes "[Kafra Jasmine]";
-		mes "Hooray!";
-		mes "That's great news to hear. We're always working hard to make sure that our customers are satisfied with the services that we provide.";
-		break;
-	}
-	close2;
-	cutin "",255;
-	end;
-}
-
-aldeba_in,142,238,4	script	Kafra Service#3alde	4_F_KAFRA4,{
-	cutin "kafra_04",2;
-	mes "[Kafra Roxie]";
-	mes "Welcome~!";
-	mes "The Kafra Corporation will always support Rune-Midgard's adventurers with our excellent services.";
-	next;
-	mes "[Kafra Roxie]";
-	mes "My name is Roxie!";
-	mes "I hope you enjoy";
-	mes "your visit here in";
-	mes "Kafra Corporation's";
-	mes "Headquarters.";
-	next;
-	mes "[Kafra Roxie]";
-	mes "I'm here to answer any of your questions regarding Kafra Corporations policies, as well as take note of any of your feedback.";
-	next;
-	switch(select("Kafra Policies:I love Kafra!")) {
-	case 1:
-		mes "[Kafra Roxie]";
-		mes "So, you'd like more details on our policies and eligibility for our services? What would you like me to explain?";
-		next;
-		switch(select("Kafra Storage:Cart Rental:Actually, never mind.")) {
-		case 1:
-			mes "[Kafra Roxie]";
-			mes "As you probably already know, our customers must have at least Basic Skill level 6 in order to use the Kafra Storage.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "As for the reason for this certain policy, we've had problems with young, fresh faced Novices that would put everything into their Storage.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "Now you remember your days as a Novice. Everything was new and exciting, but zeny was scarce. Well, a lot of Novices would even put their weapons and armor in Kafra Storage.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "However, by this time, they've already spent what little zeny they had to open their Storage. But they don't have enough to access their Storage again!";
-			next;
-			mes "[Kafra Roxie]";
-			mes "So, these weaponless, armorless Novices must fight monsters with their bare hands until they gather the zeny to open their Kafra Storage again!";
-			next;
-			mes "[Kafra Roxie]";
-			mes "It's a silly mistake, to be sure, but we here at Kafra Corporation value human life, and decided on the Basic Skill Level 6 Requirement to prevent this kind of mishap.";
-			break;
-		case 2:
-			mes "[Kafra Roxie]";
-			mes "As you may know, the Kafra Corporation has a special relationship with the Merchant Guild, as well as the Blacksmith and Alchemist guilds in Rune-Midgard.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "The Kafra Corporation only rents Carts to Merchants, Blacksmiths and Alchemists since these job associations have a special contract with us.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "Also, it'd be really impractical to rent carts out to people who couldn't create or sell goods.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "As for Super Novices, well, we're really not supposed to rent carts to them since the Super Novice Society in Al De Baran doesn't have a contract with us.";
-			next;
-			mes "[Kafra Roxie]";
-			mes "If a Kafra Employee rented a Cart to a Super Novice, she'd probably get in big trouble with Leilah...";
-			break;
-		case 3:
-			mes "[Kafra Roxie]";
-			mes "Oh, alright~!";
-			mes "If you have any questions,";
-			mes "please let me know!";
-			break;
-		}
-		break;
-	case 2:
-		mes "[Kafra Roxie]";
-		mes "Thank you!";
-		mes "It's great to know that we're appreciated by our customers! All of us are working hard to make sure that our service meets your standards of excellence~";
-		break;
-	}
-	close2;
-	cutin "",255;
-	end;
-}
-
-aldeba_in,91,244,4	script	Kafra Service#4alde	4_F_KAFRA6,{
-	cutin "kafra_06",2;
-	mes "[Kafra Curly Sue]";
-	mes "Hello, hello!!";
-	mes "I'm Curly Sue,";
-	mes "the newest member";
-	mes "of the Kafra Staff!";
-	next;
-	mes "[Kafra Curly Sue]";
-	mes "I may still need to learn more about serving our customers, but I'm always doing my best!";
-	next;
-	if (select("Where's your mommy, kid?:End conversation.") == 1) {
-		mes "[Kafra Curly Sue]";
-		mes "Waaaaaaah~!";
-		mes "I'm not a kid!";
+		mes "[카프라테일링]";
+		mes "에헤헤 ?";
+		mes ". . . . .";
+		mes "겨우 그 대사 뿐 ?";
+		mes "에잉 . 싱거운 손님 같으니라궁 ..";
 		close2;
 		cutin "",255;
 		end;
 	}
-	mes "[Kafra Curly Sue]";
-	mes "Here at Kafra Corporation, we are all doing our very best to give you the excellent service that you expect from us.";
+}
+
+aldeba_in,24,245,4	script	카프라 서비스#3alde	4_F_KAFRA3,{
+	cutin "kafra_03",2;
+	mes "[카프라소린]";
+	mes "하이 - 카프라 No . 1 타입 소린 입니다";
+	mes "이곳 알데바란의 카프라 본사까지 와주셔서 정말 감사드려요 !";
+	next;
+	mes "[카프라소린]";
+	mes "저희 카프라서비스는 언제나 고객 여러분 곁에 있습니다 !";
+	mes "오천팔백년 전통의 저희 카프라서비스는 ..";
+	mes "조잘조잘조잘조잘조잘조잘";
+	next;
+	switch(select("오천팔백년 ?! 믿을수 없어 !:아가씨 시끄러워요:남자친구 있어요 ?")) {
+	case 1:
+		mes "[카프라소린]";
+		mes "잠자코 들어요 ! 이거 외우느라고 일주일이나 걸렸단말얏 !";
+		mes "난 다른 카프라 요원과 달라서 머리가 안좋단 말얏 !";
+		mes "..... 핫 .. 내가 무슨 말을 ..";
+		next;
+		mes "[카프라소린]";
+		mes "호호호 손님 .. 지금 쇼 였어요 ..";
+		mes "그래요 .. 카 .. 카프라에서 손님 여러분에게 저 .. 전해드리는 ~";
+		mes "드림쇼 ! ( .. 라고는 하지만 1 인 원맨쇼 )";
+		break;
+	case 2:
+		mes "[카프라소린]";
+		mes ". . . . .";
+		mes "전 카프라 서비스 팀에 들어오기전에";
+		mes "카프라 경비대 소속 이었답니다 ..";
+		mes "특기는 배쉬 !!";
+		mes ".. 였지만 조용히 예쁘게 살기로 결심했어요 ..";
+		mes "손님 .. 자극 하지 말아주세요 ..";
+		break;
+	case 3:
+		mes "[카프라소린]";
+		mes "어머어머 . 카프라서비스 요원은 남자친구를 만들면 안되는";
+		mes "세상에 말도안되 ~ 규칙에 얽매이고 있답니다";
+		mes ". . . . .";
+		mes ". . . . . . . . . .";
+		next;
+		mes "거짓말이예용 . 에헤";
+		break;
+	}
+	close2;
+	cutin "",255;
+	end;
+}
+
+aldeba_in,142,238,4	script	카프라서비스#4alde	4_F_KAFRA4,{
+	cutin "kafra_04",2;
+	mes "[카프라비닛]";
+	mes "어서오세요 ! 카프라 타입 비닛 입니다 ♤";
+	mes "손님께만 전해드리는 카프라 특급비화 !";
+	next;
+	mes "[카프라비닛]";
+	mes "실은 .. 저희 카프라서비스가 말이죠 ~";
+	mes "이전에는 카프라서비스란 간판이 아니었답니다 ~";
+	mes "자아 . 그럼 무엇이었을까요 ?";
+	next;
+	mes "[카프라비닛]";
+	mes "쨔쟈쟈쟈잔쨔자잔 ! 그것은 놀랍게도 !";
+	mes "카 ! 프 ! ( 띠리리링 ♬ )";
+	mes "핫 . 휴대폰이 .. 잠시만요 ♤";
+	next;
+	mes "[카프라비닛]";
+	mes "예엡 카프라 타입 비닛 입니다 ♤";
+	mes "앗 . 본부장님 ! 옙 ! 옙 ! ..... 옙 !";
+	mes "옛 ?!";
+	next;
+	mes "[카프라비닛]";
+	mes "앗 . 아닙니닷 !";
+	mes "아 .. 아닙니닷 !!";
+	mes "옙 ! 알겠습니닷 !!";
+	next;
+	mes "[카프라비닛]";
+	mes "찰칵 ☆";
+	mes "..... 헤헤헤 ..";
+	mes ". . . . .";
+	next;
+	mes "[카프라비닛]";
+	mes "저기 저 . 손님";
+	mes "조금 전 들으셨던 내용은";
+	mes "저어 . 잊어주시기 바랍니다 . 헤헤 ~";
+	mes ". . . . .";
+	close2;
+	cutin "",255;
+	end;
+}
+
+aldeba_in,91,244,4	script	카프라 서비스#5alde	4_F_KAFRA6,{
+	cutin "kafra_06",2;
+	mes "[카프라더블류]";
+	mes "안녕하째여어 !!";
+	mes "카프라서비스의 귀염둥이 막내 ~";
+	mes "카프라 타입 더블류 라고 합니다아 ~";
+	next;
+	mes "[카프라더블류]";
+	mes "저는 신입으로서 카프라 서비스에서 여러분을 뵙게 된지";
+	mes "얼마 되지 않았지만 . 언제나 최선을 다하고 있습니다 !";
+	mes "아무쪼록 잘 부탁 드립니다아 ~";
+	next;
+	if (select("몇짤 ?:그만둔다") == 1) {
+		mes "[카프라더블류]";
+		mes ". . . . .";
+		mes "이잉 !!";
+		mes "어린애 취급 하지 마세여엉 !!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	mes "[카프라더블류]";
+	mes "저희 카프라서비스에서는";
+	mes "최 ! 상 ! 의 서비스를 제공해 드리기 위해 . 최 ! 선 ! 을 다하고 있습니다 .";
+	mes "이용해주셔서 감사합니다 .";
 	close2;
 	cutin "",255;
 	end;
@@ -1048,13 +1307,19 @@ aldeba_in,91,244,4	script	Kafra Service#4alde	4_F_KAFRA6,{
 // Kafra Special Reserve Point NPCs
 //============================================================
 // Special Reserve ----------------------------------------------
-aldeba_in,79,161,6	script	Kafra#04	4_F_KAFRA3,{
+aldeba_in,79,161,6	script	카프라 직원#04	4_F_KAFRA3,{
 	cutin "kafra_03",2;
-	mes "[Kafra]";
-	mes "Welcome, ^6666FF" + strcharinfo(0) + "^000000.  This is where you can trade in your special reserve points for useful items and cool prizes.";
+	mes "[카프라 직원]";
+	mes "어서오세요~ ^6666FF" + strcharinfo(0) + "^000000 고객님.";
+	mes "저희 카프라 서비스를 이용해 주신 만큼 상품도 받아가세요~";
 	next;
-	mes "[Kafra]";
-	mes "Each Kafra will allow you to trade in reserve points of varying amounts.  I can trade in reserve points starting from ^2222FF100 pts up to 3000 pts^000000.";
+	mes "[카프라 직원]";
+	mes "각 창구마다 쓰실 수 있는 적립포인트가 다르니 참고해 주십시오.";
+	mes "제가 서 있는 이 창구는 적립포인트 ^7D0781100p 부터 3000p 까지^000000 쓰실 수 있으십니다.";
+	next;
+	mes "[카프라 직원]";
+	mes "고객님의 적립포인트는 ^FF0000"+RESRVPTS+"^000000 이십니다~";
+	mes "다음 항목 중 원하시는 상품을 선택해 주세요.";
 	next;
 	mes "[Kafra]";
 	mes "The amount of special reserve points that you have is: ^FF0000"+RESRVPTS+"^000000 pts.  Please make a choice based on your point total.";
@@ -1096,11 +1361,16 @@ aldeba_in,79,161,6	script	Kafra#04	4_F_KAFRA3,{
 		}
 		.@list$ += .@choices[.@i] + "- " + .@ordinal$ + " Lottery Chance!:" + .@changepage$ +":Cancel";
 		next;
+
+
+
+
 		.@chosen = select(.@list$) - 1;
 		if (.@chosen <= .@numitemchoices) {
 			if (RESRVPTS < .@choices[.@chosen*3]) {
-				mes "[Kafra]";
-				mes "I'm sorry but you do not have enough reserve points for that selection.";
+	sL_LowPts1:
+		mes "[Kafra]";
+		mes "I'm sorry but you do not have enough reserve points for that selection.";
 				continue;
 			}
 			RESRVPTS -= .@choices[.@chosen * 3];
@@ -1109,6 +1379,7 @@ aldeba_in,79,161,6	script	Kafra#04	4_F_KAFRA3,{
 				mes "[Kafra]";
 				mes "Here you are.";
 				getitem .@choices[.@chosen*3 + 1], .@choices[.@chosen*3 + 2];
+
 				close;
 			}
 			// Lottery chance
@@ -1124,7 +1395,6 @@ aldeba_in,79,161,6	script	Kafra#04	4_F_KAFRA3,{
 			break;
 		}
 	}
-
 	mes "[Kafra]";
 	mes "Please come back anytime when you have more reserve points.";
 	cutin "",255;
@@ -1132,19 +1402,23 @@ aldeba_in,79,161,6	script	Kafra#04	4_F_KAFRA3,{
 }
 
 // Special Reserve 2 ----------------------------------------------
-aldeba_in,88,161,3	script	Kafra#05	4_F_KAFRA3,{
+aldeba_in,88,161,3	script	카프라 직원#05	4_F_KAFRA3,{
 	cutin "kafra_03",2;
-	mes "[Kafra]";
-	mes "Welcome ^5577FF"+strcharinfo(0)+"^000000.  We are currently having a special event for our customers.";
-	mes "You can get free gifts by using your ^FF5533special reserve points^000000 in the ^3355FFSpecial Kafra Gift Event^000000!!";
+	mes "[카프라 직원]";
+	mes "어서오세요~ "+strcharinfo(0)+" 고객님.";
+	mes "지금 저희 카프라 센터에서는 고객 여러분을 위한 특별 감사축제를 하고 있습니다.";
 	next;
-	mes "[Kafra]";
-	mes "Would you like to use your points?";
+	mes "[카프라 직원]";
+	mes "지금까지 모아오신 카프라 포인트를 이용해서 경품을 뽑을 수 있는 ^FF0000특별 카프라 ^529DFF경품 대잔치!^000000";
+	mes "저희 카프라 본사에서 이번에 대폭 경품을 강화했답니다.";
+	next;
+	mes "[카프라 직원]";
+	mes "참여하시겠습니까?";
 	next;
 	if (select("Yes I would.","Maybe next time.") == 1) {
-		mes "[Kafra]";
-		mes "You have the following amount of special reserve points: ^5544FF"+RESRVPTS+"^000000.";
-		mes "Make a choice and test your luck!";
+		mes "[카프라 직원]";
+		mes "고객님의 적립포인트는 ^FF0000"+RESRVPTS+"^000000 이십니다~";
+		mes "다음 항목 중 원하시는 상품을 선택해 주세요.";
 		next;
 		switch (select("5000pts = 1st Lottery Chance!","7000pts = 2nd Lottery Chance!","10000pts = 3rd Lottery Chance!","Cancel")) {
 		case 1: // 5000
@@ -1275,87 +1549,98 @@ sF_Spin:
 
 // Inside Clock Tower
 //============================================================
-c_tower3,10,249,4	script	Gatekeeper#ct	4_M_02,{
+c_tower3,10,249,4	script	문지기#ct	4_M_02,{
 	//Key_Of_Clock_Tower
-	callfunc "F_ClockTowerGate","4th",7026,"c_tower4",185,44;
+	callfunc "F_ClockTowerGate","지상 4 층",7026,"c_tower4",185,44,"리쿠";
 }
 
-alde_dun03,264,16,4	script	Gatekeeper#ct1	4W_F_01,{
+alde_dun03,264,16,4	script	문지기#ct1	4W_F_01,{
 	//Underground_Key
-	callfunc "F_ClockTowerGate","B4th",7027,"alde_dun04",79,267;
+	callfunc "F_ClockTowerGate","지하 4 층",7027,"alde_dun04",79,267,"아이";
 }
 
 function	script	F_ClockTowerGate	{
-	mes "[Gatekeeper Boy]";
-	mes "Welcome to";
-	mes "Kinase - Blue Gallino";
-	mes "The one of Local Speciality in Aldebaran.";
-	mes "You can't go through from "+getarg(0)+" Floor,";
-	mes "Please go back.";
+	mes "[문지기 "+getarg(5)+"]";
+	mes "알데바란 명물";
+	mes "키나세 - 블루갈리노";
+	mes "시계탑에 오신걸 환영하오";
+	mes ""+getarg(0)+" 부터는";
+	mes "출입금지이니";
+	mes "돌아가주시오";
 	next;
-	switch(select("About Clock Tower:About the "+getarg(0)+" Floor:Move to the "+getarg(0)+" Floor:End Dialogue")) {
+	switch(select("시계탑에 대하여:"+getarg(0)+"에 대하여:"+getarg(0)+"으로 이동한다:대화를 종료한다")) {
 	case 1:
-		mes "[Gatekeeper Boy]";
-		mes "Homeland of Alchemy,Aldebaran!";
-		mes "Long Time ago, there were";
-		mes "3 Legendary Alchemists...They are";
-		mes "Bruke Seimer";
-		mes "Philip Warisez";
-		mes "And ..";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "연금술사의 고장 알데바란 !";
+		mes "그 오래전 . 전설의";
+		mes "3 대 연금술사로 불리웠던";
+		mes "브루케사이머";
+		mes "필립바리세즈";
+		mes "그리고 ..";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "Romero Specialre!";
-		mes "This venerable architecture is";
-		mes "their masterpiece.";
-		mes "I assume you would feel something unusual";
-		mes "While on the way to this floor,";
-		mes "Every feature of This Clocktower ";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "로메로스페샬레 !";
+		mes "이 거룩한 건축물은";
+		mes "그 들이 건설한 시계탑이오";
+		mes "이 곳 까지 오는 도중에";
+		mes "어느정도 느꼈겠지만";
+		mes "이 시계탑은 평범하지 않은";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "Consists of Mysterious Ancient Magics.";
-		mes "If you just wander around here,";
-		mes " without any intention";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "고대 연금술을 바탕으로한";
+		mes "상당히 괴상망측한 주술적";
+		mes "구조로 이루어져 있소";
+		mes "괜히 뚜렷한 목적없이";
+		mes "허우적 허우적 헤매이고";
+		mes "다녔다가는";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "By any means,";
-		mes "You will meet with a mishap";
-		mes "by Gatekeeper Creatures.";
-		mes "Please be careful ..";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "시계탑의";
+		mes "문지기 마물들에 의해";
+		mes "큰 봉변을 피하지";
+		mes "못할것이오";
+		mes "조심하시기 바라오 ..";
 		close;
 	case 2:
-		mes "[Gatekeeper Boy]";
-		mes "Ancient Alchemists";
-		mes "Sealed the Gate of 4th Floor using an Alchemistic Device ";
-		mes "To keep something";
-		mes "From Evil Creatures and Human Enemies.";
-		mes "To go through this door";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "고대 연금술사들은";
+		mes "마물들과 타국의 병사들로부터";
+		mes "그 무언가를 지키기 위해";
+		mes "연금술적 장치를 제작해";
+		mes "4 층으로의 문을 봉인하였소";
+		mes "이 문을 통과하기 위해서는";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "It needs a Key.";
-		mes "That Key has rumored to be possessed by Gatekeeper Creatures";
-		mes "Prowling around here.";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "어느 열쇠가 필요하네만";
+		mes "열쇠는 이 시계탑 곳곳에서";
+		mes "어슬렁 거리는";
+		mes "무시무시한 문지기 마물이";
+		mes "지니고 있다고 하오";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "The Key is the Intensiveness of Ancient Alchemy,";
-		mes "By hearsay When used once,";
-		mes "It will be released from being spelled";
-		mes "And be disapeared.";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "그 열쇠는 고대 연금술의";
+		mes "집약체로서 ..";
+		mes "사용하고나면";
+		mes "주술이 풀려 사라지도록";
+		mes "고안되어 있다고 하오";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "If that key";
-		mes "Comes into your porssession,";
-		mes "Please show me.";
-		mes "The one who possesses the Key";
-		mes "Will have access to go through";
-		mes "This Gate with his own will!";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "당신이 만약 그 열쇠를";
+		mes "손에 넣었다면";
+		mes "나에게 보여주시오";
+		mes "열쇠를 가지고 있는";
+		mes "사람이야말로";
+		mes "이 문을 넘나들 수 있는";
 		next;
-		mes "[Gatekeeper Boy]";
-		mes "I will give you a chance.";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "자격을 가진자 !";
+		mes "그 대의 운을";
+		mes "시험해 보겠소 ..";
 		mes ". . . . .";
 		close;
 	case 3:
 		if (countitem(getarg(1)) > 0) {
-			mes "[Gatekeeper Boy]";
+			mes "[문지기 "+getarg(5)+"]";
 			mes "Hmm! I already felt that you are not an Ordinary person,";
 			mes "Now it seems to be successful in Speculation.";
 			mes "Please,You may enter.";
@@ -1366,21 +1651,23 @@ function	script	F_ClockTowerGate	{
 			end;
 		}
 		else {
-			mes "[Gatekeeper Boy]";
+			mes "[문지기 "+getarg(5)+"]";
 			mes ". . . . . .";
-			mes "Unfortunately you don't have a privilege";
-			mes "To enter this Gate ..";
-			mes "You won't be able to go through";
-			mes "As long as Ancient Alchemists";
-			mes " Don't grant you.";
+			mes "당신은 이 문을 통과할";
+			mes "자격이 없소 ..";
+			mes "고대 연금술사들이";
+			mes "허락하지 않는한";
+			mes "문을 지날수는 없을 것이오";
 			close;
 		}
 	case 4:
-		mes "[Gatekeeper Boy]";
-		mes "This Clock Tower";
-		mes "Is the place where the 3 Ancient Legendary Alchemists";
-		mes "Has left their Spirits and Skills.";
-		mes "Please Do not Scribble or Damage on the Interior.";
+		mes "[문지기 "+getarg(5)+"]";
+		mes "이 시계탑은";
+		mes "고대 3 대 연금술사들의";
+		mes "정성과 혼이 깃들여져 있는곳";
+		mes "부디 시계탑의 내부 장식등에";
+		mes "낙서등을 하거나 훼손시키지";
+		mes "말아주길 바라오 ..";
 		close;
 	}
 }

@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= Everybody mentioned in the comments
 //===== Current Version: =====================================
-//= 1.7
+//= 1.9
 //===== Description: =========================================
 //=
 //===== Additional Comments: =================================
@@ -28,35 +28,34 @@
 //= 1.6 Optimized several NPCs [DZeroX]
 //= 1.7 Replaced outdated variable with getarg. [L0ne_W0lf]
 //= 1.8 Fixed Occurances of PcName. [L0ne_W0lf]
+//= 1.9 kRO Official Texts. [nyalin]
 //============================================================
 
-einbroch,218,198,5	script	Mark#ein	4_M_EINMAN,{
-	callfunc "EinTower","Mark";
+einbroch,218,198,5	script	마크#ein	4_M_EINMAN,{
+	callfunc "EinTower","마크";
 	end;
 }
 
-einbroch,175,196,5	script	Morei#ein	4_M_EINMAN2,{
-	mes "[Morei]";
-	mes "Greetings,";
-	mes "I am Morei,";
-	mes "Assistant Guide";
-	mes "of Einbroch Tower.";
+einbroch,175,196,5	script	모리#ein	4_M_EINMAN2,{
+	mes "[모리]";
+	mes "안녕하세요~";
+	mes "전망대 관리도우미 모리입니다.";
+	mes "관람을 끝내시고 다시 아래로";
+	mes "내려가시려면 저에게 문의해";
+	mes "주시면 되겠습니다.";
 	next;
-	mes "[Morei]";
-	mes "If you wish to return";
-	mes "to the ground floor,";
-	mes "please let me know.";
-	mes "Would you like to go";
-	mes "back to ground level?";
+	mes "[모리]";
+	mes "전망대 관람을 끝내시고";
+	mes "아래로 내려가시겠습니까?";
 	next;
-	switch(select("Yes.:No.")) {
+	switch(select("넵, 내려가죠.:아뇨 좀더 여기 있겠어요.")) {
 	case 1:
-		mes "[Morei]";
-		mes "I see.";
-		mes "Let me lead you";
-		mes "to the ground floor.";
-		mes "Thank you for using";
-		mes "our services.";
+		mes "[모리]";
+		mes "알겠습니다. 고객님.";
+		mes "지금 바로 아래로 이동시켜";
+		mes "드리겠습니다.";
+		mes "그럼 다음번에 또 이용해";
+		mes "주십시요.";
 		close2;
 		switch(rand(1,3)) {
 		case 1:
@@ -70,64 +69,59 @@ einbroch,175,196,5	script	Morei#ein	4_M_EINMAN2,{
 			end;
 		}
 	case 2:
-		mes "[Morei]";
-		mes "I see.";
-		mes "I hope you";
-		mes "enjoy your time";
-		mes "in Einbroch Tower.";
+		mes "[모리]";
+		mes "예 알겠습니다. 고객님.";
+		mes "그럼 좋은 시간 보내십시요.";
 		close;
 	}
 }
 
-einbroch,173,229,5	script	Oberu#ein	4_M_EINMAN,{
-	callfunc "EinTower","Oberu";
+einbroch,173,229,5	script	오베루#ein	4_M_EINMAN,{
+	callfunc "EinTower","오베루";
 	end;
 }
-einbroch,176,172,5	script	Khemko#ein	4_M_EINMAN,{
-	callfunc "EinTower","Khemko";
+einbroch,176,172,5	script	캠코#ein	4_M_EINMAN,{
+	callfunc "EinTower","캠코";
 	end;
 }
 
 function	script	EinTower	{
 	mes "[" + getarg(0) + "]";
-	mes "Good day~";
-	mes "I'm " + getarg(0) + ", your";
-	mes "guide to exploring";
-	mes "the Einbroch Tower.";
+	mes "안녕하세요~아인브로크";
+	mes "전망대 안내요원 " + getarg(0) + "입니다.";
+	mes "아인브로크의 전망을 한눈에";
+	mes "볼수 있는 전망대 이용을";
+	mes "도와드리고 있습니다.";
 	next;
 	mes "[" + getarg(0) + "]";
-	mes "Einbroch Tower offers";
-	mes "the best view of our city";
-	mes "and it's a great place to";
-	mes "meet with friends or take";
-	mes "a date. The Einbroch Tower";
-	mes "admission fee is 10 zeny.";
+	mes "아래가 시원하게 내려다 보이는";
+	mes "전망대라서 친구나 연인분들의";
+	mes "약속장소로 더할 나위없이";
+	mes "좋은 장소입니다.";
 	next;
 	mes "[" + getarg(0) + "]";
-	mes "Right now, we're offering";
-	mes "a special promotion called";
-	mes "the Apple Combo Set for only";
-	mes "20 zeny. This set includes";
-	mes "Einbroch Tower admission";
-	mes "and an Apple to snack on.";
+	mes "전망대의 이용료는 10제니이며,";
+	mes "저희 전망대에서 지금 행사중인";
+	mes "사과콤보세트를 이용하시면";
+	mes "전망대 이용과 함께 신선한";
+	mes "사과를 같이 드리고 있습니다.";
 	next;
-	switch(select("Tower Admission Only:Apple Combo Set:Cancel")) {
+	mes "[" + getarg(0) + "]";
+	mes "사과콤보세트는 20제니입니다.";
+	mes "이용 하시겠습니까?";
+	next;
+	switch(select("일반을 이용한다:사과콤보를 이용한다:그만둔다")) {
 	case 1:
 		if (Zeny < 10) {
 			mes "[" + getarg(0) + "]";
-			mes "I'm sorry, but you";
-			mes "don't have enough";
-			mes "zeny. The Einbroch";
-			mes "Tower Admission";
-			mes "fee is 10 zeny.";
+			mes "지불하실 요금이 부족합니다.";
 			close;
 		}
 		else {
 			mes "[" + getarg(0) + "]";
-			mes "Thank you for";
-			mes "using our services.";
-			mes "Let me guide you to";
-			mes "the tower right away.";
+			mes "이용해 주셔서 감사합니다.";
+			mes "그럼 전망대로 바로 안내해";
+			mes "드리겠습니다.";
 			Zeny -= 10;
 			close2;
 			warp "einbroch",181,196;
@@ -136,669 +130,575 @@ function	script	EinTower	{
 	case 2:
 		if (Zeny < 20) {
 			mes "[" + getarg(0) + "]";
-			mes "I'm sorry, but you don't";
-			mes "have enough zeny. The";
-			mes "Apple Combo Set is 20 zeny.";
+			mes "지불하실 요금이 부족합니다.";
 			close;
 		}
 		else {
 			mes "[" + getarg(0) + "]";
-			mes "Before I guide you to";
-			mes "the tower, let me check";
-			mes "your status to insure";
-			mes "your safety before I give";
-			mes "you the Apple Combo Set.";
+			mes "이용해주셔서 감사합니다.";
+			mes "이용에 앞서 고객님 이용의";
+			mes "안전을 위해 잠시 몸수색을";
+			mes "하겠습니다.";
 			next;
 			if (checkweight(512,1)) {
 				mes "[" + getarg(0) + "]";
-				mes "Thank you for";
-				mes "using our services.";
-				mes "Let me guide you to";
-				mes "the tower right away.";
+				mes "통과되셨습니다.";
+				mes "그럼 전망대로 바로 안내해";
+				mes "드리겠습니다.";
 				Zeny -= 20;
-				getitem 512,1; //Apple
+				getitem 512,1; // 사과
 				close2;
 				warp "einbroch",174,204;
 				end;
 			}
 			else {
 				mes "[" + getarg(0) + "]";
-				mes "I'm sorry, but you're carrying";
-				mes "too many items with you. Please store some of your things in your Kafra Storage before purchasing";
-				mes "the Apple Combo Set.";
+				mes "고객님의 인벤토리 무게가 초과되셨습니다.";
 				close;
 			}
 		}
 	case 3:
 		mes "[" + getarg(0) + "]";
-		mes "I see.";
-		mes "Feel free to";
-		mes "come back any";
-		mes "time. Thank you.";
+		mes "알겠습니다. 고객님.";
+		mes "다음번에 이용해 주실일이";
+		mes "있으시면 또 찾아주십시요.";
 		close;
 	}
 }
 
-einbroch,232,272,3	script	Train Station Staff#ein1::EinbrochTrain	4_M_EIN_SOLDIER,{
-	mes "[Staff]";
-	mes "Welcome to";
-	mes "the Train Station.";
-	mes "Trains to Einbech";
-	mes "are always running";
-	mes "so if you miss one,";
-	mes "it's no problem.";
+einbroch,232,272,3	script	기차역 근무요원#ein1::EinbrochTrain	4_M_EIN_SOLDIER,{
+	mes "[근무요원]";
+	mes "안녕하십니까.";
+	mes "이 기차는 아인브로크와 아인베흐를 왕복하는 열차입니다.";
+	mes "요금은 200z 입니다. 이용하시겠습니까?";
 	next;
-	mes "[Staff]";
-	mes "The fare to board the";
-	mes "train that runs the Einbroch";
-	mes "to Einbech line is 200 zeny.";
-	mes "Would you like to buy a ticket?";
-	next;
-	switch(select("Yes.:No.:About the Environment...")) {
+	switch(select("이용한다.:이용하지 않는다.:날씨에 대해")) {
 	case 1:
 		if (Zeny > 199) {
-			mes "[Staff]";
-			mes "Thank you";
-			mes "very much.";
-			mes "Have a safe trip.";
-			mes "^333333*Ahem*^000000 All aboard!";
+			mes "[근무요원]";
+			mes "이용해 주셔서 감사합니다.";
+			mes "편안한 여행 되시길 바랍니다.";
 			close2;
 			Zeny -= 200;
 			warp "einbech",43,215;
 			end;
 		}
 		else {
-			mes "[Staff]";
-			mes "I'm sorry, but this";
-			mes "isn't enough zeny";
-			mes "to pay the train fare.";
+			mes "[근무요원]";
+			mes "지불하실 요금이 부족합니다.";
 			close;
 		}
 	case 2:
-		mes "[Staff]";
-		mes "Very well, then.";
-		mes "Please enjoy your";
-		mes "stay in Einbroch.";
+		mes "[근무요원]";
+		mes "좋은 시간 되시길 바랍니다.";
 		close;
 	case 3:
-		mes "[Staff]";
-		mes "Einbroch is infamous for";
-		mes "its air pollution, no doubt";
-		mes "caused by the industrial";
-		mes "facilities located here.";
-		mes "It's really horrible...";
-		next;
-		mes "[Staff]";
-		mes "Sometimes the air pollution";
-		mes "gets so bad that it becomes";
-		mes "hard to breathe. If you hear";
-		mes "the Einbroch Smog Alert, you";
-		mes "should find shelter immediately!";
+		mes "[근무요원]";
+		mes "아인브로크는 본디 공장을 중심으로 이뤄진 마을인지라, 매연이 심하기로 유명합니다.";
+		mes "가끔 오염 정도가 심할 정도에는 호흡곤란을 일으키니 경고 방송이 나가면 여행객님도 주의하시기 바랍니다.";
 		close;
 	}
 }
 	
-einbroch,252,301,3	duplicate(EinbrochTrain)	Train Station Staff#ein2	4_M_EIN_SOLDIER
+einbroch,252,301,3	duplicate(EinbrochTrain)	기차역 근무요원#ein2	4_M_EIN_SOLDIER
 
-einbroch,259,326,3	script	Leslie#ein_1	4_F_EINOLD,{
-	mes "[Leslie]";
-	mes "^666666*Cough cough!*^000000";
-	mes "Laaaand sakes!";
+einbroch,259,326,3	script	승객#ein_1	4_F_EINOLD,{
+	mes "[승객]";
+	mes "콜록콜록 !";
+	mes "이렇게 공기가 나빠서야 나같은 노인은 어찌사나.";
+	mes "이런 곳에서 정말 용케도 몇십년씩이나 사는 사람도 있다니..끌끌..";
 	next;
-	mes "[Leslie]";
-	mes "An old woman like me";
-	mes "can't breathe this air! How";
-	mes "do people even live in all this";
-	mes "smog? Sure, the air in Einbech";
-	mes "isn't pristine, but the air here in Einbroch is much worse! ^333333*Cough~!*^000000";
-	next;
-	mes "[Leslie]";
-	mes "I hate coming here";
-	mes "sometimes! The air is";
-	mes "totally polluted and this";
-	mes "city is full of stuck up";
-	mes "pricks! But they sell stuff";
-	mes "here I can't buy back home...";
+	mes "[승객]";
+	mes "나는 아인베흐 주민이라우.";
+	mes "우리 마을도 공기가 그리 맑은 편은 아니지만, 여긴 정도가 너무 심해! 콜록콜록.";
+	mes "마을에 없는 물건을 사러 올때마다 고생이란 말야. 콜록콜록.";
 	close;
 }
 
-einbroch,236,191,3	script	Tan#ein	4_M_EINMAN,{
-	mes "[Tan]";
-	mes "All the factories";
-	mes "here in Einbroch are";
-	mes "causing a serious air";
-	mes "pollution problem.";
+einbroch,236,191,3	script	마을 청년#ein	4_M_EINMAN,{
+	mes "[마을 청년]";
+	mes "이 마을은 공장이 많다보니 어쩔 수";
+	mes "없이 공기가 많이 안좋아요.";
 	next;
-	mes "[Tan]";
-	mes "I'm an Airship engineer and";
-	mes "everyday, all day long, I deal";
-	mes "with oil stains and all sorts";
-	mes "of pollutants. I'm surprised";
-	mes "I haven't gotten sick yet...";
+	mes "[마을 청년]";
+	mes "전 비공정 수리공인데,";
+	mes "정말 하루종일 기름때에 시달리고";
+	mes "일이 끝나도 매연이 시달리니";
+	mes "하루종일 머리가 지끈거릴 지경이에요.";
 	next;
-	mes "[Tan]";
-	mes "Still, I try to be careful";
-	mes "when I can. Whenever I go";
-	mes "out into the city's red fog,";
-	mes "I always wear my Flu Mask.";
-	mes "If you'll be here for a while,";
-	mes "you should carry one with you.";
+	mes "[마을 청년]";
+	mes "오늘도 하늘이 붉으스름 한 것이,";
+	mes "좋지 않은 기분이 드네요.";
+	mes "이런 때에 저처럼 마스크를 상비하는 센스를 보이는 사람이 진정한 멋쟁이!";
+	next;
+	mes "[마을 청년]";
+	mes "당신도 건강을 위해 마스크 하나쯤은";
+	mes "가지고 다니는게 좋을 거예요.";
 	close;
 }
 	
-einbroch,228,121,5	script	Little Toby#ein-1	4_M_EINMAN,{
-	mes "[Little Toby]";
-	mes "Excuse me...";
-	mes "But I'm lost!";
-	mes "I can't find my";
-	mes "mom or dad!";
+einbroch,228,121,5	script	마을 청년#ein-1	4_M_EINMAN,{
+	mes "[마을 청년]";
+	mes "저기요, 여기가 대체 어디죠?";
+	mes "여기가 공항이죠? 맞죠?";
+	mes "부모님을 마중가기로 했는데 늦으시네요.";
 	next;
-	mes "[Little Toby]";
-	mes "A-am I at the Airport?!";
-	mes "My parents are supposed";
-	mes "to come get me, but I still";
-	mes "haven't found them! We just";
-	mes "moved here, so I don't know";
-	mes "where anything is!";
+	mes "[마을 청년]";
+	mes "이 마을로 이사온지 얼마되지 않아서";
+	mes "길을 하나도 모르겠어요. 정말 왜이리 커다란 건물이 잔뜩 있는지!!";
 	next;
-	mes "[Little Toby]";
-	mes "W-wait!";
-	mes "Where are you";
-	mes "going?! Don't leave";
-	mes "me, I'm all alone...!";
+	mes "[마을 청년]";
+	mes "저같은 길치들에겐 쥐약이에요 쥐약!";
 	close;
 }
 
-einbroch,40,116,1	script	Airship Engineer#ein-1	4_M_EINMAN,{
-	mes "[Airship Engineer]";
-	mes "H-hey! Don't";
-	mes "touch my precious";
-	mes "Burielle! I just finished";
-	mes "her tune-up and now she's";
-	mes "sleeping! J-just step away!";
+einbroch,40,116,1	script	비공정 수리공#ein-1	4_M_EINMAN,{
+	mes "[비공정 수리공]";
+	mes "어이어이, 내 소중한 '브리엘'을 함부로 만지지 말라구!";
+	mes "그녀는 이제 막 수리가 끝나 곤히 잠든참이란 말야!!";
 	next;
-	switch(select("Who's Burielle?:Sorry about That.")) {
+	switch(select("그녀..?:미안해요.")) {
 	case 1:
-		mes "[Airship Engineer]";
-		mes "Burielle is the prettiest";
-		mes "model among all the Airships";
-		mes "made within the last ten years!";
-		mes "She might be grounded now, but";
-		mes "with my healing hands, she'll";
-		mes "conquer the skies again!";
+		mes "[비공정 수리공]";
+		mes "그래! '브리엘'은 10년전에 만들어진 비공정중에 가장 예쁜 모델이란 말야.";
+		mes "10년이나 되었다곤 해도, 내 손길만 거치면 그녀는 다시 쌩쌩히 하늘을 누빌 수 있단 말이지.";
+		mes "그녀를 무시하는 발언을 한다면 가만 두지 않겠어!";
 		next;
-		switch(select("Ah~:Uh huh...")) {
-		case 1:
-			mes "["+strcharinfo(0)+"]";
-			mes "Ah~";
-			mes "I see, so you're";
-			mes "working on restoring";
-			mes "this magnificent specimen";
-			mes "of an Airship. Best of luck~";
-			next;
-			mes "[Airship Engineer]";
-			mes "Yeah. I'd appreciate";
-			mes "it if you'd just be careful.";
-			mes "I've put a lot of love into";
-			mes "fixing up Burielle...";
-			close;
-		case 2:
-			mes "["+strcharinfo(0)+"]";
-			mes "Uh huh...";
-			mes "Right. For a second";
-			mes "there, I thought you were";
-			mes "talking about a person, but";
-			mes "then I also assumed that you";
-			mes "weren't, you know, a nutcase.";
-			next;
-			mes "["+strcharinfo(0)+"]";
-			mes "Oh, did you say,";
-			mes "''prettiest model?''";
-			mes "All Airships look the";
-			mes "same to me, this one";
-			mes "ain't special at all. You've";
-			mes "gone loony tunes, paley boy.";
-			next;
-			emotion e_an;
-			mes "[Airship Engineer]";
-			mes "Wh-what...?!";
-			close;
-		}
+		mes "["+strcharinfo(0)+"]";
+		mes "가장 예쁜 모델이라니.. 여기 있는 비공정들은 모두 다 똑같아 보이던데요?";
+		mes "그건 마치 저 하늘의 구름이라든가 저 산이 어떻다는 얘길 듣는 것 같군요.";
+		next;
+		mes "[비공정 수리공]";
+		mes "뭐야?!";
+		close;
 	case 2:
-		mes "[Airship Engineer]";
-		mes "Well, at least you know";
-		mes "what you did wrong. Now";
-		mes "quit disturbing her and git!";
+		mes "[비공정 수리공]";
+		mes "미안할 짓을 하긴 했나보군!!";
+		mes "방해하지 말고 어서 멀리 사라져 버려!";
 		close;
 	}
 }
 
-einbroch,294,312,3	script	Centzu#ein	4_M_EINMAN2,{
-	mes "[Centzu]";
-	mes "I've lived here for";
-	mes "a long time and I see";
-	mes "that this huge city is still";
-	mes "growing bigger everyday.";
+einbroch,294,312,3	script	센츠#ein	4_M_EINMAN2,{
+	mes "[센츠]";
+	mes "진짜 이 마을 빨리 발전된다.";
+	mes "여기서 살면 정말 하루하루가";
+	mes "다르게 발전하고 있다는 것을";
+	mes "느낄 수 있어.";
 	next;
-	mes "[Centzu]";
-	mes "How did Einbroch get so";
-	mes "huge so quickly? I still can't";
-	mes "believe there's been this much";
-	mes "development. Well, I suppose";
-	mes "it's not my concern. Nothing";
-	mes "I do will make a difference... ";
+	mes "[센츠]";
+	mes "근데 정말 어찌해서 이렇게";
+	mes "빠르게 발전하고 있는걸까?";
+	mes "어느날 갑자기 뚝딱하고";
+	mes "발전이 되는것도 아닌데";
+	mes "말이야.";
 	next;
-	mes "[Centzu]";
-	mes "Even though such";
-	mes "rapid industrialization";
-	mes "can't be good for the";
-	mes "environment or the people,";
-	mes "I'll just sit back, watch what";
-	mes "happens and just enjoy life...";
+	mes "[센츠]";
+	mes "뭐 어떤 이유, 어떤 수단으로";
+	mes "발전하고 있는지 내가 알";
+	mes "필요는 없나. 어차피 알아도";
+	mes "달라질 건 없고...";
+	next;
+	mes "[센츠]";
+	mes "우리는 발전하는 모습을";
+	mes "보며 즐기기만 하면 되겠지.";
 	close;
 }
 
-einbroch,232,255,5	script	Khowropher#ein	4_M_EINOLD,{
-	mes "[Khowropher]";
-	mes "^666666*Cough cough*^000000";
-	mes "Jiminy! The air here";
-	mes "is so thick and grimy!";
-	mes "And it's worse for us old";
-	mes "people with breathing";
-	mes "problems! ^333333*Haaack!*^000000";
+einbroch,232,255,5	script	카우로퍼#ein	4_M_EINOLD,{
+	mes "[카우로퍼]";
+	mes "^666666쿨럭 쿨럭..^000000 발전도 좋지만";
+	mes "너무 공기가 안좋아...";
+	mes "공기가 좋아도 숨쉬기가";
+	mes "힘든게 나같은 노인인데";
+	mes "이렇게 공기가 안좋아서야..";
 	next;
-	mes "[Khowropher]";
-	mes "I don't care if they keep";
-	mes "building more and more";
-	mes "factories and homes in this";
-	mes "town. Still, I'd like to spend";
-	mes "the rest of my life somewhere";
-	mes "quiet and with clean air...";
+	mes "[카우로퍼]";
+	mes "발전이고 뭐고 다 싫어..";
+	mes "그저 공기좋고 조용한 곳에서";
+	mes "여생을 보내고 싶구먼.";
 	next;
-	mes "[Khowropher]";
-	mes "Then again, Einbroch is my";
-	mes "hometown and I can't just up";
-	mes "and leave. I suppose it's my";
-	mes "fate to suffer from this foul air until the day I die. ^666666*Sigh...*^000000";
+	mes "[카우로퍼]";
+	mes "그래도 어쩌겠나. 살던데가";
+	mes "고향이라고 어디 가서 살";
+	mes "여건이 안되니... 에잉";
+	mes "그냥 죽는 날까지 여기서";
+	mes "호흡곤란으로 괴로워하며";
+	mes "살아가야지...";
+	next;
+	mes "[카우로퍼]";
+	mes "^666666쿨럭 쿨럭..^000000";
 	close;
 }
 
-einbroch,143,109,5	script	Khetine#ein	4_M_EINMAN,{
-	mes "[Khetine]";
-	mes "Lately, there's been";
-	mes "talk about this empty";
-	mes "building downtown that's";
-	mes "been converted into some";
-	mes "sort of mysterious facility.";
+einbroch,143,109,5	script	케틴#ein	4_M_EINMAN,{
+	mes "[케틴]";
+	mes "마을 아래 비어있는 빈 건물에";
+	mes "뭔가 특별한 시설이";
+	mes "들어온다는 것 같던데.";
+	mes "그것이 뭔지는 잘 모르겠고...";
 	next;
-	mes "[Khetine]";
-	mes "It all seems pretty";
-	mes "shady, but I guess it's";
-	mes "not really my job to know";
-	mes "about that. I mean, if it";
-	mes "doesn't affect me, why";
-	mes "should I be concerned?";
+	mes "[케틴]";
+	mes "뭐가 들어올지는 모르겠지만";
+	mes "왠지 나랑은 아무 관계가";
+	mes "없는 시설이 들어올 것 같군.";
+	next;
+	mes "[케틴]";
+	mes "신경쓰지 말아야지. 어차피";
+	mes "알아서 발전하는 마을인데";
+	mes "나같은 사람이 신경써서";
+	mes "뭐해?";
 	close;
 }
 
-einbroch,229,149,3	script	Sleik#ein	4_M_EINMAN2,{
-	mes "[Sleik]";
-	mes "Surprisingly, we have";
-	mes "a Train Station that everyone";
-	mes "has been calling a victory for";
-	mes "science. I mean, shouldn't we";
-	mes "be more amazed by the Airship?";
+einbroch,229,149,3	script	슬리크#ein	4_M_EINMAN2,{
+	mes "[슬리크]";
+	mes "우리 마을에는 놀랍게도";
+	mes "기차가 있지! 과학력의 승리란";
+	mes "이런 것을 말하는 것일 거야.";
+	mes "뭐? 어디로 이어져 있냐고?..";
 	next;
-	mes "[Sleik]";
-	mes "Now, if you want to know";
-	mes "where the train actually goes,";
-	mes "I wouldn't be able to tell you.";
-	mes "After all, I never rode it. But";
-	mes "still, I guess having our own";
-	mes "Train Station is a good thing.";
+	mes "[슬리크]";
+	mes "...글쎄, 이용해본 적은";
+	mes "없어서 모르겠는걸.";
+	next;
+	mes "[슬리크]";
+	mes "나는 기차가 있는 마을의";
+	mes "주민이라는 것 자체가";
+	mes "굉장히 자랑스러워.";
+	mes "괜히 으쓱하게 된다니까?";
 	close;
 }
 
-airport,174,41,6	script	Young Man#air	4W_M_03,{
-	mes "[Runnan]";
-	mes "...And that's why";
-	mes "I travel around the";
-	mes "globe. My bosses have";
-	mes "a keen eye for the most";
-	mes "exotic goods, so I acquire";
-	mes "them and make deliveries.";
+airport,174,41,6	script	청년#air	4W_M_03,{
+	mes "[룬안]";
+	mes "...그래서, 요새는 세계를";
+	mes "돌면서 요상한 물건들을";
+	mes "모아가지 않으면 안 되더라니까.";
+	mes "높으신 분들도 눈이 높아져서는";
+	mes "이제 별 괴상한 걸";
+	mes "다 구해오라 하시네. 허허 참.";
 	next;
-	mes "[Runnan]";
-	mes "There even was a time";
-	mes "when they had me collect";
-	mes "Jellopy, though that stuff is";
-	mes "pretty common nowadays.";
-	mes "Now that I think about it, why";
-	mes "did they need so much stuff?";
+	mes "[룬안]";
+	mes "이런 걸 보면 아마도";
+	mes "옛날엔 젤로피조차도";
+	mes "귀하게 모으지 않았나 해.";
+	mes "지금이야 흔해 빠졌지만.";
+	mes "근데 그 많은 걸 도대체";
+	mes "어디다 쓰지?";
 	close;
 }
 
-airport,176,41,4	script	Old Man#air	4_M_ORIENT01,{
-	mes "[Zhen Lan]";
-	mes "Now, I hear that the";
-	mes "monsters around here";
-	mes "carry around some ore";
-	mes "that dazzles with a sublimely";
-	mes "beautiful light. Neat, huh?";
+airport,176,41,4	script	아저씨#air	4_M_ORIENT01,{
+	mes "[진란]";
+	mes "...난 이쪽 동네 몬스터에";
+	mes "꽃병 재료로 쓰면 아주";
+	mes "화려한 빛을 낸다는 광물이";
+	mes "있단 얘기도 들었는걸.";
 	next;
-	mes "[Zhen Lan]";
-	mes "These ores are a great";
-	mes "material to use in making";
-	mes "flower vases. My friend, who";
-	mes "happens to be a dollmaker,";
-	mes "told me that. He makes these dolls using all sorts of materials.";
+	mes "[진란]";
+	mes "거기에만 쓰겠나?";
+	mes "내 친구 얘길 들어보니";
+	mes "지금 파는 인형은";
+	mes "손질한 동물가죽에 깃털을 넣고";
+	mes "사이파나 자르곤으로";
+	mes "눈을 박은 거라더군.";
 	next;
-	mes "[Zhen Lan]";
-	mes "He fashions them out of";
-	mes "Well-Tanned Leather, stuffs";
-	mes "them with Bird Feathers, and";
-	mes "uses Cyfar or Zargon to make";
-	mes "the eyes. He even uses a Jellopy at the bottom to balance the doll.";
+	mes "[진란]";
+	mes "거기다, 그렇게 만드는 인형은";
+	mes "무게중심을 잡아주기 위해서";
+	mes "인형 엉덩이쪽에 젤로피를";
+	mes "넣어줘야 한다는 거야.";
+	mes "핫핫핫!";
 	next;
-	mes "[Zhen Lan]";
-	mes "I guess that goes to show";
-	mes "that things that seem useless";
-	mes "might actually be handy in some";
-	mes "way. So don't worry about having too much stuff. Sooner or later, it might be useful to someone.";
+	mes "[진란]";
+	mes "많다고 고민하지 말라구.";
+	mes "결국은 다 어딘가에 쓰잖아.";
+	mes "우리같은 수집품 상인은";
+	mes "결국 창고 크기가";
+	mes "사업의 규모를 결정하지.";
+	mes "그렇지 않나?";
 	close;
 }
 
-ein_in01,113,211,3	script	Teinz#ein	4_M_REPAIR,{
-	mes "[Teinz]";
-	mes "If you just pay me money,";
-	mes "I'll be your slave! There's";
-	mes "nothing I won't do! Anything";
-	mes "is fair game. Hell, I'll get buck naked if you pay me enough.";
+ein_in01,113,211,3	script	타인스#ein	4_M_REPAIR,{
+	mes "[타인스]";
+	mes "돈을 벌자! 나는야 돈의";
+	mes "노예. 돈을 주면서 벗으라면";
+	mes "벗습니다! 돈앞에서는 언제든";
+	mes "비굴해질 수 있어!";
 	next;
-	mes "[Teinz]";
-	mes "If you pay me what I'm";
-	mes "worth, I'll work hard at";
-	mes "any task you set me to.";
-	mes "Sure, mining's rough, but";
-	mes "as long as the zeny's coming";
-	mes "in, I'm happy. Heh heh heh~";
+	mes "[타인스]";
+	mes "그러니 여기서 열심히";
+	mes "일해서 돈 많이 벌어야지.";
+	mes "조금 일은 고되지만 받게 될";
+	mes "돈을 생각하면 너무 좋아!";
+	mes "하아하아...";
 	close;
 }
 
-ein_in01,48,220,5	script	Lowe#ein	4_M_REPAIR,{
-	mes "[Lowe]";
-	mes "...";
-	mes "......";
+ein_in01,48,220,5	script	로우#ein	4_M_REPAIR,{
+	mes "[로우]";
+	mes "............";
+	mes "............";
+	mes "............";
 	next;
-	mes "[Lowe]";
-	mes "...";
-	mes "......";
-	mes ".........";
+	mes "[로우]";
+	mes "............";
+	mes "............";
+	mes "............";
 	next;
-	mes "[Lowe]";
-	mes "Hey. Why are you";
-	mes "looking at me like";
-	mes "that? There's no idle";
-	mes "chatting allowed at work.";
-	mes "If Canphotii catches";
-	mes "you, you'll be punished...";
+	mes "[로우]";
+	mes "업무시간에 잡담 금지.";
+	mes "잡담하는 것을 들키면";
+	mes "칸포티 주임에게 혼난다.";
 	next;
-	mes "[Lowe]";
-	mes "Oh wait...";
-	mes "You don't work here.";
-	mes "I apologize, that kind";
-	mes "of reaction's an old";
-	mes "habit for me, adventurer.";
+	mes "[로우]";
+	mes "이크. 쓸데없는 말을";
+	mes "하고 말았군. 실례.";
+	mes "가던 길 가시오.";
 	close;
 }
 
-ein_in01,87,237,5	script	Dinje#ein	4_F_EINWOMAN,{
-	mes "[Dinje]";
-	mes "Do you know why a woman";
-	mes "like me has to work in this";
-	mes "factory? I'll tell you why... ";
+ein_in01,87,237,5	script	딘제#ein	4_F_EINWOMAN,{
+	mes "[딘제]";
+	mes "남자들도 힘들어하는 공장일을";
+	mes "왜 나같은 여자가 하느냐!";
+	mes "당연한거 아냐? 남편쟁이가";
+	mes "제대로 돈을 벌어오지 못하기";
+	mes "때문이지 으흉!";
 	next;
-	mes "[Dinje]";
-	mes "My lazy husband, Gesin,";
-	mes "is just lying there on the";
-	mes "ground! So I have to work";
-	mes "in order to support us!";
+	mes "[딘제]";
+	mes "남편쟁이가 누구냐고? 누구긴";
+	mes "누구야... 저기 쓰러져있는";
+	mes "한심한 게신이라는 이름의";
+	mes "남자지! 어휴 한심해!";
 	next;
-	mes "[Dinje]";
-	mes "We can't rest for even";
-	mes "a second if we want to save";
-	mes "enough money to become";
-	mes "wealthy and powerful some";
-	mes "day. Don't you understand?";
+	mes "[딘제]";
+	mes "좀 더 높은 지위와 확실한";
+	mes "부를 얻기 위해서는 1초도";
+	mes "쉬어서는 안되! 끝까지 계속";
+	mes "일하며 돈을 모아서 부자가";
+	mes "되어야 한다구!";
 	next;
-	mes "[Dinje]";
-	mes "Well, my husband obviously";
-	mes "doesn't! How can he not know";
-	mes "how the real world works?!";
-	mes "Hey, kick his ass for me if";
-	mes "he doesn't wake up soon!";
+	mes "[딘제]";
+	mes "그런 생각을 이해 못하는";
+	mes "저런 한심한 남자놈...";
+	mes "아내인 나라도 힘내야지";
+	mes "어쩌겠어? 쯧쯧쯧...";
+	next;
+	mes "[딘제]";
+	mes "당신, 가다가 저 남자";
+	mes "엉덩이나 한대 걷어차고";
+	mes "가요. 도대체가 일어날";
+	mes "생각을 안하네.";
 	close;
 }
 
-ein_in01,84,218,3	script	Tsuen#ein	4_M_REPAIR,{
-	mes "[Tsuen]";
-	mes "There was a time";
-	mes "when I dreamed of";
-	mes "being an adventurer,";
-	mes "just like you. But that";
-	mes "was a long time ago...";
+ein_in01,84,218,3	script	츠엔#ein	4_M_REPAIR,{
+	mes "[츠엔]";
+	mes "내 꿈은 모험가였어. 그러나";
+	mes "지금은 이런 일개 공장장이";
+	mes "가 되어있지... 뭐 어쩔 수";
+	mes "없다는 느낌이랄까? 진짜";
+	mes "어릴 땐 꿈에 젖어있었는데.";
 	next;
-	mes "[Tsuen]";
-	mes "Now, I'm nothing but";
-	mes "a factory manager. Still,";
-	mes "even if my job's not that";
-	mes "great, I'm pretty satisfied.";
-	mes "I'm sure people enjoy the";
-	mes "products I oversee and all...";
+	mes "[츠엔]";
+	mes "지금의 삶도 나름대로 좋아.";
+	mes "비록 단순 노동이지만 내가";
+	mes "일을 해서 뭔가를 만들면";
+	mes "그 물건을 쓰는 사람들이";
+	mes "좋아할테니까... 그런걸";
+	mes "생각하면 기분이 좋아.";
 	next;
-	mes "[Tsuen]";
-	mes "Maybe my life was meant";
-	mes "to be this way, even if it's";
-	mes "not how I planned it. But the";
-	mes "time will come when I up and";
-	mes "leave and travel the world";
-	mes "once I get my chance!";
+	mes "[츠엔]";
+	mes "그래도 내가 진정으로";
+	mes "원했던 것은 이게 아닌데";
+	mes "끙... 나중에 기회가 되면";
+	mes "반드시 모험을 떠나겠어!";
 	next;
-	mes "[Tsuen]";
-	mes "I hope the day will";
-	mes "come when I can meet";
-	mes "you out in that big wide";
-	mes "world and greet you as";
-	mes "a fellow adventurer.";
+	mes "[츠엔]";
+	mes "모험은 좋은 느낌이겠지?";
+	mes "언젠가 내가 모험가가 되서";
+	mes "자네와 모험길에서 만날";
+	mes "수 있으면 좋겠군.";
+	mes "그렇지?";
 	close;
 }
 
-ein_in01,103,239,1	script	Gesin#ein	4_M_DIEMAN,{
-	mes "[Gesin]";
-	mes "Arrrgh!";
-	mes "This is killing me!";
-	mes "Why should I be rich?";
-	mes "What's wrong with living";
-	mes "within our means?";
+ein_in01,103,239,1	script	게신#ein	4_M_DIEMAN,{
+	mes "[게신]";
+	mes "으으으... 아이고 죽겠다.";
+	mes "도대체가 적당히 일하고";
+	mes "자기 분수에 맞게 살면되지";
+	mes "뭔 부와 명예람? 으으...";
 	next;
-	mes "[Gesin]";
-	mes "I've got no problem";
-	mes "with my current way";
-	mes "of life, but the old ball";
-	mes "and chain disagrees.";
-	mes "Why is she so obsessed";
-	mes "with riches and power?";
+	mes "[게신]";
+	mes "지금도 충분히 잘 살고";
+	mes "있다고 생각하는데 아내는";
+	mes "그게 아닌지 자꾸 자기도";
+	mes "일하겠다고... 도대체가";
+	mes "왜 그렇게 부와 명예에";
+	mes "집착하는지 몰라...";
 	next;
-	mes "[Gesin]";
-	mes "Well, in any case, I'd";
-	mes "like to help her, but I can't";
-	mes "get up! I'm exhausted and";
-	mes "my body is just overtaxed.";
-	mes "I have no strength at all.";
+	mes "[게신]";
+	mes "그보다,이해는 둘째치고";
+	mes "지금 중요한건 몸에 힘이";
+	mes "없어서 일어날 수가";
+	mes "없다는게 가장 큰 문제군.";
 	next;
-	mes "[Gesin]";
-	mes "This is horrible~";
-	mes "I should be resting";
-	mes "instead of worrying";
-	mes "about making money...";
+	mes "[게신]";
+	mes "으으으... 사람살려...";
+	mes "돈도 좋지만 좀 쉬게해줘..";
 	close;
 }
 
-ein_in01,33,275,1	script	Pevtatin#ein	4_M_EINMINER,{
-	mes "[Pevtatin]";
-	mes "Good god!";
-	mes "I'm so stressed!";
-	mes "It's been nonstop";
-	mes "since I moved here!";
+ein_in01,33,275,1	script	펩타틴#ein	4_M_EINMINER,{
+	mes "[펩타틴]";
+	mes "에이씨! 여기 일은 재미도";
+	mes "없고 상관은 시비만 걸고";
+	mes "이게 뭐야! 난 이런걸";
+	mes "하려고 이 마을에 온 것이";
+	mes "아니야!";
 	next;
-	mes "[Pevtatin]";
-	mes "The work is tough and";
-	mes "already the boss hates";
-	mes "me! I didn't move here";
-	mes "for this! Still, the pay is";
-	mes "decent so I guess I should";
-	mes "endure just a little longer.";
+	mes "[펩타틴]";
+	mes "하지만 돈은 벌리니까 어디";
+	mes "나갈 수도 없고... 에이";
+	mes "승질나! 벽치면서 화풀이나";
+	mes "해서 참아야지.";
 	next;
-	mes "[Pevtatin]";
-	mes "Here goes...!";
-	mes "Yo-heave-ho!";
-	mes "Yo-heave-ho~!";
+	mes "[펩타틴]";
+	mes "호이차~! 호이차~! 척퍽!";
 	close;
 }
 
-ein_in01,36,204,3	script	Rombell#ein	4_M_REPAIR,{
-	mes "[Rombell]";
-	mes "It's great that the";
-	mes "factory is making good";
-	mes "business and drawing";
-	mes "in a lot of profit, but I still";
-	mes "have one major concern.";
+ein_in01,36,204,3	script	롬벨#ein	4_M_REPAIR,{
+	mes "[롬벨]";
+	mes "공장이 잘 돌아가는 것은";
+	mes "좋지만... 참 뭐라고 해야";
+	mes "할지 상당히 걱정되네요.";
 	next;
-	mes "[Rombell]";
-	mes "The amount of pollution";
-	mes "that this place is causing";
-	mes "is horrific! We've got these";
-	mes "machines blowing out toxic";
-	mes "gas all day long! The air";
-	mes "can't be safe for very long...";
+	mes "[롬벨]";
+	mes "네? 뭐가 걱정되냐구요?";
+	mes "아... 공기오염입니다.";
+	mes "이렇게 이상한 연기를 내뿜는";
+	mes "기계가 잔뜩 있는데다가 종일";
+	mes "쉬지도 않고 움직여대니";
+	mes "공기도 많이 나빠지겠지요.";
 	next;
-	mes "[Rombell]";
-	mes "I mean, the air we're";
-	mes "breathing right now is";
-	mes "pretty foul and things";
-	mes "are only going to get";
-	mes "worse. How can we";
-	mes "solve this problem?";
+	mes "[롬벨]";
+	mes "안그래도 이 마을은 공기가";
+	mes "나쁜데, 마을의 이런 상황을";
+	mes "더더욱 나쁘게 하는 것이";
+	mes "아닐지... 정말 걱정이에요.";
+	next;
+	mes "[롬벨]";
+	mes "휴우... 뭐 어떻게 할 방법이";
+	mes "없을까요?";
 	close;
 }
 
-ein_in01,64,271,3	script	Vonstein#ein	4_M_EINMAN,{
-	mes "[Vonstein]";
-	mes "Staring at this";
-	mes "bubbling hot liquid";
-	mes "metal gives me a good";
-	mes "feeling inside. It's like";
-	mes "that stuff can melt anything!";
+ein_in01,64,271,3	script	폰스타인#ein	4_M_EINMAN,{
+	mes "[폰스타인]";
+	mes "뜨겁게 달아오르는 마그마.";
+	mes "저것을 보고 있으면 괜스레";
+	mes "기분이 좋단 말이야? 왠지";
+	mes "세상의 모든 것을 녹일 수";
+	mes "있을 것 같은 힘이 느껴져.";
 	next;
-	mes "[Vonstein]";
-	mes "Imagine covering an";
-	mes "entire street of people";
-	mes "with that stuff! Bwahah--";
-	mes "Oh, I'm sorry if I'm talking";
-	mes "crazy talk! I'm just kidding~";
+	mes "[폰스타인]";
+	mes "언젠가 이 마그마가 거리를";
+	mes "뒤덮게 된다면... 흐 흐 흐.";
+	mes "아 이런, 헛소리를 했군.";
+	mes "농담이야. 잊어주라.";
 	close;
 }
 
-ein_in01,49,202,3	script	Dorf#ein	4_M_REPAIR,{
-	mes "[Dorf]";
-	mes "Machines are sooo";
-	mes "convenient. Just look";
-	mes "at this contraption easily";
-	mes "do tasks that'd be tough";
-	mes "for me to finish alone.";
+ein_in01,49,202,3	script	도프#ein	4_M_REPAIR,{
+	mes "[도프]";
+	mes "역시 기계는 편리해. 사람이";
+	mes "하면 매우 힘든 일을 저렇게";
+	mes "간단히 해주니까 말이야.";
+	mes "이거야말로 정말 선진문명";
+	mes "아니겠어?";
 	next;
-	mes "[Dorf]";
-	mes "Now this is what";
-	mes "I call technology!";
-	mes "Sure, it takes effort and";
-	mes "money to make one of";
-	mes "these, but what do I care?";
+	mes "[도프]";
+	mes "하지만 저런거 하나 만들기도";
+	mes "상당한 자금과 노력이 필요할";
+	mes "텐데... 내가 알바는 아니지만";
+	mes "말이지.";
 	next;
-	mes "[Dorf]";
-	mes "I've got no problems,";
-	mes "so long as this freaking";
-	mes "thing keeps working the";
-	mes "way I want it to!";
+	mes "[도프]";
+	mes "내 입장에서는 그저 저 기계가";
+	mes "잘 돌아가기만 하면 그 것으로";
+	mes "오케이야. 만사 오케이!";
 	close;
 }
 
-ein_in01,68,209,5	script	Khashurantze#ein	4_M_EIN_SOLDIER,{
-	mes "[Khashurantze]";
-	mes "I'm sorry, but you need";
-	mes "special authority in order";
-	mes "to enter this place. I'll have";
-	mes "to ask you to leave right now.";
+ein_in01,68,209,5	script	카슈란체#ein	4_M_EIN_SOLDIER,{
+	mes "[카슈란체]";
+	mes "나는 이 곳의 경비담당.";
+	mes "당신같은 일반인이 올";
+	mes "곳이 아닙니다. 당신에겐";
+	mes "이 곳에 올 이유가 없으니";
+	mes "조속히 나가주십시오.";
 	close2;
 	warp "einbroch",179,63;
 	end;
 }
 
-ein_in01,85,261,3	script	Zherin#ein	4_M_REPAIR,{
-	mes "[Zherin]";
-	mes "I'm in charge of this";
-	mes "blast furnace which";
-	mes "contains all of this";
-	mes "boiling magma.";
+ein_in01,85,261,3	script	제린#ein	4_M_REPAIR,{
+	mes "[제린]";
+	mes "저는 여기서 저 용광로의";
+	mes "마그마의 상태를 관리하는";
+	mes "일을 하고 있습니다. 비록";
+	mes "바쁜 일은 아니지만 신경을";
+	mes "많이 써야하기 때문에 꽤나";
+	mes "피곤한 일이지요.";
 	next;
-	mes "[Zherin]";
-	mes "Even though it doesn't";
-	mes "require actual labor, this";
-	mes "job is pretty tiring. I've got";
-	mes "to pay careful attention all";
-	mes "the time. It's pretty stressful.";
+	mes "[제린]";
+	mes "하지만 나름대로 이 것도";
+	mes "꽤 할만합니다. 제 덕분에";
+	mes "우리 공장 노동자 가족들이";
+	mes "안전하게 일을 할 수 있다고";
+	mes "생각하면 참 뿌듯하고";
+	mes "자부심을 느껴요.";
 	next;
-	mes "[Zherin]";
-	mes "Still, I'm proud of my job";
-	mes "since I have the responsibility";
-	mes "of ensuring employee safety.";
-	mes "Anyway, don't get too close";
-	mes "to the furnace. It won't do if";
-	mes "you get burned on accident!";
+	mes "[제린]";
+	mes "자 자 멀리 떨어져요 비켜요!";
+	mes "가까이 다가왔다가 뜨거운";
+	mes "이 마그마가 흘러내리기라도";
+	mes "하면 전 책임 못져요!";
 	close;
 }
 
-ein_in01,43,252,3	script	Canphotii#ein	4_M_EIN_SOLDIER,{
-	mes "[Canphotii]";
-	mes "Hustle, hustle!";
-	mes "Pick up the pace!";
-	mes "Anyone working too";
-	mes "slowly will be punished!";
+ein_in01,43,252,3	script	칸포티#ein	4_M_EIN_SOLDIER,{
+	mes "[칸포티]";
+	mes "어서 꾸물대지 말고 일을";
+	mes "하도록 하여라. 한";
+	mes "놈이라도 꾸물대는 놈이";
+	mes "있으면 언제든지 달려가서";
+	mes "기합을 주입시켜 줄 것이다.";
 	next;
-	mes "[Canphotii]";
-	mes "Can't you understand";
-	mes "that?! Now go to your";
-	mes "station and get back to";
-	mes "work! Wait, are you even";
-	mes "an employee? If not, then";
-	mes "stop wandering around!";
+	mes "[칸포티]";
+	mes "알았으면 너도 어서 자리로";
+	mes "가서 하던 일 마저 하도록.";
+	mes "...인데 자네, 이 공장의";
+	mes "사람이 아니군? 괜히 일도";
+	mes "없이 공장 내부 왔다갔다";
+	mes "하지말고 나가게나.";
 	next;
-	mes "[Canphotii]";
-	mes "You're not supposed";
-	mes "to be able to get in here!";
-	mes "I can't believe they let you";
-	mes "in! This requires extreme";
-	mes "disciplinary action!";
+	mes "[칸포티]";
+	mes "일반인을 여기까지 들어오게";
+	mes "하다니 이놈들이 아주";
+	mes "기합이 빠질대로 빠졌군.";
 	close;
 }
 
-ein_in01,206,224,3	script	Hotel Employee#ein	4_M_EINMAN,{
-	mes "[Hotel Employee]";
-	mes "Good day, welcome to the";
-	mes "Einbroch Hotel. The staff is";
-	mes "always striving to accomodate";
-	mes "our guests with the highest";
-	mes "standards in cleanliness,";
-	mes "service and convenience~";
+ein_in01,206,224,3	script	호텔 직원#ein	4_M_EINMAN,{
+	mes "[호텔 직원]";
+	mes "안녕하세요-";
+	mes "저희 업소는 청결 친절 행복의 3가지 항목을 모토로, 언제나 손님들의 편안한 휴식을 위해 노력하는 아인브로크 최고의 모범 업소입니다.";
 	next;
 	if (kain_ticket == 5) {
 		mes "[Hotel Employee]";
@@ -816,23 +716,21 @@ ein_in01,206,224,3	script	Hotel Employee#ein	4_M_EINMAN,{
 		next;
 	}
 	else {
-		switch(select("Save:Take Rest - 5,000 zeny:Cancel")) {
+		switch(select("저장한다:쉬고간다 - 5000z:그만둔다")) {
 		case 1:
-			mes "[Hotel Employee]";
-			mes "Your Respawn Point";
-			mes "has been saved here";
-			mes "in the Einbroch Hotel.";
-			mes "Thank you, and please";
-			mes "come again.";
+			mes "[호텔 직원]";
+			mes "네, 이 곳으로 저장되었습니다.";
+			mes "이용해 주셔서 감사합니다.";
+			next;
+			mes "[호텔 직원]";
+			mes "그럼 부디 즐거운 하루, 편안한 하루 되시길 바랍니다.";
 			close2;
 			savepoint "ein_in01",200,224;
 			end;
 		case 2:
 			if (Zeny > 4999) {
-				mes "[Hotel Employee]";
-				mes "Thank you.";
-				mes "Please enjoy";
-				mes "your rest~";
+				mes "[호텔 직원]";
+				mes "편히 쉬세요.";
 				close2;
 				Zeny -= 5000;
 				percentheal 100,100;
@@ -840,141 +738,130 @@ ein_in01,206,224,3	script	Hotel Employee#ein	4_M_EINMAN,{
 				end;
 			}
 			else {
-				mes "[Hotel Employee]";
-				mes "I'm sorry, but the";
-				mes "acommodation fee is";
-				mes "5,000 zeny. Next time,";
-				mes "please make sure that you";
-				mes "bring enough zeny, okay?";
+				mes "[호텔 직원]";
+				mes "지불하실 요금이 부족합니다.";
+				mes "지불하실 요금은 5000 제니 입니다.";
 				close;
 			}
 		case 3:
-			mes "[Hotel Employee]";
-			mes "Thank you and";
-			mes "please come again~";
+			mes "[호텔 직원]";
+			mes "또 찾아주세요~";
 			close;
 		}
 	}
-	mes "[Hotel Employee]";
-	mes "Have a good day.";
+	mes "[호텔 직원]";
+	mes "또 찾아주세요~";
 	close;
 }
 
-einbroch,244,255,5	script	Bulletin Board#ein1	4_BULLETIN_BOARD2,{
+einbroch,244,255,5	script	표지판#ein1	4_BULLETIN_BOARD2,{
 	mes " ";
-	mes " Train Station ";
-	mes " ";
-	close;
-}
-
-einbroch,253,203,5	script	Bulletin Board#ein2	4_BULLETIN_BOARD2,{
-	mes " ";
-	mes " Hotel ";
+	mes " 기차역 ";
 	mes " ";
 	close;
 }
 
-einbroch,68,206,5	script	Bulletin Board#ein3	4_BULLETIN_BOARD2,{
+einbroch,253,203,5	script	표지판#ein2	4_BULLETIN_BOARD2,{
 	mes " ";
-	mes " Airship Airport ";
-	mes " ";
-	close;
-}
-
-einbroch,90,84,5	script	Bulletin Board#ein4	4_BULLETIN_BOARD2,{
-	mes " ";
-	mes " Laboratory ";
+	mes " 호텔 ";
 	mes " ";
 	close;
 }
 
-einbroch,101,106,5	script	Bulletin Board#ein5	4_BULLETIN_BOARD2,{
+einbroch,68,206,5	script	표지판#ein3	4_BULLETIN_BOARD2,{
 	mes " ";
-	mes " Airship Repair Shop ";
-	mes " ";
-	close;
-}
-
-einbroch,220,208,5	script	Bulletin Board#ein6	4_BULLETIN_BOARD2,{
-	mes " ";
-	mes " Weapon Shop ";
+	mes " 비공정 공항 ";
 	mes " ";
 	close;
 }
 
-einbroch,132,76,5	script	Bulletin Board#ein7	4_BULLETIN_BOARD2,{
+einbroch,90,84,5	script	표지판#ein4	4_BULLETIN_BOARD2,{
 	mes " ";
-	mes " Factory ";
+	mes " 연구소 ";
 	mes " ";
 	close;
 }
 
-einbroch,152,46,5	script	Bulletin Board#ein11	4_BULLETIN_BOARD2,{
-	mes "West - Laboratory, Airship Repair Shop";
-	mes "South - Einbroch Front Gate";
-	mes "North - Airport";
-	mes "Northeast - Train Station, Hotel, Weapon Shop";
+einbroch,101,106,5	script	표지판#ein5	4_BULLETIN_BOARD2,{
+	mes " ";
+	mes " 비공정 수리소 ";
+	mes " ";
 	close;
 }
 
-einbroch,235,141,5	script	Bulletin Board#ein22	4_BULLETIN_BOARD2,{
-	mes "Southwest - Airship Repair Shop, Laboratory";
-	mes "Northwest - Airport";
-	mes "North - Weapon Shop, Hotel, Train Station";
+einbroch,220,208,5	script	표지판#ein6	4_BULLETIN_BOARD2,{
+	mes " ";
+	mes " 무기점 ";
+	mes " ";
 	close;
 }
 
-einbroch,162,256,5	script	Bulletin Board#ein33	4_BULLETIN_BOARD2,{
-	mes "East - Train Station";
-	mes "Southeast - Hotel";
-	mes "South - Weapon Shop,Factory";
-	mes "Southwest - Airport, Airship Repair Shop, Laboratory";
+einbroch,132,76,5	script	표지판#ein7	4_BULLETIN_BOARD2,{
+	mes " ";
+	mes " 공장 ";
+	mes " ";
 	close;
 }
 
-einbroch,183,174,5	script	Bulletin Board#ein44	4_BULLETIN_BOARD2,{
-	mes "East - Weapon Shop, Hotel";
-	mes "South - Factory";
-	mes "Southwest - Airship Repair Shop, Laboratory";
-	mes "Northwest - Airport";
+einbroch,152,46,5	script	표지판#ein11	4_BULLETIN_BOARD2,{
+	mes "서 - 연구소, 비공정 수리소";
+	mes "남 - 아인브로크 입구";
+	mes "북 - 공항";
+	mes "북동 - 기차역, 호텔, 무기점";
 	close;
 }
 
-einbroch,104,202,5	script	Bulletin Board#ein55	4_BULLETIN_BOARD2,{
-	mes "Northeast - Train Station";
-	mes "East - Weapon Shop,Hotel";
-	mes "South - Airship Repair Shop, Laboratory";
+einbroch,235,141,5	script	표지판#ein22	4_BULLETIN_BOARD2,{
+	mes "남서 - 비공정 수리소, 연구소";
+	mes "북서 - 공항";
+	mes "북 - 무기점, 호텔, 기차역";
 	close;
 }
 
-ein_in01,31,217,3	script	Cendadt#ein	4_M_REPAIR,{
-	mes "[Cendadt]";
-	mes "This factory has a lot";
-	mes "of things that need fixing,";
-	mes "pronto! I'm amazed that";
-	mes "the place is still operating!";
+einbroch,162,256,5	script	표지판#ein33	4_BULLETIN_BOARD2,{
+	mes "동 - 기차역";
+	mes "남동 - 호텔";
+	mes "남 - 무기점,공장";
+	mes "남서 - 공항, 비공정 수리소, 연구소";
+	close;
+}
+
+einbroch,183,174,5	script	표지판#ein44	4_BULLETIN_BOARD2,{
+	mes "동 - 무기점, 호텔";
+	mes "남 - 공장";
+	mes "남서 - 비공정 수리소, 연구소";
+	mes "북서 - 공항";
+	close;
+}
+
+einbroch,104,202,5	script	표지판#ein55	4_BULLETIN_BOARD2,{
+	mes "북동 - 기차역";
+	mes "동 - 무기점,호텔";
+	mes "남 - 비공정 수리소, 연구소";
+	close;
+}
+
+ein_in01,31,217,3	script	센다트#ein	4_M_REPAIR,{
+	mes "[센다트]";
+	mes "정말 이 공장은 물자가 많이";
+	mes "부족합니다. 지금 제대로";
+	mes "돌아가는 것이 신기할";
+	mes "지경이라니까요.";
 	next;
-	mes "[Cendadt]";
-	mes "Lucky for us, I hear that";
-	mes "some altruistic adventurers";
-	mes "have been donating materials";
-	mes "to help keep this factory from";
-	mes "falling apart... Or worse.";
-	mes "But that's just a rumor.";
+	mes "[센다트]";
+	mes "예전에 어떤 사람들은 몬스터를";
+	mes "물리치고 나온 전리품으로";
+	mes "공장 물자를 충당했다던데...";
+	mes "진짠지 아닌지 모르겠네요.";
 	next;
-	mes "[Cendadt]";
-	mes "^666666*Sigh*^000000";
-	mes "Even if it is true,";
-	mes "there's nothing no one";
-	mes "here can do. Nobody has";
-	mes "the courage to challenge";
-	mes "the system, you know?";
+	mes "[센다트]";
+	mes "만약 이 소문이 진짜라면...";
+	mes "에휴. 진짜라도 어떻게 할 수가";
+	mes "없겠군요. 몬스터와 싸울 정도로";
+	mes "강한 사람이 우리 공장엔";
+	mes "없으니.";
 	next;
-	mes "[Cendadt]";
-	mes "I...";
-	mes "I better get";
-	mes "back to work";
-	mes "before I get";
-	mes "in trouble...";
+	mes "[센다트]";
+	mes "일이나 해야겠어요...휴우.";
 	close;
 }
