@@ -13,6 +13,7 @@
 //= - GM Management NPC (disabled by default)
 //= - Badge Exchanger (Tierra and Flavius)
 //===== Additional Comments: =================================
+//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Updated several NPCs to Official.
 //= 1.2 Updated Repairman NPC
@@ -22,153 +23,97 @@
 
 // Generals
 //============================================================
-bat_room,161,158,3	script	Gen. Guillaume's Aide#01	4_M_KY_HEAD,{ end; }
-bat_room,161,160,3	script	Gen. Guillaume's Aide#03	4_M_KY_HEAD,{ end; }
-
-bat_room,160,141,3	script	Prince Croix	4_M_CRU_CRUA,{
-	cutin "bat_crua1",2;
-	mes "[Prince Croix]";
-	mes "Wise adventurer, why don't you lend us your power for victory?";
-	next;
-	switch(select("What's the reason for the Battle?:Tell me about General Guillaume")) {
-	case 1:
-		cutin "bat_crua2",2;
-		mes "[Prince Croix]";
-		mes "Maroll's great king, Marcel Marollo VII, is very sick lately.";
-		mes "His Majesty has declared that he will be leaving the future of Maroll to me or the 3rd prince, General Guillaume.";
-		next;
-		mes "[Prince Croix]";
-		mes "General Guillaume may have an advantage in this battle as he is the great general of Maroll, but that doesn't automatically mean he'll win.";
-		mes "I want to win this battle so that I can bring prosperity to the people of Maroll. They've suffered enough from war...";
-		next;
-		switch(select("Yes, I want to join you.:End Conversation")) {
-		case 1:
-			cutin "bat_crua1",2;
-			mes "[Prince Croix]";
-			mes "Thank you so much. I feel like I can win with the help of adventurers like you.";
-			mes "Now, please go downstairs and join your comrades in sharpening their skills to fight the enemy!";
-			break;
-		case 2:
-			mes "[Prince Croix]";
-			mes "For Maroll!";
-			break;
-		}
-		break;
-	case 2:
-		cutin "bat_crua2",2;
-		mes "[Prince Croix]";
-		mes "The 3rd Prince Guillaume is the great general of Maroll.";
-		mes "It's a waste of time to explain to you how great a leader or warlord he is, since he commands the great military power of Maroll.";
-		next;
-		mes "[Prince Croix]";
-		mes "Unfortunately, there's something he and his followers are unaware of:";
-		mes "Do the people of Maroll really want them to spend so much money on military power?";
-		mes "We have suffered enough from wars.";
-		mes "I believe weapons aren't the best way to bring prosperity to a nation.";
-		next;
-		mes "[Prince Croix]";
-		mes "I do not wish to shed blood, but I have no choice but to fight for the possibility of peace and for the sake of my people.";
-		next;
-		switch(select("Yes, I want to join you.:End Conversation")) {
-		case 1:
-			cutin "bat_crua1",2;
-			mes "[Prince Croix]";
-			mes "Thank you so much. I feel like I can win with the help of adventurers like you.";
-			mes "Now, please go downstairs and join your comrades in sharpening their skills to fight the enemy!";
-			break;
-		case 2:
-			mes "[Prince Croix]";
-			mes "For Maroll!";
-			break;
-		}
-		break;
-	}
-	close2;
-	cutin "bat_crua1",255;
-	cutin "bat_crua2",255;
-	end;
-}
-
-bat_room,161,140,3	script	Prince Croix's Aide#01	4_M_CRU_HEAD,{ end; }
-bat_room,161,142,3	script	Prince Croix's Aide#02	4_M_CRU_HEAD,{ end; }
-
-bat_room,160,159,3	script	General Guillaume	4_M_KY_KIYOM,{
+bat_room,160,159,3	script	장군 기욤 마롤로	4_M_KY_KIYOM,{
 	cutin "bat_kiyom2",2;
-	mes "[General Guillaume]";
-	mes "Hot-blooded adventurer, we need your ability to win this battle.";
+	mes "[기욤 마롤로]";
+	mes "혈기왕성한 모험가여, 우리들은 그대의 잠재된 능력을 필요로 하고 있다.";
 	next;
-	switch(select("What's the reason for the Battle?:Tell me about Prince Croix")) {
+	switch(select("전투의 이유에 대하여:크루아 마롤로에 대하여")) {
 	case 1:
 		cutin "bat_kiyom1",2;
-		mes "[General Guillaume]";
-		mes "Our great king, Marcel Marollo VII, is very sick lately.";
-		mes "His Majesty has declared that he has chosen either me or Prince Croix as the next king amongst his 9 sons.";
+		mes "[기욤 마롤로]";
+		mes "우리들의 고귀하신 폐하, 마르셀 마롤로 7세의 건강이 위독하시다.";
+		mes "폐하는 우리 9명의 왕자들 중 나와 크루아에게 왕위 계승의 뜻을 밝히셨지.";
 		next;
-		mes "[General Guillaume]";
-		mes "Two kings can't share a nation! Only the one victorious from His Majesty's appointed battle will be enthroned.";
+		mes "[기욤 마롤로]";
+		mes "하지만 두 명의 왕이 있을 수는 없는 법! 폐하께서 지목하신 전장에서 승리를 거둔 자만이 이 나라의 통치권을 쥐게되는 것이다.";
 		next;
-		mes "[General Guillaume]";
-		mes "This is, however, not just a battle between us. This battle will determine the future of this country.";
-		mes "I pledge on my honor to prove that I'm the one who can protect this Maroll from outside threats.";
-		next;
-		switch(select("Yes, I want to join you.:End Conversation")) {
-		case 1:
-			cutin "bat_kiyom2",2;
-			mes "[General Guillaume]";
-			mes "Welcome to my army, comrade.";
-			mes "Your eyes tell me that you're a soldier that I can trust.";
-			next;
-			mes "[General Guillaume]";
-			mes "Now, go upstairs and apply for battle with your comrades.";
-			mes "I'm sure they'll welcome you whole-heartedly!";
-			break;
-		case 2:
-			mes "[General Guillaume]";
-			mes "I'll be the one who will capture the flag!";
-			break;
-		}
+		mes "[기욤 마롤로]";
+		mes "이것은 이미 우리들만의 싸움이 아니야. 이 전투의 결과에 따라 이 나라의 미래가 뒤흔들릴터.";
+		mes "장군의 명예를 걸고 마롤로를 외부의 위협으로부터 안전하게 지켜낼 수 있는 사람은 나라는 걸 증명해 보이겠어.";
 		break;
 	case 2:
 		cutin "bat_kiyom1",2;
-		mes "[General Guillaume]";
-		mes "The 5th Prince Croix is currently titled as the Prime Minister of Maroll.";
-		mes "He thinks all national matters of a nation can be discussed and determined on a desk,";
-		mes "and believes in peaceful co-existence with other countries.";
+		mes "[기욤 마롤로]";
+		mes "제 5왕자 크루아 마롤로는 현재 마롤의 집사장관을 맡고 있는 자이지.";
+		mes "국가의 정세, 위상이라는 것이 책상에만 앉아 처리할 수 있을 만큼 호락호락한 줄 아나?";
 		next;
-		mes "[General Guillaume]";
-		mes "He's too ignorant to admit that so-called peace is built on countless lives that are sacrificed in wars while normal citizens and upper classes can live, oblivious to the horrors that allow them to live that way.";
+		mes "[기욤 마롤로]";
+		mes "거기다 평화 정책이라고?";
+		mes "하하! 평화로운 세상을 유지하기 위해 보이지 않는 곳에서 얼마나 많은 이가 피를 흘려야 하는지 그 녀석은 모르는가 보군.";
 		next;
-		mes "[General Guillaume]";
-		mes "He's too naive to understand the reality....";
-		mes "I can't leave Maroll to someone like him who lives in a dream!";
+		mes "[기욤 마롤로]";
+		mes "그 녀석은 우물 안 개구리일 뿐인 애송이야.";
+		mes "평화 밖에 모르는 철부지 크루아에게 마롤을 맡길 수는 없다.";
 		next;
-		mes "[General Guillaume]";
-		mes "His unrealistic beliefs will drown this country in poverty and make the people weak. If he becomes the king, Maroll will never rest from the onslaughts of other countries.";
-		mes "I want to teach him what makes this small country so powerful and prosperous. It's military power!";
-		next;
-		switch(select("I want to join your army!:End Conversation")) {
-		case 1:
-			cutin "bat_kiyom2",2;
-			mes "[General Guillaume]";
-			mes "Welcome to my army, comrade.";
-			mes "Your eyes tell me that you're a soldier that I can trust.";
-			next;
-			mes "[General Guillaume]";
-			mes "Now, go upstairs and apply for battle from your comrades.";
-			mes "I'm sure they'll welcome you whole-heartedly!";
-			break;
-		case 2:
-			mes "[General Guillaume]";
-			mes "I'll be the one who will capture the flag!";
-			break;
-		}
+		mes "[기욤 마롤로]";
+		mes "그 녀석의 안이한 생각은 나라를 가난하게 만들고 국민들을 약해 빠지게 만들며, 점차 주변 국가들의 멋잇감으로 만들 뿐이다.";
+		mes "이 작은 땅덩이를 가진 마롤이 이만큼 번창 할 수 있었던 것은 강대한 군사력이 뒷받침 되었기 때문이다.";
 		break;
 	}
+	next;
+	mes "[기욤 마롤로]";
+	mes "나는 반드시 승리의 깃발을 거머쥘 것이다!";
 	close2;
-	cutin "bat_kiyom1",255;
-	cutin "bat_kiyom2",255;
+	cutin "",255;
 	end;
 }
+
+bat_room,161,158,3	script	기욤 보좌관#01	4_M_KY_HEAD,{ end; }
+bat_room,161,160,3	script	기욤 보좌관#03	4_M_KY_HEAD,{ end; }
+
+bat_room,160,141,3	script	크루아 마롤로	4_M_CRU_CRUA,{
+	cutin "bat_crua1",2;
+	mes "[크루아 마롤로]";
+	mes "지혜로운 모험가시여, 우리에게 당신의 그 힘을 빌려주시지 않겠습니까?";
+	next;
+	switch(select("전투의 이유에 대하여:기욤 마롤로에 대하여")) {
+	case 1:
+		cutin "bat_crua2",2;
+		mes "[크루아 마롤로]";
+		mes "마롤의 위대한 국왕 마르셀 마롤로 7세의 용태가 매우 좋지 않은 상황입니다.";
+		mes "폐하께선 제 3왕자 기욤 마롤로 장군과 저 중 한명에게 마롤의 미래를 맡기겠다 하셨습니다.";
+		next;
+		mes "[크루아 마롤로]";
+		mes "전투는 이미 마롤의 장군으로 활약중인 기욤 마롤로에게 유리하다 할 수 있을지 모르겠으나, 그렇다고 질 생각은 결코 없습니다.";
+		mes "저는 이 승부에서 반드시 이겨, 마롤의 국민들을 전쟁의 상처에서 구해낼 것입니다.";
+		break;
+	case 2:
+		cutin "bat_crua2",2;
+		mes "[크루아 마롤로]";
+		mes "제 3왕자 기욤 마롤로는 마롤의 장군입니다.";
+		mes "강력한 군사력을 자랑하는 마롤의 장군이니만큼 그의 전투에 대한 지휘력과 무예 능력은 설명할 필요도 없죠.";
+		next;
+		mes "[크루아 마롤로]";
+		mes "그러나 마롤의 군사력에 의지하는 자들이 간과하고 있는게 있습니다.";
+		mes "과연 백성들도 그 군사력을 원하는가?";
+		mes "그 동안 마롤의 국민들은 수많은 전쟁으로 상처 받아 왔습니다.";
+		mes "강한 칼날은 언젠가 부서지기 마련입니다.";
+		next;
+		mes "[크루아 마롤로]";
+		mes "저는 피를 흘리는 것이 싫지만 더 이상 많은 피를 흘리지 않기 위해 이번만큼은 절대 지지 않겠습니다.";
+		break;
+	}
+	next;
+	mes "[크루아 마롤로]";
+	mes "마롤을 위하여!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+bat_room,161,140,3	script	크루아 보좌관#01	4_M_CRU_HEAD,{ end; }
+bat_room,161,142,3	script	크루아 보좌관#02	4_M_CRU_HEAD,{ end; }
 
 // Flags
 //============================================================
@@ -179,69 +124,69 @@ bat_room,160,159,3	script	General Guillaume	4_M_KY_KIYOM,{
 
 // BattleGround Warper
 //============================================================
-bat_room,148,150,5	script	Teleporter#Battlefield	4_F_TELEPORTER,{
-	mes "[Teleporter]";
-	mes "Do you wish to leave the battlefield? Use my services to return to town.";
+bat_room,148,150,5	script	공간이동사#Battlefield	4_F_TELEPORTER,{
+	mes "[공간이동사]";
+	mes "이곳을 벗어나고 싶으십니까? 저를 통해 당신이 머물렀던 곳으로 다시 돌아가실 수 있습니다.";
 	next;
-	switch(select("Leave:Don't Leave")) {
+	switch(select("마을로 돌아간다.:돌아가지 않는다.")) {
 	case 1:
-		mes "[Teleporter]";
+		mes "[공간이동사]";
 		switch(bat_return) {
 		default:
 		case 1:
-			setarray .@mapname$[0],"Prontera.","prontera";
+			setarray .@mapname$[0],"프론테라로","prontera";
 			setarray .@xy[0],116,72;
 			break;
 		case 2:
-			setarray .@mapname$[0],"Morroc","moc_ruins";
+			setarray .@mapname$[0],"모로크로","moc_ruins";
 			setarray .@xy[0],152,48;
 			break;
 		case 3:
-			setarray .@mapname$[0],"Al De Baran.","aldebaran";
+			setarray .@mapname$[0],"알데바란으로","aldebaran";
 			setarray .@xy[0],168,112;
 			break;
 		case 4:
-			setarray .@mapname$[0],"Geffen.","geffen";
+			setarray .@mapname$[0],"게펜으로","geffen";
 			setarray .@xy[0],120,39;
 			break;
 		case 5:
-			setarray .@mapname$[0],"Payon.","payon";
+			setarray .@mapname$[0],"페이욘으로.","payon";
 			setarray .@xy[0],161,58;
 			break;
 		case 6:
-			setarray .@mapname$[0],"Lighthalzen.","lighthalzen";
+			setarray .@mapname$[0],"리히타르젠으로","lighthalzen";
 			setarray .@xy[0],159,93;
 			break;
 		case 7:
-			setarray .@mapname$[0],"Rachel.","rachel";
+			setarray .@mapname$[0],"라헬로","rachel";
 			setarray .@xy[0],115,124;
 			break;
 		}
-		mes "You will be sent back to "+.@mapname$[0]+".";
+		mes "당신을 "+.@mapname$[0]+" 돌려보냅니다.";
 		close2;
 		warp .@mapname$[1],.@xy[0],.@xy[1];
 		break;
 	case 2:
-		mes "[Teleporter]";
-		mes "I'll be here whenever you're in need of my services.";
+		mes "[공간이동사]";
+		mes "필요하실 땐 언제든지 저를 불러주세요.";
 		close;
 	}
 	end;
 }
 
--	script	Maroll Battle Recruiter::BatRecruit	4_F_JOB_KNIGHT,{
-	mes "[Maroll Battle Recruiter]";
-	mes "Good day, adventurer.";
-	mes "I'm a knight from a far country called Maroll Kingdom.";
+-	script	마롤 전장 모병관::BatRecruit	4_F_JOB_KNIGHT,{
+	mes "[마롤 전장 모병관]";
+	mes "안녕하십니까 모험가시여.";
+	mes "저는 저 멀고 먼 마롤왕국 출신의 기사입니다.";
 	next;
-	mes "[Maroll Battle Recruiter]";
-	mes "The two princes of the kingdom are now battling for the throne of Maroll, and are in need of experienced soldiers like you.";
-	mes "How would you like to lend your power to one of the princes in the Maroll Kingdom?";
+	mes "[마롤 전장 모병관]";
+	mes "두 명의 왕자가 마롤의 왕위계승건으로 전투의 장을 벌이게 되어, 당신과 같은 경험 많은 모험가를 상대로 용병을 모집하고 있습니다.";
+	mes "한 번 당신의 그 힘을 우리 마롤에 빌려주시지 않겠습니까?";
 	next;
-	switch(select("Join:Don't Join")) {
+	switch(select("전장에 참여한다.:참여하지 않는다.")) {
 	case 1:
-		mes "[Maroll Battle Recruiter]";
-		mes "May the war god bless you.";
+		mes "[마롤 전장 모병관]";
+		mes "전투와 용기의 신의 가호가 언제나 당신과 함께하기를..";
 		close2;
 		getmapxy(.@mapname$,.@x,.@y,1);
 		if (.@mapname$ == "prontera")
@@ -263,20 +208,20 @@ bat_room,148,150,5	script	Teleporter#Battlefield	4_F_TELEPORTER,{
 		warp "bat_room",154,150;
 		break;
 	case 2:
-		mes "[Maroll Battle Recruiter]";
-		mes "I'll always be stationed here for more soldiers. Feel free to come back whenever you're interested.";
+		mes "[마롤 전장 모병관]";
+		mes "저는 항상 이 곳에서 대기하고 있으니, 관심이 생긴다면 다시 찾아와 주십시오.";
 		close;
 	}
 	end;
 }
 
-prontera,123,83,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit1	4_F_JOB_KNIGHT
-moc_ruins,75,162,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit2	4_F_JOB_KNIGHT
-aldebaran,146,109,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit3	4_F_JOB_KNIGHT
-geffen,109,66,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit4	4_F_JOB_KNIGHT
-payon,189,105,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit5	4_F_JOB_KNIGHT
-lighthalzen,153,86,5	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit6	4_F_JOB_KNIGHT
-rachel,149,138,3	duplicate(BatRecruit)	Maroll Battle Recruiter::BatRecruit7	4_F_JOB_KNIGHT
+prontera,123,83,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit1	4_F_JOB_KNIGHT
+moc_ruins,75,162,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit2	4_F_JOB_KNIGHT
+aldebaran,146,109,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit3	4_F_JOB_KNIGHT
+geffen,109,66,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit4	4_F_JOB_KNIGHT
+payon,189,105,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit5	4_F_JOB_KNIGHT
+lighthalzen,153,86,5	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit6	4_F_JOB_KNIGHT
+rachel,149,138,3	duplicate(BatRecruit)	마롤 전장 모병관::BatRecruit7	4_F_JOB_KNIGHT
 
 // Additional warps
 // Empty
@@ -309,15 +254,15 @@ bat_room,253,211,0	warp	bat32	1,1,bat_room,154,149
 
 // Kafra
 //============================================================
-bat_room,148,147,4	script	Kafra Staff::kaf_bat	4_F_KAFRA9,{
+bat_room,148,147,4	script	카프라 직원::kaf_bat	4_F_KAFRA9,{
 	cutin "kafra_09",2;
 	callfunc "F_Kafra",0,2,1,150,0;
 }
 
-// Repairman
+// Repairman (kRO 사용되지 않음)
 //============================================================
-bat_room,138,144,4	script	Repairman#bg	4_M_04,{
-	callfunc "repairmain","Repairman";
+bat_room,138,144,4	script	수리공#bg	4_M_04,{
+	callfunc "repairmain","수리공";
 	end;
 }
 
@@ -374,7 +319,7 @@ bat_room,1,151,3	script	Switch#batgnd	4_DOG01,{
 
 // Badges Exchange
 //============================================================
-bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
+bat_room,160,150,3	script	에룬데크	4_M_MANAGER,{
 	if (checkweight(1201,1) == 0) {
 		mes "- Wait a minute !! -";
 		mes "- Currently you're carrying -";
@@ -383,51 +328,51 @@ bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
 		mes "- after you loose some weight. -";
 		close;
 	}
-	mes "[Erundek]";
-	mes "Do you have the battlefield badges?";
-	mes "I can exchange Bravery Badges and Valor Badges for reward items.";
+	mes "[에룬데크]";
+	mes "혹시 전장을 통해 습득하신 휘장을 가지고 계십니까?";
+	mes "저는 특공휘장과 용맹휘장을 아이템으로 바꿔드리는 일을 하고 있습니다.";
 	next;
-	switch(select("Exchange Badges:Check the Catalog")) {
+	switch(select("휘장을 교환한다:카탈로그를 본다.")) {
 	case 1:
-		mes "[Erundek]";
-		mes "Which type of items would you like to exchange?";
-		mes "To check more information about the reward items, please use our ^3131FFCatalog^000000.";
+		mes "[에룬데크]";
+		mes "어느 물건들을 보시겠습니까?";
+		mes "아이템들의 자세한 성능은 ^3131FF카탈로그^000000를 통해 확인해 주시기 바랍니다.";
 		next;
-		switch(select("Weapon:Armor:Accessory:Consumable")) {
+		switch(select("무기:방어구:액세서리:소비아이템")) {
 		case 1:
-			mes "[Erundek]";
-			mes "You chose ^3131FFWeapon^000000.";
-			mes "The following weapons are available for exchange with the battlefield badges.";
-			mes "Please note that items for ^3131FFBravery Badges are indicated as (BB)^000000, and ^3131FFValor Badges as (VB)^000000.";
+			mes "[에룬데크]";
+			mes "^3131FF무기^000000를 선택하셨습니다..";
+			mes "휘장으로 교환하실 수 있는 무기는 다음과 같은 종류가 있습니다.";
+			mes "^3131FF용맹휘장전용은 (용), 특공휘장전용은 (특)^000000으로 구분되니 참고하시기 바랍니다.";
 			next;
-			switch(select("Dagger/OneSword/TwoSword/TwoSpear:Staff/Mace/TwoAxe/Shuriken:Bow/Katar/Music/Whip:Book/Knuckle:Revolver/Rifle/Gatling/Shotgun/Launcher")) {
+			switch(select("단검/한손검/양손검/양손창:지팡이/둔기/양손도끼/풍마수리검:활/카타르/악기/채찍:책/너클:리볼버/라이플/개틀링건/샷건/그레네이트런쳐")) {
 			case 1:
-				mes "[Erundek]";
-				mes "The following items are available in the ^3131FFDagger, One-Handed Sword, Two-Handed Sword, and Two-Handed Spear^000000 category.";
+				mes "[에룬데크]";
+				mes "저희가 준비한 ^3131FF단검/한손검/양손검/양손창^000000에는 다음과 같은 아이템들이 있습니다.";
 				next;
 				setarray .@Weapons[0],13036,7828,13037,7829,13411,7828,13410,7829,1183,7828,1184,7829,1425,7828,1482,7829;
 				break;
 			case 2:
-				mes "[Erundek]";
-				mes "The following items are available in the ^3131FFStaff / Mace / Two-Handed Axe / Huuma Shuriken^000000 category.";
+				mes "[에룬데크]";
+				mes "저희가 준비한 ^3131FF지팡이/둔기/양손도끼/풍마수리검^000000에는 다음과 같은 아이템들이 있습니다.";
 				next;
 				setarray .@Weapons[0],1632,7828,1633,7829,1634,7828,1635,7829,1543,7828,1542,7829,1380,7828,1379,7829,13305,7828,13306,7829;
 				break;
 			case 3:
-				mes "[Erundek]";
-				mes "The following weapons are available in the ^3131FFBow / Katar / Musical Instrument / Whip^000000 category.";
+				mes "[에룬데크]";
+				mes "저희가 준비한 ^3131FF활/카타르/악기/채찍^000000에는 다음과 같은 아이템들이 있습니다.";
 				next;
 				setarray .@Weapons[0],1739,7828,1738,7829,1279,7828,1280,7829,1924,7828,1923,7829,1978,7828,1977,7829;
 				break;
 			case 4:
-				mes "[Erundek]";
-				mes "The following weapons are available in the ^3131FFBook / Knuckle^000000 category.";
+				mes "[에룬데크]";
+				mes "저희가 준비한 ^3131FF책/너클^000000에는 다음과 같은 아이템들이 있습니다.";
 				next;
 				setarray .@Weapons[0],1574,7828,1575,7829,1824,7828,1823,7829;
 				break;
 			case 5:
-				mes "[Erundek]";
-				mes "The following weapons are available in the ^3131FFRevolver / Rifle / Gatling Gun / Shotgun / Grenade Launcher^000000 category.";
+				mes "[에룬데크]";
+				mes "저희가 준비한 ^3131FF리볼버/라이플/개틀링건/샷건/그레네이트런쳐^000000에는 다음과 같은 아이템들이 있습니다.";
 				next;
 				setarray .@Weapons[0],13108,7828,13171,7829,13172,7828,13173,7829,13174,7829;
 				break;
@@ -437,45 +382,42 @@ bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
 				.@menu$ += getitemname(.@Weapons[.@i])+((.@Weapons[.@i+1]==7828)?"(BB)":"(VB)")+":";
 			.@i = (select(.@menu$)-1)*2;
 			.@type$ = ((.@Weapons[.@i+1]==7828)?"(BB)":"(VB)");
-			mes "[Erundek]";
-			mes "You chose ^3131FF"+getitemname(.@Weapons[.@i])+.@type$+"^000000.";
-			mes "You can exchange for this item with ^FF0000100 "+getitemname(.@Weapons[.@i+1])+"^000000.";
-			mes "Would you like to exchange?";
+			mes "[에룬데크]";
+			mes "^3131FF"+getitemname(.@Weapons[.@i])+.@type$+"^000000을 선택하셨습니다.";
+			mes "이 아이템은 ^FF0000"+getitemname(.@Weapons[.@i+1])+" 100개^000000로 교환하실 수 있습니다.";
+			mes "교환하시겠습니까?";
 			next;
-			switch(select("Do not exchange:Exchange")) {
+			switch(select("교환하지 않는다.:교환한다.")) {
 			case 1:
 				break;
 			case 2:
-				mes "[Erundek]";
-				mes "Would you like to spend ^FF0000100 "+getitemname(.@Weapons[.@i+1])+"^000000 and receive a ^3131FF"+getitemname(.@Weapons[.@i])+.@type$+"^000000?";
+				mes "[에룬데크]";
+				mes "^FF0000"+getitemname(.@Weapons[.@i+1])+" 100개^000000로 ^3131FF"+getitemname(.@Weapons[.@i])+.@type$+"^000000을 구입하시겠습니까?";
 				next;
-				mes "[Erundek]";
-				mes "Remember, Battleground Reward Items are ^FF0000Character Bound^000000. Are you sure you want this item?";
-				next;
-				switch(select("Yes:No")) {
+				switch(select("네:아니오")) {
 				case 1:
-					mes "[Erundek]";
+					mes "[에룬데크]";
 					if (countitem(.@Weapons[.@i+1]) >= 100) {
 						mes "Thank you for exchanging.";
 						delitem .@Weapons[.@i+1],100;
 						getitem .@Weapons[.@i],1;
 					}
-					else mes "I'm sorry, but you don't have enough badges to exchange.";
+					else mes "교환에 필요한 휘장의 갯수가 부족합니다.";
 					close;
 				case 2:
 					break;
 				}
 				break;
 			}
-			mes "[Erundek]";
-			mes "Do you need more time to check the items?";
+			mes "[에룬데크]";
+			mes "좀 더 살펴보시겠습니까?";
 			close;
 		case 2:
-			mes "[Erundek]";
-			mes "You chose ^3131FFArmor^000000.";
-			mes "The following armors are available for exchange with the battlefield badges.";
+			mes "[에룬데크]";
+			mes "^3131FF방어구^000000를 선택하셨습니다.";
+			mes "휘장으로 교환하실 수 있는 방어구는 다음과 같은 종류가 있습니다.";
 			next;
-			switch(select("Garments / Shoes:Armor")) {
+			switch(select("걸칠것/신발:갑옷")) {
 			case 1:
 				setarray .@items[0],2538,50,2539,50,2540,50,2435,50,2436,50,2437,50;
 				break;
@@ -485,25 +427,25 @@ bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
 			}
 			break;
 		case 3:
-			mes "[Erundek]";
-			mes "You chose ^3131FFAccessory^000000.";
-			mes "You can exchange the Medal of Honors with your Badges according to the job classes, as follows:";
+			mes "[에룬데크]";
+			mes "^3131FF액세서리^000000를 선택하셨습니다.";
+			mes "휘장으로 교환하실 수 있는 무공훈장들은 다음과 같은 직업 계열 별로 나뉩니다.";
 			next;
 			setarray .@items[0],2733,500,2720,500,2721,500,2722,500,2723,500,2724,500,2725,500;
-			.@menu1$ = "Gunslinger:Swordman/Taekwon Master:Thief:Acolyte:Magician:Archer:Merchant";
+			.@menu1$ = "건슬링거:검사/권성:도둑:복사:마법사:궁수:상인";
 			break;
 		case 4:
-			mes "[Erundek]";
-			mes "You chose ^3131FFConsumable^000000.";
-			mes "The following consumable items are available for exchange with the battlefield badges:";
+			mes "[에룬데크]";
+			mes "^3131FF소비아이템^000000을 선택하셨습니다.";
+			mes "휘장으로 교환하실 수 있는 소비아이템은 다음과 같은 종류가 있습니다.";
 			next;
 			setarray .@items[0],12269,10,12270,10,12271,5,12272,10,12273,10;
 			break;
 		}
 		break;
 	case 2:
-		mes "[Erundek]";
-		mes "We have many items, so please take a look and purchase deliberately.";
+		mes "[에룬데크]";
+		mes "이렇게 많은 아이템들이 준비되어 있으니, 천천히 살펴 보시고 신중히 구입하시기 바랍니다.";
 		close2;
 		readbook 11010,1;
 		end;
@@ -513,40 +455,35 @@ bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
 	else for (.@i = 0; .@i < getarraysize(.@items); .@i += 2)
 		.@menu$ += getitemname(.@items[.@i])+":";
 	.@i = (select(.@menu$)-1)*2;
-	mes "[Erundek]";
-	mes "You chose ^3131FF"+getitemname(.@items[.@i])+"^000000.";
+	mes "[에룬데크]";
+	mes "^3131FF"+getitemname(.@items[.@i])+"^000000를 선택하셨습니다.";
 	switch(.@items[.@i]) {
-		case 2720: mes "This item is for Swordman and Taekwon Master Class only."; break;
-		case 2721: mes "This item is for Thief Class only."; break;
-		case 2722: mes "This item is for Acolyte Class only."; break;
-		case 2723: mes "This item is for Magician Class only."; break;
-		case 2724: mes "This item is for Archer Class only."; break;
-		case 2725: mes "This item is for Merchant Class only."; break;
-		case 2733: mes "This item is for Gunslinger only."; break;
+		case 2720: mes "검사 계열 전용 아이템 입니다."; break;
+		case 2721: mes "도둑 계열 전용 아이템 입니다."; break;
+		case 2722: mes "복사 계열 전용 아이템 입니다."; break;
+		case 2723: mes "마법사 계열 전용 아이템입니다."; break;
+		case 2724: mes "궁수 계열 전용 아이템 입니다."; break;
+		case 2725: mes "상인 계열 전용 아이템 입니다."; break;
+		case 2733: mes "건슬링거 전용 아이템입니다."; break;
 		default: break;
 	}
-	mes "You can exchange for this item with ^FF0000"+.@items[.@i+1]+" "+getitemname(7828)+" or "+.@items[.@i+1]+" "+getitemname(7829)+"^000000.";
-	mes "Would you like to exchange?";
+	mes "이 아이템은 ^FF0000용맹 혹은 특공휘장 "+.@items[.@i+1]+"^000000로 교환하실 수 있습니다.";
+	mes "교환하시겠습니까?";
 	next;
-	switch(select("Do not exchange:Exchange")) {
+	switch(select("교환하지 않는다.:교환한다.")) {
 	case 1:
-		mes "[Erundek]";
-		mes "Do you need more time to check the items?";
+		mes "[에룬데크]";
+		mes "좀 더 살펴보시겠습니까?";
 		break;
 	case 2:
-		mes "[Erundek]";
-		mes "Which Badge do you want to exchange?";
-		mes "You need ^3131FF"+.@items[.@i+1]+" Badges^000000 to exchange.";
+		mes "[에룬데크]";
+		mes "어떤 휘장과 교환하시겠습니까?";
+		mes "교환에 필요한 갯수는 ^3131FF"+.@items[.@i+1]+"개^000000 입니다.";
 		next;
-		if (.@item[0] < 12269 || .@item[0] > 12273 ) {
-			mes "[Erundek]";
-			mes "Remember, Battleground Reward Items are ^FF0000Character Bound^000000. Are you sure you want this item?";
-			next;
-		}
-		.@j = select("Bravery Badge:Valor Badge:Cancel");
-		mes "[Erundek]";
+		.@j = select("용맹휘장:특공휘장:교환을 취소한다.");
+		mes "[에룬데크]";
 		if (.@j == 3) {
-			mes "You cancelled the exchange.";
+			mes "교환을 취소하였습니다.";
 			break;
 		}
 		.@cost = ((.@j==1)?7828:7829);
@@ -555,7 +492,7 @@ bat_room,160,150,3	script	Erundek	4_M_MANAGER,{
 			delitem .@cost, .@items[.@i+1];
 			getitem .@items[.@i],1;
 		}
-		else mes "You do not have enough "+getitemname(.@cost)+"s.";
+		else mes "교환에 필요한 "+getitemname(.@cost)+"의 갯수가 부족합니다.";
 		break;
 	}
 	close;
