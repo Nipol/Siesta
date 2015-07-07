@@ -9,68 +9,68 @@
 //= Catalogs allow players to easily search for items in-game,
 //= and to buy/sell directly from the catalog interface.
 //===== Additional Comments: =================================
+//= kRO Official Texts. [nyalin]
 //= 1.0 Moved from root directory. [Euphy]
 //= 1.1 Updated dialogue. [Euphy]
 //============================================================
 
-moc_para01,22,16,5	script	Catalog Magician#catal01	4_M_BIBI,{
+moc_para01,22,16,5	script	카탈로그 마도사#catal01	4_M_BIBI,{
 	if (!checkweight(1301,3)) {
 		mes "- You have too many items. Please make space. -";
 		close;
 	}
 	.@ticket_cost = 200;
-	mes "[Catalog Magician]";
-	mes "Look... the Magic Academy";
-	mes "in Geffen is now directly";
-	mes "selling the brand new";
-	mes "^007777Universal Catalog Silver^000000!";
+	mes "[카탈로그 마도사]";
+	mes "저기...게펜 마법학회에서";
+	mes "직접 공습, 아니 공급하는!";
+	mes "신상품, ^007777만능 카탈로그 실버^000000!";
 	next;
-	mes "He is looking at the words";
-	mes "written on his hand.";
-	mes "He seems too busy";
-	mes "to look at you.";
+	mes "손바닥에 써 놓은 걸";
+	mes "열심히 읽고 있다.";
+	mes "당신의 반응을 살필 여유조차";
+	mes "없는 것 같다.";
 	next;
-	mes "[Catalog Magician]";
-	mes "A brand new catalog";
-	mes "has just come out!";
-	mes "You can check";
-	mes "what items you can trade";
-	mes "and what items are on sale";
-	mes "from the vendor.";
+	mes "[카탈로그 마도사]";
+	mes "노점에서 무엇을 팔고,";
+	mes "무엇이 거래 되는지";
+	mes "한 눈에 알 수 있는";
+	mes "초 간편 주문서가";
+	mes "방금 출시 됐습니다!";
+	mes "전 세계 노점인이 가장 즐겨 쓴다는";
 	next;
-	mes "[Catalog Magician]";
-	mes "The ^007777Universal Catalog Silver^000000";
-	mes "costs only 200z!";
-	mes "You can buy up to 50 pieces at once!";
+	mes "[카탈로그 마도사]";
+	mes "The ^007777만능 카탈로그 실버^000000가";
+	mes "1매당 고작 200z!";
+	mes "한 번에 최대 50 매까지 구입 가능합니다!";
 	next;
-	switch(select("Buy a ^007777Universal Catalog Silver^000000:I don't need it!:You don't look like a vendor!")) {
+	switch(select("^007777만능 카탈로그 실버^000000 구입:필요 없다!:상인으로 안 보이는데?")) {
 	case 1:
-		mes "[Catalog Magician]";
-		mes "You... want all 50 pieces?";
-		mes "Or how many do you need?";
+		mes "[카탈로그 마도사]";
+		mes "저기...50장 전부 드릴까요?";
+		mes "얼마나... 필요하세요?";
 		next;
 		while (1) {
 			input .@input;
-			mes "[Catalog Magician]";
+			mes "[카탈로그 마도사]";
 			if (.@input == 0) {
-				mes "The trade has been stopped!";
-				mes "I don't know what to do next...";
-				mes "What should I do?";
+				mes "거래가 중지 돼 버렸어요!";
+				mes "이 다음엔 뭘 해야 할 지 모르는데...";
+				mes "이제 어쩌죠?";
 				emotion e_swt2,1;
 				close;
 			} else if (.@input < 1 || .@input > 50) {
-				mes "It should be less than 50 pieces.";
+				mes "50 개 이하로 말씀해주세요.";
 				next;
 			} else
 				break;
 		}
 		.@sell = .@ticket_cost * .@input;
-		mes "The total number of catalog(s) that you're trying to purchase is " + .@input + " pieces.";
-		mes "It costs " + .@sell + " z.";
+		mes "구입하시려는 카탈로그는 총 "+.@input+"매로";
+		mes ""+.@sell+" z를 주셔야 하는데,";
 		if (Zeny < .@sell) {
-			mes "It seems you don't have enough money.";
-			mes "You can sell your equipment";
-			mes "to make more money... if you want.";
+				mes "돈이 아무래도 부족하네요.";
+				mes "장비를 매각하시면";
+				mes "돈이 충분해질 텐데...";
 			close;
 		}
 		mes "Ok, here you go.";
@@ -78,29 +78,24 @@ moc_para01,22,16,5	script	Catalog Magician#catal01	4_M_BIBI,{
 		getitem 12580,.@input; //Vending_Search_Scroll
 		close;
 	case 2:
-		mes "[Catalog Magician]";
-		mes "Argh... you really need this";
-		mes "item... Do you want me to";
-		mes "explain again? I don't know";
-		mes "what to do next...";
-		mes "What should I do?";
+		mes "[카탈로그 마도사]";
+		mes "필요 없으시면 안 되는데...";
+		mes "처음부터 다시 설명을 드릴까요?";
+		mes "이 다음엔 뭘 해야 할 지 모르는데...";
+		mes "이제 어쩌죠?";
 		emotion e_swt2,1;
 		close;
 	case 3:
-		mes "[Catalog Magician]";
-		mes "My real job is a magician.";
-		mes "I was going to ask the merchant";
-		mes "guild to sell them, but they were";
-		mes "trying use them as an appendix";
-		mes "into broom sales. That's why";
-		mes "I'm selling these by myself.";
+		mes "[카탈로그 마도사]";
+		mes "본업은 마법사예요.";
+		mes "상인 길드에 판매를 맡길 예정이었는데";
+		mes "자꾸 이걸 빗자루에 부족으로 끼워팔기를 하려고 해서";
+		mes "직접 팔러 나오게 됐어요.";
 		next;
-		mes "[Catalog Magician]";
-		mes "There are many adventurers";
-		mes "here who come and go.";
-		mes "I'm pretty sure that I can sell to all of them soon.";
-		mes "Don't you think so?";
-		mes "So... let's start!! Buy more of them, please! PLEASE...!";
+		mes "[카탈로그 마도사]";
+		mes "여긴 모험가들이 많이 드나드는 곳이니까";
+		mes "곧 불티나게 팔리겠죠?";
+		mes "그런 의미에서 몇 개만 더 구입을...좀...!";
 		close;
 	}
 }
