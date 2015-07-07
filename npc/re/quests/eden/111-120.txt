@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= Capuche
 //===== Current Version: =====================================
-//= 1.1
+//= 1.2
 //===== File Encoding ========================================
 //= CP-949 (EUC-KR compatible). Do NOT read/save it as UTF-8.
 //===== Compatible With: =====================================
@@ -12,9 +12,9 @@
 //= [Official Conversion]
 //= Repeatable quests for players between BaseLevel 111 - 120.
 //===== Additional Comments: =================================
-//= kRO Official Texts. [nyalin]
 //= 1.0 First version.
 //= 1.1 Some CleanUps. [Dastgir]
+//= 1.2 kRO Official Texts. [nyalin]
 //============================================================
 
 moc_para01,17,95,5	script	¹Ö¹Î#1	4_F_GENETIC,{

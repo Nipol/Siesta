@@ -3,13 +3,13 @@
 //===== By: ==================================================
 //= Euphy
 //===== Current Version: =====================================
-//= 1.0
+//= 1.1
 //===== Description: =========================================
 //= A series of quests introducing the major features of
 //= Ragnarok Online.
 //===== Additional Comments: =================================
-//= kRO Official Texts. [nyalin]
 //= 1.0 First Version. [Euphy]
+//= 1.1 kRO Official Texts. [nyalin]
 //============================================================
 
 moc_para01,34,178,3	script	Æ©Åä¸®¾ó ¸Ç	4_M_KHMAN,{

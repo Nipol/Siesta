@@ -3,15 +3,15 @@
 //===== By: ==================================================
 //= skyiing, Scriptor
 //===== Current Version: =====================================
-//= 1.1
+//= 1.2
 //===== Description: =========================================
 //= [Official Conversion]
 //= Catalogs allow players to easily search for items in-game,
 //= and to buy/sell directly from the catalog interface.
 //===== Additional Comments: =================================
-//= kRO Official Texts. [nyalin]
 //= 1.0 Moved from root directory. [Euphy]
 //= 1.1 Updated dialogue. [Euphy]
+//= 1.2 kRO Official Texts. [nyalin]
 //============================================================
 
 moc_para01,22,16,5	script	카탈로그 마도사#catal01	4_M_BIBI,{

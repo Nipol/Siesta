@@ -3,15 +3,15 @@
 //===== By: ==================================================
 //= Gepard
 //===== Current Version: =====================================
-//= 1.1a
+//= 1.2
 //===== Description: =========================================
 //= [Official Conversion]
 //= Adds slots to selected weapons and armor.
 //===== Additional Comments: =================================
-//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 1.0 First version.
 //= 1.1 Duplicates now spawn from floating NPCs. [L0ne_W0lf]
 //= 1.1a Added 'disable_items' command. [Euphy]
+//= 1.2 kRO Official Texts & Updated to match the kRO script. [nyalin]
 //============================================================
 
 -	script	·¹¾Æºí·½#dummy::SocketEnchant2	-1,{

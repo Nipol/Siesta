@@ -3,17 +3,17 @@
 //===== By: ==================================================
 //= Chilly
 //===== Current Version: =====================================
-//= 1.3
+//= 1.4
 //===== File Encoding ========================================
 //= CP-949 (EUC-KR compatible). Do NOT read/save it as UTF-8.
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 91 - 99.
 //===== Additional Comments: =================================
-//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 1.0 First Version. [Chilly]
 //= 1.1 Some little improvements here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Updated to match the official script. [Euphy]
+//= 1.4 kRO Official Texts & Updated to match the kRO script. [nyalin]
 //============================================================
 
 moc_para01,48,177,3	script	ÀÇ·Ú [91-99]	4_BOARD3,{

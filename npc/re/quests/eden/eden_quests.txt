@@ -3,11 +3,10 @@
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 2.1
+//= 2.2
 //===== Description: =========================================
 //= Eden Group Headquarter NPCs.
 //===== Changelogs: ==========================================
-//= kRO Official Texts. [nyalin]
 //= 1.0 First Version. [L0ne_W0lf]
 //= 1.1 Removed unencoded comments (Korean -> Gibberish)
 //=     Readded the GM helper NPC, commented out.
@@ -21,6 +20,7 @@
 //= 1.6 Kagerou/Oboro support (Class -> BaseClass) [Euphy]
 //= 2.0 Updated Instructor Ur's quests. [Capuche]
 //= 2.1 Updated Blacksmith Thorn and Weapons Expert NPC. [Capuche]
+//= 2.2 kRO Official Texts. [nyalin]
 //============================================================
 
 moc_para01,25,35,4	script	낙원단교관 보야#para01	4_M_KNIGHT_GOLD,{

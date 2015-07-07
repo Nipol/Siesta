@@ -3,14 +3,14 @@
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 1.2
+//= 1.3
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 26 - 40.
 //===== Additional Comments: =================================
-//= kRO Official Texts. [nyalin]
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
+//= 1.3 kRO Official Texts. [nyalin]
 //============================================================
 
 moc_para01,38,38,3	script	ÀÇ·Ú [26 - 40]	4_BOARD3,{

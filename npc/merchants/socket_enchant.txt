@@ -3,12 +3,11 @@
 //===== By: ==================================================
 //= rAthena Dev Team
 //===== Current Version: =====================================
-//= 2.0a
+//= 2.1
 //===== Description: =========================================
 //= [Official Conversion]
 //= Adds slots to selected weapons and armor.
 //===== Additional Comments: =================================
-//= kRO Official Texts & Updated to match the kRO script. [nyalin]
 //= 0.1a added missing L_No: to 2 funcs [Lupus]
 //= 0.1b Removed duplicates [Toms]
 //= 0.2 Added missing next;'s [Evera]
@@ -27,6 +26,7 @@
 //=     Some cleanup & optimization. [Gepard]
 //= 2.0 Duplicates now spawn from floating NPCs. [L0ne_W0lf]
 //= 2.0a Added 'disable_items' command. [Euphy]
+//= 2.1 kRO Official Texts & Updated to match the kRO script. [nyalin]
 //============================================================
 
 -	script	¼¼¾ßºí·½#dummy::SocketEnchant	-1,{
