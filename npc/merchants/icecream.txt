@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= KOOK SWU, Kisuka
 //===== Current Version: =====================================
-//= 1.5
+//= 1.6
 //===== Description: =========================================
 //= A man makes you ice-cream
 //===== Additional Comments: =================================
@@ -12,61 +12,56 @@
 //= 1.3 No more label menu and updated to match AEGIS script. [Kisuka]
 //= 1.4 Duplicates now spawn from floating NPCs. [L0ne_W0lf]
 //= 1.5 Fixed small checkweight issue. [Kisuka]
+//= 1.6 kRO Official Texts. [nyalin]
 //============================================================
 
 -	script	Ice Cream Maker::IceCreamer	-1,{
-	mes "[Ice Cream Maker]";
-	mes "Fresh Ice Cream made with snow from Lutie!";
-	mes "Enjoy it now, it won't be on sale for long!";
-	mes "^3355FF100 Zeny^000000 Ice Cream,";
-	mes "Ice Cream!";
+	mes "[아이스크림 아저씨]";
+	mes "루티에 에서 가져온 눈으로 만든 신선한 아이스크림이 있어요!";
+	mes "즐거움은 지금! 올해를 위한 판매 아이템!";
+	mes "^0000FF100 Zeny^000000에 아이스크림!,";
+	mes "아이스크림!!";
 	next;
-	if(select("Gimme Ice Cream!:Cancel Trade") == 2) {
-		mes "Are you sure you don't want any?";
-		mes "I won't be selling it for long,";
-		mes "and once I run out,";
-		mes "there won't be any more!!!";
+	if(select("아이스크림 주세요!:안 산다") == 2) {
+		mes "정말 안살꺼니?";
+		mes "이번에 놓치면 평생 후회할지도 몰라!!!";
 		close;
 	}
-	mes "[Ice Cream Maker]";
-	mes "Fresh Ice Cream made with snow from Lutie!";
-	mes "Everyone wants our delicious ice cream, ";
-	mes "but we have a limited amount,";
-	mes "so you can only purchase 5 at a time!!";
+	mes "[아이스크림 아저씨]";
+	mes "루티에 에서 가져온 눈으로 만든 신선한 아이스크림이 있어요!";
+	mes "우리 모두 맛있는 아이스크림을 원하지만 한사람당 한번에 딱 5개 밖에 못사요.";
 	next;
 	while(1) {
 		input .@input;
 		if(.@input < 1) {
-			mes "[Ice Cream Maker]";
-			mes "If you don't want to buy any,";
-			mes "could you please let the next customer";
-			mes "make a purchase?";
-			mes "Thank you.";
+			mes "[아이스크림 아저씨]";
+			mes "깜빡잊고 말 안했는데,";
+			mes "취소하는 방법을 아는구나.";
+			mes "상인들하고 거래를 많이 해봤었니?";
 			close;
 		}
 		if(.@input > 5) {
-			mes "[Ice Cream Maker]";
-			mes "Ouch";
-			mes "You expect too much.";
-			mes "Dear customer,";
-			mes "If you eat more than 5 Ice creams,";
-			mes "If you might haveto make a lot of trips";
-			mes "to the bathroom tonight.";
+			mes "[아이스크림 아저씨]";
+			mes "이런..";
+			mes "우리 모두 다같이";
+			mes "즐기려면 욕심을";
+			mes "버려야 된단다.";
+			mes "한번에 5개!! 라구.";
 			next;
 		}
 	}
 	if(Zeny<.@input*100) {
-		mes "[Ice Cream Maker]";
-		mes "Dear customer, your wallet seems to be light.";
-		mes "Price is ^3355FF100 Zeny^000000 per ice cream.";
+		mes "[아이스크림 아저씨]";
+		mes "지갑사정이 딱하시군요.";
+		mes "500제니도 없으시다니...";
 		close;
 	}
 	if(checkweight(536,.@input) == 0) {
-		mes "[Ice Cream Maker]";
-		mes "Dear customer,you look like you're carrying a lot.";
-		mes "Ice Cream is fine,";
-		mes "but you must consider your weight";
-		mes "before making a purchase.";
+		mes "[아이스크림 아저씨]";
+		mes "엄청 무거워 보이시는데...";
+		mes "보는 제가 다 땀이나네요.";
+		mes "카프라 서비스를 이용하셔서";
+		mes "무게를 좀 줄이는게 어떤가요?";
 		close;
 	}
 	Zeny -= 100*.@input;
@@ -75,10 +70,10 @@
 }
 
 // Alberta
-alberta,120,45,2	duplicate(IceCreamer)	Ice Cream Maker#1	4_M_03
+alberta,120,45,2	duplicate(IceCreamer)	아이스크림 아저씨#1	4_M_03
 
 // Morroc Field
-moc_fild16,88,304,4	duplicate(IceCreamer)	Ice Cream Maker#2	4_M_03
+moc_fild16,88,304,4	duplicate(IceCreamer)	아이스크림 아저씨#2	4_M_03
 
 // Morroc
-//morocc,160,144,4	duplicate(IceCreamer)	Ice Cream Maker#3	4_M_03
+//morocc,160,144,4	duplicate(IceCreamer)	아이스크림 아저씨#3	4_M_03
