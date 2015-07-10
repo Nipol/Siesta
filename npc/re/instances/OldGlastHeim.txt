@@ -45,13 +45,13 @@ glast_01,204,273,6	script	후긴#ghinstance	4_M_SAGE_C,{
 		case 1:
 			.@instance = instance_create(.@md_name$,.@party_id);
 			if (.@instance < 0) {
-				mes "Party Name: "+.@p_name$;
-				mes "Party Leader: "+strcharinfo(0);
-				mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+				mes "파티 이름: "+.@p_name$;
+				mes "파티 리더: "+strcharinfo(0);
+				mes "^0000ff"+.@md_name$+" ^000000- 예약 실패!";
 				close;
 			}
 			if (instance_attachmap("1@gl_k",.@instance) == "" || instance_attachmap("2@gl_k",.@instance) == "") {
-				mes "^0000ff"+.@md_name$+"^000000 - Reservation Failed!";
+				mes "^0000ff"+.@md_name$+"^000000 - 예약 실패!";
 				instance_destroy(.@instance);
 				close;
 			}
@@ -63,7 +63,7 @@ glast_01,204,273,6	script	후긴#ghinstance	4_M_SAGE_C,{
 		case 2:
 			if( has_instance("1@gl_k") == "" ) {
 				mes "The memorial dungeon "+.@md_name$+" does not exist.";
-				mes "The party leader did not generate the dungeon yet.";
+				mes "파티장이 시간의 틈을 생성하지 않았습니다.";
 				close;
 			} else {
 				mapannounce "glast_01",strcharinfo(0)+", member of the party "+.@p_name$+" entered the instance "+.@md_name$+".",bc_map,"0x00ff99";

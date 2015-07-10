@@ -5,7 +5,7 @@
 //= finished, optimized and tested by Lupus
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 3.1
+//= 3.2
 //===== Description: =========================================
 //= [Official Conversion]
 //= Quest to become a Tranceded Class. (Advanced/Rebirthed)
@@ -36,6 +36,7 @@
 //= 2.9b Fixed Verdandi typo, fixed resetting vars [Lupus]
 //= 3.0 Added quest log commands. [L0ne_W0lf]
 //= 3.1 Added Izlude Renewal coordinates.
+//= 3.2 Added "도망친 책" Quest. [nyalin]
 //============================================================
 
 valkyrie,48,86,4	script	Valkyrie#	4_F_VALKYRIE,{
@@ -210,48 +211,194 @@ valkyrie,48,86,4	script	Valkyrie#	4_F_VALKYRIE,{
 	}
 }
 
-yuno_in02,88,164,5	script	Metheus Sylphe#Library	2_M_SAGE_B,{
+yuno_in02,88,164,5	script	메테우스 실프#Library	2_M_SAGE_B,{
 	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+		if (questprogress(5160) < 2) {
+			if (countitem(6586) > 0) .@Book = 1;
+			mes "[메테우스 실프]";
+			mes "어서 오세요. 슈바이체르빌 마법학교 도서관입니다. 도서관가드들이 보내온 쪽지를 확인하러 오셨나요?";
+			next;
+			switch(select(""+(.@Book?"책을 찾아왔습니다.":"수색상황을 알려주세요.")+":제니를 기부하겠습니다.")) {
+			 case 1:
+				if (.@Book == 1) {
+					mes "[메테우스 실프]";
+					mes "좀 전에 도서관가드들이 허탕치고 돌아왔다고 보고를 했었는데 다 이유가 있었군요.";
+					next;
+					mes "[메테우스 실프]";
+					mes "뭐 중요한 건 도망친 책을 되찾아왔다는 거겠죠?";
+					next;
+					mes "[메테우스 실프]";
+					mes "약속했던 대로 이미르의 서 열람을 할 수 있게 해드렸습니다. 들어가셔서 열람하셔도 좋습니다.";
+					valkyrie_Q = 1;
+					delitem 6586,1; //Caught_Book
+					erasequest 5160;
+					setquest 1000; //when talk with valkyrie erase quest.
+					close;
+				} else {
+					mes "[메테우스 실프]";
+					mes "조금 전 수색 중이던 도서관 가드들이 보내온 쪽지 입니다.";
+					next;
+					mes "[도서관 가드의 쪽지내용]";
+					mes "유노인근 움직이는 책 목격제보 수색 중";
+					next;
+					mes "[메테우스 실프]";
+					mes "그렇게 자세한 위치설명은 나와있지 않군요. 그나마 수색범위가 줄은 것이 다행이군요.";
+					next;
+					mes "[메테우스 실프]";
+					mes "수색위치가 막막하다면,";
+					mes "<킬 하이르 학원>지역";
+					mes "먼저 찾아보는 게 어떻겠습니까?";
+					next;
+					mes "[메테우스 실프]";
+					mes "책이 한 권만 탈출한 건 아니니 말입니다.";
+					close;
+				}
+			case 2:
+				if (Zeny >= 1285000) {
+					Zeny -= 1285000;
+					valkyrie_Q = 1;
+					mes "[메테우스 실프]";
+					mes "Thank you, your donation will be used for a good cause. You may";
+					mes "now go in and read the book.";
+					delitem 6586,1; //Caught_Book
+					erasequest 5160;
+					close;
+				} else {
+					mes "[메테우스 실프]";
+					mes "Unfortunately, you don't seem to possess 1,285,000 zeny at the moment. Please check your funds and come back again.";
+					close;
+				}
+			}
+		}
 		if (valkyrie_Q == 0) {
-			mes "[Metheus Sylphe]";
+			mes "[메테우스 실프]";
 			mes "Welcome to the Library of the Schweicherbil Magic Academy.";
 			mes "I assume you have come here";
 			mes "to read the 'Book of Ymir.'";
 			next;
-			mes "[Metheus Sylphe]";
+			mes "[메테우스 실프]";
 			mes "Unfortunately, the original copy of the book has been damaged over time. We currently only allow the public to view a copy of the book.";
 			next;
-			mes "[Metheus Sylphe]";
+			mes "[메테우스 실프]";
 			mes "Also, in order to preserve the original 'Book of Ymir,' we have decided to accept donations from people who wish to read the copy we have provided.";
 			next;
-			mes "[Metheus Sylphe]";
+			mes "[메테우스 실프]";
 			mes "The suggested";
 			mes "donation amount is";
 			mes "1,285,000 zeny.";
 			next;
-			if (select("Donate.:Cancel.") == 1) {
+			switch(select("Donate.:그냥 보면 안될까요?:Cancel.")) {
+			case 1:
 				if (Zeny >= 1285000) {
 					Zeny -= 1285000;
 					valkyrie_Q = 1;
-					mes "[Metheus Sylphe]";
+					mes "[메테우스 실프]";
 					mes "Thank you, your donation will be used for a good cause. You may";
 					mes "now go in and read the book.";
 					close;
+				} else {
+					mes "[메테우스 실프]";
+					mes "Unfortunately, you don't seem to possess enough zeny at the moment. Please check your funds and come back again.";
+					close;
 				}
-				mes "[Metheus Sylphe]";
-				mes "Unfortunately, you don't seem to possess enough zeny at the moment. Please check your funds and come back again.";
+			case 2:
+				mes "[메테우스 실프]";
+				mes "서적의 안전한 보존과 다른 고서적 연구를 위한 기금이라고 말씀 드린 것 같은데요?";
+				next;
+				mes "[메테우스 실프]";
+				mes "보고 싶으신 마음은 이해하지만 안될 것 같습니다.";
+				next;
+				select("하지만 그렇게 큰 돈은 없습니다.");
+				mes "[메테우스 실프]";
+				mes "당당하신 분이군요. 원칙대로라면 도서관에 기부금으로 공헌을 한 분께만 공개를 하는 것이 원칙이긴 한데..";
+				next;
+				mes "[메테우스 실프]";
+				mes "사람이 살아가면서 항상 원칙대로만 살수는 없을 겁니다.";
+				next;
+				switch(select("사람이 원칙대로 살아야죠.","뭐든지 하겠습니다.")) {
+				case 1:
+					mes "[메테우스 실프]";
+					mes "사람을 무안하게 만드시는 재주가 있군요. 그 말 그대로 원칙대로 사시기 바랍니다.";
+					close;
+				case 2:
+					mes "[메테우스 실프]";
+					mes "열의가 보이는 군요. 그래도 그냥 보여드리기는 곤란하고";
+					next;
+					mes "[메테우스 실프]";
+					mes "슈바이체르빌 마법학교 도서관에 발생한 문제를 도와주시면, 이미르의 서를 열람할 수 있게 도와드리겠습니다.";
+					while(1) {
+						next;
+						switch(select("발생한 문제가 무엇입니까?:탈출한 책은 어디에?:저도 찾아보겠습니다.:무시한다.")) {
+						case 1:
+							mes "[메테우스 실프]";
+							mes "골치 아픈 문제입니다.";
+							mes "오랜 역사를 자랑하는 슈바이체르빌 마법학교 도서관에는 일반에 공개되지 않은 책들이 존재합니다.";
+							next;
+							mes "[메테우스 실프]";
+							mes "^0000FF라이드워드^000000같은 사람을 공격하는 살아있는 책들이 비공개인데 얼마 전 봉인된 책들의 일부가";
+							next;
+							mes "[메테우스 실프]";
+							mes "^0000FF봉인된 책장은 지긋지긋해!!^000000";
+							mes "라고 외치며 도서관을 탈출하는 사고가 있었습니다.";
+							next;
+							mes "[메테우스 실프]";
+							mes "도서관가드들이 탈출한 책을 찾고는 있지만, 인원부족으로 어려움을 겪고 있습니다.";
+							break;
+						case 2:
+							mes "[메테우스 실프]";
+							mes "저희도 아직 파악 중입니다. 도서관가드들께 새 정보가 들어오는 대로 알려 드리도록 하겠습니다.";
+							next;
+							break;
+						case 3:
+							mes "[메테우스 실프]";
+							mes "아니 문제를 벌써 알고 계신 겁니까? 이상하군요. 혹시 다른 걸 알고 계신 건 아닙니까?";
+							while(1) {
+								next;
+								switch(select("죄송합니다.:여자친구선물고민 아닌가요?:오늘 점심이 고민 아닌가요?:탈출한 책이 고민 아닌가요?")) {
+								case 1:
+									mes "[메테우스 실프]";
+									mes "역시 그럴 것 같았습니다. 우선 문제가 무엇인지 알아야 할 것 같군요.";
+									break;
+								case 2:
+									mes "[메테우스 실프]";
+									mes "여차친구가 있는지 먼저 물어보는 게 예의 아닙니까? 그리고 이건 문제가 아닙니다.";
+									break;
+								case 3:
+									mes "[메테우스 실프]";
+									mes "요즘 점심을 안 먹고 있으니 문제가 아닙니다. 제 문제 말고 도서관 문제를 들으셔야겠군요.";
+									break;
+								case 4:
+									mes "[메테우스 실프]";
+									mes "앗! 알고 계셨나요? 이런 벌써 외부에 까지 소문이 퍼진 모양이군요.";
+									next;
+									mes "[메테우스 실프]";
+									mes "도서관 가드에게 현재 수색상황이 쪽지로 들어 왔습니다.";
+									next;
+									setquest 5160;
+									mes "[메테우스 실프]";
+									mes "바로 떠나지 마시고 현재 수색상황을 듣고 가시기 바랍니다.";
+									close;
+								}
+							}
+						case 4:
+							mes "[메테우스 실프]";
+							mes "이상한 분이시군요.";
+							close;
+						}
+					}
+				}
+			case 3:
+				mes "[메테우스 실프]";
+				mes "Take your time, and";
+				mes "enjoy your travels.";
 				close;
 			}
-			mes "[Metheus Sylphe]";
-			mes "Take your time, and";
-			mes "enjoy your travels.";
-			close;
 		}
-		mes "[Metheus Sylphe]";
+		mes "[메테우스 실프]";
 		mes "Once again, thank you for your generous donation. Feel free to read a carbon copy of the 'Book of Ymir' at your leisure.";
 		close;
 	}
-	mes "[Metheus Sylphe]";
+	mes "[메테우스 실프]";
 	mes "Welcome to the Library of the Schweicherbil Magic Academy.";
 	mes "Here, we have a countless number of books. Please take your time and look around.";
 	close;
@@ -399,3 +546,35 @@ S_Warpchar:
 valkyrie,48,73,0	warp	valk01#1	1,1,valkyrie,48,64
 valkyrie,48,66,0	warp	valk01#2	1,1,valkyrie,48,75
 
+// Monsters
+yuno_fild02,0,0,0	script	bookquest	-1,{
+	end;
+OnInit:
+	enablenpc "bookquest";
+	donpcevent "bookquest::OnEnable";
+	end;
+OnEnable:
+	monster "yuno_fild01",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild02",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild03",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild04",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild05",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild06",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild07",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	monster "yuno_fild08",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead";
+	end;
+OnMyMobDead:
+	if (questprogress(5160) < 2 && countitem(6586) == 0) getitem 6586,1; //Caught_Book
+	sleep2 5000;
+	switch(atoi(replacestr(strnpcinfo(2),"yuno_fild",""))) {
+		case 1: monster "yuno_fild01",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 2: monster "yuno_fild02",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 3: monster "yuno_fild03",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 4: monster "yuno_fild04",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 5: monster "yuno_fild05",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 6: monster "yuno_fild06",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 7: monster "yuno_fild07",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+		case 8: monster "yuno_fild08",0,0,"도망친 책",2414,1,"bookquest::OnMyMobDead"; break;
+	}
+	end;
+}
